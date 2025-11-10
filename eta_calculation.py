@@ -141,7 +141,7 @@ def get_upcoming_buses(mapped_df, stop_name, route):
     try:
         avg_speeds_df = pd.read_csv(avg_speeds_path)
     except Exception as e:
-        print(f"Error reading speeds file: {e}, ignore if Old Town Bus")
+        print(f"[ERROR] Could not read/find speeds file: {e}, ignore if Old Town Bus")
         avg_speeds_df = pd.DataFrame(columns=['km_interval', 'avg_speed'])
 
     # === active buses ===
@@ -188,7 +188,7 @@ def get_upcoming_buses(mapped_df, stop_name, route):
             if os.path.exists(schedule_path):
                 schedule_df = pd.read_csv(schedule_path)
         except Exception as e:
-            print(f"[WARN] Could not load schedule for route '{route}': {e}")
+            print(f"[ERROR] Could not load schedule for route '{route}': {e}, ignore if Old Town Bus")
             schedule_df = pd.DataFrame()
 
     scheduled_df = pd.DataFrame(columns=all_cols)
@@ -223,9 +223,7 @@ def get_upcoming_buses(mapped_df, stop_name, route):
             scheduled_df = pd.DataFrame(scheduled_buses)
 
     # === combine active + scheduled buses ===
-    combined_df = pd.concat([active_buses_df, scheduled_df], ignore_index=True) if not active_buses_df.empty or not scheduled_df.empty else pd.DataFrame(columns=all_cols)
     concatenate_df = [df for df in [active_buses_df, scheduled_df] if not df.empty]
-
     if concatenate_df:
         combined_df = pd.concat(concatenate_df, ignore_index=True)
     else:

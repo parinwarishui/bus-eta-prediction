@@ -42,9 +42,9 @@ def main(api_url, api_key, stop_name, route):
     combined_df = get_upcoming_buses(mapped_df, stop_name, route)
 
     # Convert DataFrame to JSON string
-    #combined_json_str = combined_df.to_json(orient="records")  # list of dicts
+    combined_json_str = combined_df.to_json(orient="records")  # list of dicts
 
-    return combined_df
-    #return combined_json_str
+    #return combined_df
+    return combined_json_str
 
-print(main(API_URL, API_KEY, "Old Town Intersection", "Dragon Line"))
+print(main(API_URL, API_KEY, "Sai Yuan", "Airport -> Rawai"))

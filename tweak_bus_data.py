@@ -143,11 +143,13 @@ def map_index_df(filtered_df, route):
         filtered_df['bus_index'] = np.nan
 
     for i, row in filtered_df.iterrows():
-        
+
         # get data for each elements
         lon, lat = row['lon'], row['lat']
         azm = row.get('azm', None)
         licence = row.get('licence', 'Unknown')
+
+        filtered_df.loc[i, 'inlet_section'] = "none" 
 
         # 1) first_index : map normally
         first_index = map_index(lon, lat, route_coords)
@@ -155,6 +157,11 @@ def map_index_df(filtered_df, route):
 
         # 2) if route has no special condition, continue to next bus
         if not inlet_config:
+            filtered_df.loc[i, 'inlet_section'] = "none"
+            continue
+        
+        if azm is None:
+            filtered_df.loc[i, 'inlet_section'] = "none"
             continue
 
         # 3) if route has condition: check each road section
