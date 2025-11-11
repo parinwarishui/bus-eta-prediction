@@ -20,9 +20,9 @@ from tweak_bus_data import filter_bus, map_index
 '''==== CONSTANTS ===='''
 
 load_dotenv()
-API_KEY = os.getenv('API_KEY')
+
 STEP_ORDER = 5
-DEFAULT_SPEED = 30
+DEFAULT_SPEED = 20
 ORDERS_PER_KM = 1000 // STEP_ORDER 
 API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
 ETA_COLS = ["licence", "stop_name", "stop_index", "bus_index", "eta_min", "prediction_time", "predicted_arrival_time"]

@@ -30,17 +30,9 @@ from stop_access import bus_stop_list, line_options, direction_map
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
-STEP_ORDER = 5
-DEFAULT_SPEED = 30
-ORDERS_PER_KM = 1000 // STEP_ORDER 
 API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
-ETA_COLS = ["licence", "stop_name", "stop_index", "bus_index", "eta_min", "prediction_time", "predicted_arrival_time"]
 BASE_DIR = os.path.dirname(__file__)
-ETA_LOG = "eta_log.csv"
-ETA_ASSESSED = "eta_assessed.csv"
 HISTORY_LOG = "bus_history.csv"
-BUFFER_STOPS = 15   # safety buffer after passing stop
-CHECK_INTERVAL = 30 # seconds_COLS = ["licence", "stop_name", "stop_index", "bus_index", "eta_min", "prediction_time", "predicted_arrival_time"]
 
 '''==== FUNCTIONS ===='''
 

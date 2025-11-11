@@ -30,7 +30,7 @@ API_KEY = os.getenv('API_KEY')
 API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
 
 # Assessment settings
-AVAILABLE_ROUTES = ["Airport -> Rawai", "Rawai -> Airport"]
+AVAILABLE_ROUTES = ["Airport -> Rawai", "Rawai -> Airport", "Patong -> Bus 1 -> Bus 2", "Bus 2 -> Bus 1 -> Patong", "Dragon Line"]
 PREDICTION_INTERVAL = 3 * 60  # 3 minutes in seconds
 CHECK_INTERVAL = 30  # 1 minute in seconds
 PREDICTIONS_FILE = "eta_predictions.csv"

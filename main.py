@@ -17,17 +17,7 @@ from pprint import pprint
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
-STEP_ORDER = 5
-DEFAULT_SPEED = 30
-ORDERS_PER_KM = 1000 // STEP_ORDER 
 API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
-ETA_COLS = ["licence", "stop_name", "stop_index", "bus_index", "eta_min", "prediction_time", "predicted_arrival_time"]
-BASE_DIR = os.path.dirname(__file__)
-ETA_LOG = "eta_log.csv"
-ETA_ASSESSED = "eta_assessed.csv"
-HISTORY_LOG = "bus_history.csv"
-BUFFER_STOPS = 15   # safety buffer after passing stop
-CHECK_INTERVAL = 30 # seconds_COLS = ["licence", "stop_name", "stop_index", "bus_index", "eta_min", "prediction_time", "predicted_arrival_time"]
 
 '''=== RUN ==='''
 
@@ -41,10 +31,18 @@ def main(api_url, api_key, stop_name, route):
     print(mapped_df)
     combined_df = get_upcoming_buses(mapped_df, stop_name, route)
 
+    #combined_df = combined_df.replace({pd.NA: None, np.nan: None})
+
+    result = {
+        "route": route,
+        "stop": stop_name,
+        "buses": combined_df.to_dict(orient="records")
+    }
+
     # Convert DataFrame to JSON string
     combined_json_str = combined_df.to_json(orient="records")  # list of dicts
 
     #return combined_df
     return combined_json_str
 
-print(main(API_URL, API_KEY, "Sai Yuan", "Airport -> Rawai"))
+pprint(main(API_URL, API_KEY, "Sai Yuan", "Airport -> Rawai"))
