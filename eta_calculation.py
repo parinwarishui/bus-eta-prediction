@@ -167,8 +167,8 @@ def get_upcoming_buses(mapped_df, stop_name, route):
         active_buses_df = mapped_df[mapped_df["bus_index"] < stop_index].copy()
         active_buses_df["eta_distance"] = stop_index - active_buses_df["bus_index"]
 
-
     active_buses_df = mapped_df[mapped_df['bus_index'] < stop_index].copy() if not mapped_df.empty else pd.DataFrame(columns=all_cols)
+    
     if not active_buses_df.empty:
         active_buses_df['dist_steps'] = stop_index - active_buses_df['bus_index']
         active_buses_df['dist_km'] = active_buses_df['dist_steps'] * STEP_ORDER / 1000.0
@@ -179,48 +179,53 @@ def get_upcoming_buses(mapped_df, stop_name, route):
 
     # === scheduled buses ===
 
-    # === scheduled buses (optional) ===
-    schedule_df = pd.DataFrame()
-    schedule_path = direction_map[route].get("schedule_path", None)
+    if active_buses_df.empty:
+        schedule_df = pd.DataFrame()
+        schedule_path = direction_map[route].get("schedule_path", None)
 
-    if schedule_path:
-        try:
-            if os.path.exists(schedule_path):
-                schedule_df = pd.read_csv(schedule_path)
-        except Exception as e:
-            print(f"[ERROR] Could not load schedule for route '{route}': {e}, ignore if Old Town Bus")
-            schedule_df = pd.DataFrame()
+        if schedule_path:
+            try:
+                if os.path.exists(schedule_path):
+                    schedule_df = pd.read_csv(schedule_path)
+            except Exception as e:
+                print(f"[ERROR] Could not load schedule for route '{route}': {e}")
+                schedule_df = pd.DataFrame()
 
-    scheduled_df = pd.DataFrame(columns=all_cols)
+        scheduled_df = pd.DataFrame(columns=all_cols)
 
-    if not schedule_df.empty:
-        departure_col = schedule_df.columns[0]
-        departure_times = pd.to_datetime(schedule_df[departure_col], format='%H:%M', errors='coerce').dropna()
-        departure_times = departure_times.apply(lambda dt: datetime.combine(today, dt.time()))
-        upcoming_departures = departure_times[departure_times > now]
+        if not schedule_df.empty:
+            departure_col = schedule_df.columns[0]
+            departure_times = pd.to_datetime(schedule_df[departure_col], format='%H:%M', errors='coerce').dropna()
+            departure_times = departure_times.apply(lambda dt: datetime.combine(today, dt.time()))
+            upcoming_departures = departure_times[departure_times > now]
 
-        scheduled_buses = []
-        base_travel_time_min = calc_eta(0, stop_index, route)
+            scheduled_buses = []
+            base_travel_time_min = calc_eta(0, stop_index, route)
 
-        for depart_dt in upcoming_departures:
-            minutes_until_departure = (depart_dt - now).total_seconds() / 60.0
-            total_eta = int(round(minutes_until_departure + base_travel_time_min))
-            scheduled_buses.append({
-                'licence': 'Scheduled',
-                'spd': avg_speeds_df['avg_speed'].mean() if not avg_speeds_df.empty else DEFAULT_SPEED,
-                'lon': None,
-                'lat': None,
-                'buffer': direction_map[route].get('buffer', 0),
-                'bus_index': 0,
-                'dist_steps': stop_index,
-                'dist_km': round((stop_index * STEP_ORDER) / 1000.0, 3),
-                'eta_min': total_eta,
-                'prediction_time': now.isoformat(),
-                'eta_time': (now + timedelta(minutes=total_eta)).isoformat()
-            })
+            for depart_dt in upcoming_departures:
+                minutes_until_departure = (depart_dt - now).total_seconds() / 60.0
+                total_eta = int(round(minutes_until_departure + base_travel_time_min))
+                scheduled_buses.append({
+                    'licence': 'Scheduled',
+                    'spd': avg_speeds_df['avg_speed'].mean() if not avg_speeds_df.empty else DEFAULT_SPEED,
+                    'lon': None,
+                    'lat': None,
+                    'buffer': direction_map[route].get('buffer', 0),
+                    'bus_index': 0,
+                    'dist_steps': stop_index,
+                    'dist_km': round((stop_index * STEP_ORDER) / 1000.0, 3),
+                    'eta_min': total_eta,
+                    'prediction_time': now.isoformat(),
+                    'eta_time': (now + timedelta(minutes=total_eta)).isoformat()
+                })
 
-        if scheduled_buses:
-            scheduled_df = pd.DataFrame(scheduled_buses)
+            if scheduled_buses:
+                scheduled_df = pd.DataFrame(scheduled_buses)
+    
+    else:
+        # no need for scheudled buses if there is an active bus
+
+        scheduled_df = pd.DataFrame(columns=all_cols)
 
     # === combine active + scheduled buses ===
     concatenate_df = [df for df in [active_buses_df, scheduled_df] if not df.empty]

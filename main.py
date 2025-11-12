@@ -12,6 +12,7 @@ from load_files import get_bus_data, collect_bus_history
 from tweak_bus_data import filter_bus, map_index_df
 from eta_calculation import get_upcoming_buses
 from pprint import pprint
+from stop_access import bus_stop_list
 
 '''==== CONSTANTS ===='''
 
@@ -21,7 +22,7 @@ API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
 
 '''=== RUN ==='''
 
-def main(api_url, api_key, stop_name, route):
+def main(api_url, api_key, route, stop_name):
     bus_df = get_bus_data(api_url, api_key)
     bus_df = collect_bus_history(bus_df)
 
@@ -45,4 +46,4 @@ def main(api_url, api_key, stop_name, route):
     #return combined_df
     return combined_json_str
 
-pprint(main(API_URL, API_KEY, "Sai Yuan", "Airport -> Rawai"))
+pprint(main(API_URL, API_KEY, "Dragon Line", "Dibuk Road"))

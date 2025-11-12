@@ -50,7 +50,7 @@ direction_map = {
                             "buffer":"ฺDragon Line",
                             "direction": "Old Town Bus",
                             "geojson_path":"data_routes/dragonline_ordered.geojson", 
-                            "schedule_path": None, # Placeholder
+                            "schedule_path": "data_schedules/dragonline_schedule.csv", # Placeholder
                             "speeds_path": None, # Placeholder
                             "stop_list": stop_list_dragon_line
                         } # Placeholder

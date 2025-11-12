@@ -77,8 +77,8 @@ if selected_line in direction_map:
                 result_json = main(
                     API_URL, 
                     API_KEY,
-                    st.session_state.selected_stop,  # Pass stop NAME not index
-                    selected_line
+                    selected_line,
+                    st.session_state.selected_stop  # Pass stop NAME not index
                 )
                 
                 # Parse JSON to DataFrame
