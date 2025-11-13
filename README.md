@@ -180,8 +180,3 @@ python-dotenv
 - Implement `/api/eval/accuracy` to visualize ETA performance
 - Log `arrival_events` for continuous model evaluation
 - Cache API responses for efficiency
-
----
-
-## 📄 License
-MIT License © 2025 [Your Name]
