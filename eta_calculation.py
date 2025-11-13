@@ -141,7 +141,6 @@ def get_upcoming_buses(mapped_df, stop_name, route):
     try:
         avg_speeds_df = pd.read_csv(avg_speeds_path)
     except Exception as e:
-        print(f"[ERROR] Could not read/find speeds file: {e}, ignore if Old Town Bus")
         avg_speeds_df = pd.DataFrame(columns=['km_interval', 'avg_speed'])
 
     # === active buses ===

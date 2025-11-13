@@ -179,9 +179,4 @@ def collect_bus_history(bus_df):
     return bus_df
 
 
-bus_df = get_bus_data(API_URL, API_KEY)
-bus_df = collect_bus_history(bus_df)
-print(bus_df)
-
-
 

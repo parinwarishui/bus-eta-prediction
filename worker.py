@@ -70,12 +70,13 @@ def calculate_all_etas():
         print(f"worker.py: ERROR writing to {OUTPUT_FILENAME}: {e}")
 
 
-# === RUN EVERY 60 SECONDS IN N8N ===
+# === RUN EVERY 60 SECONDS ===
 if __name__ == "__main__":
-    print(f"--- Worker single run START ({datetime.now()}) ---")
-    try:
-        calculate_all_etas()
-    except Exception as e:
-        print(f"worker.py: error in worker run: {e}")
-    
-    print(f"--- Worker single run END ({datetime.now()}) ---")
+    while True:
+        print(f"--- Worker run START ({datetime.now()}) ---")
+        try:
+            calculate_all_etas()
+        except Exception as e:
+            print(f"worker.py: error in worker run: {e}")
+        print(f"--- Worker run END ({datetime.now()}) ---\n")
+        time.sleep(60)  # wait 60 seconds
