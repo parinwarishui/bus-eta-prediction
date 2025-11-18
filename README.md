@@ -5,7 +5,7 @@ The API automatically updates every 60 seconds via an integrated background work
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 bus_eta_prediction/
@@ -23,7 +23,7 @@ bus_eta_prediction/
 
 ---
 
-## ⚙️ File Overview
+## File Overview
 
 | File | Purpose |
 |------|----------|
@@ -37,7 +37,7 @@ bus_eta_prediction/
 
 ---
 
-## 🧰 Requirements
+## Requirements
 
 - **Python 3.9+**
 - Internet connection (for live data)
@@ -45,7 +45,7 @@ bus_eta_prediction/
 
 ---
 
-## 📦 Installation
+## Installation
 
 1. **Clone the repository:**
    ```bash
@@ -73,7 +73,7 @@ bus_eta_prediction/
 
 ---
 
-## 🚀 Running the API
+## Running the API
 
 ### Option 1: Development Mode (with live auto-refresh)
 ```bash
@@ -96,7 +96,7 @@ worker: Successfully updated all_etas.json
 
 ---
 
-## 🌐 API Endpoints
+## API Endpoints
 
 ### **GET** `/`
 
@@ -126,7 +126,7 @@ GET http://localhost:8000/
 
 ---
 
-## 🔄 How It Works
+## How It Works
 
 1. When the API starts:
    - The background worker (`update_worker_loop`) begins running every 60 seconds.
@@ -142,7 +142,7 @@ GET http://localhost:8000/
 
 ---
 
-## 🧪 Testing the API
+## Testing the API
 
 You can test your API endpoints in any of these ways:
 - **Browser:** open `http://localhost:8000/docs` for the built-in Swagger UI  
@@ -154,7 +154,7 @@ You can test your API endpoints in any of these ways:
 
 ---
 
-## 🧠 Evaluating ETA Accuracy
+## Evaluating ETA Accuracy
 
 You can measure ETA prediction accuracy by comparing:
 - Predicted ETA time (`eta_time`)
@@ -162,26 +162,8 @@ You can measure ETA prediction accuracy by comparing:
 
 ---
 
-## 🪶 Example `requirements.txt`
-
-```txt
-fastapi
-uvicorn
-pandas
-numpy
-requests
-python-dotenv
-```
-
----
-
-## 🧩 Future Improvements
+## Future Improvements
 - Add `/api/eta/{route}` to return a single route’s ETA
 - Implement `/api/eval/accuracy` to visualize ETA performance
 - Log `arrival_events` for continuous model evaluation
 - Cache API responses for efficiency
-
----
-
-## 📄 License
-MIT License © 2025 [Your Name]

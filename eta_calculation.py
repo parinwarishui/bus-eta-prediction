@@ -22,7 +22,7 @@ from tweak_bus_data import filter_bus, map_index
 load_dotenv()
 
 STEP_ORDER = 5
-DEFAULT_SPEED = 20
+DEFAULT_SPEED = 15
 ORDERS_PER_KM = 1000 // STEP_ORDER 
 API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
 ETA_COLS = ["licence", "stop_name", "stop_index", "bus_index", "eta_min", "prediction_time", "predicted_arrival_time"]
@@ -36,27 +36,10 @@ CHECK_INTERVAL = 30 #
 
 '''==== FUNCTIONS ===='''
 
-def calc_eta(bus_order, stop_order, route):
+def calc_eta(bus_order, stop_order, route, current_speed=None):
     constant_speed = DEFAULT_SPEED
+    first_km_orders = 1000 // STEP_ORDER
 
-    # If Dragon Line -> skip all speed/schedule
-    if route == "Dragon Line":
-        # handle cyclic route for dragon line
-        ORDERS_TOTAL = 1011
-
-        if bus_order > stop_order:
-            stop_order += ORDERS_TOTAL  # dist from bus to 0 + dist from 0 to stop
-
-        # get ETA using constant speed
-        distance_orders = stop_order - bus_order
-        if distance_orders <= 0:
-            return 0
-
-        distance_km = (distance_orders * STEP_ORDER) / 1000.0
-        travel_time_min = int((distance_km / constant_speed) * 60)
-        return travel_time_min
-
-    # if normal route
     start_km = int(bus_order / ORDERS_PER_KM)
     end_km = int(stop_order / ORDERS_PER_KM)
     if start_km > end_km:
@@ -81,20 +64,15 @@ def calc_eta(bus_order, stop_order, route):
 
     # if no avg speed -> use constant speed
     if avg_speeds_df is None or avg_speeds_df.empty:
-        distance_orders = stop_order - bus_order
-        if distance_orders <= 0:
-            return 0
-        distance_km = (distance_orders * STEP_ORDER) / 1000.0
-        travel_time_min = int((distance_km / constant_speed) * 60)
-        return travel_time_min
+        avg_speeds_df = pd.DataFrame({'km_interval':[0], 'avg_speed':[constant_speed]})
 
     # calculation for bus with speeds data
     segment_range = list(range(start_km, end_km + 1))
-    required_segments_df = pd.DataFrame({'km_interval': segment_range})
+    segments = pd.DataFrame({'km_interval': segment_range})
 
     if 'km_interval' in avg_speeds_df.columns:
         avg_speeds_df['km_interval'] = avg_speeds_df['km_interval'].astype(str)
-        required_segments_df['km_interval'] = required_segments_df['km_interval'].astype(str)
+        segments['km_interval'] = segments['km_interval'].astype(str)
 
     if 'avg_speed' in avg_speeds_df.columns:
         merge_cols = ['km_interval', 'avg_speed']
@@ -104,35 +82,59 @@ def calc_eta(bus_order, stop_order, route):
     else:
         merge_cols = ['km_interval']
 
-    required_segments_df = required_segments_df.merge(
+    segments = segments.merge(
         avg_speeds_df[merge_cols],
         on='km_interval',
         how='left'
     )
 
-    required_segments_df['avg_speed'] = required_segments_df.get('avg_speed', pd.Series(dtype=float)).fillna(constant_speed)
-    required_segments_df['segment_start_order'] = required_segments_df['km_interval'].astype(int) * ORDERS_PER_KM
-    required_segments_df['segment_end_order'] = required_segments_df['segment_start_order'] + ORDERS_PER_KM
+    segments['avg_speed'] = pd.to_numeric(segments['avg_speed'], errors='coerce')
+    segments['avg_speed'] = segments['avg_speed'].fillna(constant_speed).astype(float)
 
-    required_segments_df['segment_start_order_clipped'] = np.clip(required_segments_df['segment_start_order'], bus_order, stop_order)
-    required_segments_df['segment_end_order_clipped'] = np.clip(required_segments_df['segment_end_order'], bus_order, stop_order)
-    required_segments_df['segment_distance_orders'] = required_segments_df['segment_end_order_clipped'] - required_segments_df['segment_start_order_clipped']
+    segments['avg_speed'] = segments.get('avg_speed', pd.Series(dtype=float)).fillna(constant_speed)
+    
+    # segment distances
 
-    required_segments_df = required_segments_df[required_segments_df['segment_distance_orders'] > 0]
-    if required_segments_df.empty:
-        return 0
+    segments['segment_start_order'] = segments['km_interval'].astype(int) * ORDERS_PER_KM
+    segments['segment_end_order'] = segments['segment_start_order'] + ORDERS_PER_KM
 
-    required_segments_df['segment_distance_km'] = (required_segments_df['segment_distance_orders'] * STEP_ORDER) / 1000.0
-    required_segments_df['avg_speed'] = required_segments_df['avg_speed'].replace(0, constant_speed)
-    required_segments_df['travel_time_hr'] = required_segments_df['segment_distance_km'] / required_segments_df['avg_speed']
+    segments['segment_start_order_clipped'] = np.clip(segments['segment_start_order'], bus_order, stop_order)
+    segments['segment_end_order_clipped'] = np.clip(segments['segment_end_order'], bus_order, stop_order)
+    segments['segment_distance_orders'] = (segments['segment_end_order_clipped'] - segments['segment_start_order_clipped'])
+    
+    segments = segments[segments['segment_distance_orders'] > 0]
 
-    total_travel_time_min = int((required_segments_df['travel_time_hr'] * 60).sum())
+    segments['segment_distance_km'] = (segments['segment_distance_orders'] * STEP_ORDER / 1000.0)
+    
+    segments['effective_speed'] = segments['avg_speed']
+
+    segments['effective_speed'] = pd.to_numeric(segments['effective_speed'], errors='coerce')
+    segments['effective_speed'] = segments['effective_speed'].fillna(constant_speed).astype(float)
+
+
+    # speed calc weighting
+    if current_speed is not None and not segments.empty:
+        current_speed_clamped = np.clip(current_speed, 10, 50)
+
+        first_km_mask = (
+            segments['segment_start_order_clipped'] <
+            (bus_order + first_km_orders)
+        )
+
+        segments.loc[first_km_mask, 'effective_speed'] = (0.7 * segments.loc[first_km_mask, 'avg_speed'] + 0.3 * current_speed_clamped)
+    
+
+    segments['travel_time_hr'] = (
+        segments['segment_distance_km'] / segments['effective_speed']
+    )
+
+    total_travel_time_min = int((segments['travel_time_hr'] * 60).sum())
     return total_travel_time_min
 
 def get_upcoming_buses(mapped_df, stop_name, route):
     now = datetime.now()
     today = date.today()
-    all_cols = ['licence', 'lon', 'lat', 'spd', 'bus_index', 'stop_name', 'stop_index', 'dist_steps', 'dist_km', 'eta_min', 'prediction_time', 'eta_time']
+    all_cols = ['licence', 'lon', 'lat', 'spd', 'bus_index', 'stop_name', 'stop_index', 'dist_steps', 'dist_km', 'eta_min', 'eta_time']
 
 
     # load file from path to df
@@ -154,17 +156,9 @@ def get_upcoming_buses(mapped_df, stop_name, route):
     if stop_index is None:
         return pd.DataFrame(columns=all_cols)
 
-    # dragon line (cyclic)
-    if route == "Dragon Line":
-        total_points = 1011
-        mapped_df["eta_distance"] = (
-            (stop_index - mapped_df["bus_index"]) % total_points
-        )
-        active_buses_df = mapped_df.copy()
-    else:
-        # Linear routes
-        active_buses_df = mapped_df[mapped_df["bus_index"] < stop_index].copy()
-        active_buses_df["eta_distance"] = stop_index - active_buses_df["bus_index"]
+
+    active_buses_df = mapped_df[mapped_df["bus_index"] < stop_index].copy()
+    active_buses_df["eta_distance"] = stop_index - active_buses_df["bus_index"]
 
     active_buses_df = mapped_df[mapped_df['bus_index'] < stop_index].copy() if not mapped_df.empty else pd.DataFrame(columns=all_cols)
     

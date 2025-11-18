@@ -76,7 +76,7 @@ async def update_worker_loop():
         except Exception as e:
             print(f"worker: error in run: {e}")
         print(f"--- Worker run END ({datetime.now()}) ---\n")
-        await asyncio.sleep(60)
+        await asyncio.sleep(30)
 
 
 @asynccontextmanager

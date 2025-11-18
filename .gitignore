@@ -1,1 +1,9 @@
 .env
+eta_assessments_new.csv
+eta_evaluation_active.csv
+eta_evaluation_predictions.csv
+eta_predictions_new.csv
+evaluation_active.py
+eta_logs
+
+
