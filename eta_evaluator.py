@@ -11,8 +11,12 @@ from tweak_bus_data import filter_bus, map_index_df, ORDERS_PER_KM
 from eta_calculation import calc_eta
 from stop_access import direction_map
 
+# edit to add: calc ETA of each km at 15-30-4-so on intervals after starts running code
+# compare the error compared to ETA at startup (error decrease?)
+# do so for ALL active vehicles now
+
 CHECK_INTERVAL_SEC = 30
-EVALUATION_CSV = "eta_evaluation_predictions.csv"
+EVALUATION_CSV = "eta_predictions_1911.csv"
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")

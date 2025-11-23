@@ -31,7 +31,10 @@ ETA_LOG = "eta_log.csv"
 ETA_ASSESSED = "eta_assessed.csv"
 HISTORY_LOG = "bus_history.csv"
 BUFFER_STOPS = 15   # safety buffer after passing stop
-CHECK_INTERVAL = 30 # 
+CHECK_INTERVAL = 30 
+
+START_BUFFER_STEPS = 10
+IDLE_SPEED_THRESHOLD = 1
 
 
 '''==== FUNCTIONS ===='''
@@ -114,7 +117,7 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
 
     # speed calc weighting
     if current_speed is not None and not segments.empty:
-        current_speed_clamped = np.clip(current_speed, 10, 50)
+        current_speed_clamped = np.clip(current_speed, 15, 50)
 
         first_km_mask = (
             segments['segment_start_order_clipped'] <
@@ -165,10 +168,19 @@ def get_upcoming_buses(mapped_df, stop_name, route):
     if not active_buses_df.empty:
         active_buses_df['dist_steps'] = stop_index - active_buses_df['bus_index']
         active_buses_df['dist_km'] = active_buses_df['dist_steps'] * STEP_ORDER / 1000.0
+
+        active_buses_df = active_buses_df[
+            ~(
+                (active_buses_df['bus_index'] <= START_BUFFER_STEPS) &
+                (active_buses_df['spd'] <= IDLE_SPEED_THRESHOLD)
+            )
+        ]
+
         active_buses_df['spd'] = active_buses_df['spd'].replace(0, DEFAULT_SPEED)
         active_buses_df['eta_min'] = active_buses_df['bus_index'].apply(lambda x: calc_eta(x, stop_index, route))
         active_buses_df['prediction_time'] = now.isoformat()
         active_buses_df['eta_time'] = active_buses_df['eta_min'].apply(lambda x: (now + timedelta(minutes=x)).isoformat())
+
 
     # === scheduled buses ===
 

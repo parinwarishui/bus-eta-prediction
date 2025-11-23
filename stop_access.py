@@ -1,4 +1,14 @@
-from stop_lists import stop_list_airport_rawai, stop_list_rawai_airport, stop_list_bus2_bus1_patong, stop_list_patong_bus1_bus2, stop_list_dragon_line
+from stop_lists import (
+    stop_list_airport_rawai, 
+    stop_list_rawai_airport, 
+    stop_list_bus2_bus1_patong, 
+    stop_list_patong_bus1_bus2,
+    stop_list_dragon_line
+)
+
+from dataclasses import dataclass, asdict
+from typing import List, Dict, Optional
+
 
 line_options = [
     "Airport -> Rawai",
