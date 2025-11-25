@@ -1,97 +1,103 @@
-import time
-import json
-import os
-import pandas as pd
-from dotenv import load_dotenv
-from datetime import datetime
 import uvicorn
+import services
 import threading
-from fastapi import FastAPI, HTTPException
+from contextlib import asynccontextmanager
+from fastapi import FastAPI, HTTPException, Path
+from fastapi.responses import JSONResponse
+from stop_access import direction_map 
 
-from load_files import get_bus_data, collect_bus_history
-from tweak_bus_data import filter_bus, map_index_df
-from eta_calculation import get_upcoming_buses
-from stop_access import line_options, direction_map 
+ROUTE_SLUGS = {
+    "airport-rawai": "Airport -> Rawai",
+    "rawai-airport": "Rawai -> Airport",
+    "terminal-patong": "Bus 2 -> Bus 1 -> Patong",
+    "patong-terminal": "Patong -> Bus 1 -> Bus 2",
+    "dragon-line": "Dragon Line"
+}
 
-load_dotenv()
-API_KEY = os.getenv('API_KEY')
-API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_SOURCE_FILE = os.path.join(BASE_DIR, "all_etas.json")
-RUN_INTERVAL_SECONDS = 60
+# === LIFECYCLE MANAGER ===
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: Start the worker from services
+    print("[LIFECYCLE] Starting background worker...")
+    services.start_worker()
+    yield
+    # Shutdown: Stop the worker
+    print("[LIFECYCLE] Stopping background worker...")
+    services.stop_worker()
 
 # === FASTAPI SETUP ===
-app = FastAPI(title="Phuket Bus ETA API")
+app = FastAPI(title="Phuket Bus ETA API", lifespan=lifespan)
 
-@app.get("/api/eta/all")
-async def get_all_etas():
-    try:
-        if not os.path.exists(DATA_SOURCE_FILE):
-             raise HTTPException(status_code=503, detail="Data file not ready yet.")
+# === HELPER FUNCTIONS ===
+def resolve_route_key(route_identifier: str):
+    if route_identifier in ROUTE_SLUGS:
+        return ROUTE_SLUGS[route_identifier]
+    if route_identifier in direction_map:
+        return route_identifier
+    return None
 
-        with open(DATA_SOURCE_FILE, "r") as f:
-            data = json.load(f)
-        return data
-    
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Internal Server Error: {e}")
+def success_response(data):
+    return JSONResponse(
+        content=data,
+        media_type="application/json; charset=utf-8",
+        status_code=200
+    )
 
-# === WORKER FUNCTION FOR ETA CALCULATION ===
-def calculate_all_etas():
-    """Fetches live data and saves the JSON file once."""
-    print(f"[{datetime.now().strftime('%H:%M:%S')}] WORKER: Starting data fetch...")
-    all_routes_data = {}
-    
-    try:
-        bus_df = get_bus_data(API_URL, API_KEY)
-        bus_df = collect_bus_history(bus_df) 
+# === ENDPOINTS ===
+
+@app.get("/")
+async def get_all_data():
+    data = services.load_data()
+    help_info = {
+        "message": "Data loaded.",
+        "endpoints": ["GET /<slug>", "GET /<slug>/<stop_no>"]
+    }
+    if data is None:
+        return success_response({"status": "initializing", "info": help_info})
+    return success_response({"data": data, "info": help_info})
+
+@app.get("/{route_identifier}")
+async def get_route_data(route_identifier: str = Path(...)):
+    real_route_key = resolve_route_key(route_identifier)
+    if not real_route_key:
+        raise HTTPException(status_code=404, detail="Route not found")
+
+    data = services.load_data()
+    if not data or real_route_key not in data:
+        raise HTTPException(status_code=404, detail="No data available")
         
-        for route_name in line_options:
-            stop_list = direction_map[route_name]["stop_list"]
-            stop_names = [stop['stop_name_eng'] for stop in stop_list]
-            
-            filtered_df = filter_bus(bus_df, route_name)
-            mapped_df = map_index_df(filtered_df, route_name)
-            
-            all_stop_etas = {}
-            
-            for stop_name in stop_names:
-                upcoming_buses_df = get_upcoming_buses(mapped_df, stop_name, route_name)
-                
-                if not upcoming_buses_df.empty:
-                    next_bus = upcoming_buses_df.iloc[0].to_dict()
-                    all_stop_etas[stop_name] = next_bus
-                else:
-                    all_stop_etas[stop_name] = None
-            
-            all_routes_data[route_name] = {
-                "route": route_name,
-                "updated_at": datetime.now().isoformat(),
-                "stops": all_stop_etas 
-            }
+    return success_response(data[real_route_key])
 
-        with open(DATA_SOURCE_FILE, "w") as f:
-            json.dump(all_routes_data, f, indent=2)
-        print(f"[{datetime.now().strftime('%H:%M:%S')}] WORKER: Data update successful.")
-        
-    except Exception as e:
-        print(f"[{datetime.now().strftime('%H:%M:%S')}] WORKER ERROR: {e}")
+@app.get("/{route_identifier}/{stop_no}")
+async def get_stop_data(route_identifier: str, stop_no: int):
+    real_route_key = resolve_route_key(route_identifier)
+    if not real_route_key:
+        raise HTTPException(status_code=404, detail="Route not found")
 
-# === RUN THE WORKER FUNCTION AS LOOP ===
-def worker_loop():
-    print(f"WORKER THREAD STARTED. Running every {RUN_INTERVAL_SECONDS} seconds.")
-    calculate_all_etas()
-    while True:
-        time.sleep(RUN_INTERVAL_SECONDS)
-        calculate_all_etas()
+    # FIX: Access Object Attribute
+    route_config = direction_map[real_route_key]
+    target_stop = next((s for s in route_config.stop_list if s['no'] == stop_no), None)
+            
+    if not target_stop:
+        raise HTTPException(status_code=404, detail=f"Stop {stop_no} not found")
+    
+    stop_name_eng = target_stop['stop_name_eng']
+    data = services.load_data()
+    
+    if not data or real_route_key not in data:
+         raise HTTPException(status_code=503, detail="Data initializing")
 
-# MAIN EXECUTION
+    stops_data = data[real_route_key].get("stops", {})
+    if stop_name_eng not in stops_data:
+        raise HTTPException(status_code=404, detail="Stop data unavailable")
+
+    return success_response({
+        "route_slug": route_identifier,
+        "stop_no": stop_no,
+        "stop_info": target_stop,
+        "live_eta": stops_data[stop_name_eng]
+    })
+
 if __name__ == "__main__":
-    worker_thread = threading.Thread(target=worker_loop)
-    worker_thread.daemon = True
-    worker_thread.start()
-
-    print("\n--- API SERVER STARTING ---")
-    print(f"API will be available at: http://127.0.0.1:8000 (Use ngrok for public access)")
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    print("Starting API...")
+    uvicorn.run("runner:app", host="127.0.0.1", port=8000, reload=True)

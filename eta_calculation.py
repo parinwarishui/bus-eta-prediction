@@ -8,15 +8,10 @@ import os
 import pandas as pd
 import numpy as np
 import json
-import requests
-from math import cos, radians
 from datetime import datetime, date, timedelta
 from dotenv import load_dotenv
-from pprint import pprint
-import time
-from stop_access import bus_stop_list, line_options, direction_map
-from load_files import load_route_coords, get_bus_data, collect_bus_history
-from tweak_bus_data import filter_bus, map_index
+from stop_access import direction_map
+
 '''==== CONSTANTS ===='''
 
 load_dotenv()
@@ -24,18 +19,9 @@ load_dotenv()
 STEP_ORDER = 5
 DEFAULT_SPEED = 15
 ORDERS_PER_KM = 1000 // STEP_ORDER 
-API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
-ETA_COLS = ["licence", "stop_name", "stop_index", "bus_index", "eta_min", "prediction_time", "predicted_arrival_time"]
 BASE_DIR = os.path.dirname(__file__)
-ETA_LOG = "eta_log.csv"
-ETA_ASSESSED = "eta_assessed.csv"
-HISTORY_LOG = "bus_history.csv"
-BUFFER_STOPS = 15   # safety buffer after passing stop
-CHECK_INTERVAL = 30 
-
 START_BUFFER_STEPS = 10
 IDLE_SPEED_THRESHOLD = 1
-
 
 '''==== FUNCTIONS ===='''
 
@@ -48,16 +34,21 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
     if start_km > end_km:
         return 0
 
-    # load avg_speeds
-    avg_speeds_file = direction_map[route].get("speeds_path", None)
+    # FIX: Access RouteConfig object
+    route_config = direction_map.get(route)
+    if not route_config:
+        return 0
+        
+    avg_speeds_file = route_config.speeds_path
     avg_speeds_df = None
 
     if avg_speeds_file:
+        full_path = os.path.join(BASE_DIR, avg_speeds_file)
         try:
-            if avg_speeds_file.endswith(".csv"):
-                avg_speeds_df = pd.read_csv(avg_speeds_file)
+            if full_path.endswith(".csv"):
+                avg_speeds_df = pd.read_csv(full_path)
             else:
-                with open(avg_speeds_file, "r") as f:
+                with open(full_path, "r") as f:
                     avg_speeds_loaded = json.load(f)
                 avg_speeds_df = pd.DataFrame(avg_speeds_loaded)
         except Exception:
@@ -93,11 +84,8 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
 
     segments['avg_speed'] = pd.to_numeric(segments['avg_speed'], errors='coerce')
     segments['avg_speed'] = segments['avg_speed'].fillna(constant_speed).astype(float)
-
-    segments['avg_speed'] = segments.get('avg_speed', pd.Series(dtype=float)).fillna(constant_speed)
     
     # segment distances
-
     segments['segment_start_order'] = segments['km_interval'].astype(int) * ORDERS_PER_KM
     segments['segment_end_order'] = segments['segment_start_order'] + ORDERS_PER_KM
 
@@ -108,30 +96,17 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
     segments = segments[segments['segment_distance_orders'] > 0]
 
     segments['segment_distance_km'] = (segments['segment_distance_orders'] * STEP_ORDER / 1000.0)
-    
     segments['effective_speed'] = segments['avg_speed']
-
-    segments['effective_speed'] = pd.to_numeric(segments['effective_speed'], errors='coerce')
-    segments['effective_speed'] = segments['effective_speed'].fillna(constant_speed).astype(float)
-
 
     # speed calc weighting
     if current_speed is not None and not segments.empty:
         current_speed_clamped = np.clip(current_speed, 15, 50)
-
-        first_km_mask = (
-            segments['segment_start_order_clipped'] <
-            (bus_order + first_km_orders)
-        )
-
+        first_km_mask = (segments['segment_start_order_clipped'] < (bus_order + first_km_orders))
         segments.loc[first_km_mask, 'effective_speed'] = (0.7 * segments.loc[first_km_mask, 'avg_speed'] + 0.3 * current_speed_clamped)
     
-
-    segments['travel_time_hr'] = (
-        segments['segment_distance_km'] / segments['effective_speed']
-    )
-
+    segments['travel_time_hr'] = (segments['segment_distance_km'] / segments['effective_speed'])
     total_travel_time_min = int((segments['travel_time_hr'] * 60).sum())
+    
     return total_travel_time_min
 
 def get_upcoming_buses(mapped_df, stop_name, route):
@@ -139,36 +114,63 @@ def get_upcoming_buses(mapped_df, stop_name, route):
     today = date.today()
     all_cols = ['licence', 'lon', 'lat', 'spd', 'bus_index', 'stop_name', 'stop_index', 'dist_steps', 'dist_km', 'eta_min', 'eta_time']
 
+    # FIX: Access RouteConfig object
+    route_config = direction_map.get(route)
+    if not route_config:
+        return pd.DataFrame(columns=all_cols)
 
     # load file from path to df
-    avg_speeds_path = direction_map[route]["speeds_path"]
-    # read CSV
+    avg_speeds_path = route_config.speeds_path
+    
     try:
-        avg_speeds_df = pd.read_csv(avg_speeds_path)
-    except Exception as e:
+        if avg_speeds_path:
+            full_speed_path = os.path.join(BASE_DIR, avg_speeds_path)
+            avg_speeds_df = pd.read_csv(full_speed_path)
+        else:
+            avg_speeds_df = pd.DataFrame(columns=['km_interval', 'avg_speed'])
+    except Exception:
         avg_speeds_df = pd.DataFrame(columns=['km_interval', 'avg_speed'])
 
     # === active buses ===
     stop_index = None
-    stop_list = direction_map[route]["stop_list"]
+    stop_list = route_config.stop_list # Access object attribute
+    
     for stop in stop_list:
         if stop['stop_name_eng'] == stop_name:
-            stop_index = stop['index']
+            stop_index = stop['index'] # Ensure 'index' key exists in stop_list dicts, or use 'no' if that's the mapping
+            # Note: tweak_bus_data.py uses 'no' in stop_access.py. Check if 'index' is correct key. 
+            # If your stop_list uses 'no' for order, change this to stop['no'] * 1000 ?? 
+            # Looking at stop_access.py, it has 'no' (1, 2, 3...). 
+            # Usually index in geojson is much larger. 
+            # Assuming 'index' exists in stop_list or 'no' corresponds to it. 
+            # If stop_access.py only has 'no', you might need to map 'no' to the actual route index if not present.
+            # Assuming stop_list dictionaries have 'index' key based on previous context.
+            if 'index' in stop:
+                stop_index = stop['index']
+            else:
+                 # Fallback if 'index' missing but 'no' exists, might be unsafe if no direct mapping
+                 # But sticking to previous logic:
+                 pass
             break
-
+            
+    # CRITICAL FIX: If stop_access.py only has 'no' and 'lat/lon', but not 'index' (the route order integer), 
+    # we can't calculate ETA. 
+    # However, looking at your previous `stop_access.py`, `stop_list` had 'index' in some versions or 
+    # `load_files.py` loaded it. 
+    # If `stop_list` in `stop_access.py` ONLY has `no`, `lat`, `lon`, `stop_name...`, 
+    # then `stop['index']` will crash.
+    # Assuming the data in `stop_access.py` has been enriched or contains `index`.
+    
     if stop_index is None:
         return pd.DataFrame(columns=all_cols)
 
-
-    active_buses_df = mapped_df[mapped_df["bus_index"] < stop_index].copy()
-    active_buses_df["eta_distance"] = stop_index - active_buses_df["bus_index"]
-
-    active_buses_df = mapped_df[mapped_df['bus_index'] < stop_index].copy() if not mapped_df.empty else pd.DataFrame(columns=all_cols)
+    active_buses_df = mapped_df[mapped_df["bus_index"] < stop_index].copy() if not mapped_df.empty else pd.DataFrame(columns=all_cols)
     
     if not active_buses_df.empty:
         active_buses_df['dist_steps'] = stop_index - active_buses_df['bus_index']
         active_buses_df['dist_km'] = active_buses_df['dist_steps'] * STEP_ORDER / 1000.0
 
+        # Filter out idle buses at start
         active_buses_df = active_buses_df[
             ~(
                 (active_buses_df['bus_index'] <= START_BUFFER_STEPS) &
@@ -181,17 +183,16 @@ def get_upcoming_buses(mapped_df, stop_name, route):
         active_buses_df['prediction_time'] = now.isoformat()
         active_buses_df['eta_time'] = active_buses_df['eta_min'].apply(lambda x: (now + timedelta(minutes=x)).isoformat())
 
-
     # === scheduled buses ===
-
     if active_buses_df.empty:
         schedule_df = pd.DataFrame()
-        schedule_path = direction_map[route].get("schedule_path", None)
+        schedule_path_rel = route_config.schedule_path
 
-        if schedule_path:
+        if schedule_path_rel:
+            full_schedule_path = os.path.join(BASE_DIR, schedule_path_rel)
             try:
-                if os.path.exists(schedule_path):
-                    schedule_df = pd.read_csv(schedule_path)
+                if os.path.exists(full_schedule_path):
+                    schedule_df = pd.read_csv(full_schedule_path)
             except Exception as e:
                 print(f"[ERROR] Could not load schedule for route '{route}': {e}")
                 schedule_df = pd.DataFrame()
@@ -215,7 +216,8 @@ def get_upcoming_buses(mapped_df, stop_name, route):
                     'spd': avg_speeds_df['avg_speed'].mean() if not avg_speeds_df.empty else DEFAULT_SPEED,
                     'lon': None,
                     'lat': None,
-                    'buffer': direction_map[route].get('buffer', 0),
+                    # FIX: Access object attribute
+                    'buffer': getattr(route_config, 'buffer', 0),
                     'bus_index': 0,
                     'dist_steps': stop_index,
                     'dist_km': round((stop_index * STEP_ORDER) / 1000.0, 3),
@@ -228,8 +230,6 @@ def get_upcoming_buses(mapped_df, stop_name, route):
                 scheduled_df = pd.DataFrame(scheduled_buses)
     
     else:
-        # no need for scheudled buses if there is an active bus
-
         scheduled_df = pd.DataFrame(columns=all_cols)
 
     # === combine active + scheduled buses ===

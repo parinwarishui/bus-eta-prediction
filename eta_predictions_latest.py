@@ -6,15 +6,33 @@ import threading
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
-# External imports
-from load_files import get_bus_data, collect_bus_history, load_route_coords
-from tweak_bus_data import filter_bus, map_index_df, ORDERS_PER_KM
-from eta_calculation import calc_eta
-from stop_access import direction_map
+# --- DEBUG PRINT: Check if imports work ---
+print("[SYSTEM] Imports successful. Starting configuration...")
+
+# Import from the monolithic services file
+try:
+    from services import (
+        get_bus_data, 
+        collect_bus_history, 
+        load_route_coords, 
+        filter_bus, 
+        map_index_df, 
+        calc_eta, 
+        ORDERS_PER_KM
+    )
+    from stop_access import direction_map
+except ImportError as e:
+    print(f"\n[CRITICAL ERROR] Could not import helper files: {e}")
+    print("Ensure 'services.py' and 'stop_access.py' are in the same folder.\n")
+    exit(1)
 
 # Config
 CHECK_INTERVAL_SEC = 30
-EVALUATION_CSV = "eta_predictions_2111_2.csv"
+STALL_THRESHOLD_MIN = 10
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# FIX: Force CSV to be created in the exact same folder as this script
+EVALUATION_CSV = os.path.join(BASE_DIR, "eta_predictions_with_stall_logic.csv")
 
 # Define prediction intervals (minutes from BUS DISCOVERY)
 PRED_INTERVALS = [0, 15, 30, 45, 60, 75, 90, 105, 120] 
@@ -31,29 +49,25 @@ shutdown_event = threading.Event()
 # =========================================================
 
 def initialize_csv_if_needed():
-    """Creates the CSV with the dynamic time columns if it doesn't exist."""
+    print(f"[SYSTEM] Checking CSV at: {EVALUATION_CSV}")
     if not os.path.exists(EVALUATION_CSV):
-        cols = [
-            "licence", 
-            "route", 
-            "start_bus_index", 
-            "target_km", 
-            "target_index", 
-            "prediction_timestamp",  # This is T0 (Bus Start Time)
-            "arrival_time"
-        ]
-        
-        # Add dynamic columns for ETA intervals
+        print("[SYSTEM] CSV not found. Creating new file...")
+        cols = ["licence", "route", "start_bus_index", "target_km", "target_index", "prediction_timestamp", "arrival_time"]
         for t in PRED_INTERVALS:
             cols.append(f"eta_min_T{t}")
-        
         df = pd.DataFrame(columns=cols)
         with csv_lock:
-            df.to_csv(EVALUATION_CSV, index=False)
-        print("[SYSTEM] CSV initialized.")
+            try:
+                df.to_csv(EVALUATION_CSV, index=False)
+                print("[SYSTEM] CSV successfully created.")
+            except PermissionError:
+                print(f"[CRITICAL] Permission denied. Cannot write to {EVALUATION_CSV}")
+            except Exception as e:
+                print(f"[CRITICAL] Failed to create CSV: {e}")
+    else:
+        print("[SYSTEM] CSV exists. Appending to existing file.")
 
 def register_new_bus_rows(route_name, licence, start_index, targets, prediction_time):
-    """Writes the skeleton rows for a new bus."""
     rows = []
     for t_idx in targets:
         row = {
@@ -65,57 +79,36 @@ def register_new_bus_rows(route_name, licence, start_index, targets, prediction_
             "prediction_timestamp": prediction_time,
             "arrival_time": pd.NA
         }
-        # Initialize ETA columns as NaN
         for t in PRED_INTERVALS:
             row[f"eta_min_T{t}"] = pd.NA
         rows.append(row)
-
     df_new = pd.DataFrame(rows)
-    
     with csv_lock:
         try:
-            # Append mode
             df_new.to_csv(EVALUATION_CSV, mode='a', header=False, index=False)
         except Exception as e:
             print(f"[{route_name}] Error registering bus {licence}: {e}")
-
     print(f"[{route_name}] NEW BUS: {licence} (Start Time: {prediction_time.strftime('%H:%M:%S')})")
 
 def update_actual_arrival(route_name, licence, target_index, actual_time):
-    """Updates the arrival_time when a target is hit."""
     with csv_lock:
         try:
             df = pd.read_csv(EVALUATION_CSV)
-            
-            # STRICT MATCH: Route + Licence + Target
-            mask = (
-                (df["licence"] == licence) & 
-                (df["route"] == route_name) & 
-                (df["target_index"] == target_index)
-            )
-            
+            mask = ((df["licence"] == licence) & (df["route"] == route_name) & (df["target_index"] == target_index))
             if mask.any():
-                # Robust check: convert to numpy array and flatten to handle 
-                # potential duplicate columns or Series/DataFrame ambiguity.
-                # This returns a simple boolean if ANY matching row has a NaN arrival time.
-                if pd.isna(df.loc[mask, "arrival_time"]).to_numpy().flatten().any():
+                subset = df.loc[mask, "arrival_time"]
+                if pd.isna(subset).any():
                     df.loc[mask, "arrival_time"] = actual_time
                     df.to_csv(EVALUATION_CSV, index=False)
                     print(f"[{route_name}] {licence} ARRIVED at target {target_index}")
-
         except Exception as e:
             print(f"[{route_name}] Error updating actuals: {e}")
 
 def batch_update_predictions(route_name, updates):
-    """Efficiently updates multiple ETA predictions at once."""
-    if not updates:
-        return
-
+    if not updates: return
     with csv_lock:
         try:
             df = pd.read_csv(EVALUATION_CSV)
-            
-            # Key format: "RouteName_Licence_TargetIndex"
             df['match_key'] = df['route'] + "_" + df['licence'] + "_" + df['target_index'].astype(str)
             
             for u in updates:
@@ -127,7 +120,6 @@ def batch_update_predictions(route_name, updates):
             df.drop(columns=['match_key'], inplace=True)
             df.to_csv(EVALUATION_CSV, index=False)
             print(f"[{route_name}] Recorded {len(updates)} ETA predictions.")
-            
         except Exception as e:
             print(f"[{route_name}] Error in batch update: {e}")
 
@@ -137,91 +129,119 @@ def batch_update_predictions(route_name, updates):
 
 def evaluate_bus_eta(route_name):
     print(f"\n--- [{route_name}] Thread Started ---")
-
-    # tracked_buses stores state per bus
     tracked_buses = {} 
     
     try:
-        coords = load_route_coords(direction_map[route_name]["geojson_path"])
+        route_config = direction_map[route_name]
+        geojson_full_path = os.path.join(BASE_DIR, route_config.geojson_path)
+        coords = load_route_coords(geojson_full_path)
         max_route_index = max(o for o, lon, lat in coords)
     except Exception as e:
-        print(f"[{route_name}] Setup failed (geojson error?): {e}")
+        print(f"[{route_name}] Setup failed: {e}")
         return
 
     while not shutdown_event.is_set():
         try:
             now = datetime.now()
-
-            # 1. Get Data
+            
+            # 1. Fetch and Process Data
             df_raw = get_bus_data(API_URL, API_KEY)
             df_hist = collect_bus_history(df_raw)
             buses_on_route = filter_bus(df_hist, route_name)
             mapped_df = map_index_df(buses_on_route, route_name)
-
-            # 2. Process Buses
-            batch_eta_updates = []
             
+            batch_eta_updates = []
+            current_active_licences = set()
+
             if not mapped_df.empty:
                 for _, bus_row in mapped_df.iterrows():
                     licence = bus_row["licence"]
-                    current_idx = int(bus_row["bus_index"])
+                    if pd.isna(bus_row["bus_index"]): continue
                     
-                    # --- A. NEW BUS REGISTRATION ---
+                    current_idx = int(bus_row["bus_index"])
+                    velocity = bus_row.get("velocity", 0) 
+                    current_active_licences.add(licence)
+
+                    # --- A. Initialize or Reset Bus ---
                     is_new = licence not in tracked_buses
                     
-                    # Check for restart (looping)
                     if not is_new:
                         prev_idx = tracked_buses[licence]["last_pos"]
                         if current_idx < prev_idx - (ORDERS_PER_KM * 2):
-                            print(f"[{route_name}] {licence} RESTART (Jump {prev_idx} -> {current_idx}). Resetting.")
                             is_new = True
 
                     if is_new:
                         start_km = (current_idx // ORDERS_PER_KM) + 1
                         first_target = start_km * ORDERS_PER_KM
                         targets = list(range(first_target, max_route_index + 1, ORDERS_PER_KM))
-                        if max_route_index not in targets:
+                        
+                        if max_route_index not in targets and max_route_index > current_idx: 
                             targets.append(max_route_index)
                         
+                        if not targets:
+                            continue
+
                         tracked_buses[licence] = {
                             "active_targets": set(targets),
                             "last_pos": current_idx,
                             "processed_intervals": set(),
-                            "start_time": now  # Set T0 for this specific bus
+                            "start_time": now,
+                            "last_move_time": now,
+                            "is_stalled": False
                         }
-                        
                         register_new_bus_rows(route_name, licence, current_idx, targets, now)
                     
-                    # --- B. MOVEMENT & ARRIVAL UPDATES ---
+                    # --- B. Update Status ---
                     bus_state = tracked_buses[licence]
-                    prev_pos = bus_state["last_pos"]
                     
+                    if velocity > 0.5:
+                        bus_state["last_move_time"] = now
+                        bus_state["is_stalled"] = False
+                    else:
+                        time_stationary = (now - bus_state["last_move_time"]).total_seconds() / 60
+                        if time_stationary > STALL_THRESHOLD_MIN:
+                            if not bus_state["is_stalled"]:
+                                print(f"[{route_name}] Bus {licence} STALLED (No move > {STALL_THRESHOLD_MIN} min)")
+                            bus_state["is_stalled"] = True
+
+                    prev_pos = bus_state["last_pos"]
                     if current_idx > prev_pos:
-                        # Stop calculating for rows passed
                         passed_targets = sorted([t for t in bus_state["active_targets"] if prev_pos < t <= current_idx])
                         for t in passed_targets:
                             update_actual_arrival(route_name, licence, t, now)
-                            bus_state["active_targets"].discard(t) # REMOVES target from future calcs
+                            bus_state["active_targets"].discard(t)
                         bus_state["last_pos"] = current_idx
 
-                    # --- C. INTERVAL CHECK (INDIVIDUAL) ---
-                    bus_elapsed_min = (now - bus_state["start_time"]).total_seconds() / 60
-                    
-                    for interval_t in PRED_INTERVALS:
-                        if bus_elapsed_min >= interval_t and interval_t not in bus_state["processed_intervals"]:
-                            
-                            if bus_state["active_targets"]:
+                    # --- C. Trigger ETA Prediction ---
+                    if not bus_state["is_stalled"] and bus_state["active_targets"]:
+                        bus_elapsed_min = (now - bus_state["start_time"]).total_seconds() / 60
+                        
+                        for interval_t in PRED_INTERVALS:
+                            if bus_elapsed_min >= interval_t and interval_t not in bus_state["processed_intervals"]:
                                 col_name = f"eta_min_T{interval_t}"
                                 
-                                # Calculate predictions only for ACTIVE targets
-                                for t_idx in list(bus_state["active_targets"]):
+                                # FIX: Sort targets to ensure we calculate closest -> furthest
+                                sorted_targets = sorted(list(bus_state["active_targets"]))
+                                last_valid_eta = 0 
+                                
+                                for t_idx in sorted_targets:
+                                    if current_idx >= t_idx: continue
                                     
-                                    # SAFETY CHECK: Ensure we don't calc for passed targets
-                                    if current_idx >= t_idx:
-                                        continue 
-
                                     try:
                                         eta = calc_eta(current_idx, t_idx, route_name)
+                                        
+                                        # --- MONOTONIC SANITY CHECK ---
+                                        # If calculated ETA is LESS than the previous stop's ETA, 
+                                        # it's a glitch (data gap or math error). Correct it.
+                                        if eta is not None:
+                                            if eta < last_valid_eta and last_valid_eta > 0:
+                                                # Auto-fix: Assume it takes at least 1 min more than previous stop
+                                                eta = last_valid_eta + 1.0 
+                                            
+                                            # If ETA is 0 but distance is significant (e.g. > 1km), fix it
+                                            if eta == 0 and (t_idx - current_idx) > ORDERS_PER_KM:
+                                                eta = max(1.0, last_valid_eta + 1.0)
+
                                         if eta is not None and eta >= 0:
                                             batch_eta_updates.append({
                                                 "licence": licence,
@@ -229,27 +249,37 @@ def evaluate_bus_eta(route_name):
                                                 "col_name": col_name,
                                                 "value": eta
                                             })
-                                    except Exception:
-                                        pass 
-                            
-                            bus_state["processed_intervals"].add(interval_t)
+                                            last_valid_eta = eta
+                                            
+                                    except Exception: pass
+                                
+                                bus_state["processed_intervals"].add(interval_t)
+                    
+                    # --- D. Cleanup ---
+                    if not bus_state["active_targets"]:
+                        print(f"[{route_name}] Bus {licence} COMPLETED route. Removing.")
+                        del tracked_buses[licence]
+                        current_active_licences.discard(licence) 
+                        break 
 
-            # 3. Execute Batch Writes
+            # Remove vanished buses
+            known_licences = list(tracked_buses.keys())
+            for lic in known_licences:
+                if lic not in current_active_licences:
+                    del tracked_buses[lic]
+
             if batch_eta_updates:
                 batch_update_predictions(route_name, batch_eta_updates)
 
         except Exception as e:
             print(f"[{route_name}] LOOP ERROR: {e}")
-
+            import traceback
+            traceback.print_exc()
+        
         time.sleep(CHECK_INTERVAL_SEC)
-
-# =========================================================
-#              MULTI-ROUTE SUPERVISOR
-# =========================================================
 
 def start_multi_route_monitor(route_list):
     initialize_csv_if_needed()
-    
     threads = []
     for route in route_list:
         t = threading.Thread(target=evaluate_bus_eta, args=(route,), daemon=True)
@@ -257,17 +287,15 @@ def start_multi_route_monitor(route_list):
         threads.append(t)
         print(f"[SYSTEM] Thread launched: {route}")
 
-    print(f"\n[SYSTEM] Monitoring active. Waiting for buses...")
-
     try:
         while any(t.is_alive() for t in threads):
             time.sleep(1)
     except KeyboardInterrupt:
-        print("\n[SYSTEM] Stopping threads...")
         shutdown_event.set()
+        print("\n[SYSTEM] Stopping threads...")
         for t in threads:
             t.join()
-    print("[SYSTEM] Done.")
+        print("[SYSTEM] Shutdown complete.")
 
 if __name__ == "__main__":
     ROUTES = [
@@ -277,5 +305,4 @@ if __name__ == "__main__":
         "Bus 2 -> Bus 1 -> Patong",
         "Dragon Line",
     ]
-
     start_multi_route_monitor(ROUTES)

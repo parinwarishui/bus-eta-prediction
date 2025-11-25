@@ -1,4 +1,4 @@
-# 🚌 Phuket SmartBus ETA API
+# Phuket SmartBus ETA API
 
 This project provides a **FastAPI-based REST API** that serves real-time **Bus ETA (Estimated Time of Arrival)** data for multiple routes.  
 The API automatically updates every 60 seconds via an integrated background worker and serves up-to-date results through HTTP endpoints.
@@ -11,9 +11,7 @@ The API automatically updates every 60 seconds via an integrated background work
 bus_eta_prediction/
 │
 ├── api.py                # Main FastAPI app (runs both API & background worker)
-├── load_files.py         # Functions to fetch and preprocess live bus data
-├── tweak_bus_data.py     # Functions to clean, filter, and map bus data to indices
-├── eta_calculation.py    # Core ETA calculation logic
+├── services.py           # Functions to fetch data and calculate ETA
 ├── stop_access.py        # Stores route definitions, direction maps, and stop lists
 ├── .env                  # Environment variables (contains API_KEY)
 ├── all_etas.json         # Auto-generated output file containing all ETA data
@@ -28,9 +26,7 @@ bus_eta_prediction/
 | File | Purpose |
 |------|----------|
 | **`api.py`** | Main entry point. Runs a FastAPI server and background worker that recalculates all ETAs every 60 seconds using the FastAPI `lifespan` event system. |
-| **`load_files.py`** | Connects to the Phuket SmartBus API, fetches live bus data, and structures it into a DataFrame. |
-| **`tweak_bus_data.py`** | Cleans and transforms raw data, filters by route, and maps bus positions to index order along the route. |
-| **`eta_calculation.py`** | Core ETA logic: computes bus ETAs for all stops on each route. |
+| **`services.py`** | Connects to the Phuket SmartBus API, fetches live bus data, and structures it into a DataFrame. Then calculates the ETA of buses for each stop in all the lines. |
 | **`stop_access.py`** | Contains `line_options`, `direction_map`, and `bus_stop_list` — defines all known routes and stops. |
 | **`all_etas.json`** | Output file that stores the most recent ETA data for all routes. Automatically updated by the worker every 60 seconds. |
 | **`.env`** | (Not included) Please create your own .env file for `API_KEY` variable, which stores the API key.|
@@ -124,21 +120,111 @@ GET http://localhost:8000/
 }
 ```
 
----
+### **GET** `/`
 
-## How It Works
+Returns the latest ETA data for all routes.
 
-1. When the API starts:
-   - The background worker (`update_worker_loop`) begins running every 60 seconds.
-   - Each run calls `calculate_all_etas()`.
+**Example Request:**
+```
+GET http://localhost:8000/airport-rawai
+```
 
-2. `calculate_all_etas()`:
-   - Fetches live data via `load_files.get_bus_data()`.
-   - Processes data for each route defined in `stop_access.line_options`.
-   - Calculates ETAs for every stop using `eta_calculation.get_upcoming_buses()`.
-   - Saves everything to `all_etas.json`.
+**Example Response:**
+```json
+{
+   "data":{
+      "Airport -> Rawai":{
+         "route":"Airport -> Rawai",
+         "updated_at":"2025-11-25T14:34:45.423866",
+         "manual_status":null,
+         "stops":{
+            "Phuket Airport":{
+               "stop_id":42,
+               "stop_name_eng":"Phuket Airport",
+               "stop_name_th":"สนามบิน ภูเก็ต",
+               "lat":8.10846,
+               "lon":98.30655,
+               "eta_min":25,
+               "status":"Scheduled",
+               "message":"Arriving in 25 mins",
+               "licence":"Scheduled",
+               "eta_time":"2025-11-25T14:59:45.266917"
+            },
+         }
+      },
+   }
+}
+```
 
-3. The API endpoint `/api/eta/all` simply reads and serves `all_etas.json`.
+### **GET** `/{route_name}`
+
+Returns the latest ETA data for a specific route.
+
+**Example Request:**
+```
+GET http://localhost:8000/airport-rawai
+```
+
+**Example Response:**
+```json
+{
+   "route":"Rawai -> Airport",
+   "updated_at":"2025-11-25T14:44:55.172723",
+   "manual_status":null,
+   "stops":{
+      "Rawai Beach":{
+         "stop_id":16,
+         "stop_name_eng":"Rawai Beach",
+         "stop_name_th":"หาดราไวย์",
+         "lat":7.77208774295,
+         "lon":98.3217882953,
+         "eta_min":0,
+         "status":"Scheduled",
+         "message":"Arriving in 0 mins",
+         "licence":"Scheduled",
+         "eta_time":"2025-11-25T14:44:55.123966"
+      },
+   }
+}
+```
+
+### **GET** `/{route_name}/{stop_no}`
+
+Returns the latest ETA data for a specific stop in a specific route.
+
+**Example Request:**
+```
+GET http://localhost:8000/airport-rawai/40
+```
+
+**Example Response:**
+```json
+{
+   "route_slug":"rawai-airport",
+   "stop_no":40,
+   "stop_info": {
+      "direction":"Bus to Airport",
+      "index":8300,
+      "lat":8.02671784214,
+      "lon":98.3299507153,
+      "no":40,
+      "stop_name_eng":"Baan Khian",
+      "stop_name_th":"บ้านเคียน"
+   },
+   "live_eta": {
+      "stop_id":40,
+      "stop_name_eng":"Baan Khian",
+      "stop_name_th":"บ้านเคียน",
+      "lat":8.02671784214,
+      "lon":98.3299507153,
+      "eta_min":34,
+      "status":"Active",
+      "message":"Arriving in 34 mins",
+      "licence":"10-1153",
+      "eta_time":"2025-11-25T15:21:58.010990"
+   }
+}
+```
 
 ---
 
@@ -159,11 +245,3 @@ You can test your API endpoints in any of these ways:
 You can measure ETA prediction accuracy by comparing:
 - Predicted ETA time (`eta_time`)
 - Actual arrival time (logged when bus reaches stop)
-
----
-
-## Future Improvements
-- Add `/api/eta/{route}` to return a single route’s ETA
-- Implement `/api/eval/accuracy` to visualize ETA performance
-- Log `arrival_events` for continuous model evaluation
-- Cache API responses for efficiency

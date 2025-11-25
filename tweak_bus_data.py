@@ -92,10 +92,17 @@ def filter_bus(bus_df, route):
         print("Warning: bus_df is empty")
         return pd.DataFrame()
     
-    buffer = direction_map[route]['buffer']
-    line = direction_map[route]['line']
+    # Access RouteConfig object attributes
+    route_config = direction_map.get(route)
+    if not route_config:
+        print(f"Error: Route '{route}' not found in direction_map")
+        return pd.DataFrame()
+
+    buffer = route_config.buffer
+    line = route_config.line
+
     print(f"Filtering for buffer: {buffer}")
-    print(f"Available route_directions: {bus_df['route'].unique()}")
+    # print(f"Available route_directions: {bus_df['route'].unique()}")
 
     filtered_df = bus_df[bus_df['route'].str.contains(line, na=False)].copy()
 
@@ -109,8 +116,6 @@ def filter_bus(bus_df, route):
 
 '''=== MAP A BUS TO AN INDEX ON A ROUTE ==='''
 def map_index(bus_lon, bus_lat, route_coords):
-    #route_for_mapping = load_route_coords(direction_map[route]['geojson_path'])
-
     # check any errors
     if not route_coords or bus_lon is None or bus_lat is None:
         return -1
@@ -131,10 +136,17 @@ def map_index(bus_lon, bus_lat, route_coords):
 
     return nearest_index
 
-
 def map_index_df(filtered_df, route):
-    route_coords = load_route_coords(direction_map[route]['geojson_path'])
-    print(f"route is {route}")
+    route_config = direction_map.get(route)
+    if not route_config:
+        print(f"Error: Route config for {route} not found")
+        return filtered_df
+
+    # Construct absolute path for geojson
+    geojson_full_path = os.path.join(BASE_DIR, route_config.geojson_path)
+    route_coords = load_route_coords(geojson_full_path)
+    
+    print(f"Mapping index for route: {route}")
 
     # fetch inlet_config for the route
     inlet_config = INLET_CONFIG.get(route, None)
@@ -205,16 +217,6 @@ def map_index_df(filtered_df, route):
                     break
 
     return filtered_df
-
-
-bus_df = get_bus_data(API_URL, API_KEY)
-bus_df = collect_bus_history(bus_df)
-filtered_df = filter_bus(bus_df, "Dragon Line")
-mapped_df = map_index_df(filtered_df, "Dragon Line")
-print(mapped_df)
-
-print("mapped_df shape:", mapped_df.shape)
-print("Columns:", mapped_df.columns.tolist())
 
     
 

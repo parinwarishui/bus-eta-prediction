@@ -9,6 +9,39 @@ from stop_lists import (
 from dataclasses import dataclass, asdict
 from typing import List, Dict, Optional
 
+'''==== DATA CLASS FOR STOPS / BUS ROUTES ===='''
+
+@dataclass
+class Stop:
+    no: int
+    stop_name_eng: str
+    stop_name_th: str
+    lat: float
+    lon: float
+    direction: str
+
+@dataclass
+class RouteConfig:
+    key: str                 
+    line: str    
+    buffer: str          
+    direction: str         
+    geojson_path: str  
+    schedule_path: str
+    speeds_path: Optional[str] 
+    stop_list: List[Dict]
+
+    def stops(self) -> List[Stop]:
+        """Return stop list as Stop objects."""
+        return [Stop(**stop_dict) for stop_dict in self.stop_list]
+
+    def to_json(self) -> Dict:
+        """Return JSON-serializable dict for API output."""
+        data = asdict(self)
+        data["stop_list"] = [asdict(Stop(**s)) for s in self.stop_list]
+        return data
+    
+'''==== LINE OPTIONS LIST ===='''
 
 line_options = [
     "Airport -> Rawai",
@@ -18,53 +51,97 @@ line_options = [
     "Dragon Line"
 ]
 
-direction_map = {
-    "Airport -> Rawai": {
-                            "line":"Phuket Airport to Rawai",
-                            "buffer":"Rawai",
-                            "direction": "Bus to Rawai",
-                            "geojson_path":"data_routes/airport_rawai_ordered.geojson", 
-                            "schedule_path":"data_schedules/airport_rawai_bus_schedule.csv",
-                            "speeds_path":"data_speeds/airport_rawai_speeds.csv",
-                            "stop_list": stop_list_airport_rawai
-                        },
-    "Rawai -> Airport": {
-                            "line":"Rawai to Phuket Airport", 
-                            "buffer":"Phuket Airport",
-                            "direction": "Bus to Airport",
-                            "geojson_path":"data_routes/rawai_airport_ordered.geojson", 
-                            "schedule_path":"data_schedules/rawai_airport_bus_schedule.csv",
-                            "speeds_path":"data_speeds/rawai_airport_speeds.csv",
-                            "stop_list": stop_list_rawai_airport
-                        },
-    "Bus 2 -> Bus 1 -> Patong": {
-                            "line":"Phuket Bus Terminal 1 to Patong", 
-                            "buffer":"Patong",
-                            "direction": "Bus to Terminal 1",
-                            "geojson_path":"data_routes/bus2_bus1_patong_ordered.geojson", 
-                            "schedule_path":"data_schedules/bus2_bus1_patong_schedule.csv",
-                            "speeds_path":"data_speeds/bus2_bus1_patong_speeds.csv",
-                            "stop_list": stop_list_bus2_bus1_patong
-                        },
-    "Patong -> Bus 1 -> Bus 2": {
-                            "line":"Patong to Phuket Bus Terminal 1", 
-                            "buffer":"Patong",
-                            "direction": "Bus to Patong",
-                            "geojson_path":"data_routes/patong_bus1_bus2_ordered.geojson", 
-                            "schedule_path":"data_schedules/patong_bus1_bus2_schedule.csv",
-                            "speeds_path":"data_speeds/patong_bus1_bus2_speeds.csv",
-                            "stop_list": stop_list_patong_bus1_bus2
-                        },
-    "Dragon Line": {
-                            "line":"Dragon Line", 
-                            "buffer":"ฺDragon Line",
-                            "direction": "Old Town Bus",
-                            "geojson_path":"data_routes/dragonline_ordered.geojson", 
-                            "schedule_path": "data_schedules/dragonline_schedule.csv", # Placeholder
-                            "speeds_path": None, # Placeholder
-                            "stop_list": stop_list_dragon_line
-                        } # Placeholder
+'''==== MAP FOR ACCESSING DATA OF EACH ROUTE ===='''
+
+direction_map: Dict[str, RouteConfig] = {
+
+    "Airport -> Rawai": RouteConfig(
+        key="Airport -> Rawai",
+        line="Phuket Airport to Rawai",
+        buffer="Rawai",
+        direction="Bus to Rawai",
+        geojson_path="data_routes/airport_rawai_ordered.geojson",
+        schedule_path="data_schedules/airport_rawai_bus_schedule.csv",
+        speeds_path="data_speeds/airport_rawai_speeds.csv",
+        stop_list=stop_list_airport_rawai
+    ),
+
+    "Rawai -> Airport": RouteConfig(
+        key="Rawai -> Airport",
+        line="Rawai to Phuket Airport",
+        buffer="Phuket Airport",
+        direction="Bus to Airport",
+        geojson_path="data_routes/rawai_airport_ordered.geojson",
+        schedule_path="data_schedules/rawai_airport_bus_schedule.csv",
+        speeds_path="data_speeds/rawai_airport_speeds.csv",
+        stop_list=stop_list_rawai_airport
+    ),
+
+    "Bus 2 -> Bus 1 -> Patong": RouteConfig(
+        key="Bus 2 -> Bus 1 -> Patong",
+        line="Phuket Bus Terminal 1 to Patong",
+        buffer="Patong",
+        direction="Bus to Terminal 1",
+        geojson_path="data_routes/bus2_bus1_patong_ordered.geojson",
+        schedule_path="data_schedules/bus2_bus1_patong_schedule.csv",
+        speeds_path="data_speeds/bus2_bus1_patong_speeds.csv",
+        stop_list=stop_list_bus2_bus1_patong
+    ),
+
+    "Patong -> Bus 1 -> Bus 2": RouteConfig(
+        key="Patong -> Bus 1 -> Bus 2",
+        line="Patong to Phuket Bus Terminal 1",
+        buffer="Patong",
+        direction="Bus to Patong",
+        geojson_path="data_routes/patong_bus1_bus2_ordered.geojson",
+        schedule_path="data_schedules/patong_bus1_bus2_schedule.csv",
+        speeds_path="data_speeds/patong_bus1_bus2_speeds.csv",
+        stop_list=stop_list_patong_bus1_bus2
+    ),
+
+    "Dragon Line": RouteConfig(
+        key="Dragon Line",
+        line="Dragon Line",
+        buffer="Dragon Line",
+        direction="Old Town Bus",
+        geojson_path="data_routes/dragonline_ordered.geojson",
+        schedule_path="data_schedules/dragonline_schedule.csv",
+        speeds_path=None,
+        stop_list=stop_list_dragon_line
+    )
 }
+
+'''==== FUNCTIONS TO ACCESS ===='''
+
+def list_routes() -> List[str]:
+    """Return list of available route keys."""
+    return list(direction_map.keys())
+
+
+def get_route(direction_name: str) -> Optional[RouteConfig]:
+    """Return RouteConfig object for a direction."""
+    return direction_map.get(direction_name)
+
+
+def get_stops(direction_name: str) -> Optional[List[Stop]]:
+    """Return Stop objects for a given route."""
+    route = get_route(direction_name)
+    return route.stops() if route else None
+
+
+def get_stop_by_name(direction_name: str, stop_name: str) -> Optional[Stop]:
+    """Find a stop by English or Thai name."""
+    stops = get_stops(direction_name)
+    if not stops:
+        return None
+
+    stop_name_low = stop_name.lower()
+    for s in stops:
+        if stop_name_low in s.stop_name_eng.lower() or stop_name_low in s.stop_name_th.lower():
+            return s
+    return None
+
+'''==== FULL BUS STOP LIST ===='''
 
 bus_stop_list = [{'direction': 'Old Town Bus',
   'lat': 7.885774,
