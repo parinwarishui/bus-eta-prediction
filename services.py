@@ -113,11 +113,11 @@ def set_route_status(route_name, status_message, is_delayed=False):
     with open(BUS_FLAGS_FILE, "w", encoding="utf-8") as f:
         json.dump(flags, f, indent=2)
     
-    # Trigger immediate recalculation to update frontend
+    # Trigger immediate recalculation
     calculate_all_etas() 
 
 # =========================================================
-# SECTION 2: CORE LOGIC (Files, Tweaks, ETA)
+# SECTION 2: CORE LOGIC
 # =========================================================
 
 def load_route_coords(route_geojson):
@@ -151,7 +151,7 @@ def get_bus_data(api_url, api_key):
             'licence': str(bus.get("licence")),
             'lon': float(pos[0]),
             'lat': float(pos[1]),
-            'spd': bus_data.get("spd", 0),
+            'spd': float(bus_data.get("spd", 0)), # Force float here
             'buffer': bus.get("buffer"),
             'azm': bus_data.get("azm"),
             'route': bus_data.get("determineBusDirection", [None])[0],
@@ -199,6 +199,7 @@ def filter_bus(bus_df: pd.DataFrame, route: str) -> pd.DataFrame:
     if bus_df.empty: return pd.DataFrame()
     route_config = direction_map.get(route)
     if not route_config: return pd.DataFrame()
+    # Filter by route string
     return bus_df[bus_df['route'].str.contains(route_config.line, na=False)].copy()
 
 def map_index(bus_lon, bus_lat, route_coords):
@@ -220,28 +221,35 @@ def map_index_df(filtered_df: pd.DataFrame, route: str) -> pd.DataFrame:
     if not route_config: return filtered_df
     geojson_full_path = os.path.join(BASE_DIR, route_config.geojson_path)
     route_coords = load_route_coords(geojson_full_path)
-    inlet_config = INLET_CONFIG.get(route, None)
     
-    if 'bus_index' not in filtered_df.columns: filtered_df['bus_index'] = np.nan
+    if 'bus_index' not in filtered_df.columns: 
+        filtered_df['bus_index'] = np.nan
     
     for i, row in filtered_df.iterrows():
         first_index = map_index(row['lon'], row['lat'], route_coords)
         filtered_df.loc[i, 'bus_index'] = first_index
+        
     return filtered_df
 
 def calc_eta(bus_order, stop_order, route, current_speed=None):
+    """Full ETA calculation logic."""
     constant_speed = DEFAULT_SPEED
     first_km_orders = 1000 // STEP_ORDER
+
+    # Ensure inputs are standard python types (not Series)
+    if isinstance(current_speed, pd.Series):
+        current_speed = float(current_speed.iloc[0])
+    
+    if isinstance(stop_order, dict):
+        stop_order = stop_order.get('index', stop_order.get('no', 0))
 
     start_km = int(bus_order / ORDERS_PER_KM)
     end_km = int(stop_order / ORDERS_PER_KM)
     if start_km > end_km:
         return 0
 
-    # Access RouteConfig object
     route_config = direction_map.get(route)
-    if not route_config:
-        return 0
+    if not route_config: return 0
         
     avg_speeds_file = route_config.speeds_path
     avg_speeds_df = None
@@ -256,15 +264,11 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
                     avg_speeds_loaded = json.load(f)
                 avg_speeds_df = pd.DataFrame(avg_speeds_loaded)
         except Exception:
-            avg_speeds_df = None  # fallback if unreadable
-    else:
-        avg_speeds_df = None
+            avg_speeds_df = None  
 
-    # if no avg speed -> use constant speed
     if avg_speeds_df is None or avg_speeds_df.empty:
         avg_speeds_df = pd.DataFrame({'km_interval':[0], 'avg_speed':[constant_speed]})
 
-    # calculation for bus with speeds data
     segment_range = list(range(start_km, end_km + 1))
     segments = pd.DataFrame({'km_interval': segment_range})
 
@@ -272,6 +276,7 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
         avg_speeds_df['km_interval'] = avg_speeds_df['km_interval'].astype(str)
         segments['km_interval'] = segments['km_interval'].astype(str)
 
+    # Handle speed column naming
     if 'avg_speed' in avg_speeds_df.columns:
         merge_cols = ['km_interval', 'avg_speed']
     elif 'spd' in avg_speeds_df.columns:
@@ -289,7 +294,6 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
     segments['avg_speed'] = pd.to_numeric(segments['avg_speed'], errors='coerce')
     segments['avg_speed'] = segments['avg_speed'].fillna(constant_speed).astype(float)
     
-    # segment distances
     segments['segment_start_order'] = segments['km_interval'].astype(int) * ORDERS_PER_KM
     segments['segment_end_order'] = segments['segment_start_order'] + ORDERS_PER_KM
 
@@ -302,16 +306,18 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
     segments['segment_distance_km'] = (segments['segment_distance_orders'] * STEP_ORDER / 1000.0)
     segments['effective_speed'] = segments['avg_speed']
 
-    # speed calc weighting
     if current_speed is not None and not segments.empty:
         current_speed_clamped = np.clip(current_speed, 15, 50)
         first_km_mask = (segments['segment_start_order_clipped'] < (bus_order + first_km_orders))
         segments.loc[first_km_mask, 'effective_speed'] = (0.7 * segments.loc[first_km_mask, 'avg_speed'] + 0.3 * current_speed_clamped)
     
     segments['travel_time_hr'] = (segments['segment_distance_km'] / segments['effective_speed'])
+    
+    # Final scalar result
     total_travel_time_min = int((segments['travel_time_hr'] * 60).sum())
     
     return total_travel_time_min
+
 
 def get_upcoming_buses(mapped_df, stop_name, route):
     now = datetime.now()
@@ -321,129 +327,84 @@ def get_upcoming_buses(mapped_df, stop_name, route):
     route_config = direction_map.get(route)
     if not route_config: return pd.DataFrame(columns=all_cols)
 
-    # Find Stop Index
     stop_index = None
-    for stop in route_config.stop_list:
-        if stop['stop_name_eng'] == stop_name:
-            stop_index = stop.get('index', stop.get('no')) 
+    # Lookup stop index safely
+    for s in route_config.stop_list.values():
+        if s['stop_name_eng'] == stop_name:
+            stop_index = s.get('index', s.get('no')) 
             break
-            
+
     if stop_index is None: return pd.DataFrame(columns=all_cols)
 
-    # === 1. ACTIVE BUSES LOGIC ===
+    # === 1. ACTIVE BUSES ===
     active_buses_df = mapped_df[mapped_df["bus_index"] < stop_index].copy() if not mapped_df.empty else pd.DataFrame(columns=all_cols)
-    
+
+    # --- CRITICAL FIX: Remove Duplicate Columns to prevent 'Cannot set DataFrame' error ---
+    active_buses_df = active_buses_df.loc[:, ~active_buses_df.columns.duplicated()]
+
     if not active_buses_df.empty:
+        # Filter idle buses
         active_buses_df = active_buses_df[active_buses_df['spd'] > IDLE_SPEED_THRESHOLD]
         
-        active_buses_df['eta_min'] = active_buses_df.apply(
-            lambda row: calc_eta(row['bus_index'], stop_index, route, row['spd']), axis=1
-        )
-        active_buses_df['eta_time'] = active_buses_df['eta_min'].apply(lambda x: (now + timedelta(minutes=x)).isoformat())
-        active_buses_df['status'] = "Active"
+        # Apply calculation row by row
+        if not active_buses_df.empty:
+            active_buses_df['eta_min'] = active_buses_df.apply(
+                lambda row: calc_eta(
+                    row['bus_index'], 
+                    stop_index, 
+                    route, 
+                    float(row['spd']) # Force float
+                ), axis=1
+            )
+            active_buses_df['eta_time'] = active_buses_df['eta_min'].apply(lambda x: (now + timedelta(minutes=x)).isoformat())
+            active_buses_df['status'] = "Active"
 
-    # === 2. SCHEDULED BUSES LOGIC (RESTORED) ===
-    # If no active buses are found, check the schedule
+    # === 2. SCHEDULED BUSES ===
     scheduled_df = pd.DataFrame(columns=all_cols)
-    
-    if active_buses_df.empty:
+    if active_buses_df.empty or active_buses_df is None:
         schedule_path_rel = route_config.schedule_path
-        
         if schedule_path_rel:
             full_schedule_path = os.path.join(BASE_DIR, schedule_path_rel)
             try:
                 if os.path.exists(full_schedule_path):
-                    # Read schedule (assuming 'Departure' is the first column)
                     df_sched = pd.read_csv(full_schedule_path)
-                    
                     if not df_sched.empty:
                         departure_col = df_sched.columns[0]
-                        # Parse times
                         departure_times = pd.to_datetime(df_sched[departure_col], format='%H:%M', errors='coerce').dropna()
                         departure_times = departure_times.apply(lambda dt: datetime.combine(today, dt.time()))
-                        
-                        # Filter for future departures
                         upcoming_departures = departure_times[departure_times > now]
-                        
                         scheduled_buses = []
-                        # Calculate travel time from Start (0) to Stop (stop_index)
-                        base_travel_time_min = calc_eta(0, stop_index, route) # Bus starts at 0
-
+                        base_travel_time_min = calc_eta(0, stop_index, route)
                         for depart_dt in upcoming_departures:
                             minutes_until_departure = (depart_dt - now).total_seconds() / 60.0
                             total_eta = int(round(minutes_until_departure + base_travel_time_min))
-                            
                             scheduled_buses.append({
                                 'licence': 'Scheduled',
                                 'eta_min': total_eta,
                                 'eta_time': (now + timedelta(minutes=total_eta)).isoformat(),
                                 'status': 'Scheduled'
                             })
-                            
-                            # We only need the next immediate scheduled bus
-                            break 
-
+                            break
                         if scheduled_buses:
                             scheduled_df = pd.DataFrame(scheduled_buses)
-
             except Exception as e:
-                print(f"Error loading schedule for {route}: {e}")
+                print(f"[ERROR] Loading schedule for {route}: {e}")
 
     # === 3. COMBINE ===
     concatenate_df = [df for df in [active_buses_df, scheduled_df] if not df.empty]
-    combined_df = pd.concat(concatenate_df, ignore_index=True) if concatenate_df else pd.DataFrame(columns=all_cols)
-    
-    if not combined_df.empty:
+    if concatenate_df:
+        combined_df = pd.concat(concatenate_df, ignore_index=True)
         combined_df = combined_df.sort_values(by='eta_min').reset_index(drop=True)
-    
-    return combined_df
+        return combined_df[all_cols]
+
+    return pd.DataFrame(columns=all_cols)
 
 # =========================================================
 # SECTION 3: WORKER CONTROL LOGIC
 # =========================================================
 
-def check_if_service_finished(route_config):
-    """
-    Checks if the current time is past the last scheduled departure plus a buffer.
-    """
-    try:
-        schedule_path = os.path.join(BASE_DIR, route_config.schedule_path)
-        if not os.path.exists(schedule_path):
-            return False # Assume service is running if no schedule
-
-        # Read the schedule file
-        # Assuming standard CSV with 'Departure' column or similar first column
-        df_sched = pd.read_csv(schedule_path)
-        if df_sched.empty: return False
-        
-        # Get last departure time. Adjust column index/name if needed.
-        # Assuming the first column contains departure times like "HH:MM"
-        last_time_str = str(df_sched.iloc[-1, 0]).strip()
-        
-        # Basic time parsing
-        try:
-            last_dep_time = datetime.strptime(last_time_str, "%H:%M").time()
-        except ValueError:
-            # Handle cases like "24:00" or other formats if necessary
-            return False 
-
-        now = datetime.now()
-        last_dep_dt = datetime.combine(now.date(), last_dep_time)
-        
-        # If the scheduled time is early morning (e.g. 00:30), it might be for the next day?
-        # For simplicity, assume daily schedule within same day.
-        
-        # Add buffer time for the bus to complete the route (e.g., 2 hours)
-        service_end_dt = last_dep_dt + timedelta(hours=2)
-        
-        return now > service_end_dt
-        
-    except Exception as e:
-        print(f"Error checking service status: {e}")
-        return False 
-
 def calculate_all_etas():
-    # timestamp_str = datetime.now().strftime('%H:%M:%S')
+    timestamp_str = datetime.now().strftime('%H:%M:%S')
     
     try:
         bus_df = get_bus_data(API_URL, API_KEY)
@@ -457,67 +418,52 @@ def calculate_all_etas():
             route_config = direction_map[route_name]
             manual_status = flags.get(route_name, None)
             
-            # Check service end status
-            is_service_ended = check_if_service_finished(route_config)
-            
+            # --- FILTER & CLEAN ---
             filtered_df = filter_bus(bus_df, route_name)
+            # Ensure no dupes before mapping
+            filtered_df = filtered_df.loc[:, ~filtered_df.columns.duplicated()]
             mapped_df = map_index_df(filtered_df, route_name)
             
             all_stop_etas = {}
             
-            # Iterate through ALL stops
-            for stop in route_config.stop_list:
-                stop_name = stop['stop_name_eng']
+            # Use ITEMS() to get ID/Index correctly
+            for stop_id, stop_info in route_config.stop_list.items():
+                stop_name = stop_info['stop_name_eng']
                 
-                # Default State
-                stop_response = {
-                    "stop_id": stop['no'],
-                    "stop_name_eng": stop_name,
-                    "stop_name_th": stop['stop_name_th'],
-                    "lat": stop['lat'],
-                    "lon": stop['lon'],
-                    "eta_min": -1,
-                    "status": "Waiting",
-                    "message": "Waiting for update...",
-                    "licence": "-"
+                # Base data structure (Static info)
+                stop_result = {
+                    "no": stop_info['no'],
+                    "index": stop_info['index'],
+                    "stop_name_eng": stop_info['stop_name_eng'],
+                    "stop_name_th": stop_info['stop_name_th'],
+                    "lat": stop_info['lat'],
+                    "lon": stop_info['lon']
                 }
 
                 try:
                     upcoming_buses_df = get_upcoming_buses(mapped_df, stop_name, route_name)
                     
                     if not upcoming_buses_df.empty:
-                        # Bus found
                         next_bus = upcoming_buses_df.iloc[0].to_dict()
-                        stop_response.update({
-                            "eta_min": next_bus['eta_min'],
-                            "eta_time": next_bus['eta_time'],
-                            "licence": next_bus['licence'],
-                            "status": next_bus['status'],
-                            "message": f"Arriving in {next_bus['eta_min']} mins"
-                        })
-                        
                         if manual_status and manual_status.get("is_delayed"):
-                            stop_response["status"] = f"DELAYED: {manual_status['message']}"
-                            stop_response["message"] = manual_status['message']
-                    
-                    elif is_service_ended:
-                        # Service Ended
-                        stop_response.update({
-                            "status": "Ended",
-                            "message": "No more upcoming buses today"
-                        })
-                    
+                            next_bus["status"] = f"DELAYED: {manual_status['message']}"
+                        stop_result.update(next_bus)
                     else:
-                        # No active bus but service running
-                        stop_response.update({
-                            "status": "Waiting",
-                            "message": "No active bus nearby"
+                        stop_result.update({
+                            "eta_min": -1,
+                            "message": "No more buses for today",
+                            "licence": "-",
+                            "status": "Ended"
                         })
+                except Exception as e:
+                    # Capture the calculation error for the frontend
+                    stop_result.update({
+                        "eta_min": -1, 
+                        "status": "Error", 
+                        "message": str(e)
+                    })
 
-                except:
-                    pass 
-                
-                all_stop_etas[stop_name] = stop_response
+                all_stop_etas[stop_name] = stop_result
             
             all_routes_data[route_name] = {
                 "route": route_name,

@@ -1,10 +1,10 @@
 import uvicorn
 import services
-import threading
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException, Path
-from fastapi.responses import JSONResponse
-from stop_access import direction_map 
+from fastapi import FastAPI, HTTPException, Path, Request, Form
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
+from stop_access import direction_map, line_options 
 
 ROUTE_SLUGS = {
     "airport-rawai": "Airport -> Rawai",
@@ -17,56 +17,77 @@ ROUTE_SLUGS = {
 # === LIFECYCLE MANAGER ===
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: Start the worker from services
     print("[LIFECYCLE] Starting background worker...")
     services.start_worker()
     yield
-    # Shutdown: Stop the worker
     print("[LIFECYCLE] Stopping background worker...")
     services.stop_worker()
 
 # === FASTAPI SETUP ===
 app = FastAPI(title="Phuket Bus ETA API", lifespan=lifespan)
+templates = Jinja2Templates(directory="templates") # Looks for HTML files in 'templates' folder
 
-# === HELPER FUNCTIONS ===
+# === API HELPERS ===
 def resolve_route_key(route_identifier: str):
-    if route_identifier in ROUTE_SLUGS:
-        return ROUTE_SLUGS[route_identifier]
-    if route_identifier in direction_map:
-        return route_identifier
+    if route_identifier in ROUTE_SLUGS: return ROUTE_SLUGS[route_identifier]
+    if route_identifier in direction_map: return direction_map
     return None
 
 def success_response(data):
-    return JSONResponse(
-        content=data,
-        media_type="application/json; charset=utf-8",
-        status_code=200
-    )
+    return JSONResponse(content=data, media_type="application/json; charset=utf-8")
 
-# === ENDPOINTS ===
+# === FRONTEND ROUTES ===
+
+@app.get("/dashboard", response_class=HTMLResponse)
+async def dashboard(request: Request):
+    """Public Dashboard View"""
+    data = services.load_data()
+    return templates.TemplateResponse("dashboard.html", {
+        "request": request, 
+        "data": data, 
+        "routes": ROUTE_SLUGS
+    })
+
+@app.get("/admin", response_class=HTMLResponse)
+async def admin_panel(request: Request):
+    """Admin Control Panel"""
+    data = services.load_data()
+    return templates.TemplateResponse("admin.html", {
+        "request": request, 
+        "routes": line_options,
+        "current_data": data
+    })
+
+@app.post("/admin/flag")
+async def set_flag(
+    route: str = Form(...),
+    status: str = Form(...),
+    is_delayed: bool = Form(False)
+):
+    """API to Set/Clear Flags"""
+    if route not in line_options:
+        raise HTTPException(status_code=400, detail="Invalid Route")
+    
+    message = "CLEAR" if status == "" else status
+    services.set_route_status(route, message, is_delayed)
+    
+    return {"status": "success", "route": route, "message": message}
+
+# === API ENDPOINTS (EXISTING) ===
 
 @app.get("/")
 async def get_all_data():
     data = services.load_data()
-    help_info = {
-        "message": "Data loaded.",
-        "endpoints": ["GET /<slug>", "GET /<slug>/<stop_no>"]
-    }
-    if data is None:
-        return success_response({"status": "initializing", "info": help_info})
-    return success_response({"data": data, "info": help_info})
+    return success_response({"data": data})
 
 @app.get("/{route_identifier}")
 async def get_route_data(route_identifier: str = Path(...)):
     real_route_key = resolve_route_key(route_identifier)
-    if not real_route_key:
-        raise HTTPException(status_code=404, detail="Route not found")
-
     data = services.load_data()
     if not data or real_route_key not in data:
-        raise HTTPException(status_code=404, detail="No data available")
-        
+        raise HTTPException(status_code=404, detail="No data")
     return success_response(data[real_route_key])
+
 
 @app.get("/{route_identifier}/{stop_no}")
 async def get_stop_data(route_identifier: str, stop_no: int):
@@ -74,9 +95,12 @@ async def get_stop_data(route_identifier: str, stop_no: int):
     if not real_route_key:
         raise HTTPException(status_code=404, detail="Route not found")
 
-    # FIX: Access Object Attribute
+    if real_route_key not in direction_map:
+        raise HTTPException(status_code=500, detail=f"Server Error: Route configuration missing.")
+
     route_config = direction_map[real_route_key]
-    target_stop = next((s for s in route_config.stop_list if s['no'] == stop_no), None)
+ 
+    target_stop = next((s for s in route_config.stop_list.values() if s['no'] == stop_no), None)
             
     if not target_stop:
         raise HTTPException(status_code=404, detail=f"Stop {stop_no} not found")
@@ -88,8 +112,16 @@ async def get_stop_data(route_identifier: str, stop_no: int):
          raise HTTPException(status_code=503, detail="Data initializing")
 
     stops_data = data[real_route_key].get("stops", {})
+    
+    # Return the full merged data from services.py
     if stop_name_eng not in stops_data:
-        raise HTTPException(status_code=404, detail="Stop data unavailable")
+        # Fallback if service hasn't updated yet
+        return success_response({
+            "route_slug": route_identifier,
+            "stop_no": stop_no,
+            "stop_info": target_stop,
+            "live_eta": {"status": "Loading..."}
+        })
 
     return success_response({
         "route_slug": route_identifier,
@@ -98,6 +130,6 @@ async def get_stop_data(route_identifier: str, stop_no: int):
         "live_eta": stops_data[stop_name_eng]
     })
 
+
 if __name__ == "__main__":
-    print("Starting API...")
     uvicorn.run("runner:app", host="127.0.0.1", port=8000, reload=True)

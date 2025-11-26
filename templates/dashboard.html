@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phuket Smart Bus Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+    <h1 class="mb-4 text-center">Phuket Smart Bus Tracker</h1>
+    
+    <p class="text-center">Status: <span id="connection-status" class="fw-bold text-primary">Connecting...</span></p>
+
+    <div class="row g-3 justify-content-center">
+        <!-- Route Selector -->
+        <div class="col-md-4">
+            <label for="route-select" class="form-label">Select Route:</label>
+            <select id="route-select" class="form-select">
+                <option value="" disabled selected>Loading routes...</option>
+            </select>
+        </div>
+
+        <!-- Stop Selector -->
+        <div class="col-md-4">
+            <label for="stop-select" class="form-label">Select Stop:</label>
+            <select id="stop-select" class="form-select" disabled>
+                <option value="" disabled selected>Select a route first...</option>
+            </select>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <!-- Result Area -->
+    <div id="result-area" class="card shadow-sm mx-auto" style="max-width: 600px; display: none;">
+        <div class="card-body">
+            <h3 class="card-title mb-3">ETA: <span id="eta-value">--</span> mins</h3>
+            <p class="card-text"><strong>Bus Status:</strong> <span id="status-text">--</span></p>
+            <p class="card-text"><strong>Message:</strong> <span id="message-text">--</span></p>
+            <p class="card-text"><strong>Bus License:</strong> <span id="license-text">--</span></p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (Optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// ==================== GLOBAL VARIABLES ====================
+let allBusData = {};
+let selectedRoute = null;
+let selectedStop = null;
+
+// ==================== FETCH BUS DATA ====================
+async function fetchBusData() {
+    try {
+        const res = await fetch("/");
+        const json = await res.json();
+        allBusData = json.data ?? json; // Handle wrapped or unwrapped response
+
+        document.getElementById("connection-status").innerText = "Connected";
+        document.getElementById("connection-status").classList.remove("text-danger");
+        document.getElementById("connection-status").classList.add("text-success");
+
+        // Only populate route dropdown if it's empty (on first load)
+        const routeSelect = document.getElementById("route-select");
+        if (routeSelect.options.length <= 1) {
+            populateRouteDropdown();
+        }
+
+        // Refresh ETA display if a stop is currently selected
+        if (selectedRoute && selectedStop) updateETA();
+
+    } catch (err) {
+        document.getElementById("connection-status").innerText = "Fetch error";
+        document.getElementById("connection-status").classList.remove("text-success");
+        document.getElementById("connection-status").classList.add("text-danger");
+        console.error("Fetch failed:", err);
+    }
+}
+
+// ==================== POPULATE ROUTE DROPDOWN ====================
+function populateRouteDropdown() {
+    const routeSelect = document.getElementById("route-select");
+    routeSelect.innerHTML = '<option value="" disabled selected>Select a route...</option>';
+
+    const routeNames = Object.keys(allBusData).sort();
+    routeNames.forEach(routeName => {
+        const opt = document.createElement("option");
+        opt.value = routeName;
+        opt.textContent = routeName;
+        routeSelect.appendChild(opt);
+    });
+}
+
+// ==================== POPULATE STOP DROPDOWN ====================
+function populateStopDropdown(routeName) {
+    const stopSelect = document.getElementById("stop-select");
+    stopSelect.innerHTML = '<option value="" disabled selected>Select a stop...</option>';
+    stopSelect.disabled = false;
+
+    const routeObj = allBusData[routeName];
+    if (!routeObj || !routeObj.stops) return;
+
+    // Convert stops object into array
+    // services.py now guarantees 'no' (stop number) is inside the object
+    const stopsArray = Object.values(routeObj.stops).map(stopData => ({
+        name: stopData.stop_name_eng,
+        stop_id: stopData.no,
+        index: stopData.index
+    }));
+
+    // Sort by route index (sequence) instead of ID, usually safer for ordered routes
+    stopsArray.sort((a,b) => a.index - b.index);
+
+    stopsArray.forEach(stop => {
+        const opt = document.createElement("option");
+        // We use the English name as the value key to lookup in the dict later
+        opt.value = stop.name; 
+        opt.textContent = `${stop.stop_id}. ${stop.name}`;
+        stopSelect.appendChild(opt);
+    });
+}
+
+
+// ==================== UPDATE ETA DISPLAY ====================
+function updateETA() {
+    const resultArea = document.getElementById("result-area");
+
+    if (!selectedRoute || !selectedStop) {
+        resultArea.style.display = "none";
+        return;
+    }
+
+    const routeObj = allBusData[selectedRoute];
+    const stopData = routeObj?.stops?.[selectedStop];
+
+    resultArea.style.display = "block";
+
+    // Reset if stopData missing
+    if (!stopData) {
+        document.getElementById("eta-value").textContent = "--";
+        document.getElementById("status-text").textContent = "No Data";
+        document.getElementById("message-text").textContent = "";
+        document.getElementById("license-text").textContent = "";
+        return;
+    }
+
+    // Handle display logic
+    let etaDisplay = "--";
+    if (stopData.eta_min !== undefined && stopData.eta_min !== -1) {
+        etaDisplay = stopData.eta_min;
+    }
+
+    document.getElementById("eta-value").textContent = etaDisplay;
+    document.getElementById("status-text").textContent = stopData.status ?? "--";
+    document.getElementById("message-text").textContent = stopData.message ?? "";
+    document.getElementById("license-text").textContent = stopData.licence ?? "--";
+}
+
+// ==================== EVENT LISTENERS ====================
+document.getElementById("route-select").addEventListener("change", function () {
+    selectedRoute = this.value;
+    selectedStop = null; // Reset stop
+    document.getElementById("result-area").style.display = "none";
+    populateStopDropdown(selectedRoute);
+});
+
+document.getElementById("stop-select").addEventListener("change", function () {
+    selectedStop = this.value;
+    updateETA();
+});
+
+// ==================== INITIALIZATION ====================
+fetchBusData();
+
+// Auto-refresh every 30 seconds
+setInterval(fetchBusData, 30000);
+</script>
+</body>
+</html>
