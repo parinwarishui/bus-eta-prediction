@@ -1,7 +1,7 @@
 ﻿{
   "Airport -> Rawai": {
     "route": "Airport -> Rawai",
-    "updated_at": "2025-11-26T13:50:44.149129",
+    "updated_at": "2025-11-26T14:14:18.252960",
     "manual_status": null,
     "stops": {
       "Phuket Airport": {
@@ -12,8 +12,8 @@
         "lat": 8.10846,
         "lon": 98.30655,
         "licence": "Scheduled",
-        "eta_min": 9,
-        "eta_time": "2025-11-26T13:59:43.906699",
+        "eta_min": 16,
+        "eta_time": "2025-11-26T14:30:18.081113",
         "status": "Scheduled"
       },
       "Thalang Public Health Office": {
@@ -23,10 +23,10 @@
         "stop_name_th": "สำนักงานสาธารณสุข ถลาง",
         "lat": 8.034014,
         "lon": 98.333571,
-        "licence": "Scheduled",
-        "eta_min": 26,
-        "eta_time": "2025-11-26T14:16:43.913868",
-        "status": "Scheduled"
+        "licence": "10-1150",
+        "eta_min": 7,
+        "eta_time": "2025-11-26T14:21:18.087626",
+        "status": "Active"
       },
       "Baan Khian": {
         "no": 44,
@@ -35,10 +35,10 @@
         "stop_name_th": "บ้านเคียน",
         "lat": 8.02658289569,
         "lon": 98.3301288357,
-        "licence": "Scheduled",
-        "eta_min": 29,
-        "eta_time": "2025-11-26T14:19:43.920338",
-        "status": "Scheduled"
+        "licence": "10-1150",
+        "eta_min": 10,
+        "eta_time": "2025-11-26T14:24:18.093250",
+        "status": "Active"
       },
       "Cherngtalay School": {
         "no": 45,
@@ -47,10 +47,10 @@
         "stop_name_th": "เชิงทะเลวิทยคม",
         "lat": 7.9945496178,
         "lon": 98.3074652629,
-        "licence": "Scheduled",
-        "eta_min": 38,
-        "eta_time": "2025-11-26T14:28:43.927031",
-        "status": "Scheduled"
+        "licence": "10-1150",
+        "eta_min": 19,
+        "eta_time": "2025-11-26T14:33:18.098647",
+        "status": "Active"
       },
       "Laguna": {
         "no": 46,
@@ -59,10 +59,10 @@
         "stop_name_th": "ลากูน่า",
         "lat": 8.00054,
         "lon": 98.2967,
-        "licence": "Scheduled",
-        "eta_min": 38,
-        "eta_time": "2025-11-26T14:28:43.933536",
-        "status": "Scheduled"
+        "licence": "10-1150",
+        "eta_min": 19,
+        "eta_time": "2025-11-26T14:33:18.103938",
+        "status": "Active"
       },
       "Lotus Cherngtalay": {
         "no": 47,
@@ -71,10 +71,10 @@
         "stop_name_th": "โลตัสเชิงทะเล",
         "lat": 7.98683280743,
         "lon": 98.3022240495,
-        "licence": "Scheduled",
-        "eta_min": 42,
-        "eta_time": "2025-11-26T14:32:43.939951",
-        "status": "Scheduled"
+        "licence": "10-1150",
+        "eta_min": 23,
+        "eta_time": "2025-11-26T14:37:18.109200",
+        "status": "Active"
       },
       "Surin Beach": {
         "no": 48,
@@ -83,10 +83,10 @@
         "stop_name_th": "หาดสุรินทร์",
         "lat": 7.97503615503,
         "lon": 98.2807999359,
-        "licence": "Scheduled",
-        "eta_min": 47,
-        "eta_time": "2025-11-26T14:37:43.945569",
-        "status": "Scheduled"
+        "licence": "10-1150",
+        "eta_min": 29,
+        "eta_time": "2025-11-26T14:43:18.114445",
+        "status": "Active"
       },
       "Intercontinental Kamala": {
         "no": 49,
@@ -95,10 +95,10 @@
         "stop_name_th": "อินเตอร์คอนติเนนตัล ภูเก็ต",
         "lat": 7.96236129603,
         "lon": 98.2848117638,
-        "licence": "Scheduled",
-        "eta_min": 52,
-        "eta_time": "2025-11-26T14:42:43.952314",
-        "status": "Scheduled"
+        "licence": "10-1150",
+        "eta_min": 33,
+        "eta_time": "2025-11-26T14:47:18.119501",
+        "status": "Active"
       },
       "Kamala Muslim Cemetery": {
         "no": 50,
@@ -107,9 +107,9 @@
         "stop_name_th": "กุโบร์ กมลา",
         "lat": 7.95731092253,
         "lon": 98.2844041477,
-        "licence": "10-1155",
-        "eta_min": 0,
-        "eta_time": "2025-11-26T13:50:43.959485",
+        "licence": "10-1150",
+        "eta_min": 34,
+        "eta_time": "2025-11-26T14:48:18.125108",
         "status": "Active"
       },
       "Phuket Fantasea": {
@@ -119,9 +119,9 @@
         "stop_name_th": "ภูเก็ต แฟนตาซี",
         "lat": 7.95415185187,
         "lon": 98.2867818744,
-        "licence": "10-1155",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T13:51:43.966049",
+        "licence": "10-1150",
+        "eta_min": 35,
+        "eta_time": "2025-11-26T14:49:18.130436",
         "status": "Active"
       },
       "Big C Kamala": {
@@ -131,9 +131,9 @@
         "stop_name_th": "บิ๊กซี กมลา",
         "lat": 7.94656358353,
         "lon": 98.279718199,
-        "licence": "10-1155",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T13:54:43.972314",
+        "licence": "10-1150",
+        "eta_min": 38,
+        "eta_time": "2025-11-26T14:52:18.135583",
         "status": "Active"
       },
       "Kalim Bus Stop": {
@@ -143,9 +143,9 @@
         "stop_name_th": "หาดกะหลิม",
         "lat": 7.91503587898,
         "lon": 98.2928011963,
-        "licence": "10-1155",
-        "eta_min": 14,
-        "eta_time": "2025-11-26T14:04:43.978085",
+        "licence": "10-1150",
+        "eta_min": 48,
+        "eta_time": "2025-11-26T15:02:18.141195",
         "status": "Active"
       },
       "Kalim School": {
@@ -155,9 +155,9 @@
         "stop_name_th": "โรงเรียนกะหลิม",
         "lat": 7.9115973687,
         "lon": 98.2948875228,
-        "licence": "10-1155",
-        "eta_min": 15,
-        "eta_time": "2025-11-26T14:05:43.984474",
+        "licence": "10-1150",
+        "eta_min": 49,
+        "eta_time": "2025-11-26T15:03:18.146708",
         "status": "Active"
       },
       "Diamond Cliff Resort & Spa": {
@@ -167,9 +167,9 @@
         "stop_name_th": "ไดมอนด์คลิฟ รีสอร์ท แอนด์ สปา",
         "lat": 7.90826338087,
         "lon": 98.2970014274,
-        "licence": "10-1155",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T14:07:43.989797",
+        "licence": "10-1150",
+        "eta_min": 51,
+        "eta_time": "2025-11-26T15:05:18.151822",
         "status": "Active"
       },
       "Indigo Patong": {
@@ -179,9 +179,9 @@
         "stop_name_th": "อินดิโก้ โฮเต็ล",
         "lat": 7.89925553359,
         "lon": 98.3001148938,
-        "licence": "10-1212",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T13:54:43.995159",
+        "licence": "10-1150",
+        "eta_min": 55,
+        "eta_time": "2025-11-26T15:09:18.157073",
         "status": "Active"
       },
       "Patong PEA": {
@@ -191,9 +191,9 @@
         "stop_name_th": "การไฟฟ้าป่าตอง",
         "lat": 7.89107747505,
         "lon": 98.2976975965,
-        "licence": "10-1212",
-        "eta_min": 8,
-        "eta_time": "2025-11-26T13:58:44.005730",
+        "licence": "10-1150",
+        "eta_min": 59,
+        "eta_time": "2025-11-26T15:13:18.162541",
         "status": "Active"
       },
       "Holiday Inn Resort Patong": {
@@ -203,9 +203,9 @@
         "stop_name_th": "ฮอลิเดย์ อินน์ ป่าอง",
         "lat": 7.88830021599,
         "lon": 98.2954830884,
-        "licence": "10-1212",
-        "eta_min": 9,
-        "eta_time": "2025-11-26T13:59:44.016351",
+        "licence": "10-1150",
+        "eta_min": 61,
+        "eta_time": "2025-11-26T15:15:18.167687",
         "status": "Active"
       },
       "Secret cliff resort ": {
@@ -215,9 +215,9 @@
         "stop_name_th": "ซีเคร็ท คลิฟ",
         "lat": 7.86086561883,
         "lon": 98.2849353543,
-        "licence": "10-1212",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T14:07:44.026411",
+        "licence": "10-1150",
+        "eta_min": 69,
+        "eta_time": "2025-11-26T15:23:18.172939",
         "status": "Active"
       },
       "Karon Circle": {
@@ -227,9 +227,9 @@
         "stop_name_th": "วงเวียนกะรน",
         "lat": 7.84795664331,
         "lon": 98.2934142411,
-        "licence": "10-1149",
-        "eta_min": 0,
-        "eta_time": "2025-11-26T13:50:44.036204",
+        "licence": "10-1212",
+        "eta_min": 4,
+        "eta_time": "2025-11-26T14:18:18.178000",
         "status": "Active"
       },
       "Woraburi Karon": {
@@ -239,9 +239,9 @@
         "stop_name_th": "วรบุรี ภูเก็ต รีสอร์ท",
         "lat": 7.84389885144,
         "lon": 98.294253846,
-        "licence": "10-1149",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T13:51:44.048985",
+        "licence": "10-1212",
+        "eta_min": 5,
+        "eta_time": "2025-11-26T14:19:18.187044",
         "status": "Active"
       },
       "Karon Stadium": {
@@ -251,9 +251,9 @@
         "stop_name_th": "สนามกีฬากะรน",
         "lat": 7.83042868249,
         "lon": 98.2951891642,
-        "licence": "10-1149",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T13:54:44.063082",
+        "licence": "10-1212",
+        "eta_min": 8,
+        "eta_time": "2025-11-26T14:22:18.196162",
         "status": "Active"
       },
       "OZO Phuket": {
@@ -263,9 +263,9 @@
         "stop_name_th": "โอโซ่ ภูเก็ต",
         "lat": 7.82412170874,
         "lon": 98.2977529792,
-        "licence": "10-1149",
-        "eta_min": 6,
-        "eta_time": "2025-11-26T13:56:44.076996",
+        "licence": "10-1212",
+        "eta_min": 10,
+        "eta_time": "2025-11-26T14:24:18.204898",
         "status": "Active"
       },
       "Kata Palm": {
@@ -275,9 +275,9 @@
         "stop_name_th": "กะตะ ปาล์ม",
         "lat": 7.81869818864,
         "lon": 98.300246714,
-        "licence": "10-1149",
-        "eta_min": 8,
-        "eta_time": "2025-11-26T13:58:44.090757",
+        "licence": "10-1212",
+        "eta_min": 12,
+        "eta_time": "2025-11-26T14:26:18.213559",
         "status": "Active"
       },
       "Beyond hotel Kata": {
@@ -287,9 +287,9 @@
         "stop_name_th": "บียอนด์ กะตะ",
         "lat": 7.81668122979,
         "lon": 98.3007351739,
-        "licence": "10-1149",
-        "eta_min": 9,
-        "eta_time": "2025-11-26T13:59:44.105349",
+        "licence": "10-1212",
+        "eta_min": 13,
+        "eta_time": "2025-11-26T14:27:18.222193",
         "status": "Active"
       },
       "Andaman Cannacia Resort": {
@@ -299,9 +299,9 @@
         "stop_name_th": "อันดามัน คาเนเซีย",
         "lat": 7.81260613785,
         "lon": 98.3011662339,
-        "licence": "10-1149",
-        "eta_min": 11,
-        "eta_time": "2025-11-26T14:01:44.119839",
+        "licence": "10-1212",
+        "eta_min": 15,
+        "eta_time": "2025-11-26T14:29:18.230964",
         "status": "Active"
       },
       "Sai Yuan": {
@@ -312,15 +312,15 @@
         "lat": 7.79443123471,
         "lon": 98.3156676956,
         "licence": "10-1149",
-        "eta_min": 20,
-        "eta_time": "2025-11-26T14:10:44.133754",
+        "eta_min": 1,
+        "eta_time": "2025-11-26T14:15:18.240174",
         "status": "Active"
       }
     }
   },
   "Rawai -> Airport": {
     "route": "Rawai -> Airport",
-    "updated_at": "2025-11-26T13:50:44.463859",
+    "updated_at": "2025-11-26T14:14:18.428441",
     "manual_status": null,
     "stops": {
       "Rawai Beach": {
@@ -331,8 +331,8 @@
         "lat": 7.77208774295,
         "lon": 98.3217882953,
         "licence": "Scheduled",
-        "eta_min": 54,
-        "eta_time": "2025-11-26T14:44:44.195101",
+        "eta_min": 31,
+        "eta_time": "2025-11-26T14:45:18.292252",
         "status": "Scheduled"
       },
       "Sai Yuan": {
@@ -342,10 +342,10 @@
         "stop_name_th": "ไสยวน",
         "lat": 7.79441794757,
         "lon": 98.3155604072,
-        "licence": "10-1152",
-        "eta_min": 3,
-        "eta_time": "2025-11-26T13:53:44.201508",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 38,
+        "eta_time": "2025-11-26T14:52:18.298161",
+        "status": "Scheduled"
       },
       "Andaman Cannacia Resort": {
         "no": 18,
@@ -354,10 +354,10 @@
         "stop_name_th": "อันดามัน คาเนเซีย",
         "lat": 7.81247074512,
         "lon": 98.3010678512,
-        "licence": "10-1152",
-        "eta_min": 11,
-        "eta_time": "2025-11-26T14:01:44.207366",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 47,
+        "eta_time": "2025-11-26T15:01:18.303787",
+        "status": "Scheduled"
       },
       "Beyond hotel Kata": {
         "no": 19,
@@ -366,10 +366,10 @@
         "stop_name_th": "บียอนด์ กะตะ",
         "lat": 7.81648548634,
         "lon": 98.3006487149,
-        "licence": "10-1152",
-        "eta_min": 13,
-        "eta_time": "2025-11-26T14:03:44.213185",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 49,
+        "eta_time": "2025-11-26T15:03:18.309080",
+        "status": "Scheduled"
       },
       "Kata Palm": {
         "no": 20,
@@ -378,10 +378,10 @@
         "stop_name_th": "กะตะ ปาล์ม",
         "lat": 7.81874394528,
         "lon": 98.3000995192,
-        "licence": "10-1152",
-        "eta_min": 14,
-        "eta_time": "2025-11-26T14:04:44.219564",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 50,
+        "eta_time": "2025-11-26T15:04:18.314264",
+        "status": "Scheduled"
       },
       "OZO Kata": {
         "no": 21,
@@ -390,10 +390,10 @@
         "stop_name_th": "โอโซ่ ภูเก็ต",
         "lat": 7.82509655568,
         "lon": 98.2970288793,
-        "licence": "10-1152",
-        "eta_min": 16,
-        "eta_time": "2025-11-26T14:06:44.225436",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 52,
+        "eta_time": "2025-11-26T15:06:18.319474",
+        "status": "Scheduled"
       },
       "Peach Blossom": {
         "no": 22,
@@ -402,10 +402,10 @@
         "stop_name_th": "พีช บลอสซั่ม",
         "lat": 7.82622531978,
         "lon": 98.2966885186,
-        "licence": "10-1152",
-        "eta_min": 16,
-        "eta_time": "2025-11-26T14:06:44.231221",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 52,
+        "eta_time": "2025-11-26T15:06:18.324861",
+        "status": "Scheduled"
       },
       "Karon Stadium": {
         "no": 23,
@@ -414,10 +414,10 @@
         "stop_name_th": "สนามกีฬากะรน",
         "lat": 7.83035424986,
         "lon": 98.2950633387,
-        "licence": "10-1152",
-        "eta_min": 18,
-        "eta_time": "2025-11-26T14:08:44.237389",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 54,
+        "eta_time": "2025-11-26T15:08:18.329952",
+        "status": "Scheduled"
       },
       "Woraburi Karon": {
         "no": 24,
@@ -426,10 +426,10 @@
         "stop_name_th": "วรบุรี ภูเก็ต รีสอร์ท",
         "lat": 7.84400759933,
         "lon": 98.2941565461,
-        "licence": "10-1210",
-        "eta_min": 0,
-        "eta_time": "2025-11-26T13:50:44.243265",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 57,
+        "eta_time": "2025-11-26T15:11:18.334982",
+        "status": "Scheduled"
       },
       "Karon Circle": {
         "no": 25,
@@ -438,10 +438,10 @@
         "stop_name_th": "วงเวียนกะรน",
         "lat": 7.84775915937,
         "lon": 98.2933055042,
-        "licence": "10-1210",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T13:51:44.252949",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 58,
+        "eta_time": "2025-11-26T15:12:18.340360",
+        "status": "Scheduled"
       },
       "Secret cliff resort ": {
         "no": 26,
@@ -450,10 +450,10 @@
         "stop_name_th": "ซีเคร็ท คลิฟ",
         "lat": 7.8609001407,
         "lon": 98.2845652549,
-        "licence": "10-1210",
-        "eta_min": 6,
-        "eta_time": "2025-11-26T13:56:44.263169",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 63,
+        "eta_time": "2025-11-26T15:17:18.345671",
+        "status": "Scheduled"
       },
       "Patong Bus Stop": {
         "no": 27,
@@ -462,10 +462,10 @@
         "stop_name_th": "จุดจอดรถป่าตอง",
         "lat": 7.88752462813,
         "lon": 98.2913288644,
-        "licence": "10-1210",
-        "eta_min": 12,
-        "eta_time": "2025-11-26T14:02:44.272885",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 70,
+        "eta_time": "2025-11-26T15:24:18.350838",
+        "status": "Scheduled"
       },
       "Bangla Patong ": {
         "no": 28,
@@ -474,10 +474,10 @@
         "stop_name_th": "ป่าตอง บางลา",
         "lat": 7.89407,
         "lon": 98.29513,
-        "licence": "10-1210",
-        "eta_min": 15,
-        "eta_time": "2025-11-26T14:05:44.282257",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 73,
+        "eta_time": "2025-11-26T15:27:18.355902",
+        "status": "Scheduled"
       },
       "Four Point Patong": {
         "no": 29,
@@ -486,10 +486,10 @@
         "stop_name_th": "โฟร์ พอยต์ ป่าตอง",
         "lat": 7.90467913947,
         "lon": 98.2972091153,
-        "licence": "10-1210",
-        "eta_min": 20,
-        "eta_time": "2025-11-26T14:10:44.291755",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 78,
+        "eta_time": "2025-11-26T15:32:18.360955",
+        "status": "Scheduled"
       },
       "Kalim School": {
         "no": 30,
@@ -498,10 +498,10 @@
         "stop_name_th": "โรงเรียนกะหลิม",
         "lat": 7.91067572034,
         "lon": 98.2957506346,
-        "licence": "10-1210",
-        "eta_min": 21,
-        "eta_time": "2025-11-26T14:11:44.301443",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 79,
+        "eta_time": "2025-11-26T15:33:18.365953",
+        "status": "Scheduled"
       },
       "Kalim Bus Stop": {
         "no": 31,
@@ -510,10 +510,10 @@
         "stop_name_th": "หาดกะหลิม",
         "lat": 7.9149017669,
         "lon": 98.2927425399,
-        "licence": "10-1210",
-        "eta_min": 22,
-        "eta_time": "2025-11-26T14:12:44.310651",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 80,
+        "eta_time": "2025-11-26T15:34:18.371020",
+        "status": "Scheduled"
       },
       "Big C Kamala": {
         "no": 32,
@@ -522,10 +522,10 @@
         "stop_name_th": "บิ๊กซี กมลา",
         "lat": 7.94747711246,
         "lon": 98.2805120802,
-        "licence": "10-1153",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T13:51:44.319596",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 91,
+        "eta_time": "2025-11-26T15:45:18.376261",
+        "status": "Scheduled"
       },
       "Phuket Fantasea": {
         "no": 33,
@@ -534,10 +534,10 @@
         "stop_name_th": "ภูเก็ต แฟนตาซี",
         "lat": 7.95413235293,
         "lon": 98.2865626774,
-        "licence": "10-1153",
-        "eta_min": 3,
-        "eta_time": "2025-11-26T13:53:44.331900",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 93,
+        "eta_time": "2025-11-26T15:47:18.381341",
+        "status": "Scheduled"
       },
       "Kamala Muslim Cemetery": {
         "no": 34,
@@ -546,10 +546,10 @@
         "stop_name_th": "กุโบร์ กมลา",
         "lat": 7.95732021988,
         "lon": 98.2842693667,
-        "licence": "10-1153",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T13:54:44.344501",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 94,
+        "eta_time": "2025-11-26T15:48:18.386395",
+        "status": "Scheduled"
       },
       "Cafe De Mar": {
         "no": 35,
@@ -558,10 +558,10 @@
         "stop_name_th": "คาเฟ่ เดล มาร์",
         "lat": 7.9609119227,
         "lon": 98.2846268463,
-        "licence": "10-1153",
-        "eta_min": 5,
-        "eta_time": "2025-11-26T13:55:44.368552",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 94,
+        "eta_time": "2025-11-26T15:48:18.392070",
+        "status": "Scheduled"
       },
       "Surin Beach": {
         "no": 36,
@@ -570,10 +570,10 @@
         "stop_name_th": "หาดสุรินทร์",
         "lat": 7.97543085798,
         "lon": 98.2806006571,
-        "licence": "10-1153",
-        "eta_min": 10,
-        "eta_time": "2025-11-26T14:00:44.386343",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 99,
+        "eta_time": "2025-11-26T15:53:18.397427",
+        "status": "Scheduled"
       },
       "Lotus Cherngtalay": {
         "no": 37,
@@ -582,10 +582,10 @@
         "stop_name_th": "โลตัสเชิงทะเล",
         "lat": 7.98564677947,
         "lon": 98.3019957451,
-        "licence": "10-1153",
-        "eta_min": 18,
-        "eta_time": "2025-11-26T14:08:44.399080",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 107,
+        "eta_time": "2025-11-26T16:01:18.402668",
+        "status": "Scheduled"
       },
       "Laguna": {
         "no": 38,
@@ -594,10 +594,10 @@
         "stop_name_th": "ลากูน่า",
         "lat": 8.00036,
         "lon": 98.29662,
-        "licence": "10-1153",
-        "eta_min": 23,
-        "eta_time": "2025-11-26T14:13:44.412156",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 112,
+        "eta_time": "2025-11-26T16:06:18.407753",
+        "status": "Scheduled"
       },
       "Cherngtalay School": {
         "no": 39,
@@ -606,10 +606,10 @@
         "stop_name_th": "เชิงทะเลวิทยคม",
         "lat": 7.99461605031,
         "lon": 98.3072837597,
-        "licence": "10-1153",
-        "eta_min": 23,
-        "eta_time": "2025-11-26T14:13:44.425259",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 112,
+        "eta_time": "2025-11-26T16:06:18.412880",
+        "status": "Scheduled"
       },
       "Baan Khian": {
         "no": 40,
@@ -618,10 +618,10 @@
         "stop_name_th": "บ้านเคียน",
         "lat": 8.02671784214,
         "lon": 98.3299507153,
-        "licence": "10-1153",
-        "eta_min": 33,
-        "eta_time": "2025-11-26T14:23:44.438063",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 122,
+        "eta_time": "2025-11-26T16:16:18.418050",
+        "status": "Scheduled"
       },
       "Thalang Public Health Office": {
         "no": 41,
@@ -630,16 +630,16 @@
         "stop_name_th": "สำนักงานสาธารณสุข ถลาง",
         "lat": 8.03455487516,
         "lon": 98.3332974713,
-        "licence": "10-1153",
-        "eta_min": 35,
-        "eta_time": "2025-11-26T14:25:44.450958",
-        "status": "Active"
+        "licence": "Scheduled",
+        "eta_min": 124,
+        "eta_time": "2025-11-26T16:18:18.423334",
+        "status": "Scheduled"
       }
     }
   },
   "Bus 2 -> Bus 1 -> Patong": {
     "route": "Bus 2 -> Bus 1 -> Patong",
-    "updated_at": "2025-11-26T13:50:44.608769",
+    "updated_at": "2025-11-26T14:14:18.619429",
     "manual_status": null,
     "stops": {
       "Phuket Bus Terminal 2": {
@@ -650,8 +650,8 @@
         "lat": 7.9178462,
         "lon": 98.3946883,
         "licence": "Scheduled",
-        "eta_min": 39,
-        "eta_time": "2025-11-26T14:29:44.485767",
+        "eta_min": 16,
+        "eta_time": "2025-11-26T14:30:18.449388",
         "status": "Scheduled"
       },
       "Big C Market Thepkrasattri": {
@@ -662,8 +662,8 @@
         "lat": 7.909134,
         "lon": 98.391782,
         "licence": "Scheduled",
-        "eta_min": 40,
-        "eta_time": "2025-11-26T14:30:44.491587",
+        "eta_min": 17,
+        "eta_time": "2025-11-26T14:31:18.454650",
         "status": "Scheduled"
       },
       "Ban Kuku School": {
@@ -674,8 +674,8 @@
         "lat": 7.908610653,
         "lon": 98.39966677,
         "licence": "Scheduled",
-        "eta_min": 44,
-        "eta_time": "2025-11-26T14:34:44.496978",
+        "eta_min": 21,
+        "eta_time": "2025-11-26T14:35:18.459595",
         "status": "Scheduled"
       },
       "Dcondo Campus Kuku": {
@@ -686,8 +686,8 @@
         "lat": 7.907166011,
         "lon": 98.40369154,
         "licence": "Scheduled",
-        "eta_min": 45,
-        "eta_time": "2025-11-26T14:35:44.502083",
+        "eta_min": 22,
+        "eta_time": "2025-11-26T14:36:18.464535",
         "status": "Scheduled"
       },
       "Soi Thachin": {
@@ -698,8 +698,8 @@
         "lat": 7.90367797623822,
         "lon": 98.4098317778341,
         "licence": "Scheduled",
-        "eta_min": 46,
-        "eta_time": "2025-11-26T14:36:44.507067",
+        "eta_min": 23,
+        "eta_time": "2025-11-26T14:37:18.469514",
         "status": "Scheduled"
       },
       "Big C Mini Kingkaew": {
@@ -710,8 +710,8 @@
         "lat": 7.898938,
         "lon": 98.410774,
         "licence": "Scheduled",
-        "eta_min": 47,
-        "eta_time": "2025-11-26T14:37:44.511993",
+        "eta_min": 24,
+        "eta_time": "2025-11-26T14:38:18.474807",
         "status": "Scheduled"
       },
       "Baan Natkamon": {
@@ -722,8 +722,8 @@
         "lat": 7.895382,
         "lon": 98.406191,
         "licence": "Scheduled",
-        "eta_min": 49,
-        "eta_time": "2025-11-26T14:39:44.516864",
+        "eta_min": 26,
+        "eta_time": "2025-11-26T14:40:18.480013",
         "status": "Scheduled"
       },
       "Phuket Provincial Cooperative Office": {
@@ -733,10 +733,10 @@
         "stop_name_th": "สำนักงานสหกรณ์จังหวัด",
         "lat": 7.893408,
         "lon": 98.401439,
-        "licence": "Scheduled",
-        "eta_min": 50,
-        "eta_time": "2025-11-26T14:40:44.521855",
-        "status": "Scheduled"
+        "licence": "10-1219",
+        "eta_min": 0,
+        "eta_time": "2025-11-26T14:14:18.485018",
+        "status": "Active"
       },
       "Sanamchai": {
         "no": 69,
@@ -745,10 +745,10 @@
         "stop_name_th": "สนามชัย",
         "lat": 7.889961988,
         "lon": 98.39767359,
-        "licence": "Scheduled",
-        "eta_min": 52,
-        "eta_time": "2025-11-26T14:42:44.536592",
-        "status": "Scheduled"
+        "licence": "10-1219",
+        "eta_min": 1,
+        "eta_time": "2025-11-26T14:15:18.500240",
+        "status": "Active"
       },
       "Phuket Bus Terminal 1": {
         "no": 68,
@@ -757,10 +757,10 @@
         "stop_name_th": "สถานีขนส่งภูเก็ต 1",
         "lat": 7.884101493,
         "lon": 98.39575082,
-        "licence": "Scheduled",
-        "eta_min": 58,
-        "eta_time": "2025-11-26T14:48:44.531635",
-        "status": "Scheduled"
+        "licence": "10-1219",
+        "eta_min": 7,
+        "eta_time": "2025-11-26T14:21:18.495145",
+        "status": "Active"
       },
       "Satree Phuket School": {
         "no": 70,
@@ -769,10 +769,10 @@
         "stop_name_th": "โรงเรียนสตรีภูเก็ต",
         "lat": 7.890961837,
         "lon": 98.39209012,
-        "licence": "Scheduled",
-        "eta_min": 68,
-        "eta_time": "2025-11-26T14:58:44.541515",
-        "status": "Scheduled"
+        "licence": "10-1219",
+        "eta_min": 17,
+        "eta_time": "2025-11-26T14:31:18.505345",
+        "status": "Active"
       },
       "Phuket Wittayalai School": {
         "no": 71,
@@ -781,10 +781,10 @@
         "stop_name_th": "โรงเรียนภูเก็ตวิทยาลัย",
         "lat": 7.892383991,
         "lon": 98.38963431,
-        "licence": "Scheduled",
-        "eta_min": 70,
-        "eta_time": "2025-11-26T15:00:44.546440",
-        "status": "Scheduled"
+        "licence": "10-1219",
+        "eta_min": 19,
+        "eta_time": "2025-11-26T14:33:18.510349",
+        "status": "Active"
       },
       "Vachira Phuket Hospital": {
         "no": 72,
@@ -793,10 +793,10 @@
         "stop_name_th": "โรงพยาบาลวชิระภูเก็ต",
         "lat": 7.897257446,
         "lon": 98.38400696,
-        "licence": "Scheduled",
-        "eta_min": 73,
-        "eta_time": "2025-11-26T15:03:44.551911",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 2,
+        "eta_time": "2025-11-26T14:16:18.515336",
+        "status": "Active"
       },
       "Bangkok Hospital Phuket": {
         "no": 73,
@@ -805,10 +805,10 @@
         "stop_name_th": "โรงพยาบาลกรุงเทพภูเก็ต",
         "lat": 7.904270508,
         "lon": 98.3776116,
-        "licence": "Scheduled",
-        "eta_min": 76,
-        "eta_time": "2025-11-26T15:06:44.557142",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 5,
+        "eta_time": "2025-11-26T14:19:18.523909",
+        "status": "Active"
       },
       "Chillva Market": {
         "no": 74,
@@ -817,10 +817,10 @@
         "stop_name_th": "ตลาดชิลวา",
         "lat": 7.906829856,
         "lon": 98.37335804,
-        "licence": "Scheduled",
-        "eta_min": 78,
-        "eta_time": "2025-11-26T15:08:44.562713",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 7,
+        "eta_time": "2025-11-26T14:21:18.533234",
+        "status": "Active"
       },
       "Lotus Samkong": {
         "no": 75,
@@ -829,10 +829,10 @@
         "stop_name_th": "โลตัส สามกอง",
         "lat": 7.905991202,
         "lon": 98.36921261,
-        "licence": "Scheduled",
-        "eta_min": 79,
-        "eta_time": "2025-11-26T15:09:44.568121",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 8,
+        "eta_time": "2025-11-26T14:22:18.542247",
+        "status": "Active"
       },
       "Andamanda Phuket Waterpark": {
         "no": 76,
@@ -841,10 +841,10 @@
         "stop_name_th": "สวนน้ำอันดามันดา",
         "lat": 7.904688653,
         "lon": 98.36366775,
-        "licence": "Scheduled",
-        "eta_min": 81,
-        "eta_time": "2025-11-26T15:11:44.573337",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 9,
+        "eta_time": "2025-11-26T14:23:18.550709",
+        "status": "Active"
       },
       "Kathu Fresh Market": {
         "no": 77,
@@ -853,10 +853,10 @@
         "stop_name_th": "ตลาดสดกะทู้",
         "lat": 7.908207595,
         "lon": 98.34954164,
-        "licence": "Scheduled",
-        "eta_min": 83,
-        "eta_time": "2025-11-26T15:13:44.578401",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 12,
+        "eta_time": "2025-11-26T14:26:18.559889",
+        "status": "Active"
       },
       "PTT Station Kathu": {
         "no": 78,
@@ -865,10 +865,10 @@
         "stop_name_th": "ปตท. กะทู้",
         "lat": 7.911864114,
         "lon": 98.34250205,
-        "licence": "Scheduled",
-        "eta_min": 85,
-        "eta_time": "2025-11-26T15:15:44.583465",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 14,
+        "eta_time": "2025-11-26T14:28:18.568667",
+        "status": "Active"
       },
       "Siko": {
         "no": 79,
@@ -877,10 +877,10 @@
         "stop_name_th": "สี่กอ",
         "lat": 7.911319948,
         "lon": 98.3362023,
-        "licence": "Scheduled",
-        "eta_min": 87,
-        "eta_time": "2025-11-26T15:17:44.588567",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 16,
+        "eta_time": "2025-11-26T14:30:18.577300",
+        "status": "Active"
       },
       "Kathu Police Station": {
         "no": 80,
@@ -889,10 +889,10 @@
         "stop_name_th": "สถานีตำรวจภูธรกะทู้",
         "lat": 7.90995831,
         "lon": 98.3327828,
-        "licence": "Scheduled",
-        "eta_min": 88,
-        "eta_time": "2025-11-26T15:18:44.593638",
-        "status": "Scheduled"
+        "licence": "10-1223",
+        "eta_min": 17,
+        "eta_time": "2025-11-26T14:31:18.585789",
+        "status": "Active"
       },
       "Coffee Mania": {
         "no": 81,
@@ -901,9 +901,9 @@
         "stop_name_th": "คอฟฟี่ มาเนีย",
         "lat": 7.883948691,
         "lon": 98.30179899,
-        "licence": "10-1218",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T13:51:44.598644",
+        "licence": "10-1221",
+        "eta_min": 13,
+        "eta_time": "2025-11-26T14:27:18.594708",
         "status": "Active"
       },
       "Malin Plaza": {
@@ -913,16 +913,16 @@
         "stop_name_th": "มาลินพลาซ่า",
         "lat": 7.882674707,
         "lon": 98.2933205,
-        "licence": "10-1218",
-        "eta_min": 5,
-        "eta_time": "2025-11-26T13:55:44.603760",
+        "licence": "10-1221",
+        "eta_min": 17,
+        "eta_time": "2025-11-26T14:31:18.607283",
         "status": "Active"
       }
     }
   },
   "Patong -> Bus 1 -> Bus 2": {
     "route": "Patong -> Bus 1 -> Bus 2",
-    "updated_at": "2025-11-26T13:50:44.761874",
+    "updated_at": "2025-11-26T14:14:18.771147",
     "manual_status": null,
     "stops": {
       "Patong": {
@@ -933,8 +933,8 @@
         "lat": 7.88742,
         "lon": 98.291173,
         "licence": "Scheduled",
-        "eta_min": 24,
-        "eta_time": "2025-11-26T14:14:44.632730",
+        "eta_min": 1,
+        "eta_time": "2025-11-26T14:15:18.640391",
         "status": "Scheduled"
       },
       "Malin Plaza": {
@@ -945,8 +945,8 @@
         "lat": 7.882809803,
         "lon": 98.29345369,
         "licence": "Scheduled",
-        "eta_min": 25,
-        "eta_time": "2025-11-26T14:15:44.638719",
+        "eta_min": 2,
+        "eta_time": "2025-11-26T14:16:18.647248",
         "status": "Scheduled"
       },
       "Makro Nanai": {
@@ -957,8 +957,8 @@
         "lat": 7.884033046,
         "lon": 98.3017782,
         "licence": "Scheduled",
-        "eta_min": 29,
-        "eta_time": "2025-11-26T14:19:44.644170",
+        "eta_min": 6,
+        "eta_time": "2025-11-26T14:20:18.653620",
         "status": "Scheduled"
       },
       "Kathu Police Station": {
@@ -968,10 +968,10 @@
         "stop_name_th": "สถานีตำรวจภูธรกะทู้",
         "lat": 7.909912418,
         "lon": 98.3323804,
-        "licence": "Scheduled",
-        "eta_min": 47,
-        "eta_time": "2025-11-26T14:37:44.650033",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 15,
+        "eta_time": "2025-11-26T14:29:18.658633",
+        "status": "Active"
       },
       "Siko": {
         "no": 87,
@@ -980,10 +980,10 @@
         "stop_name_th": "สี่กอ",
         "lat": 7.911686805,
         "lon": 98.33621525,
-        "licence": "Scheduled",
-        "eta_min": 48,
-        "eta_time": "2025-11-26T14:38:44.655561",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 16,
+        "eta_time": "2025-11-26T14:30:18.663860",
+        "status": "Active"
       },
       "PTT Station Kathu": {
         "no": 88,
@@ -992,10 +992,10 @@
         "stop_name_th": "ปตท. กะทู้",
         "lat": 7.911828211,
         "lon": 98.34279008,
-        "licence": "Scheduled",
-        "eta_min": 50,
-        "eta_time": "2025-11-26T14:40:44.660585",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 18,
+        "eta_time": "2025-11-26T14:32:18.669016",
+        "status": "Active"
       },
       "Kathu Fresh Market": {
         "no": 89,
@@ -1004,10 +1004,10 @@
         "stop_name_th": "ตลาดสดกะทู้",
         "lat": 7.908360146,
         "lon": 98.34964231,
-        "licence": "Scheduled",
-        "eta_min": 52,
-        "eta_time": "2025-11-26T14:42:44.665554",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 19,
+        "eta_time": "2025-11-26T14:33:18.674358",
+        "status": "Active"
       },
       "Andamanda Phuket Waterpark": {
         "no": 90,
@@ -1016,10 +1016,10 @@
         "stop_name_th": "สวนน้ำอันดามันดา",
         "lat": 7.905041515,
         "lon": 98.36436545,
-        "licence": "Scheduled",
-        "eta_min": 54,
-        "eta_time": "2025-11-26T14:44:44.670595",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 22,
+        "eta_time": "2025-11-26T14:36:18.679737",
+        "status": "Active"
       },
       "Lotus Samkong": {
         "no": 91,
@@ -1028,10 +1028,10 @@
         "stop_name_th": "โลตัส สามกอง",
         "lat": 7.906262429,
         "lon": 98.36908411,
-        "licence": "Scheduled",
-        "eta_min": 55,
-        "eta_time": "2025-11-26T14:45:44.675972",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 23,
+        "eta_time": "2025-11-26T14:37:18.684889",
+        "status": "Active"
       },
       "Chillva Market": {
         "no": 92,
@@ -1040,10 +1040,10 @@
         "stop_name_th": "ตลาดชิลวา",
         "lat": 7.907018353,
         "lon": 98.37334465,
-        "licence": "Scheduled",
-        "eta_min": 56,
-        "eta_time": "2025-11-26T14:46:44.682739",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 24,
+        "eta_time": "2025-11-26T14:38:18.691360",
+        "status": "Active"
       },
       "Bangkok Hospital Phuket": {
         "no": 93,
@@ -1052,10 +1052,10 @@
         "stop_name_th": "โรงพยาบาลกรุงเทพภูเก็ต",
         "lat": 7.904781267,
         "lon": 98.37777846,
-        "licence": "Scheduled",
-        "eta_min": 59,
-        "eta_time": "2025-11-26T14:49:44.688784",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 26,
+        "eta_time": "2025-11-26T14:40:18.696836",
+        "status": "Active"
       },
       "Vachira Phuket Hospital": {
         "no": 94,
@@ -1064,10 +1064,10 @@
         "stop_name_th": "โรงพยาบาลวชิระภูเก็ต",
         "lat": 7.897191545,
         "lon": 98.38418576,
-        "licence": "Scheduled",
-        "eta_min": 62,
-        "eta_time": "2025-11-26T14:52:44.694508",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 30,
+        "eta_time": "2025-11-26T14:44:18.701989",
+        "status": "Active"
       },
       "Phuket Wittayalai School": {
         "no": 95,
@@ -1076,10 +1076,10 @@
         "stop_name_th": "โรงเรียนภูเก็ตวิทยาลัย",
         "lat": 7.892510646,
         "lon": 98.38976981,
-        "licence": "Scheduled",
-        "eta_min": 65,
-        "eta_time": "2025-11-26T14:55:44.699787",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 33,
+        "eta_time": "2025-11-26T14:47:18.707759",
+        "status": "Active"
       },
       "Satree Phuket School": {
         "no": 96,
@@ -1088,10 +1088,10 @@
         "stop_name_th": "โรงเรียนสตรีภูเก็ต",
         "lat": 7.891111846,
         "lon": 98.39197764,
-        "licence": "Scheduled",
-        "eta_min": 66,
-        "eta_time": "2025-11-26T14:56:44.704945",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 34,
+        "eta_time": "2025-11-26T14:48:18.712831",
+        "status": "Active"
       },
       "Sanamchai": {
         "no": 99,
@@ -1100,10 +1100,10 @@
         "stop_name_th": "สนามชัย",
         "lat": 7.8899833829,
         "lon": 98.3977533924,
-        "licence": "Scheduled",
-        "eta_min": 68,
-        "eta_time": "2025-11-26T14:58:44.720209",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 35,
+        "eta_time": "2025-11-26T14:49:18.729051",
+        "status": "Active"
       },
       "Phuket Bus Terminal 1": {
         "no": 98,
@@ -1112,10 +1112,10 @@
         "stop_name_th": "สถานีขนส่งภูเก็ต 1",
         "lat": 7.884101493,
         "lon": 98.39575082,
-        "licence": "Scheduled",
-        "eta_min": 78,
-        "eta_time": "2025-11-26T15:08:44.715102",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 46,
+        "eta_time": "2025-11-26T15:00:18.723643",
+        "status": "Active"
       },
       "Phuket Provincial Cooperative Office": {
         "no": 100,
@@ -1124,10 +1124,10 @@
         "stop_name_th": "สำนักงานสหกรณ์จังหวัด",
         "lat": 7.893502,
         "lon": 98.401354,
-        "licence": "Scheduled",
-        "eta_min": 83,
-        "eta_time": "2025-11-26T15:13:44.725182",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 51,
+        "eta_time": "2025-11-26T15:05:18.734484",
+        "status": "Active"
       },
       "Baan Natkamon": {
         "no": 101,
@@ -1136,10 +1136,10 @@
         "stop_name_th": "บ้านณัฐกมล",
         "lat": 7.895461,
         "lon": 98.406222,
-        "licence": "Scheduled",
-        "eta_min": 85,
-        "eta_time": "2025-11-26T15:15:44.730191",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 53,
+        "eta_time": "2025-11-26T15:07:18.740475",
+        "status": "Active"
       },
       "Big C Mini Kingkaew": {
         "no": 102,
@@ -1148,10 +1148,10 @@
         "stop_name_th": "บิ๊กซีมินิ กิ่งแก้ว",
         "lat": 7.898979,
         "lon": 98.410692,
-        "licence": "Scheduled",
-        "eta_min": 87,
-        "eta_time": "2025-11-26T15:17:44.735444",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 54,
+        "eta_time": "2025-11-26T15:08:18.745684",
+        "status": "Active"
       },
       "Soi Thachin": {
         "no": 103,
@@ -1160,10 +1160,10 @@
         "stop_name_th": "ป้ายซอยท่าจีน",
         "lat": 7.90366068891297,
         "lon": 98.40972719,
-        "licence": "Scheduled",
-        "eta_min": 88,
-        "eta_time": "2025-11-26T15:18:44.740947",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 55,
+        "eta_time": "2025-11-26T15:09:18.750664",
+        "status": "Active"
       },
       "Dcondo Campus Kuku": {
         "no": 104,
@@ -1172,10 +1172,10 @@
         "stop_name_th": "ดีคอนโด กู้กู",
         "lat": 7.907137216,
         "lon": 98.40352997,
-        "licence": "Scheduled",
-        "eta_min": 89,
-        "eta_time": "2025-11-26T15:19:44.746045",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 57,
+        "eta_time": "2025-11-26T15:11:18.755910",
+        "status": "Active"
       },
       "Ban Kuku School": {
         "no": 105,
@@ -1184,10 +1184,10 @@
         "stop_name_th": "โรงเรียนบ้านกู้กู",
         "lat": 7.908361,
         "lon": 98.399987,
-        "licence": "Scheduled",
-        "eta_min": 90,
-        "eta_time": "2025-11-26T15:20:44.751068",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 57,
+        "eta_time": "2025-11-26T15:11:18.760949",
+        "status": "Active"
       },
       "Big C Market Thepkrasattri": {
         "no": 106,
@@ -1196,16 +1196,16 @@
         "stop_name_th": "บิ๊กซี มาร์เก็ต เทพกระษัตรี",
         "lat": 7.910465,
         "lon": 98.392036,
-        "licence": "Scheduled",
-        "eta_min": 92,
-        "eta_time": "2025-11-26T15:22:44.756257",
-        "status": "Scheduled"
+        "licence": "10-1218",
+        "eta_min": 60,
+        "eta_time": "2025-11-26T15:14:18.765871",
+        "status": "Active"
       }
     }
   },
   "Dragon Line": {
     "route": "Dragon Line",
-    "updated_at": "2025-11-26T13:50:44.838724",
+    "updated_at": "2025-11-26T14:14:18.850497",
     "manual_status": null,
     "stops": {
       "Queen Sirikit Park": {
@@ -1216,8 +1216,8 @@
         "lat": 7.886069,
         "lon": 98.39229,
         "licence": "Scheduled",
-        "eta_min": 10,
-        "eta_time": "2025-11-26T14:00:44.765323",
+        "eta_min": 2,
+        "eta_time": "2025-11-26T14:16:18.774575",
         "status": "Scheduled"
       },
       "Old Town Intersection": {
@@ -1228,8 +1228,8 @@
         "lat": 7.884223,
         "lon": 98.39086,
         "licence": "Scheduled",
-        "eta_min": 11,
-        "eta_time": "2025-11-26T14:01:44.770387",
+        "eta_min": 3,
+        "eta_time": "2025-11-26T14:17:18.780150",
         "status": "Scheduled"
       },
       "Government Savings Bank": {
@@ -1240,8 +1240,8 @@
         "lat": 7.883601,
         "lon": 98.39134,
         "licence": "Scheduled",
-        "eta_min": 12,
-        "eta_time": "2025-11-26T14:02:44.775322",
+        "eta_min": 4,
+        "eta_time": "2025-11-26T14:18:18.785148",
         "status": "Scheduled"
       },
       "Royal Phuket City Hotel": {
@@ -1251,10 +1251,10 @@
         "stop_name_th": "โรงแรม รอยัล ภูเก็ต ซิตี้",
         "lat": 7.883132,
         "lon": 98.39484,
-        "licence": "Scheduled",
-        "eta_min": 13,
-        "eta_time": "2025-11-26T14:03:44.780057",
-        "status": "Scheduled"
+        "licence": "10-1265",
+        "eta_min": 0,
+        "eta_time": "2025-11-26T14:14:18.790089",
+        "status": "Active"
       },
       "Pearl Hotel Phuket": {
         "no": 6,
@@ -1263,10 +1263,10 @@
         "stop_name_th": "โรงแรมเพิร์ล ภูเก็ต",
         "lat": 7.881669,
         "lon": 98.39254,
-        "licence": "Scheduled",
-        "eta_min": 15,
-        "eta_time": "2025-11-26T14:05:44.784823",
-        "status": "Scheduled"
+        "licence": "10-1265",
+        "eta_min": 1,
+        "eta_time": "2025-11-26T14:15:18.794876",
+        "status": "Active"
       },
       "Mc Donald's": {
         "no": 7,
@@ -1275,10 +1275,10 @@
         "stop_name_th": "แม็คโดนัล",
         "lat": 7.87751,
         "lon": 98.39424,
-        "licence": "Scheduled",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T14:07:44.789572",
-        "status": "Scheduled"
+        "licence": "10-1265",
+        "eta_min": 3,
+        "eta_time": "2025-11-26T14:17:18.799665",
+        "status": "Active"
       },
       "Surin Circle Clock Tower": {
         "no": 8,
@@ -1287,10 +1287,10 @@
         "stop_name_th": "วงเวียนสุรินทร์",
         "lat": 7.879489,
         "lon": 98.39246,
-        "licence": "Scheduled",
-        "eta_min": 19,
-        "eta_time": "2025-11-26T14:09:44.794206",
-        "status": "Scheduled"
+        "licence": "10-1265",
+        "eta_min": 5,
+        "eta_time": "2025-11-26T14:19:18.804888",
+        "status": "Active"
       },
       "Municipal Parking": {
         "no": 9,
@@ -1299,10 +1299,10 @@
         "stop_name_th": "จุดจอดรถเทศบาล",
         "lat": 7.882266,
         "lon": 98.39106,
-        "licence": "Scheduled",
-        "eta_min": 20,
-        "eta_time": "2025-11-26T14:10:44.798788",
-        "status": "Scheduled"
+        "licence": "10-1265",
+        "eta_min": 7,
+        "eta_time": "2025-11-26T14:21:18.809887",
+        "status": "Active"
       },
       "Krungsri Bank": {
         "no": 10,
@@ -1311,10 +1311,10 @@
         "stop_name_th": "ธนาคารกรุุงศรี",
         "lat": 7.883057,
         "lon": 98.38906,
-        "licence": "Scheduled",
-        "eta_min": 21,
-        "eta_time": "2025-11-26T14:11:44.803311",
-        "status": "Scheduled"
+        "licence": "10-1265",
+        "eta_min": 8,
+        "eta_time": "2025-11-26T14:22:18.814644",
+        "status": "Active"
       },
       "WANLAMUN & EGG E EGG @ OLD TOWN": {
         "no": 11,
@@ -1323,10 +1323,10 @@
         "stop_name_th": "ร้านหวานละมุน&ร้านเอ้ก อี เอ้ก สาขาเมืองเก่า",
         "lat": 7.883587,
         "lon": 98.38729,
-        "licence": "Scheduled",
-        "eta_min": 22,
-        "eta_time": "2025-11-26T14:12:44.808270",
-        "status": "Scheduled"
+        "licence": "10-1265",
+        "eta_min": 9,
+        "eta_time": "2025-11-26T14:23:18.819853",
+        "status": "Active"
       },
       "Phuket Thaihua Museum": {
         "no": 12,
@@ -1335,9 +1335,9 @@
         "stop_name_th": "พิพิธภัณฑ์ไทยหัว",
         "lat": 7.885098,
         "lon": 98.38571,
-        "licence": "10-1264",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T13:51:44.814049",
+        "licence": "10-1265",
+        "eta_min": 10,
+        "eta_time": "2025-11-26T14:24:18.824859",
         "status": "Active"
       },
       "Dibuk Road": {
@@ -1347,9 +1347,9 @@
         "stop_name_th": "ถนนดีบุก",
         "lat": 7.886441,
         "lon": 98.38668,
-        "licence": "10-1264",
-        "eta_min": 2,
-        "eta_time": "2025-11-26T13:52:44.819234",
+        "licence": "10-1265",
+        "eta_min": 11,
+        "eta_time": "2025-11-26T14:25:18.829925",
         "status": "Active"
       },
       "Mongkhonnimit Temple": {
@@ -1359,9 +1359,9 @@
         "stop_name_th": "วัดมงคลนิมิตร",
         "lat": 7.886017,
         "lon": 98.38915,
-        "licence": "10-1264",
-        "eta_min": 3,
-        "eta_time": "2025-11-26T13:53:44.824139",
+        "licence": "10-1265",
+        "eta_min": 12,
+        "eta_time": "2025-11-26T14:26:18.834852",
         "status": "Active"
       },
       "Limelight Phuket": {
@@ -1371,9 +1371,9 @@
         "stop_name_th": "ไลม์ไลท์ ภูเก็ต",
         "lat": 7.886116,
         "lon": 98.39247,
-        "licence": "10-1264",
-        "eta_min": 5,
-        "eta_time": "2025-11-26T13:55:44.828837",
+        "licence": "10-1265",
+        "eta_min": 14,
+        "eta_time": "2025-11-26T14:28:18.839617",
         "status": "Active"
       },
       "PKCD Parking": {
@@ -1384,8 +1384,8 @@
         "lat": 7.885774,
         "lon": 98.39478,
         "licence": "Scheduled",
-        "eta_min": 9,
-        "eta_time": "2025-11-26T13:59:44.833409",
+        "eta_min": 1,
+        "eta_time": "2025-11-26T14:15:18.844851",
         "status": "Scheduled"
       }
     }

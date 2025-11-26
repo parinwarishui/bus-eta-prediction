@@ -81,15 +81,6 @@ uvicorn api:app --reload
 uvicorn api:app --host 0.0.0.0 --port 8000
 ```
 
-When you start the API, you’ll see:
-```
-🚀 Background worker started.
---- Worker run START (2025-11-13 10:33:00) ---
-worker: Fetching live bus data...
-worker: Successfully updated all_etas.json
---- Worker run END (2025-11-13 10:33:03) ---
-```
-
 ---
 
 ## API Endpoints
@@ -106,49 +97,23 @@ GET http://localhost:8000/
 **Example Response:**
 ```json
 {
-  "Airport -> Rawai": {
-    "route": "Airport -> Rawai",
-    "updated_at": "2025-11-13 10:34:00",
-    "stops": {
-      "Big C Kamala": {
-        "licence": "10-1147",
-        "eta_min": 24,
-        "eta_time": "2025-11-13T11:00:00"
-      }
-    }
-  }
-}
-```
-
-### **GET** `/`
-
-Returns the latest ETA data for all routes.
-
-**Example Request:**
-```
-GET http://localhost:8000/airport-rawai
-```
-
-**Example Response:**
-```json
-{
    "data":{
       "Airport -> Rawai":{
          "route":"Airport -> Rawai",
-         "updated_at":"2025-11-25T14:34:45.423866",
+         "updated_at":"2025-11-26T14:08:10.237950",
          "manual_status":null,
          "stops":{
             "Phuket Airport":{
-               "stop_id":42,
+               "no":42,
+               "index":3,
                "stop_name_eng":"Phuket Airport",
                "stop_name_th":"สนามบิน ภูเก็ต",
                "lat":8.10846,
                "lon":98.30655,
-               "eta_min":25,
-               "status":"Scheduled",
-               "message":"Arriving in 25 mins",
                "licence":"Scheduled",
-               "eta_time":"2025-11-25T14:59:45.266917"
+               "eta_min":22,
+               "eta_time":"2025-11-26T14:30:10.012254",
+               "status":"Scheduled"
             },
          }
       },
@@ -168,21 +133,21 @@ GET http://localhost:8000/airport-rawai
 **Example Response:**
 ```json
 {
-   "route":"Rawai -> Airport",
-   "updated_at":"2025-11-25T14:44:55.172723",
+   "route":"Airport -> Rawai",
+   "updated_at":"2025-11-26T14:12:15.645828",
    "manual_status":null,
    "stops":{
-      "Rawai Beach":{
-         "stop_id":16,
-         "stop_name_eng":"Rawai Beach",
-         "stop_name_th":"หาดราไวย์",
-         "lat":7.77208774295,
-         "lon":98.3217882953,
-         "eta_min":0,
-         "status":"Scheduled",
-         "message":"Arriving in 0 mins",
+      "Phuket Airport":{
+         "no":42,
+         "index":3,
+         "stop_name_eng":"Phuket Airport",
+         "stop_name_th":"สนามบิน ภูเก็ต",
+         "lat":8.10846,
+         "lon":98.30655,
          "licence":"Scheduled",
-         "eta_time":"2025-11-25T14:44:55.123966"
+         "eta_min":18,
+         "eta_time":"2025-11-26T14:30:15.456232",
+         "status":"Scheduled"
       },
    }
 }
@@ -200,28 +165,28 @@ GET http://localhost:8000/airport-rawai/40
 **Example Response:**
 ```json
 {
-   "route_slug":"rawai-airport",
-   "stop_no":40,
-   "stop_info": {
-      "direction":"Bus to Airport",
-      "index":8300,
-      "lat":8.02671784214,
-      "lon":98.3299507153,
-      "no":40,
-      "stop_name_eng":"Baan Khian",
-      "stop_name_th":"บ้านเคียน"
+   "route_slug":"airport-rawai",
+   "stop_no":42,
+   "stop_info":{
+      "no":42,
+      "direction":"Bus to Rawai",
+      "index":3,
+      "lat":8.10846,
+      "lon":98.30655,
+      "stop_name_eng":"Phuket Airport",
+      "stop_name_th":"สนามบิน ภูเก็ต"
    },
-   "live_eta": {
-      "stop_id":40,
-      "stop_name_eng":"Baan Khian",
-      "stop_name_th":"บ้านเคียน",
-      "lat":8.02671784214,
-      "lon":98.3299507153,
-      "eta_min":34,
-      "status":"Active",
-      "message":"Arriving in 34 mins",
-      "licence":"10-1153",
-      "eta_time":"2025-11-25T15:21:58.010990"
+   "live_eta":{
+      "no":42,
+      "index":3,
+      "stop_name_eng":"Phuket Airport",
+      "stop_name_th":"สนามบิน ภูเก็ต",
+      "lat":8.10846,
+      "lon":98.30655,
+      "licence":"Scheduled",
+      "eta_min":17,
+      "eta_time":"2025-11-26T14:30:16.731511",
+      "status":"Scheduled"
    }
 }
 ```
