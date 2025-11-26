@@ -1,22 +1,33 @@
 # Phuket SmartBus ETA API
 
-This project provides a **FastAPI-based REST API** that serves real-time **Bus ETA (Estimated Time of Arrival)** data for multiple routes.  
-The API automatically updates every 60 seconds via an integrated background worker and serves up-to-date results through HTTP endpoints.
+This project provides a **FastAPI-based system** that serves real-time **Bus ETA (Estimated Time of Arrival)** data for Phuket SmartBus routes.
+
+It includes:
+1. A **REST API** serving JSON data for mobile apps or third-party integrations.
+2. A **Web Dashboard** for visualizing bus locations and ETAs.
+3. An **Admin Panel** for manually flagging delays or issues on specific routes.
+
+The system features an integrated background worker that automatically fetches vehicle positions and recalculates ETAs every 60 seconds.
 
 ---
 
 ## Project Structure
 
-```
+```text
 bus_eta_prediction/
 │
-├── api.py                # Main FastAPI app (runs both API & background worker)
-├── services.py           # Functions to fetch data and calculate ETA
-├── stop_access.py        # Stores route definitions, direction maps, and stop lists
-├── .env                  # Environment variables (contains API_KEY)
-├── all_etas.json         # Auto-generated output file containing all ETA data
+├── runner.py             # Main FastAPI entry point (routes & lifecycle manager)
+├── services.py           # Core logic: fetches API data, runs worker thread, calculates ETA
+├── stop_access.py        # Helper classes to manage route configurations and objects
+├── stop_lists.py         # Static dictionaries defining stop coordinates and sequences
+├── templates/            # HTML templates for the frontend
+│   ├── dashboard.html
+│   └── admin.html
+├── .env                  # Environment variables (API Key)
+├── all_etas.json         # Auto-generated cache file containing live ETA data
+├── bus_flags.json        # Auto-generated file storing manual admin flags
 ├── requirements.txt      # Python dependencies
-└── README.md             # You are here
+└── README.md             # Project documentation
 ```
 
 ---
@@ -25,11 +36,12 @@ bus_eta_prediction/
 
 | File | Purpose |
 |------|----------|
-| **`api.py`** | Main entry point. Runs a FastAPI server and background worker that recalculates all ETAs every 60 seconds using the FastAPI `lifespan` event system. |
-| **`services.py`** | Connects to the Phuket SmartBus API, fetches live bus data, and structures it into a DataFrame. Then calculates the ETA of buses for each stop in all the lines. |
-| **`stop_access.py`** | Contains `line_options`, `direction_map`, and `bus_stop_list` — defines all known routes and stops. |
-| **`all_etas.json`** | Output file that stores the most recent ETA data for all routes. Automatically updated by the worker every 60 seconds. |
-| **`.env`** | (Not included) Please create your own .env file for `API_KEY` variable, which stores the API key.|
+| **`runner.py`** | The main application file. It sets up the FastAPI server, defines URL endpoints, and manages the startup/shutdown lifecycle of the background worker.|
+| **`services.py`** | The engine room. It connects to the official Phuket SmartBus API, cleans the data (Pandas), calculates travel times, and updates the JSON cache. |
+| **`stop_access.py`** | A utility module that maps route "slugs" (URLs) to internal configuration objects. |
+| **`all_etas.json`** | A local JSON cache updated every 60 seconds. The API reads from this file to ensure fast response times without hammering the external API. |
+| **`stop_lists.py`** | Contains large dictionaries defining the exact latitude, longitude, and sequence of every bus stop. |
+| **`.env`** | (Not included) Please create your own .env file for `API_KEY` variable, which stores the API key for the Phuket Smart Bus API.|
 
 ---
 
@@ -37,7 +49,7 @@ bus_eta_prediction/
 
 - **Python 3.9+**
 - Internet connection (for live data)
-- Environment variable `API_KEY` from Phuket SmartBus API
+- Environment variable `API_KEY` from Phuket SmartBus API in .env file
 
 ---
 
@@ -45,7 +57,7 @@ bus_eta_prediction/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/bus_eta_prediction.git
+   git clone https://github.com/parinwarishui/bus_eta_prediction.git
    cd bus_eta_prediction
    ```
 
@@ -83,7 +95,21 @@ uvicorn api:app --host 0.0.0.0 --port 8000
 
 ---
 
-## API Endpoints
+## Web Interface
+
+### `/dashboard`
+
+Public-facing dashboard. Select a route and stop to see live ETAs.
+
+### `/admin`
+
+Internal panel to manually flag routes (e.g., "Traffic Jam", "Broken Bus").
+
+### `/docs`
+
+Access Swagger UI to test API endpoints manually.
+
+## JSON API Endpoints
 
 ### **GET** `/`
 

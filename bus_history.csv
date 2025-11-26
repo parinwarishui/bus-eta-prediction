@@ -1,24 +1,24 @@
 licence,lon,lat,spd,buffer,azm,route,timestamp
 10-1147,98.318399,7.771751,25.0,Rawai,176.7,The bus is heading from Phuket Airport to Rawai,2025-11-26 11:15:26.822046
 10-1148,98.306013,8.095961,0.0,Rawai,196.6,The bus is heading from Phuket Airport to Rawai,2025-11-26 13:35:54.191691
-10-1149,98.304353,7.792218,30.0,Rawai,53.7,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:13:16.689478
+10-1149,98.321893,7.772445,8.0,Rawai,326.2,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:23:29.591162
 10-1151,98.30036,7.818481,0.0,Rawai,0.0,The bus is heading from Phuket Airport to Rawai,2025-11-25 18:04:09.547215
-10-1152,98.299381,7.81402,0.0,Phuket Airport,37.7,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:14:18.037962
-10-1159,98.325854,8.02094,0.0,Phuket Airport,0.0,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:14:18.037971
-10-1196,98.318268,7.771326,17.0,Rawai,162.2,The bus is heading from Phuket Airport to Rawai,2025-11-26 13:28:21.317130
+10-1152,98.295171,7.834011,0.0,Phuket Airport,4.4,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:28:35.744935
+10-1159,98.325854,8.02094,0.0,Phuket Airport,0.0,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:28:35.744938
+10-1196,98.317311,7.786231,20.0,Phuket Airport,346.3,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:28:35.744940
 10-1204,98.305631,8.090878,17.0,Rawai,116.3,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:07:08.434213
-10-1205,98.282608,7.948416,0.0,Phuket Airport,73.3,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:14:18.037979
-10-1210,98.295033,7.89377,0.0,Phuket Airport,20.5,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:14:18.037991
-10-1218,98.304,7.890206,5.0,Phuket Bus Terminal 1,26.5,The bus is heading from Patong to Phuket Bus Terminal 1,2025-11-26 14:14:18.037997
+10-1205,98.30211,7.987658,2.0,Phuket Airport,9.9,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:28:35.744942
+10-1210,98.295151,7.893946,0.0,Phuket Airport,31.9,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:28:35.744947
+10-1218,98.333075,7.910415,26.0,Phuket Bus Terminal 1,52.9,The bus is heading from Patong to Phuket Bus Terminal 1,2025-11-26 14:28:35.744949
 10-1220,98.394703,7.885751,18.0,Dragon Line,94.2,The bus is Dragon Line,2025-11-26 14:05:05.517876
-10-1221,98.322706,7.904358,33.0,Patong,195.7,The bus is heading from Phuket Bus Terminal 1 to Patong,2025-11-26 14:14:18.038004
-10-1223,98.389531,7.893661,34.0,Patong,352.7,The bus is heading from Phuket Bus Terminal 1 to Patong,2025-11-26 14:14:18.038009
-10-1264,98.394813,7.886038,0.0,Dragon Line,213.2,The bus is Dragon Line,2025-11-26 14:14:18.038011
-10-1212,98.286211,7.860265,55.0,Rawai,103.3,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:14:18.037994
-10-1150,98.304275,8.063225,50.0,Rawai,154.5,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:14:18.037956
-10-1219,98.401848,7.894186,32.0,Patong,211.6,The bus is heading from Phuket Bus Terminal 1 to Patong,2025-11-26 14:14:18.037999
-10-1265,98.394885,7.883261,8.0,Dragon Line,307.9,The bus is Dragon Line,2025-11-26 14:14:18.038014
-10-1155,98.297513,7.906518,0.0,Rawai,162.8,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:09:11.405670
+10-1221,98.299841,7.882523,21.0,Patong,237.3,The bus is heading from Phuket Bus Terminal 1 to Patong,2025-11-26 14:28:35.744952
+10-1223,98.355005,7.907148,40.0,Patong,306.4,The bus is heading from Phuket Bus Terminal 1 to Patong,2025-11-26 14:28:35.744955
+10-1264,98.394813,7.886038,0.0,Dragon Line,213.2,The bus is Dragon Line,2025-11-26 14:28:35.744956
+10-1212,98.299508,7.820571,16.0,Rawai,158.2,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:28:35.744948
+10-1150,98.331675,8.027413,31.0,Phuket Airport,259.8,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:28:35.744932
+10-1219,98.399061,7.885983,22.0,Phuket Bus Terminal 1,165.8,The bus is heading from Patong to Phuket Bus Terminal 1,2025-11-26 14:16:20.632803
+10-1265,98.386411,7.885001,0.0,Dragon Line,286.8,The bus is Dragon Line,2025-11-26 14:28:35.744957
+10-1155,98.29338,7.88027,31.0,Rawai,223.5,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:28:35.744937
 10-1222,98.395888,7.884413,0.0,Phuket Bus Terminal 1,77.3,The bus is heading from Patong to Phuket Bus Terminal 1,2025-11-26 13:54:52.195842
-10-1208,98.307453,8.107586,9.0,Phuket Airport,191.9,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:14:18.037985
-10-1153,98.305353,7.989186,0.0,Rawai,114.0,The bus is heading from Phuket Airport to Rawai,2025-11-26 14:14:18.037965
+10-1208,98.306616,8.10804,0.0,Phuket Airport,18.7,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:28:35.744944
+10-1153,98.331218,8.027201,14.0,Phuket Airport,64.1,The bus is heading from Rawai to Phuket Airport,2025-11-26 14:27:34.569434
