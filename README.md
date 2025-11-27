@@ -87,6 +87,10 @@ bus_eta_prediction/
 ```bash
 uvicorn api:app --reload
 ```
+or
+```bash
+python runner.py
+```
 
 ### Option 2: Production Mode
 ```bash
