@@ -103,7 +103,7 @@ Public-facing dashboard. Select a route and stop to see live ETAs.
 
 ### `/admin`
 
-Internal panel to manually flag routes (e.g., "Traffic Jam", "Broken Bus").
+Internal panel to manually flag routes (e.g., "Traffic Jam", "Broken Bus") and analytics of ETA prediction accuracy.
 
 ### `/docs`
 
@@ -123,27 +123,56 @@ GET http://localhost:8000/
 **Example Response:**
 ```json
 {
-   "data":{
-      "Airport -> Rawai":{
-         "route":"Airport -> Rawai",
-         "updated_at":"2025-11-26T14:08:10.237950",
-         "manual_status":null,
-         "stops":{
-            "Phuket Airport":{
-               "no":42,
-               "index":3,
-               "stop_name_eng":"Phuket Airport",
-               "stop_name_th":"สนามบิน ภูเก็ต",
-               "lat":8.10846,
-               "lon":98.30655,
-               "licence":"Scheduled",
-               "eta_min":22,
-               "eta_time":"2025-11-26T14:30:10.012254",
-               "status":"Scheduled"
+  "data": {
+    "Airport -> Rawai": {
+      "route": "Airport -> Rawai",
+      "updated_at": "2025-12-02T14:46:52.764704",
+      "route_status": "active",   // Options: "active", "suspended"
+      "route_message": null,      // Custom message if suspended
+      "stops": {
+        "Phuket Airport": {
+          "no": 42,
+          "index": 3,
+          "stop_name_eng": "Phuket Airport",
+          "stop_name_th": "สนามบิน ภูเก็ต",
+          "lat": 8.10846,
+          "lon": 98.30655,
+          "stop_status": "open",  // Options: "open", "closed"
+          "stop_message": null,
+          "upcoming": [
+            {
+              "licence": "10-1204",
+              "eta_min": 0,
+              "eta_time": "2025-12-02T14:46:52.423626",
+              "status": "Active",
+              "message": "Normal Operation",
+              "type": "active"
             },
-         }
-      },
-   }
+            {
+              "licence": "Scheduled",
+              "eta_min": 13,
+              "eta_time": "2025-12-02T14:59:52.423626",
+              "status": "Scheduled",
+              "message": "Normal Operation",
+              "type": "scheduled"
+            },
+            {
+              "licence": "Scheduled",
+              "eta_min": 43,
+              "eta_time": "2025-12-02T15:29:52.423626",
+              "status": "Scheduled",
+              "message": "Normal Operation",
+              "type": "scheduled"
+            }
+          ]
+        }
+        // ... more stops ...
+      }
+    },
+    "Rawai -> Airport": {
+      // ... next route object ...
+    }
+  }
 }
 ```
 
@@ -159,23 +188,49 @@ GET http://localhost:8000/airport-rawai
 **Example Response:**
 ```json
 {
-   "route":"Airport -> Rawai",
-   "updated_at":"2025-11-26T14:12:15.645828",
-   "manual_status":null,
-   "stops":{
-      "Phuket Airport":{
-         "no":42,
-         "index":3,
-         "stop_name_eng":"Phuket Airport",
-         "stop_name_th":"สนามบิน ภูเก็ต",
-         "lat":8.10846,
-         "lon":98.30655,
-         "licence":"Scheduled",
-         "eta_min":18,
-         "eta_time":"2025-11-26T14:30:15.456232",
-         "status":"Scheduled"
-      },
-   }
+  "route": "Airport -> Rawai",
+  "updated_at": "2025-12-02T14:46:52.764704",
+  "route_status": "active",
+  "route_message": null,
+  "stops": {
+    "Phuket Airport": {
+      "no": 42,
+      "index": 3,
+      "stop_name_eng": "Phuket Airport",
+      "stop_name_th": "สนามบิน ภูเก็ต",
+      "lat": 8.10846,
+      "lon": 98.30655,
+      "stop_status": "open",
+      "stop_message": null,
+      "upcoming": [
+        {
+          "licence": "10-1204",
+          "eta_min": 0,
+          "eta_time": "2025-12-02T14:46:52.423626",
+          "status": "Active",
+          "message": "Normal Operation",
+          "type": "active"
+        },
+        {
+          "licence": "Scheduled",
+          "eta_min": 13,
+          "eta_time": "2025-12-02T14:59:52.423626",
+          "status": "Scheduled",
+          "message": "Normal Operation",
+          "type": "scheduled"
+        },
+        {
+          "licence": "Scheduled",
+          "eta_min": 43,
+          "eta_time": "2025-12-02T15:29:52.423626",
+          "status": "Scheduled",
+          "message": "Normal Operation",
+          "type": "scheduled"
+        }
+      ]
+    }
+    // ... other stops on this route ...
+  }
 }
 ```
 
@@ -191,29 +246,40 @@ GET http://localhost:8000/airport-rawai/40
 **Example Response:**
 ```json
 {
-   "route_slug":"airport-rawai",
-   "stop_no":42,
-   "stop_info":{
-      "no":42,
-      "direction":"Bus to Rawai",
-      "index":3,
-      "lat":8.10846,
-      "lon":98.30655,
-      "stop_name_eng":"Phuket Airport",
-      "stop_name_th":"สนามบิน ภูเก็ต"
-   },
-   "live_eta":{
-      "no":42,
-      "index":3,
-      "stop_name_eng":"Phuket Airport",
-      "stop_name_th":"สนามบิน ภูเก็ต",
-      "lat":8.10846,
-      "lon":98.30655,
-      "licence":"Scheduled",
-      "eta_min":17,
-      "eta_time":"2025-11-26T14:30:16.731511",
-      "status":"Scheduled"
-   }
+  "no": 43,
+  "index": 2368,
+  "stop_name_eng": "Thalang Public Health Office",
+  "stop_name_th": "สำนักงานสาธารณสุข ถลาง",
+  "lat": 8.034014,
+  "lon": 98.333571,
+  "stop_status": "open",
+  "stop_message": null,
+  "upcoming": [
+    {
+      "licence": "10-1148",
+      "eta_min": 4,
+      "eta_time": "2025-12-02T14:51:54.209948",
+      "status": "Active",
+      "message": "Normal Operation",
+      "type": "active"
+    },
+    {
+      "licence": "Scheduled",
+      "eta_min": 29,
+      "eta_time": "2025-12-02T15:16:54.209948",
+      "status": "Scheduled",
+      "message": "Normal Operation",
+      "type": "scheduled"
+    },
+    {
+      "licence": "Scheduled",
+      "eta_min": 59,
+      "eta_time": "2025-12-02T15:46:54.209948",
+      "status": "Scheduled",
+      "message": "Normal Operation",
+      "type": "scheduled"
+    }
+  ]
 }
 ```
 

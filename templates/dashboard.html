@@ -3,19 +3,34 @@
 <head>
     <title>Phuket Smart Bus Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="data:,">
+    <link rel="apple-touch-icon" href="data:,">
+    <style>
+        .eta-card {
+            transition: all 0.2s;
+            border-left: 5px solid #ccc;
+        }
+        .eta-card.active-bus { border-left-color: #198754; background-color: #f8fff9; } /* Green */
+        .eta-card.scheduled-bus { border-left-color: #0d6efd; background-color: #f0f8ff; } /* Blue */
+        .eta-card.delayed-bus { border-left-color: #dc3545; background-color: #fff8f8; } /* Red */
+        
+        .status-alert { display: none; margin-top: 20px; }
+    </style>
 </head>
 <body class="bg-light">
 
 <div class="container py-4">
+    <div id="alert-placeholder" class="fixed-top mt-3 mx-auto" style="max-width: 500px; z-index: 1050;"></div>
+
     <h1 class="mb-4 text-center">Phuket Smart Bus Tracker</h1>
     
-    <p class="text-center">Status: <span id="connection-status" class="fw-bold text-primary">Connecting...</span></p>
+    <div class="text-center mb-4">
+        <p class="mb-1">Status: <span id="connection-status" class="fw-bold text-primary">Connecting...</span></p>
+        <small class="text-muted" id="last-updated"></small>
+    </div>
 
     <div class="row g-3 justify-content-center">
-        <!-- Route Selector -->
         <div class="col-md-4">
             <label for="route-select" class="form-label">Select Route:</label>
             <select id="route-select" class="form-select">
@@ -23,7 +38,6 @@
             </select>
         </div>
 
-        <!-- Stop Selector -->
         <div class="col-md-4">
             <label for="stop-select" class="form-label">Select Stop:</label>
             <select id="stop-select" class="form-select" disabled>
@@ -34,18 +48,24 @@
 
     <hr class="my-4">
 
-    <!-- Result Area -->
-    <div id="result-area" class="card shadow-sm mx-auto" style="max-width: 600px; display: none;">
-        <div class="card-body">
-            <h3 class="card-title mb-3">ETA: <span id="eta-value">--</span> mins</h3>
-            <p class="card-text"><strong>Bus Status:</strong> <span id="status-text">--</span></p>
-            <p class="card-text"><strong>Message:</strong> <span id="message-text">--</span></p>
-            <p class="card-text"><strong>Bus License:</strong> <span id="license-text">--</span></p>
-        </div>
+    <div id="route-suspended-alert" class="alert alert-danger status-alert text-center mx-auto" style="max-width: 600px;">
+        <h4>⛔ Route Suspended</h4>
+        <p id="route-suspend-msg">Service temporarily unavailable.</p>
+    </div>
+
+    <div id="stop-closed-alert" class="alert alert-warning status-alert text-center mx-auto" style="max-width: 600px;">
+        <h4>⚠️ Stop Closed</h4>
+        <p id="stop-closed-msg">This stop is currently out of service.</p>
+    </div>
+
+    <div id="eta-container" class="mx-auto" style="max-width: 600px;"></div>
+
+    <div id="no-bus-message" class="alert alert-warning text-center mx-auto" style="max-width: 600px; display: none;">
+        <h4>No more upcoming buses today.</h4>
+        <p>Please check the schedule for tomorrow.</p>
     </div>
 </div>
 
-<!-- Bootstrap JS (Optional) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
@@ -54,49 +74,134 @@ let allBusData = {};
 let selectedRoute = null;
 let selectedStop = null;
 
+// Jinja Variables injected from Server
+const SERVER_INITIAL_SLUG = "{{ initial_route_slug or '' }}";
+const SERVER_INITIAL_STOP_NO = "{{ initial_stop_no or '' }}";
+const ROUTE_SLUG_MAP = {{ routes | tojson }};
+
+const ROUTE_NAME_TO_SLUG = Object.entries(ROUTE_SLUG_MAP).reduce((acc, [slug, name]) => {
+    acc[name] = slug;
+    return acc;
+}, {});
+
+let isInitialLoad = true;
+
+// ==================== UI HELPERS ====================
+function showTemporaryAlert(message) {
+    const placeholder = document.getElementById("alert-placeholder");
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = [
+        `<div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('');
+    placeholder.append(wrapper);
+    setTimeout(() => wrapper.remove(), 4000);
+}
+
+// ==================== URL HANDLING ====================
+function processUrlParameters() {
+    if (!isInitialLoad) return;
+    
+    if (SERVER_INITIAL_SLUG) {
+        const realRouteName = ROUTE_SLUG_MAP[SERVER_INITIAL_SLUG];
+        if (realRouteName && allBusData[realRouteName]) {
+            selectedRoute = realRouteName;
+            document.getElementById("route-select").value = selectedRoute;
+            populateStopDropdown(selectedRoute);
+            
+            if (SERVER_INITIAL_STOP_NO) {
+                const routeStops = allBusData[selectedRoute].stops;
+                let foundStopName = null;
+                for (const [stopName, data] of Object.entries(routeStops)) {
+                    if (String(data.no) === String(SERVER_INITIAL_STOP_NO)) {
+                        foundStopName = stopName;
+                        break;
+                    }
+                }
+                if (foundStopName) {
+                    selectedStop = foundStopName;
+                    document.getElementById("stop-select").value = foundStopName;
+                    updateETA();
+                } else {
+                    showTemporaryAlert(`Stop #${SERVER_INITIAL_STOP_NO} not found on this route.`);
+                    updateUrlState(selectedRoute, null);
+                }
+            }
+        } else {
+            showTemporaryAlert(`Route "${SERVER_INITIAL_SLUG}" does not exist.`);
+            window.history.replaceState({}, document.title, "/dashboard");
+        }
+    }
+    isInitialLoad = false;
+}
+
+function updateUrlState(route, stopName) {
+    let url = "/dashboard";
+    if (route) {
+        const slug = ROUTE_NAME_TO_SLUG[route];
+        if (slug) {
+            url += `/${slug}`;
+            if (stopName) {
+                const stopData = allBusData[route]?.stops?.[stopName];
+                if (stopData) url += `/${stopData.no}`;
+            }
+        }
+    }
+    window.history.pushState({ path: url }, '', url);
+}
+
 // ==================== FETCH BUS DATA ====================
 async function fetchBusData() {
     try {
         const res = await fetch("/");
         const json = await res.json();
-        allBusData = json.data ?? json; // Handle wrapped or unwrapped response
+        allBusData = json.data ?? json; 
 
         document.getElementById("connection-status").innerText = "Connected";
         document.getElementById("connection-status").classList.remove("text-danger");
         document.getElementById("connection-status").classList.add("text-success");
+        document.getElementById("last-updated").innerText = "Last updated: " + new Date().toLocaleString();
 
-        // Only populate route dropdown if it's empty (on first load)
         const routeSelect = document.getElementById("route-select");
         if (routeSelect.options.length <= 1) {
             populateRouteDropdown();
+            processUrlParameters();
         }
 
-        // Refresh ETA display if a stop is currently selected
-        if (selectedRoute && selectedStop) updateETA();
+        if (selectedRoute) {
+            // Re-run suspension logic on every fetch in case status changed
+            updateETA();
+        }
 
     } catch (err) {
         document.getElementById("connection-status").innerText = "Fetch error";
-        document.getElementById("connection-status").classList.remove("text-success");
         document.getElementById("connection-status").classList.add("text-danger");
         console.error("Fetch failed:", err);
     }
 }
 
-// ==================== POPULATE ROUTE DROPDOWN ====================
+// ==================== DROPDOWNS ====================
 function populateRouteDropdown() {
     const routeSelect = document.getElementById("route-select");
+    const currentVal = routeSelect.value;
     routeSelect.innerHTML = '<option value="" disabled selected>Select a route...</option>';
 
-    const routeNames = Object.keys(allBusData).sort();
-    routeNames.forEach(routeName => {
+    if (!allBusData) return;
+
+    Object.keys(allBusData).sort().forEach(routeName => {
         const opt = document.createElement("option");
         opt.value = routeName;
         opt.textContent = routeName;
         routeSelect.appendChild(opt);
     });
+
+    if (currentVal && Object.keys(allBusData).includes(currentVal)) {
+        routeSelect.value = currentVal;
+    }
 }
 
-// ==================== POPULATE STOP DROPDOWN ====================
 function populateStopDropdown(routeName) {
     const stopSelect = document.getElementById("stop-select");
     stopSelect.innerHTML = '<option value="" disabled selected>Select a stop...</option>';
@@ -105,79 +210,129 @@ function populateStopDropdown(routeName) {
     const routeObj = allBusData[routeName];
     if (!routeObj || !routeObj.stops) return;
 
-    // Convert stops object into array
-    // services.py now guarantees 'no' (stop number) is inside the object
     const stopsArray = Object.values(routeObj.stops).map(stopData => ({
         name: stopData.stop_name_eng,
         stop_id: stopData.no,
         index: stopData.index
     }));
 
-    // Sort by route index (sequence) instead of ID, usually safer for ordered routes
     stopsArray.sort((a,b) => a.index - b.index);
 
     stopsArray.forEach(stop => {
         const opt = document.createElement("option");
-        // We use the English name as the value key to lookup in the dict later
         opt.value = stop.name; 
         opt.textContent = `${stop.stop_id}. ${stop.name}`;
         stopSelect.appendChild(opt);
     });
 }
 
-
-// ==================== UPDATE ETA DISPLAY ====================
+// ==================== UPDATE ETA DISPLAY (NEW LOGIC) ====================
 function updateETA() {
-    const resultArea = document.getElementById("result-area");
+    const container = document.getElementById("eta-container");
+    const noBusMsg = document.getElementById("no-bus-message");
+    const routeAlert = document.getElementById("route-suspended-alert");
+    const stopAlert = document.getElementById("stop-closed-alert");
+    const stopSelect = document.getElementById("stop-select");
 
-    if (!selectedRoute || !selectedStop) {
-        resultArea.style.display = "none";
-        return;
-    }
+    // Reset UI
+    container.style.display = "none";
+    noBusMsg.style.display = "none";
+    routeAlert.style.display = "none";
+    stopAlert.style.display = "none";
+    container.innerHTML = "";
+
+    if (!selectedRoute) return;
 
     const routeObj = allBusData[selectedRoute];
+    if (!routeObj) return;
+
+    // 1. CHECK ROUTE STATUS
+    if (routeObj.route_status === "suspended") {
+        document.getElementById("route-suspend-msg").textContent = routeObj.route_message || "Service Suspended";
+        routeAlert.style.display = "block";
+        stopSelect.disabled = true; 
+        stopSelect.innerHTML = '<option selected>Route Suspended</option>';
+        return; 
+    } else {
+        // Re-enable if it was disabled
+        if (stopSelect.disabled && stopSelect.options[0].text === 'Route Suspended') {
+             populateStopDropdown(selectedRoute);
+        }
+    }
+
+    if (!selectedStop) return;
     const stopData = routeObj?.stops?.[selectedStop];
+    if (!stopData) return;
 
-    resultArea.style.display = "block";
-
-    // Reset if stopData missing
-    if (!stopData) {
-        document.getElementById("eta-value").textContent = "--";
-        document.getElementById("status-text").textContent = "No Data";
-        document.getElementById("message-text").textContent = "";
-        document.getElementById("license-text").textContent = "";
-        return;
+    // 2. CHECK STOP STATUS
+    if (stopData.stop_status === "closed") {
+        document.getElementById("stop-closed-msg").textContent = stopData.stop_message || "Stop Closed";
+        stopAlert.style.display = "block";
+        return; 
     }
 
-    // Handle display logic
-    let etaDisplay = "--";
-    if (stopData.eta_min !== undefined && stopData.eta_min !== -1) {
-        etaDisplay = stopData.eta_min;
-    }
+    // 3. SHOW BUSES
+    const buses = stopData.upcoming || [];
 
-    document.getElementById("eta-value").textContent = etaDisplay;
-    document.getElementById("status-text").textContent = stopData.status ?? "--";
-    document.getElementById("message-text").textContent = stopData.message ?? "";
-    document.getElementById("license-text").textContent = stopData.licence ?? "--";
+    if (buses.length === 0) {
+        noBusMsg.style.display = "block";
+    } else {
+        container.style.display = "block";
+        
+        buses.forEach(bus => {
+            let cardClass = "active-bus";
+            let statusBadge = `<span class="badge bg-success">Active</span>`;
+
+            if (bus.type === 'scheduled') {
+                cardClass = "scheduled-bus";
+                statusBadge = `<span class="badge bg-primary">Scheduled</span>`;
+            } else if (bus.status && bus.status.toUpperCase().includes("DELAYED")) {
+                cardClass = "delayed-bus";
+                statusBadge = `<span class="badge bg-danger">Delayed</span>`;
+            }
+
+            let msgHtml = bus.message ? `<div class="text-muted fst-italic small mt-1">${bus.message}</div>` : "";
+
+            const html = `
+                <div class="card shadow-sm mb-3 eta-card ${cardClass}">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="mb-0 fw-bold">${bus.eta_min} <small class="fs-6 text-muted">mins</small></h2>
+                                <div class="text-muted small">Arrival: ${bus.eta_time.split('T')[1].slice(0,5)}</div>
+                            </div>
+                            <div class="text-end">
+                                ${statusBadge}
+                                <div class="fw-bold mt-1">${bus.licence}</div>
+                            </div>
+                        </div>
+                        ${msgHtml}
+                    </div>
+                </div>
+            `;
+            container.innerHTML += html;
+        });
+    }
 }
 
 // ==================== EVENT LISTENERS ====================
 document.getElementById("route-select").addEventListener("change", function () {
     selectedRoute = this.value;
-    selectedStop = null; // Reset stop
-    document.getElementById("result-area").style.display = "none";
+    selectedStop = null;
+    document.getElementById("eta-container").style.display = "none";
     populateStopDropdown(selectedRoute);
+    updateUrlState(selectedRoute, null);
+    // Check for suspension immediately on route selection
+    updateETA();
 });
 
 document.getElementById("stop-select").addEventListener("change", function () {
     selectedStop = this.value;
     updateETA();
+    updateUrlState(selectedRoute, selectedStop);
 });
 
-// ==================== INITIALIZATION ====================
 fetchBusData();
-
-// Auto-refresh every 30 seconds
 setInterval(fetchBusData, 30000);
 </script>
 </body>

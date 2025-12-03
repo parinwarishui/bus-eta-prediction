@@ -3,117 +3,303 @@
 <head>
     <title>Bus Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="data:,">
+    <link rel="apple-touch-icon" href="data:,">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+    <style>
+        .scope-card { cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .scope-card.active { border-color: #0d6efd; background-color: #e9ecef; }
+        .view-section { display: none; }
+        .view-section.active { display: block; }
+        th { cursor: pointer; user-select: none; }
+        th:hover { background-color: #f1f1f1; }
+        #duration-section { transition: opacity 0.3s ease; opacity: 1; }
+        #duration-section.disabled-look { opacity: 0.3; pointer-events: none; }
+        
+        .stat-box { background: #fff; border-radius: 8px; padding: 15px; border: 1px solid #dee2e6; margin-bottom: 10px; }
+        .stat-value { font-size: 1.5rem; font-weight: bold; color: #198754; }
+        .stat-label { font-size: 0.9rem; color: #6c757d; }
+    </style>
 </head>
 <body class="bg-light">
 
 <div class="container py-4">
-    <h1 class="text-center mb-4">Bus Admin Panel</h1>
+    <h2 class="mb-4 text-center">Phuket Smart Bus System</h2>
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm p-4">
-                <h3 class="card-title mb-3">Set Route Status</h3>
-                <!-- Form -->
-                <form id="flag-form">
-                    <!-- Route Select -->
-                    <div class="mb-3">
-                        <label for="route-select" class="form-label">Select Route:</label>
-                        <select name="route" id="route-select" class="form-select">
-                            {% for route in routes %}
-                            <option value="{{ route }}">{{ route }}</option>
-                            {% endfor %}
-                        </select>
+    <div class="row g-3 mb-4">
+        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('bus')"><h5>Bus</h5><small>Delay / Hide</small></div></div>
+        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('route')"><h5>Route</h5><small>Suspend</small></div></div>
+        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('stop')"><h5>Stop</h5><small>Close</small></div></div>
+        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('accuracy')"><h5>Accuracy</h5><small>Live Analytics</small></div></div>
+    </div>
+
+    <div id="accuracy-view" class="view-section">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Live ETA Accuracy Dashboard</h5>
+                <select class="form-select form-select-sm" style="width: 250px;" id="accuracy-route-filter" onchange="updateAccuracyView()">
+                    <option value="All">All Routes</option>
+                    {% for slug, name in routes.items() %}<option value="{{ name }}">{{ name }}</option>{% endfor %}
+                </select>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-8"><canvas id="liveAccuracyChart" height="200"></canvas><div class="text-center mt-2 small text-muted">X-Axis: Time Before Arrival (min) | Y-Axis: Average Delay (min)</div></div>
+                    <div class="col-lg-4 border-start">
+                        <h5 class="mb-3 text-center">80% of buses arrive within:</h5>
+                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">0 - 15 Mins Away</span><span class="stat-value"><span id="stat-0-15">--</span> m</span></div>
+                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">15 - 30 Mins Away</span><span class="stat-value"><span id="stat-15-30">--</span> m</span></div>
+                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">30 - 45 Mins Away</span><span class="stat-value"><span id="stat-30-45">--</span> m</span></div>
+                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">45 - 60 Mins Away</span><span class="stat-value"><span id="stat-45-60">--</span> m</span></div>
                     </div>
-
-                    <!-- Status Message -->
-                    <div class="mb-3">
-                        <label for="status-input" class="form-label">Status Message:</label>
-                        <input type="text" name="status" id="status-input" class="form-control" placeholder="e.g. Traffic Jam">
-                    </div>
-
-                    <!-- Delayed Checkbox -->
-                    <div class="form-check mb-3">
-                        <input type="checkbox" name="is_delayed" id="delayed-check" class="form-check-input" value="true">
-                        <label class="form-check-label" for="delayed-check">Mark as Delayed</label>
-                    </div>
-
-                    <!-- Buttons -->
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary flex-grow-1">Update Status</button>
-                        <button type="button" class="btn btn-secondary flex-grow-1" onclick="clearFlag()">Clear Flag</button>
-                    </div>
-                </form>
-
-                <!-- Result Message -->
-                <p id="result-msg" class="mt-3 fw-bold"></p>
+                </div>
             </div>
         </div>
     </div>
 
-    <hr class="my-4">
-    <div class="text-center">
-        <a href="/dashboard" class="btn btn-outline-primary">Go to Public Dashboard</a>
+    <div id="settings-container">
+        <div class="card shadow mb-4" id="settings-card">
+            <div class="card-header bg-primary text-white"><h5 class="mb-0" id="form-title">Add Settings</h5></div>
+            <div class="card-body">
+                <form id="status-form">
+                    <div class="mb-3" id="input-group-bus"><label>Select Bus:</label><select class="form-select" id="bus-select"><option>Loading...</option></select></div>
+                    <div class="mb-3 d-none" id="input-group-route"><label>Select Route:</label><select class="form-select" id="route-select"><option value="" disabled selected>Select Route...</option>{% for slug, name in routes.items() %}<option value="{{ slug }}">{{ name }}</option>{% endfor %}</select></div>
+                    <div class="mb-3 d-none" id="input-group-stop"><label>Select Stop:</label><select class="form-select" id="stop-select" disabled><option>Select route first...</option></select></div>
+
+                    <div class="mb-3"><label>New Status:</label><div class="btn-group w-100" id="status-buttons"></div><input type="hidden" id="selected-status"></div>
+                    <div class="mb-3"><label>Message:</label><input type="text" class="form-control" id="status-message" placeholder="e.g. Traffic"></div>
+                    <div class="mb-3" id="duration-section"><label>Duration:</label><div class="btn-group w-100"><input type="radio" class="btn-check" name="d" id="d0" value="0" checked><label class="btn btn-outline-secondary" for="d0">Until Off</label><input type="radio" class="btn-check" name="d" id="d30" value="30"><label class="btn btn-outline-secondary" for="d30">30m</label><input type="radio" class="btn-check" name="d" id="d60" value="60"><label class="btn btn-outline-secondary" for="d60">1h</label></div></div>
+                    <button type="button" class="btn btn-success w-100" onclick="submitStatus()">Apply</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <div id="bus-view" class="view-section active"><h4 class="mb-3">All Buses</h4><div class="card shadow-sm"><table class="table table-striped table-hover mb-0" id="table-bus"><thead class="table-dark"><tr><th onclick="sortTable('table-bus',0)">License ↕</th><th onclick="sortTable('table-bus',1)">Route ↕</th><th onclick="sortTable('table-bus',2)">Status ↕</th><th onclick="sortTable('table-bus',3)">Message ↕</th><th>Action</th></tr></thead><tbody id="tbody-bus"></tbody></table></div></div>
+    <div id="route-view" class="view-section"><h4 class="mb-3">All Routes</h4><div class="card shadow-sm"><table class="table table-striped table-hover mb-0" id="table-route"><thead class="table-dark"><tr><th onclick="sortTable('table-route',0)">Route ↕</th><th onclick="sortTable('table-route',1)">Status ↕</th><th onclick="sortTable('table-route',2)">Message ↕</th><th>Action</th></tr></thead><tbody id="tbody-route"></tbody></table></div></div>
+    <div id="stop-view" class="view-section"><h4 class="mb-3">All Stops</h4><div class="card shadow-sm"><table class="table table-striped table-hover mb-0" id="table-stop"><thead class="table-dark"><tr><th onclick="sortTable('table-stop',0)">Route ↕</th><th onclick="sortTable('table-stop',1)">ID ↕</th><th onclick="sortTable('table-stop',2)">Name ↕</th><th onclick="sortTable('table-stop',3)">Status ↕</th><th onclick="sortTable('table-stop',4)">Message ↕</th><th>Action</th></tr></thead><tbody id="tbody-stop"></tbody></table></div></div>
+
 </div>
 
-<!-- Bootstrap JS (optional) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Admin JS logic -->
 <script>
-const form = document.getElementById('flag-form');
-const resultMsg = document.getElementById('result-msg');
+const SERVER_INITIAL_VIEW = "{{ initial_view or 'bus' }}"; // Injected by Jinja
+let currentScope = 'bus';
+let systemData = [];
+let accuracyData = {};
+let chartInstance = null;
 
-// Handle "Update Status"
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    await sendFlag(false);
-});
+// === VIEW LOGIC ===
+function switchView(scope) {
+    currentScope = scope;
+    
+    // Update Browser URL (Deep Linking)
+    if (scope !== 'bus') {
+        history.pushState(null, "", "/admin/" + scope);
+    } else {
+        history.pushState(null, "", "/admin/bus");
+    }
 
-// Handle "Clear Flag"
-async function clearFlag() {
-    document.getElementById('status-input').value = "";
-    document.getElementById('delayed-check').checked = false;
-    await sendFlag(true); // true = clearing
-}
-
-async function sendFlag(isClearing) {
-    const formData = new FormData();
-    const route = document.getElementById('route-select').value;
-    const status = isClearing ? "" : document.getElementById('status-input').value;
-    const isDelayed = document.getElementById('delayed-check').checked;
-
-    formData.append('route', route);
-    formData.append('status', status);
-    formData.append('is_delayed', isDelayed);
-
-    resultMsg.innerText = "Submitting...";
-    resultMsg.style.color = "black";
-
-    try {
-        const response = await fetch('/admin/flag', {
-            method: 'POST',
-            body: formData
+    // UI Updates
+    document.querySelectorAll('.scope-card').forEach(el => el.classList.remove('active'));
+    // Find matching card robustly
+    const cards = document.querySelectorAll('.scope-card');
+    cards.forEach(c => {
+        if(c.textContent.toLowerCase().includes(scope)) c.classList.add('active');
+    });
+    
+    document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+    
+    // Toggle Settings Section vs Accuracy View
+    if (scope === 'accuracy') {
+        document.getElementById('accuracy-view').classList.add('active');
+        document.getElementById('settings-container').style.display = 'none';
+        fetchAccuracyData();
+    } else {
+        document.getElementById(`${scope}-view`).classList.add('active');
+        document.getElementById('settings-container').style.display = 'block';
+        
+        ['bus', 'route', 'stop'].forEach(s => {
+            const el = document.getElementById(`input-group-${s}`);
+            if(s === scope) el.classList.remove('d-none'); else el.classList.add('d-none');
         });
 
-        if (response.ok) {
-            const json = await response.json();
-            resultMsg.innerHTML = "✅ Success! " + json.message;
-            resultMsg.style.color = "green";
-        } else {
-            resultMsg.innerText = "❌ Error: Server rejected request.";
-            resultMsg.style.color = "red";
+        if (scope === 'bus') renderStatusButtons(['active', 'delayed', 'inactive']);
+        else if (scope === 'route') renderStatusButtons(['active', 'suspended']);
+        else if (scope === 'stop') {
+            document.getElementById('input-group-route').classList.remove('d-none');
+            document.getElementById('input-group-stop').classList.remove('d-none');
+            renderStatusButtons(['open', 'closed']);
         }
-    } catch (err) {
-        console.error(err);
-        resultMsg.innerText = "❌ Error: Could not connect to server.";
-        resultMsg.style.color = "red";
     }
 }
-</script>
 
+// === ACCURACY LOGIC ===
+async function fetchAccuracyData() {
+    try {
+        const res = await fetch('/admin/api/accuracy-stats');
+        const json = await res.json();
+        accuracyData = json.data;
+        updateAccuracyView();
+    } catch(e) { console.error(e); }
+}
+
+function updateAccuracyView() {
+    const selectedRoute = document.getElementById('accuracy-route-filter').value;
+    const data = accuracyData[selectedRoute];
+
+    if (!data) return;
+
+    // UPDATE LABELS FOR DELAY
+    document.getElementById('stat-0-15').innerText = (data.summary["0-15"] > 0 ? "+" : "") + data.summary["0-15"];
+    document.getElementById('stat-15-30').innerText = (data.summary["15-30"] > 0 ? "+" : "") + data.summary["15-30"];
+    document.getElementById('stat-30-45').innerText = (data.summary["30-45"] > 0 ? "+" : "") + data.summary["30-45"];
+    document.getElementById('stat-45-60').innerText = (data.summary["45-60"] > 0 ? "+" : "") + data.summary["45-60"];
+
+    const ctx = document.getElementById('liveAccuracyChart').getContext('2d');
+    if (chartInstance) chartInstance.destroy();
+
+    chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.chart.labels,
+            datasets: [{
+                label: `Avg Delay (mins) - ${selectedRoute}`,
+                data: data.chart.data,
+                borderColor: '#dc3545', // Red line for Delay
+                backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Avg Delay (Actual - Predicted)' } 
+                },
+                x: { 
+                    title: { display: true, text: 'Time Before Arrival (Actual)' },
+                }
+            },
+            plugins: {
+                annotation: {
+                    annotations: {
+                        line1: {
+                            type: 'line',
+                            yMin: 0,
+                            yMax: 0,
+                            borderColor: 'green',
+                            borderWidth: 2,
+                            label: { content: 'Perfect Accuracy', enabled: true, position: 'end' }
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// === ADMIN HELPERS ===
+function checkTimeframeVisibility(status) {
+    const div = document.getElementById('duration-section');
+    const safe = ['active', 'open', 'clear'];
+    if (safe.includes(status)) { 
+        div.classList.add('disabled-look'); document.getElementById('d0').checked = true; 
+        div.querySelectorAll('input').forEach(i => i.disabled = true); 
+    } else { 
+        div.classList.remove('disabled-look'); div.querySelectorAll('input').forEach(i => i.disabled = false); 
+    }
+}
+
+function renderStatusButtons(statuses) {
+    const container = document.getElementById('status-buttons');
+    container.innerHTML = '';
+    statuses.forEach((status, idx) => {
+        const checked = idx === 0 ? 'checked' : '';
+        if(checked) { document.getElementById('selected-status').value = status; setTimeout(() => checkTimeframeVisibility(status), 0); }
+        let color = 'btn-outline-primary';
+        if (['delayed', 'suspended', 'closed'].includes(status)) color = 'btn-outline-danger';
+        if (status === 'inactive') color = 'btn-outline-secondary';
+        container.innerHTML += `<input type="radio" class="btn-check" name="st" id="st-${status}" value="${status}" ${checked} onchange="document.getElementById('selected-status').value=this.value; checkTimeframeVisibility(this.value)"><label class="btn ${color}" for="st-${status}">${status.charAt(0).toUpperCase() + status.slice(1)}</label>`;
+    });
+}
+
+async function initData() {
+    const resFleet = await fetch('/admin/fleet');
+    const fleetJson = await resFleet.json();
+    const select = document.getElementById('bus-select');
+    select.innerHTML = '';
+    fleetJson.fleet.forEach(bus => {
+        const opt = document.createElement('option');
+        opt.value = bus.license; opt.textContent = `${bus.license} (${bus.route})`;
+        select.appendChild(opt);
+    });
+    
+    await fetchSystemData();
+    // === INITIAL VIEW LOAD ===
+    switchView(SERVER_INITIAL_VIEW);
+    setInterval(fetchAccuracyData, 60000);
+}
+
+async function fetchSystemData() {
+    const res = await fetch('/admin/system-status');
+    const json = await res.json();
+    systemData = json.status;
+    renderTable('bus', systemData.filter(x => x.type === 'bus'));
+    renderTable('route', systemData.filter(x => x.type === 'route'));
+    renderTable('stop', systemData.filter(x => x.type === 'stop'));
+}
+
+function renderTable(type, data) {
+    const tbody = document.getElementById(`tbody-${type}`);
+    tbody.innerHTML = '';
+    data.forEach(item => {
+        let badgeClass = 'bg-success';
+        if (['delayed', 'suspended', 'closed'].includes(item.status)) badgeClass = 'bg-danger';
+        if (item.status === 'inactive') badgeClass = 'bg-secondary';
+        const tr = document.createElement('tr');
+        if(type==='bus') tr.innerHTML = `<td>${item.id}</td><td>${item.route}</td><td><span class="badge ${badgeClass}">${item.status.toUpperCase()}</span></td><td>${item.message}</td><td><button class="btn btn-sm btn-outline-primary" onclick="editBus('${item.id}')">Edit</button></td>`;
+        else if(type==='route') tr.innerHTML = `<td>${item.id}</td><td><span class="badge ${badgeClass}">${item.status.toUpperCase()}</span></td><td>${item.message}</td><td><button class="btn btn-sm btn-outline-primary" onclick="editRoute('${item.id}')">Edit</button></td>`;
+        else if(type==='stop') tr.innerHTML = `<td>${item.route_name||'-'}</td><td>${item.stop_id||'-'}</td><td>${item.stop_name||'-'}</td><td><span class="badge ${badgeClass}">${item.status.toUpperCase()}</span></td><td>${item.message}</td><td><button class="btn btn-sm btn-outline-primary" onclick="editStop('${item.raw_id}')">Edit</button></td>`;
+        tbody.appendChild(tr);
+    });
+}
+
+function editBus(id) { switchView('bus'); document.getElementById('bus-select').value = id; window.scrollTo({top:0, behavior:'smooth'}); }
+function editRoute(id) { switchView('route'); const s=document.getElementById('route-select'); for(let i=0;i<s.options.length;i++) if(s.options[i].text===id){s.selectedIndex=i;break;} window.scrollTo({top:0, behavior:'smooth'}); }
+function editStop(rawId) { switchView('stop'); const [r,id]=rawId.split(':'); const s=document.getElementById('route-select'); for(let i=0;i<s.options.length;i++) if(s.options[i].text===r){s.selectedIndex=i;s.dispatchEvent(new Event('change'));setTimeout(()=>{document.getElementById('stop-select').value=id;},500);break;} window.scrollTo({top:0, behavior:'smooth'}); }
+
+async function submitStatus() {
+    const status = document.getElementById('selected-status').value;
+    const message = document.getElementById('status-message').value;
+    const duration = document.querySelector('input[name="d"]:checked').value;
+    let identifier = "";
+    if (currentScope === 'bus') identifier = document.getElementById('bus-select').value;
+    else if (currentScope === 'route') { const s=document.getElementById('route-select'); identifier=s.options[s.selectedIndex].text; }
+    else if (currentScope === 'stop') { const s=document.getElementById('route-select'); identifier=`${s.options[s.selectedIndex].text}:${document.getElementById('stop-select').value}`; }
+    if (!identifier) return alert("Select target.");
+    const res = await fetch('/admin/set-status', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ scope: currentScope, identifier, status, message, duration: parseInt(duration) }) });
+    if (res.ok) { alert("Saved!"); fetchSystemData(); }
+}
+
+document.getElementById('route-select').addEventListener('change', async function() {
+    const slug = this.value;
+    const stopSelect = document.getElementById('stop-select');
+    stopSelect.innerHTML = '<option>Loading...</option>'; stopSelect.disabled = true;
+    const res = await fetch(`/admin/stops/${slug}`);
+    const json = await res.json();
+    stopSelect.innerHTML = '';
+    json.stops.forEach(s => { const opt = document.createElement('option'); opt.value = s.id; opt.textContent = `${s.id}. ${s.name}`; stopSelect.appendChild(opt); });
+    stopSelect.disabled = false;
+});
+
+function sortTable(id, n) { /* Same sort logic */ }
+
+initData();
+</script>
 </body>
 </html>

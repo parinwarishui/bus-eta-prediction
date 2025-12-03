@@ -1,8 +1,9 @@
 ﻿{
   "Airport -> Rawai": {
     "route": "Airport -> Rawai",
-    "updated_at": "2025-11-26T14:57:50.278623",
-    "manual_status": null,
+    "updated_at": "2025-12-03T10:34:45.539490",
+    "route_status": "active",
+    "route_message": null,
     "stops": {
       "Phuket Airport": {
         "no": 42,
@@ -11,10 +12,34 @@
         "stop_name_th": "สนามบิน ภูเก็ต",
         "lat": 8.10846,
         "lon": 98.30655,
-        "licence": "Scheduled",
-        "eta_min": 2,
-        "eta_time": "2025-11-26T14:59:50.127889",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 25,
+            "eta_time": "2025-12-03T10:59:45.236870",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 85,
+            "eta_time": "2025-12-03T11:59:45.236870",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 145,
+            "eta_time": "2025-12-03T12:59:45.236870",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Thalang Public Health Office": {
         "no": 43,
@@ -23,10 +48,34 @@
         "stop_name_th": "สำนักงานสาธารณสุข ถลาง",
         "lat": 8.034014,
         "lon": 98.333571,
-        "licence": "Scheduled",
-        "eta_min": 19,
-        "eta_time": "2025-11-26T15:16:50.134329",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 16,
+            "eta_time": "2025-12-03T10:50:45.243469",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 42,
+            "eta_time": "2025-12-03T11:16:45.243469",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 102,
+            "eta_time": "2025-12-03T12:16:45.243469",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Baan Khian": {
         "no": 44,
@@ -35,10 +84,34 @@
         "stop_name_th": "บ้านเคียน",
         "lat": 8.02658289569,
         "lon": 98.3301288357,
-        "licence": "Scheduled",
-        "eta_min": 22,
-        "eta_time": "2025-11-26T15:19:50.140250",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 19,
+            "eta_time": "2025-12-03T10:53:45.253985",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 45,
+            "eta_time": "2025-12-03T11:19:45.253985",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 105,
+            "eta_time": "2025-12-03T12:19:45.253985",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Cherngtalay School": {
         "no": 45,
@@ -47,10 +120,34 @@
         "stop_name_th": "เชิงทะเลวิทยคม",
         "lat": 7.9945496178,
         "lon": 98.3074652629,
-        "licence": "10-1208",
-        "eta_min": 6,
-        "eta_time": "2025-11-26T15:03:50.145716",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 27,
+            "eta_time": "2025-12-03T11:01:45.264141",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 54,
+            "eta_time": "2025-12-03T11:28:45.264141",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 114,
+            "eta_time": "2025-12-03T12:28:45.264141",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Laguna": {
         "no": 46,
@@ -59,10 +156,34 @@
         "stop_name_th": "ลากูน่า",
         "lat": 8.00054,
         "lon": 98.2967,
-        "licence": "10-1208",
-        "eta_min": 6,
-        "eta_time": "2025-11-26T15:03:50.150814",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 28,
+            "eta_time": "2025-12-03T11:02:45.274330",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 54,
+            "eta_time": "2025-12-03T11:28:45.274330",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 114,
+            "eta_time": "2025-12-03T12:28:45.274330",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Lotus Cherngtalay": {
         "no": 47,
@@ -71,10 +192,34 @@
         "stop_name_th": "โลตัสเชิงทะเล",
         "lat": 7.98683280743,
         "lon": 98.3022240495,
-        "licence": "10-1208",
-        "eta_min": 10,
-        "eta_time": "2025-11-26T15:07:50.156317",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 32,
+            "eta_time": "2025-12-03T11:06:45.284477",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 58,
+            "eta_time": "2025-12-03T11:32:45.284477",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 118,
+            "eta_time": "2025-12-03T12:32:45.284477",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Surin Beach": {
         "no": 48,
@@ -83,10 +228,34 @@
         "stop_name_th": "หาดสุรินทร์",
         "lat": 7.97503615503,
         "lon": 98.2807999359,
-        "licence": "10-1208",
-        "eta_min": 16,
-        "eta_time": "2025-11-26T15:13:50.161504",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 37,
+            "eta_time": "2025-12-03T11:11:45.294648",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 63,
+            "eta_time": "2025-12-03T11:37:45.294648",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 123,
+            "eta_time": "2025-12-03T12:37:45.294648",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Intercontinental Kamala": {
         "no": 49,
@@ -95,10 +264,34 @@
         "stop_name_th": "อินเตอร์คอนติเนนตัล ภูเก็ต",
         "lat": 7.96236129603,
         "lon": 98.2848117638,
-        "licence": "10-1208",
-        "eta_min": 20,
-        "eta_time": "2025-11-26T15:17:50.166633",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 41,
+            "eta_time": "2025-12-03T11:15:45.304771",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 68,
+            "eta_time": "2025-12-03T11:42:45.304771",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 128,
+            "eta_time": "2025-12-03T12:42:45.304771",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kamala Muslim Cemetery": {
         "no": 50,
@@ -107,10 +300,34 @@
         "stop_name_th": "กุโบร์ กมลา",
         "lat": 7.95731092253,
         "lon": 98.2844041477,
-        "licence": "10-1208",
-        "eta_min": 21,
-        "eta_time": "2025-11-26T15:18:50.172193",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 42,
+            "eta_time": "2025-12-03T11:16:45.314891",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 69,
+            "eta_time": "2025-12-03T11:43:45.314891",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 129,
+            "eta_time": "2025-12-03T12:43:45.314891",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Fantasea": {
         "no": 51,
@@ -119,10 +336,34 @@
         "stop_name_th": "ภูเก็ต แฟนตาซี",
         "lat": 7.95415185187,
         "lon": 98.2867818744,
-        "licence": "10-1208",
-        "eta_min": 22,
-        "eta_time": "2025-11-26T15:19:50.178102",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 43,
+            "eta_time": "2025-12-03T11:17:45.325001",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 70,
+            "eta_time": "2025-12-03T11:44:45.325001",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 130,
+            "eta_time": "2025-12-03T12:44:45.325001",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Big C Kamala": {
         "no": 52,
@@ -131,10 +372,34 @@
         "stop_name_th": "บิ๊กซี กมลา",
         "lat": 7.94656358353,
         "lon": 98.279718199,
-        "licence": "10-1208",
-        "eta_min": 25,
-        "eta_time": "2025-11-26T15:22:50.183841",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 46,
+            "eta_time": "2025-12-03T11:20:45.335093",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 73,
+            "eta_time": "2025-12-03T11:47:45.335093",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 133,
+            "eta_time": "2025-12-03T12:47:45.335093",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kalim Bus Stop": {
         "no": 53,
@@ -143,10 +408,34 @@
         "stop_name_th": "หาดกะหลิม",
         "lat": 7.91503587898,
         "lon": 98.2928011963,
-        "licence": "10-1208",
-        "eta_min": 35,
-        "eta_time": "2025-11-26T15:32:50.189965",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 56,
+            "eta_time": "2025-12-03T11:30:45.345137",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 83,
+            "eta_time": "2025-12-03T11:57:45.345137",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 143,
+            "eta_time": "2025-12-03T12:57:45.345137",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kalim School": {
         "no": 54,
@@ -155,10 +444,34 @@
         "stop_name_th": "โรงเรียนกะหลิม",
         "lat": 7.9115973687,
         "lon": 98.2948875228,
-        "licence": "10-1208",
-        "eta_min": 36,
-        "eta_time": "2025-11-26T15:33:50.196011",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 58,
+            "eta_time": "2025-12-03T11:32:45.355230",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 84,
+            "eta_time": "2025-12-03T11:58:45.355230",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 144,
+            "eta_time": "2025-12-03T12:58:45.355230",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Diamond Cliff Resort & Spa": {
         "no": 55,
@@ -167,10 +480,34 @@
         "stop_name_th": "ไดมอนด์คลิฟ รีสอร์ท แอนด์ สปา",
         "lat": 7.90826338087,
         "lon": 98.2970014274,
-        "licence": "10-1208",
-        "eta_min": 38,
-        "eta_time": "2025-11-26T15:35:50.201627",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1151",
+            "eta_min": 59,
+            "eta_time": "2025-12-03T11:33:45.365291",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 85,
+            "eta_time": "2025-12-03T11:59:45.365291",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 145,
+            "eta_time": "2025-12-03T12:59:45.365291",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Indigo Patong": {
         "no": 56,
@@ -179,10 +516,34 @@
         "stop_name_th": "อินดิโก้ โฮเต็ล",
         "lat": 7.89925553359,
         "lon": 98.3001148938,
-        "licence": "10-1208",
-        "eta_min": 42,
-        "eta_time": "2025-11-26T15:39:50.206756",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1196",
+            "eta_min": 0,
+            "eta_time": "2025-12-03T10:34:45.375383",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 63,
+            "eta_time": "2025-12-03T11:37:45.375383",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 89,
+            "eta_time": "2025-12-03T12:03:45.375383",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Patong PEA": {
         "no": 57,
@@ -191,10 +552,34 @@
         "stop_name_th": "การไฟฟ้าป่าตอง",
         "lat": 7.89107747505,
         "lon": 98.2976975965,
-        "licence": "10-1208",
-        "eta_min": 46,
-        "eta_time": "2025-11-26T15:43:50.211978",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1196",
+            "eta_min": 2,
+            "eta_time": "2025-12-03T10:36:45.389043",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 66,
+            "eta_time": "2025-12-03T11:40:45.389043",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 92,
+            "eta_time": "2025-12-03T12:06:45.389043",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Holiday Inn Resort Patong": {
         "no": 58,
@@ -203,10 +588,34 @@
         "stop_name_th": "ฮอลิเดย์ อินน์ ป่าอง",
         "lat": 7.88830021599,
         "lon": 98.2954830884,
-        "licence": "10-1208",
-        "eta_min": 48,
-        "eta_time": "2025-11-26T15:45:50.217358",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1196",
+            "eta_min": 3,
+            "eta_time": "2025-12-03T10:37:45.403791",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 67,
+            "eta_time": "2025-12-03T11:41:45.403791",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 94,
+            "eta_time": "2025-12-03T12:08:45.403791",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Secret cliff resort ": {
         "no": 59,
@@ -215,10 +624,34 @@
         "stop_name_th": "ซีเคร็ท คลิฟ",
         "lat": 7.86086561883,
         "lon": 98.2849353543,
-        "licence": "10-1208",
-        "eta_min": 56,
-        "eta_time": "2025-11-26T15:53:50.222854",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1196",
+            "eta_min": 14,
+            "eta_time": "2025-12-03T10:48:45.417903",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 78,
+            "eta_time": "2025-12-03T11:52:45.417903",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 104,
+            "eta_time": "2025-12-03T12:18:45.417903",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Karon Circle": {
         "no": 60,
@@ -227,10 +660,34 @@
         "stop_name_th": "วงเวียนกะรน",
         "lat": 7.84795664331,
         "lon": 98.2934142411,
-        "licence": "10-1208",
-        "eta_min": 60,
-        "eta_time": "2025-11-26T15:57:50.228291",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 3,
+            "eta_time": "2025-12-03T10:37:45.431740",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 19,
+            "eta_time": "2025-12-03T10:53:45.431740",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 83,
+            "eta_time": "2025-12-03T11:57:45.431740",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Woraburi Karon": {
         "no": 61,
@@ -239,10 +696,34 @@
         "stop_name_th": "วรบุรี ภูเก็ต รีสอร์ท",
         "lat": 7.84389885144,
         "lon": 98.294253846,
-        "licence": "10-1208",
-        "eta_min": 61,
-        "eta_time": "2025-11-26T15:58:50.233639",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 4,
+            "eta_time": "2025-12-03T10:38:45.445128",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 20,
+            "eta_time": "2025-12-03T10:54:45.445128",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 84,
+            "eta_time": "2025-12-03T11:58:45.445128",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Karon Stadium": {
         "no": 62,
@@ -251,10 +732,34 @@
         "stop_name_th": "สนามกีฬากะรน",
         "lat": 7.83042868249,
         "lon": 98.2951891642,
-        "licence": "10-1208",
-        "eta_min": 65,
-        "eta_time": "2025-11-26T16:02:50.238857",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 7,
+            "eta_time": "2025-12-03T10:41:45.458451",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 23,
+            "eta_time": "2025-12-03T10:57:45.458451",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 87,
+            "eta_time": "2025-12-03T12:01:45.458451",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "OZO Phuket": {
         "no": 63,
@@ -263,10 +768,34 @@
         "stop_name_th": "โอโซ่ ภูเก็ต",
         "lat": 7.82412170874,
         "lon": 98.2977529792,
-        "licence": "10-1208",
-        "eta_min": 67,
-        "eta_time": "2025-11-26T16:04:50.244371",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 9,
+            "eta_time": "2025-12-03T10:43:45.471821",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 25,
+            "eta_time": "2025-12-03T10:59:45.471821",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 89,
+            "eta_time": "2025-12-03T12:03:45.471821",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Kata Palm": {
         "no": 64,
@@ -275,10 +804,34 @@
         "stop_name_th": "กะตะ ปาล์ม",
         "lat": 7.81869818864,
         "lon": 98.300246714,
-        "licence": "10-1208",
-        "eta_min": 69,
-        "eta_time": "2025-11-26T16:06:50.249925",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 11,
+            "eta_time": "2025-12-03T10:45:45.485029",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 27,
+            "eta_time": "2025-12-03T11:01:45.485029",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 91,
+            "eta_time": "2025-12-03T12:05:45.485029",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Beyond hotel Kata": {
         "no": 65,
@@ -287,10 +840,34 @@
         "stop_name_th": "บียอนด์ กะตะ",
         "lat": 7.81668122979,
         "lon": 98.3007351739,
-        "licence": "10-1208",
-        "eta_min": 69,
-        "eta_time": "2025-11-26T16:06:50.255299",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 12,
+            "eta_time": "2025-12-03T10:46:45.499127",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 28,
+            "eta_time": "2025-12-03T11:02:45.499127",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 92,
+            "eta_time": "2025-12-03T12:06:45.499127",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Andaman Cannacia Resort": {
         "no": 66,
@@ -299,10 +876,34 @@
         "stop_name_th": "อันดามัน คาเนเซีย",
         "lat": 7.81260613785,
         "lon": 98.3011662339,
-        "licence": "10-1155",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T14:58:50.260610",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 14,
+            "eta_time": "2025-12-03T10:48:45.512573",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 30,
+            "eta_time": "2025-12-03T11:04:45.512573",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 94,
+            "eta_time": "2025-12-03T12:08:45.512573",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Sai Yuan": {
         "no": 67,
@@ -311,17 +912,42 @@
         "stop_name_th": "ไสยวน",
         "lat": 7.79443123471,
         "lon": 98.3156676956,
-        "licence": "10-1155",
-        "eta_min": 10,
-        "eta_time": "2025-11-26T15:07:50.269589",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1159",
+            "eta_min": 23,
+            "eta_time": "2025-12-03T10:57:45.526221",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1196",
+            "eta_min": 39,
+            "eta_time": "2025-12-03T11:13:45.526221",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1151",
+            "eta_min": 103,
+            "eta_time": "2025-12-03T12:17:45.526221",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       }
     }
   },
   "Rawai -> Airport": {
     "route": "Rawai -> Airport",
-    "updated_at": "2025-11-26T14:57:50.581700",
-    "manual_status": null,
+    "updated_at": "2025-12-03T10:34:45.880006",
+    "route_status": "active",
+    "route_message": null,
     "stops": {
       "Rawai Beach": {
         "no": 16,
@@ -330,10 +956,34 @@
         "stop_name_th": "หาดราไวย์",
         "lat": 7.77208774295,
         "lon": 98.3217882953,
-        "licence": "Scheduled",
-        "eta_min": 47,
-        "eta_time": "2025-11-26T15:44:50.306785",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 10,
+            "eta_time": "2025-12-03T10:44:45.578281",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 45,
+            "eta_time": "2025-12-03T11:19:45.578281",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 70,
+            "eta_time": "2025-12-03T11:44:45.578281",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Sai Yuan": {
         "no": 17,
@@ -342,10 +992,34 @@
         "stop_name_th": "ไสยวน",
         "lat": 7.79441794757,
         "lon": 98.3155604072,
-        "licence": "10-1149",
-        "eta_min": 3,
-        "eta_time": "2025-11-26T15:00:50.313788",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 17,
+            "eta_time": "2025-12-03T10:51:45.584311",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 52,
+            "eta_time": "2025-12-03T11:26:45.584311",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 77,
+            "eta_time": "2025-12-03T11:51:45.584311",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Andaman Cannacia Resort": {
         "no": 18,
@@ -354,10 +1028,34 @@
         "stop_name_th": "อันดามัน คาเนเซีย",
         "lat": 7.81247074512,
         "lon": 98.3010678512,
-        "licence": "10-1149",
-        "eta_min": 11,
-        "eta_time": "2025-11-26T15:08:50.319162",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 2,
+            "eta_time": "2025-12-03T10:36:45.589735",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 26,
+            "eta_time": "2025-12-03T11:00:45.589735",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 61,
+            "eta_time": "2025-12-03T11:35:45.589735",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Beyond hotel Kata": {
         "no": 19,
@@ -366,10 +1064,34 @@
         "stop_name_th": "บียอนด์ กะตะ",
         "lat": 7.81648548634,
         "lon": 98.3006487149,
-        "licence": "10-1149",
-        "eta_min": 13,
-        "eta_time": "2025-11-26T15:10:50.324309",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 4,
+            "eta_time": "2025-12-03T10:38:45.599901",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 28,
+            "eta_time": "2025-12-03T11:02:45.599901",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 63,
+            "eta_time": "2025-12-03T11:37:45.599901",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kata Palm": {
         "no": 20,
@@ -378,10 +1100,34 @@
         "stop_name_th": "กะตะ ปาล์ม",
         "lat": 7.81874394528,
         "lon": 98.3000995192,
-        "licence": "10-1149",
-        "eta_min": 14,
-        "eta_time": "2025-11-26T15:11:50.329560",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 4,
+            "eta_time": "2025-12-03T10:38:45.611024",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 29,
+            "eta_time": "2025-12-03T11:03:45.611024",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 64,
+            "eta_time": "2025-12-03T11:38:45.611024",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "OZO Kata": {
         "no": 21,
@@ -390,10 +1136,34 @@
         "stop_name_th": "โอโซ่ ภูเก็ต",
         "lat": 7.82509655568,
         "lon": 98.2970288793,
-        "licence": "10-1149",
-        "eta_min": 16,
-        "eta_time": "2025-11-26T15:13:50.334786",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 6,
+            "eta_time": "2025-12-03T10:40:45.621592",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 31,
+            "eta_time": "2025-12-03T11:05:45.621592",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 66,
+            "eta_time": "2025-12-03T11:40:45.621592",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Peach Blossom": {
         "no": 22,
@@ -402,10 +1172,34 @@
         "stop_name_th": "พีช บลอสซั่ม",
         "lat": 7.82622531978,
         "lon": 98.2966885186,
-        "licence": "10-1149",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T15:14:50.340008",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 7,
+            "eta_time": "2025-12-03T10:41:45.631866",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 31,
+            "eta_time": "2025-12-03T11:05:45.631866",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 66,
+            "eta_time": "2025-12-03T11:40:45.631866",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Karon Stadium": {
         "no": 23,
@@ -414,10 +1208,34 @@
         "stop_name_th": "สนามกีฬากะรน",
         "lat": 7.83035424986,
         "lon": 98.2950633387,
-        "licence": "10-1149",
-        "eta_min": 18,
-        "eta_time": "2025-11-26T15:15:50.345091",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 8,
+            "eta_time": "2025-12-03T10:42:45.641973",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 33,
+            "eta_time": "2025-12-03T11:07:45.641973",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 68,
+            "eta_time": "2025-12-03T11:42:45.641973",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Woraburi Karon": {
         "no": 24,
@@ -426,10 +1244,34 @@
         "stop_name_th": "วรบุรี ภูเก็ต รีสอร์ท",
         "lat": 7.84400759933,
         "lon": 98.2941565461,
-        "licence": "10-1149",
-        "eta_min": 22,
-        "eta_time": "2025-11-26T15:19:50.350081",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 12,
+            "eta_time": "2025-12-03T10:46:45.652133",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 36,
+            "eta_time": "2025-12-03T11:10:45.652133",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 71,
+            "eta_time": "2025-12-03T11:45:45.652133",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Karon Circle": {
         "no": 25,
@@ -438,10 +1280,34 @@
         "stop_name_th": "วงเวียนกะรน",
         "lat": 7.84775915937,
         "lon": 98.2933055042,
-        "licence": "10-1196",
-        "eta_min": 0,
-        "eta_time": "2025-11-26T14:57:50.355061",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 13,
+            "eta_time": "2025-12-03T10:47:45.662215",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 37,
+            "eta_time": "2025-12-03T11:11:45.662215",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 72,
+            "eta_time": "2025-12-03T11:46:45.662215",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Secret cliff resort ": {
         "no": 26,
@@ -450,10 +1316,34 @@
         "stop_name_th": "ซีเคร็ท คลิฟ",
         "lat": 7.8609001407,
         "lon": 98.2845652549,
-        "licence": "10-1196",
-        "eta_min": 5,
-        "eta_time": "2025-11-26T15:02:50.363904",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 18,
+            "eta_time": "2025-12-03T10:52:45.672402",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 42,
+            "eta_time": "2025-12-03T11:16:45.672402",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 77,
+            "eta_time": "2025-12-03T11:51:45.672402",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Patong Bus Stop": {
         "no": 27,
@@ -462,10 +1352,34 @@
         "stop_name_th": "จุดจอดรถป่าตอง",
         "lat": 7.88752462813,
         "lon": 98.2913288644,
-        "licence": "10-1196",
-        "eta_min": 11,
-        "eta_time": "2025-11-26T15:08:50.372921",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1152",
+            "eta_min": 24,
+            "eta_time": "2025-12-03T10:58:45.682445",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 49,
+            "eta_time": "2025-12-03T11:23:45.682445",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 84,
+            "eta_time": "2025-12-03T11:58:45.682445",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Bangla Patong ": {
         "no": 28,
@@ -474,10 +1388,34 @@
         "stop_name_th": "ป่าตอง บางลา",
         "lat": 7.89407,
         "lon": 98.29513,
-        "licence": "10-1152",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T14:58:50.381624",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1147",
+            "eta_min": 2,
+            "eta_time": "2025-12-03T10:36:45.692696",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 28,
+            "eta_time": "2025-12-03T11:02:45.692696",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 52,
+            "eta_time": "2025-12-03T11:26:45.692696",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Four Point Patong": {
         "no": 29,
@@ -486,10 +1424,34 @@
         "stop_name_th": "โฟร์ พอยต์ ป่าตอง",
         "lat": 7.90467913947,
         "lon": 98.2972091153,
-        "licence": "10-1152",
-        "eta_min": 7,
-        "eta_time": "2025-11-26T15:04:50.394104",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 3,
+            "eta_time": "2025-12-03T10:37:45.706912",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 8,
+            "eta_time": "2025-12-03T10:42:45.706912",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 35,
+            "eta_time": "2025-12-03T11:09:45.706912",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Kalim School": {
         "no": 30,
@@ -498,10 +1460,34 @@
         "stop_name_th": "โรงเรียนกะหลิม",
         "lat": 7.91067572034,
         "lon": 98.2957506346,
-        "licence": "10-1152",
-        "eta_min": 8,
-        "eta_time": "2025-11-26T15:05:50.406478",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 4,
+            "eta_time": "2025-12-03T10:38:45.720086",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 9,
+            "eta_time": "2025-12-03T10:43:45.720086",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 36,
+            "eta_time": "2025-12-03T11:10:45.720086",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Kalim Bus Stop": {
         "no": 31,
@@ -510,10 +1496,34 @@
         "stop_name_th": "หาดกะหลิม",
         "lat": 7.9149017669,
         "lon": 98.2927425399,
-        "licence": "10-1152",
-        "eta_min": 9,
-        "eta_time": "2025-11-26T15:06:50.419126",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 5,
+            "eta_time": "2025-12-03T10:39:45.733132",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 10,
+            "eta_time": "2025-12-03T10:44:45.733132",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 37,
+            "eta_time": "2025-12-03T11:11:45.733132",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Big C Kamala": {
         "no": 32,
@@ -522,10 +1532,34 @@
         "stop_name_th": "บิ๊กซี กมลา",
         "lat": 7.94747711246,
         "lon": 98.2805120802,
-        "licence": "10-1152",
-        "eta_min": 20,
-        "eta_time": "2025-11-26T15:17:50.431452",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 16,
+            "eta_time": "2025-12-03T10:50:45.746259",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 21,
+            "eta_time": "2025-12-03T10:55:45.746259",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 48,
+            "eta_time": "2025-12-03T11:22:45.746259",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Phuket Fantasea": {
         "no": 33,
@@ -534,10 +1568,34 @@
         "stop_name_th": "ภูเก็ต แฟนตาซี",
         "lat": 7.95413235293,
         "lon": 98.2865626774,
-        "licence": "10-1152",
-        "eta_min": 22,
-        "eta_time": "2025-11-26T15:19:50.443820",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 18,
+            "eta_time": "2025-12-03T10:52:45.759351",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 23,
+            "eta_time": "2025-12-03T10:57:45.759351",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 50,
+            "eta_time": "2025-12-03T11:24:45.759351",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Kamala Muslim Cemetery": {
         "no": 34,
@@ -546,10 +1604,34 @@
         "stop_name_th": "กุโบร์ กมลา",
         "lat": 7.95732021988,
         "lon": 98.2842693667,
-        "licence": "10-1152",
-        "eta_min": 23,
-        "eta_time": "2025-11-26T15:20:50.456577",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 19,
+            "eta_time": "2025-12-03T10:53:45.772541",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 24,
+            "eta_time": "2025-12-03T10:58:45.772541",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 51,
+            "eta_time": "2025-12-03T11:25:45.772541",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Cafe De Mar": {
         "no": 35,
@@ -558,10 +1640,34 @@
         "stop_name_th": "คาเฟ่ เดล มาร์",
         "lat": 7.9609119227,
         "lon": 98.2846268463,
-        "licence": "10-1210",
-        "eta_min": 0,
-        "eta_time": "2025-11-26T14:57:50.469074",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 20,
+            "eta_time": "2025-12-03T10:54:45.785647",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 25,
+            "eta_time": "2025-12-03T10:59:45.785647",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 52,
+            "eta_time": "2025-12-03T11:26:45.785647",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Surin Beach": {
         "no": 36,
@@ -570,10 +1676,34 @@
         "stop_name_th": "หาดสุรินทร์",
         "lat": 7.97543085798,
         "lon": 98.2806006571,
-        "licence": "10-1210",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T15:01:50.485017",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 24,
+            "eta_time": "2025-12-03T10:58:45.798805",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 29,
+            "eta_time": "2025-12-03T11:03:45.798805",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 56,
+            "eta_time": "2025-12-03T11:30:45.798805",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Lotus Cherngtalay": {
         "no": 37,
@@ -582,10 +1712,34 @@
         "stop_name_th": "โลตัสเชิงทะเล",
         "lat": 7.98564677947,
         "lon": 98.3019957451,
-        "licence": "10-1210",
-        "eta_min": 12,
-        "eta_time": "2025-11-26T15:09:50.500907",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 31,
+            "eta_time": "2025-12-03T11:05:45.812446",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 36,
+            "eta_time": "2025-12-03T11:10:45.812446",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 63,
+            "eta_time": "2025-12-03T11:37:45.812446",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Laguna": {
         "no": 38,
@@ -594,10 +1748,34 @@
         "stop_name_th": "ลากูน่า",
         "lat": 8.00036,
         "lon": 98.29662,
-        "licence": "10-1210",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T15:14:50.516849",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 35,
+            "eta_time": "2025-12-03T11:09:45.826091",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 41,
+            "eta_time": "2025-12-03T11:15:45.826091",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 67,
+            "eta_time": "2025-12-03T11:41:45.826091",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Cherngtalay School": {
         "no": 39,
@@ -606,10 +1784,34 @@
         "stop_name_th": "เชิงทะเลวิทยคม",
         "lat": 7.99461605031,
         "lon": 98.3072837597,
-        "licence": "10-1210",
-        "eta_min": 18,
-        "eta_time": "2025-11-26T15:15:50.533333",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 36,
+            "eta_time": "2025-12-03T11:10:45.839859",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 41,
+            "eta_time": "2025-12-03T11:15:45.839859",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 68,
+            "eta_time": "2025-12-03T11:42:45.839859",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Baan Khian": {
         "no": 40,
@@ -618,10 +1820,34 @@
         "stop_name_th": "บ้านเคียน",
         "lat": 8.02671784214,
         "lon": 98.3299507153,
-        "licence": "10-1210",
-        "eta_min": 27,
-        "eta_time": "2025-11-26T15:24:50.549379",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 45,
+            "eta_time": "2025-12-03T11:19:45.853340",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 50,
+            "eta_time": "2025-12-03T11:24:45.853340",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 77,
+            "eta_time": "2025-12-03T11:51:45.853340",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       },
       "Thalang Public Health Office": {
         "no": 41,
@@ -630,17 +1856,42 @@
         "stop_name_th": "สำนักงานสาธารณสุข ถลาง",
         "lat": 8.03455487516,
         "lon": 98.3332974713,
-        "licence": "10-1210",
-        "eta_min": 30,
-        "eta_time": "2025-11-26T15:27:50.565513",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1153",
+            "eta_min": 48,
+            "eta_time": "2025-12-03T11:22:45.866643",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1147",
+            "eta_min": 53,
+            "eta_time": "2025-12-03T11:27:45.866643",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1152",
+            "eta_min": 80,
+            "eta_time": "2025-12-03T11:54:45.866643",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          }
+        ]
       }
     }
   },
   "Bus 2 -> Bus 1 -> Patong": {
     "route": "Bus 2 -> Bus 1 -> Patong",
-    "updated_at": "2025-11-26T14:57:50.745721",
-    "manual_status": null,
+    "updated_at": "2025-12-03T10:34:46.056210",
+    "route_status": "active",
+    "route_message": null,
     "stops": {
       "Phuket Bus Terminal 2": {
         "no": 107,
@@ -649,10 +1900,34 @@
         "stop_name_th": "สถานีขนส่งภูเก็ต 2",
         "lat": 7.9178462,
         "lon": 98.3946883,
-        "licence": "Scheduled",
-        "eta_min": 32,
-        "eta_time": "2025-11-26T15:29:50.620022",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 55,
+            "eta_time": "2025-12-03T11:29:45.900484",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 115,
+            "eta_time": "2025-12-03T12:29:45.900484",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 175,
+            "eta_time": "2025-12-03T13:29:45.900484",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Big C Market Thepkrasattri": {
         "no": 108,
@@ -661,10 +1936,34 @@
         "stop_name_th": "บิ๊กซี มาร์เก็ต เทพกระษัตรี",
         "lat": 7.909134,
         "lon": 98.391782,
-        "licence": "Scheduled",
-        "eta_min": 33,
-        "eta_time": "2025-11-26T15:30:50.626825",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 56,
+            "eta_time": "2025-12-03T11:30:45.906183",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 116,
+            "eta_time": "2025-12-03T12:30:45.906183",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 176,
+            "eta_time": "2025-12-03T13:30:45.906183",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Ban Kuku School": {
         "no": 109,
@@ -673,10 +1972,34 @@
         "stop_name_th": "โรงเรียนบ้านกู้กู",
         "lat": 7.908610653,
         "lon": 98.39966677,
-        "licence": "Scheduled",
-        "eta_min": 37,
-        "eta_time": "2025-11-26T15:34:50.632084",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 60,
+            "eta_time": "2025-12-03T11:34:45.911728",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 120,
+            "eta_time": "2025-12-03T12:34:45.911728",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 180,
+            "eta_time": "2025-12-03T13:34:45.911728",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Dcondo Campus Kuku": {
         "no": 110,
@@ -685,10 +2008,34 @@
         "stop_name_th": "ดีคอนโด กู้กู",
         "lat": 7.907166011,
         "lon": 98.40369154,
-        "licence": "Scheduled",
-        "eta_min": 38,
-        "eta_time": "2025-11-26T15:35:50.637366",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 61,
+            "eta_time": "2025-12-03T11:35:45.917876",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 121,
+            "eta_time": "2025-12-03T12:35:45.917876",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 181,
+            "eta_time": "2025-12-03T13:35:45.917876",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Soi Thachin": {
         "no": 111,
@@ -697,10 +2044,34 @@
         "stop_name_th": "ป้ายซอยท่าจีน",
         "lat": 7.90367797623822,
         "lon": 98.4098317778341,
-        "licence": "Scheduled",
-        "eta_min": 39,
-        "eta_time": "2025-11-26T15:36:50.642499",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 62,
+            "eta_time": "2025-12-03T11:36:45.923299",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 122,
+            "eta_time": "2025-12-03T12:36:45.923299",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 182,
+            "eta_time": "2025-12-03T13:36:45.923299",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Big C Mini Kingkaew": {
         "no": 112,
@@ -709,10 +2080,34 @@
         "stop_name_th": "บิ๊กซีมินิ กิ่งแก้ว",
         "lat": 7.898938,
         "lon": 98.410774,
-        "licence": "Scheduled",
-        "eta_min": 40,
-        "eta_time": "2025-11-26T15:37:50.647929",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 63,
+            "eta_time": "2025-12-03T11:37:45.928711",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 123,
+            "eta_time": "2025-12-03T12:37:45.928711",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 183,
+            "eta_time": "2025-12-03T13:37:45.928711",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Baan Natkamon": {
         "no": 113,
@@ -721,10 +2116,34 @@
         "stop_name_th": "บ้านณัฐกมล",
         "lat": 7.895382,
         "lon": 98.406191,
-        "licence": "Scheduled",
-        "eta_min": 42,
-        "eta_time": "2025-11-26T15:39:50.653197",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 65,
+            "eta_time": "2025-12-03T11:39:45.933973",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 125,
+            "eta_time": "2025-12-03T12:39:45.933973",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 185,
+            "eta_time": "2025-12-03T13:39:45.933973",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Provincial Cooperative Office": {
         "no": 114,
@@ -733,10 +2152,34 @@
         "stop_name_th": "สำนักงานสหกรณ์จังหวัด",
         "lat": 7.893408,
         "lon": 98.401439,
-        "licence": "Scheduled",
-        "eta_min": 43,
-        "eta_time": "2025-11-26T15:40:50.658119",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 66,
+            "eta_time": "2025-12-03T11:40:45.939323",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 126,
+            "eta_time": "2025-12-03T12:40:45.939323",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 186,
+            "eta_time": "2025-12-03T13:40:45.939323",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Sanamchai": {
         "no": 69,
@@ -745,10 +2188,34 @@
         "stop_name_th": "สนามชัย",
         "lat": 7.889961988,
         "lon": 98.39767359,
-        "licence": "Scheduled",
-        "eta_min": 45,
-        "eta_time": "2025-11-26T15:42:50.673752",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 68,
+            "eta_time": "2025-12-03T11:42:45.955233",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 128,
+            "eta_time": "2025-12-03T12:42:45.955233",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 188,
+            "eta_time": "2025-12-03T13:42:45.955233",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Bus Terminal 1": {
         "no": 68,
@@ -757,10 +2224,34 @@
         "stop_name_th": "สถานีขนส่งภูเก็ต 1",
         "lat": 7.884101493,
         "lon": 98.39575082,
-        "licence": "Scheduled",
-        "eta_min": 51,
-        "eta_time": "2025-11-26T15:48:50.668710",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 74,
+            "eta_time": "2025-12-03T11:48:45.950013",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 134,
+            "eta_time": "2025-12-03T12:48:45.950013",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 194,
+            "eta_time": "2025-12-03T13:48:45.950013",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Satree Phuket School": {
         "no": 70,
@@ -769,10 +2260,34 @@
         "stop_name_th": "โรงเรียนสตรีภูเก็ต",
         "lat": 7.890961837,
         "lon": 98.39209012,
-        "licence": "Scheduled",
-        "eta_min": 61,
-        "eta_time": "2025-11-26T15:58:50.678917",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 84,
+            "eta_time": "2025-12-03T11:58:45.960563",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 144,
+            "eta_time": "2025-12-03T12:58:45.960563",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 204,
+            "eta_time": "2025-12-03T13:58:45.960563",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Wittayalai School": {
         "no": 71,
@@ -781,10 +2296,34 @@
         "stop_name_th": "โรงเรียนภูเก็ตวิทยาลัย",
         "lat": 7.892383991,
         "lon": 98.38963431,
-        "licence": "Scheduled",
-        "eta_min": 63,
-        "eta_time": "2025-11-26T16:00:50.684314",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 86,
+            "eta_time": "2025-12-03T12:00:45.965916",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 146,
+            "eta_time": "2025-12-03T13:00:45.965916",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 206,
+            "eta_time": "2025-12-03T14:00:45.965916",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Vachira Phuket Hospital": {
         "no": 72,
@@ -793,10 +2332,34 @@
         "stop_name_th": "โรงพยาบาลวชิระภูเก็ต",
         "lat": 7.897257446,
         "lon": 98.38400696,
-        "licence": "Scheduled",
-        "eta_min": 66,
-        "eta_time": "2025-11-26T16:03:50.689616",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 89,
+            "eta_time": "2025-12-03T12:03:45.971374",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 149,
+            "eta_time": "2025-12-03T13:03:45.971374",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 209,
+            "eta_time": "2025-12-03T14:03:45.971374",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Bangkok Hospital Phuket": {
         "no": 73,
@@ -805,10 +2368,34 @@
         "stop_name_th": "โรงพยาบาลกรุงเทพภูเก็ต",
         "lat": 7.904270508,
         "lon": 98.3776116,
-        "licence": "Scheduled",
-        "eta_min": 69,
-        "eta_time": "2025-11-26T16:06:50.694611",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 92,
+            "eta_time": "2025-12-03T12:06:45.976747",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 152,
+            "eta_time": "2025-12-03T13:06:45.976747",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 212,
+            "eta_time": "2025-12-03T14:06:45.976747",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Chillva Market": {
         "no": 74,
@@ -817,10 +2404,34 @@
         "stop_name_th": "ตลาดชิลวา",
         "lat": 7.906829856,
         "lon": 98.37335804,
-        "licence": "Scheduled",
-        "eta_min": 71,
-        "eta_time": "2025-11-26T16:08:50.699660",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 94,
+            "eta_time": "2025-12-03T12:08:45.982216",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 154,
+            "eta_time": "2025-12-03T13:08:45.982216",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 214,
+            "eta_time": "2025-12-03T14:08:45.982216",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Lotus Samkong": {
         "no": 75,
@@ -829,10 +2440,34 @@
         "stop_name_th": "โลตัส สามกอง",
         "lat": 7.905991202,
         "lon": 98.36921261,
-        "licence": "Scheduled",
-        "eta_min": 72,
-        "eta_time": "2025-11-26T16:09:50.704956",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 95,
+            "eta_time": "2025-12-03T12:09:45.988036",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 155,
+            "eta_time": "2025-12-03T13:09:45.988036",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 215,
+            "eta_time": "2025-12-03T14:09:45.988036",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Andamanda Phuket Waterpark": {
         "no": 76,
@@ -841,10 +2476,34 @@
         "stop_name_th": "สวนน้ำอันดามันดา",
         "lat": 7.904688653,
         "lon": 98.36366775,
-        "licence": "Scheduled",
-        "eta_min": 74,
-        "eta_time": "2025-11-26T16:11:50.710041",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 97,
+            "eta_time": "2025-12-03T12:11:45.994117",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 157,
+            "eta_time": "2025-12-03T13:11:45.994117",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 217,
+            "eta_time": "2025-12-03T14:11:45.994117",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kathu Fresh Market": {
         "no": 77,
@@ -853,10 +2512,34 @@
         "stop_name_th": "ตลาดสดกะทู้",
         "lat": 7.908207595,
         "lon": 98.34954164,
-        "licence": "Scheduled",
-        "eta_min": 76,
-        "eta_time": "2025-11-26T16:13:50.715249",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 99,
+            "eta_time": "2025-12-03T12:13:45.999700",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 159,
+            "eta_time": "2025-12-03T13:13:45.999700",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 219,
+            "eta_time": "2025-12-03T14:13:45.999700",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "PTT Station Kathu": {
         "no": 78,
@@ -865,10 +2548,34 @@
         "stop_name_th": "ปตท. กะทู้",
         "lat": 7.911864114,
         "lon": 98.34250205,
-        "licence": "Scheduled",
-        "eta_min": 78,
-        "eta_time": "2025-11-26T16:15:50.720307",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1218",
+            "eta_min": 0,
+            "eta_time": "2025-12-03T10:34:46.005490",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 101,
+            "eta_time": "2025-12-03T12:15:46.005490",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 161,
+            "eta_time": "2025-12-03T13:15:46.005490",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Siko": {
         "no": 79,
@@ -877,10 +2584,34 @@
         "stop_name_th": "สี่กอ",
         "lat": 7.911319948,
         "lon": 98.3362023,
-        "licence": "Scheduled",
-        "eta_min": 80,
-        "eta_time": "2025-11-26T16:17:50.725519",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1218",
+            "eta_min": 1,
+            "eta_time": "2025-12-03T10:35:46.015752",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 103,
+            "eta_time": "2025-12-03T12:17:46.015752",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 163,
+            "eta_time": "2025-12-03T13:17:46.015752",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kathu Police Station": {
         "no": 80,
@@ -889,10 +2620,34 @@
         "stop_name_th": "สถานีตำรวจภูธรกะทู้",
         "lat": 7.90995831,
         "lon": 98.3327828,
-        "licence": "Scheduled",
-        "eta_min": 81,
-        "eta_time": "2025-11-26T16:18:50.730794",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1218",
+            "eta_min": 2,
+            "eta_time": "2025-12-03T10:36:46.025876",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 104,
+            "eta_time": "2025-12-03T12:18:46.025876",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 164,
+            "eta_time": "2025-12-03T13:18:46.025876",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Coffee Mania": {
         "no": 81,
@@ -901,10 +2656,34 @@
         "stop_name_th": "คอฟฟี่ มาเนีย",
         "lat": 7.883948691,
         "lon": 98.30179899,
-        "licence": "Scheduled",
-        "eta_min": 98,
-        "eta_time": "2025-11-26T16:35:50.735721",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1218",
+            "eta_min": 19,
+            "eta_time": "2025-12-03T10:53:46.035999",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 121,
+            "eta_time": "2025-12-03T12:35:46.035999",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 181,
+            "eta_time": "2025-12-03T13:35:46.035999",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Malin Plaza": {
         "no": 82,
@@ -913,17 +2692,42 @@
         "stop_name_th": "มาลินพลาซ่า",
         "lat": 7.882674707,
         "lon": 98.2933205,
-        "licence": "10-1223",
-        "eta_min": 2,
-        "eta_time": "2025-11-26T14:59:50.740641",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1218",
+            "eta_min": 23,
+            "eta_time": "2025-12-03T10:57:46.046106",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 125,
+            "eta_time": "2025-12-03T12:39:46.046106",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 185,
+            "eta_time": "2025-12-03T13:39:46.046106",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       }
     }
   },
   "Patong -> Bus 1 -> Bus 2": {
     "route": "Patong -> Bus 1 -> Bus 2",
-    "updated_at": "2025-11-26T14:57:50.928296",
-    "manual_status": null,
+    "updated_at": "2025-12-03T10:34:46.304080",
+    "route_status": "active",
+    "route_message": null,
     "stops": {
       "Patong": {
         "no": 83,
@@ -932,10 +2736,34 @@
         "stop_name_th": "ป่าตอง",
         "lat": 7.88742,
         "lon": 98.291173,
-        "licence": "Scheduled",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T15:14:50.769484",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 40,
+            "eta_time": "2025-12-03T11:14:46.077167",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 100,
+            "eta_time": "2025-12-03T12:14:46.077167",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 160,
+            "eta_time": "2025-12-03T13:14:46.077167",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Malin Plaza": {
         "no": 84,
@@ -944,10 +2772,34 @@
         "stop_name_th": "มาลินพลาซ่า",
         "lat": 7.882809803,
         "lon": 98.29345369,
-        "licence": "Scheduled",
-        "eta_min": 18,
-        "eta_time": "2025-11-26T15:15:50.775785",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 41,
+            "eta_time": "2025-12-03T11:15:46.082809",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 101,
+            "eta_time": "2025-12-03T12:15:46.082809",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 161,
+            "eta_time": "2025-12-03T13:15:46.082809",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Makro Nanai": {
         "no": 85,
@@ -956,10 +2808,34 @@
         "stop_name_th": "แม็คโคร นาใน",
         "lat": 7.884033046,
         "lon": 98.3017782,
-        "licence": "Scheduled",
-        "eta_min": 22,
-        "eta_time": "2025-11-26T15:19:50.780966",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 45,
+            "eta_time": "2025-12-03T11:19:46.088199",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 105,
+            "eta_time": "2025-12-03T12:19:46.088199",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 165,
+            "eta_time": "2025-12-03T13:19:46.088199",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kathu Police Station": {
         "no": 86,
@@ -968,10 +2844,34 @@
         "stop_name_th": "สถานีตำรวจภูธรกะทู้",
         "lat": 7.909912418,
         "lon": 98.3323804,
-        "licence": "10-1221",
-        "eta_min": 2,
-        "eta_time": "2025-11-26T14:59:50.786087",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 13,
+            "eta_time": "2025-12-03T10:47:46.093415",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 63,
+            "eta_time": "2025-12-03T11:37:46.093415",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 123,
+            "eta_time": "2025-12-03T12:37:46.093415",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Siko": {
         "no": 87,
@@ -980,10 +2880,34 @@
         "stop_name_th": "สี่กอ",
         "lat": 7.911686805,
         "lon": 98.33621525,
-        "licence": "10-1221",
-        "eta_min": 3,
-        "eta_time": "2025-11-26T15:00:50.791147",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 14,
+            "eta_time": "2025-12-03T10:48:46.103458",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 64,
+            "eta_time": "2025-12-03T11:38:46.103458",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 124,
+            "eta_time": "2025-12-03T12:38:46.103458",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "PTT Station Kathu": {
         "no": 88,
@@ -992,10 +2916,34 @@
         "stop_name_th": "ปตท. กะทู้",
         "lat": 7.911828211,
         "lon": 98.34279008,
-        "licence": "10-1221",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T15:01:50.796416",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 16,
+            "eta_time": "2025-12-03T10:50:46.113494",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 66,
+            "eta_time": "2025-12-03T11:40:46.113494",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 126,
+            "eta_time": "2025-12-03T12:40:46.113494",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Kathu Fresh Market": {
         "no": 89,
@@ -1004,10 +2952,34 @@
         "stop_name_th": "ตลาดสดกะทู้",
         "lat": 7.908360146,
         "lon": 98.34964231,
-        "licence": "10-1221",
-        "eta_min": 6,
-        "eta_time": "2025-11-26T15:03:50.801544",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 18,
+            "eta_time": "2025-12-03T10:52:46.124037",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 68,
+            "eta_time": "2025-12-03T11:42:46.124037",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 128,
+            "eta_time": "2025-12-03T12:42:46.124037",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Andamanda Phuket Waterpark": {
         "no": 90,
@@ -1016,10 +2988,34 @@
         "stop_name_th": "สวนน้ำอันดามันดา",
         "lat": 7.905041515,
         "lon": 98.36436545,
-        "licence": "10-1221",
-        "eta_min": 9,
-        "eta_time": "2025-11-26T15:06:50.806551",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 20,
+            "eta_time": "2025-12-03T10:54:46.134113",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 70,
+            "eta_time": "2025-12-03T11:44:46.134113",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 130,
+            "eta_time": "2025-12-03T12:44:46.134113",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Lotus Samkong": {
         "no": 91,
@@ -1028,10 +3024,34 @@
         "stop_name_th": "โลตัส สามกอง",
         "lat": 7.906262429,
         "lon": 98.36908411,
-        "licence": "10-1221",
-        "eta_min": 10,
-        "eta_time": "2025-11-26T15:07:50.811623",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 21,
+            "eta_time": "2025-12-03T10:55:46.144105",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 71,
+            "eta_time": "2025-12-03T11:45:46.144105",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 131,
+            "eta_time": "2025-12-03T12:45:46.144105",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Chillva Market": {
         "no": 92,
@@ -1040,10 +3060,34 @@
         "stop_name_th": "ตลาดชิลวา",
         "lat": 7.907018353,
         "lon": 98.37334465,
-        "licence": "10-1221",
-        "eta_min": 11,
-        "eta_time": "2025-11-26T15:08:50.816632",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 22,
+            "eta_time": "2025-12-03T10:56:46.154094",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 72,
+            "eta_time": "2025-12-03T11:46:46.154094",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 132,
+            "eta_time": "2025-12-03T12:46:46.154094",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Bangkok Hospital Phuket": {
         "no": 93,
@@ -1052,10 +3096,34 @@
         "stop_name_th": "โรงพยาบาลกรุงเทพภูเก็ต",
         "lat": 7.904781267,
         "lon": 98.37777846,
-        "licence": "10-1221",
-        "eta_min": 13,
-        "eta_time": "2025-11-26T15:10:50.821633",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 25,
+            "eta_time": "2025-12-03T10:59:46.164083",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 75,
+            "eta_time": "2025-12-03T11:49:46.164083",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 135,
+            "eta_time": "2025-12-03T12:49:46.164083",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Vachira Phuket Hospital": {
         "no": 94,
@@ -1064,10 +3132,34 @@
         "stop_name_th": "โรงพยาบาลวชิระภูเก็ต",
         "lat": 7.897191545,
         "lon": 98.38418576,
-        "licence": "10-1221",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T15:14:50.826696",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 28,
+            "eta_time": "2025-12-03T11:02:46.174062",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 78,
+            "eta_time": "2025-12-03T11:52:46.174062",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 138,
+            "eta_time": "2025-12-03T12:52:46.174062",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Wittayalai School": {
         "no": 95,
@@ -1076,10 +3168,34 @@
         "stop_name_th": "โรงเรียนภูเก็ตวิทยาลัย",
         "lat": 7.892510646,
         "lon": 98.38976981,
-        "licence": "10-1221",
-        "eta_min": 19,
-        "eta_time": "2025-11-26T15:16:50.831854",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 31,
+            "eta_time": "2025-12-03T11:05:46.184017",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 81,
+            "eta_time": "2025-12-03T11:55:46.184017",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 141,
+            "eta_time": "2025-12-03T12:55:46.184017",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Satree Phuket School": {
         "no": 96,
@@ -1088,10 +3204,34 @@
         "stop_name_th": "โรงเรียนสตรีภูเก็ต",
         "lat": 7.891111846,
         "lon": 98.39197764,
-        "licence": "10-1221",
-        "eta_min": 20,
-        "eta_time": "2025-11-26T15:17:50.836980",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 32,
+            "eta_time": "2025-12-03T11:06:46.193994",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 82,
+            "eta_time": "2025-12-03T11:56:46.193994",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 142,
+            "eta_time": "2025-12-03T12:56:46.193994",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Sanamchai": {
         "no": 99,
@@ -1100,10 +3240,34 @@
         "stop_name_th": "สนามชัย",
         "lat": 7.8899833829,
         "lon": 98.3977533924,
-        "licence": "10-1218",
-        "eta_min": 0,
-        "eta_time": "2025-11-26T14:57:50.859402",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 34,
+            "eta_time": "2025-12-03T11:08:46.224025",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 84,
+            "eta_time": "2025-12-03T11:58:46.224025",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 144,
+            "eta_time": "2025-12-03T12:58:46.224025",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Bus Terminal 1": {
         "no": 98,
@@ -1112,10 +3276,34 @@
         "stop_name_th": "สถานีขนส่งภูเก็ต 1",
         "lat": 7.884101493,
         "lon": 98.39575082,
-        "licence": "10-1218",
-        "eta_min": 8,
-        "eta_time": "2025-11-26T15:05:50.850782",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 44,
+            "eta_time": "2025-12-03T11:18:46.213936",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 94,
+            "eta_time": "2025-12-03T12:08:46.213936",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 154,
+            "eta_time": "2025-12-03T13:08:46.213936",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Provincial Cooperative Office": {
         "no": 100,
@@ -1124,10 +3312,34 @@
         "stop_name_th": "สำนักงานสหกรณ์จังหวัด",
         "lat": 7.893502,
         "lon": 98.401354,
-        "licence": "10-1218",
-        "eta_min": 12,
-        "eta_time": "2025-11-26T15:09:50.868190",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 49,
+            "eta_time": "2025-12-03T11:23:46.233998",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 99,
+            "eta_time": "2025-12-03T12:13:46.233998",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 159,
+            "eta_time": "2025-12-03T13:13:46.233998",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Baan Natkamon": {
         "no": 101,
@@ -1136,10 +3348,34 @@
         "stop_name_th": "บ้านณัฐกมล",
         "lat": 7.895461,
         "lon": 98.406222,
-        "licence": "10-1218",
-        "eta_min": 14,
-        "eta_time": "2025-11-26T15:11:50.876751",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 51,
+            "eta_time": "2025-12-03T11:25:46.243977",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 101,
+            "eta_time": "2025-12-03T12:15:46.243977",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 161,
+            "eta_time": "2025-12-03T13:15:46.243977",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Big C Mini Kingkaew": {
         "no": 102,
@@ -1148,10 +3384,34 @@
         "stop_name_th": "บิ๊กซีมินิ กิ่งแก้ว",
         "lat": 7.898979,
         "lon": 98.410692,
-        "licence": "10-1218",
-        "eta_min": 16,
-        "eta_time": "2025-11-26T15:13:50.885291",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 53,
+            "eta_time": "2025-12-03T11:27:46.253973",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 103,
+            "eta_time": "2025-12-03T12:17:46.253973",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 163,
+            "eta_time": "2025-12-03T13:17:46.253973",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Soi Thachin": {
         "no": 103,
@@ -1160,10 +3420,34 @@
         "stop_name_th": "ป้ายซอยท่าจีน",
         "lat": 7.90366068891297,
         "lon": 98.40972719,
-        "licence": "10-1218",
-        "eta_min": 17,
-        "eta_time": "2025-11-26T15:14:50.893861",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 54,
+            "eta_time": "2025-12-03T11:28:46.263997",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 104,
+            "eta_time": "2025-12-03T12:18:46.263997",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 164,
+            "eta_time": "2025-12-03T13:18:46.263997",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Dcondo Campus Kuku": {
         "no": 104,
@@ -1172,10 +3456,34 @@
         "stop_name_th": "ดีคอนโด กู้กู",
         "lat": 7.907137216,
         "lon": 98.40352997,
-        "licence": "10-1218",
-        "eta_min": 18,
-        "eta_time": "2025-11-26T15:15:50.902567",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 55,
+            "eta_time": "2025-12-03T11:29:46.274095",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 105,
+            "eta_time": "2025-12-03T12:19:46.274095",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 165,
+            "eta_time": "2025-12-03T13:19:46.274095",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Ban Kuku School": {
         "no": 105,
@@ -1184,10 +3492,34 @@
         "stop_name_th": "โรงเรียนบ้านกู้กู",
         "lat": 7.908361,
         "lon": 98.399987,
-        "licence": "10-1218",
-        "eta_min": 19,
-        "eta_time": "2025-11-26T15:16:50.911126",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 56,
+            "eta_time": "2025-12-03T11:30:46.284139",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 106,
+            "eta_time": "2025-12-03T12:20:46.284139",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 166,
+            "eta_time": "2025-12-03T13:20:46.284139",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Big C Market Thepkrasattri": {
         "no": 106,
@@ -1196,17 +3528,42 @@
         "stop_name_th": "บิ๊กซี มาร์เก็ต เทพกระษัตรี",
         "lat": 7.910465,
         "lon": 98.392036,
-        "licence": "10-1218",
-        "eta_min": 21,
-        "eta_time": "2025-11-26T15:18:50.919693",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1223",
+            "eta_min": 58,
+            "eta_time": "2025-12-03T11:32:46.294123",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 108,
+            "eta_time": "2025-12-03T12:22:46.294123",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 168,
+            "eta_time": "2025-12-03T13:22:46.294123",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       }
     }
   },
   "Dragon Line": {
     "route": "Dragon Line",
-    "updated_at": "2025-11-26T14:57:51.006268",
-    "manual_status": null,
+    "updated_at": "2025-12-03T10:34:46.430716",
+    "route_status": "active",
+    "route_message": null,
     "stops": {
       "Queen Sirikit Park": {
         "no": 2,
@@ -1215,10 +3572,34 @@
         "stop_name_th": "สวนสิริกิติ์",
         "lat": 7.886069,
         "lon": 98.39229,
-        "licence": "Scheduled",
-        "eta_min": 3,
-        "eta_time": "2025-11-26T15:00:50.933135",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 11,
+            "eta_time": "2025-12-03T10:45:46.307385",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 26,
+            "eta_time": "2025-12-03T11:00:46.307385",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 41,
+            "eta_time": "2025-12-03T11:15:46.307385",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Old Town Intersection": {
         "no": 3,
@@ -1227,10 +3608,34 @@
         "stop_name_th": "แยกเมืองเก่า",
         "lat": 7.884223,
         "lon": 98.39086,
-        "licence": "Scheduled",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T15:01:50.939750",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 12,
+            "eta_time": "2025-12-03T10:46:46.313054",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 27,
+            "eta_time": "2025-12-03T11:01:46.313054",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 42,
+            "eta_time": "2025-12-03T11:16:46.313054",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Government Savings Bank": {
         "no": 4,
@@ -1239,10 +3644,34 @@
         "stop_name_th": "ธนาคารออมสิน",
         "lat": 7.883601,
         "lon": 98.39134,
-        "licence": "Scheduled",
-        "eta_min": 5,
-        "eta_time": "2025-11-26T15:02:50.944617",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 13,
+            "eta_time": "2025-12-03T10:47:46.318519",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 28,
+            "eta_time": "2025-12-03T11:02:46.318519",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 43,
+            "eta_time": "2025-12-03T11:17:46.318519",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Royal Phuket City Hotel": {
         "no": 5,
@@ -1251,10 +3680,34 @@
         "stop_name_th": "โรงแรม รอยัล ภูเก็ต ซิตี้",
         "lat": 7.883132,
         "lon": 98.39484,
-        "licence": "Scheduled",
-        "eta_min": 6,
-        "eta_time": "2025-11-26T15:03:50.949385",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 14,
+            "eta_time": "2025-12-03T10:48:46.324021",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 29,
+            "eta_time": "2025-12-03T11:03:46.324021",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 44,
+            "eta_time": "2025-12-03T11:18:46.324021",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Pearl Hotel Phuket": {
         "no": 6,
@@ -1263,10 +3716,34 @@
         "stop_name_th": "โรงแรมเพิร์ล ภูเก็ต",
         "lat": 7.881669,
         "lon": 98.39254,
-        "licence": "Scheduled",
-        "eta_min": 8,
-        "eta_time": "2025-11-26T15:05:50.954306",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 16,
+            "eta_time": "2025-12-03T10:50:46.329535",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 31,
+            "eta_time": "2025-12-03T11:05:46.329535",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 46,
+            "eta_time": "2025-12-03T11:20:46.329535",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Mc Donald's": {
         "no": 7,
@@ -1275,10 +3752,34 @@
         "stop_name_th": "แม็คโดนัล",
         "lat": 7.87751,
         "lon": 98.39424,
-        "licence": "Scheduled",
-        "eta_min": 10,
-        "eta_time": "2025-11-26T15:07:50.959162",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 1,
+            "eta_time": "2025-12-03T10:35:46.335169",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 18,
+            "eta_time": "2025-12-03T10:52:46.335169",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 33,
+            "eta_time": "2025-12-03T11:07:46.335169",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Surin Circle Clock Tower": {
         "no": 8,
@@ -1287,10 +3788,34 @@
         "stop_name_th": "วงเวียนสุรินทร์",
         "lat": 7.879489,
         "lon": 98.39246,
-        "licence": "10-1264",
-        "eta_min": 1,
-        "eta_time": "2025-11-26T14:58:50.964038",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 3,
+            "eta_time": "2025-12-03T10:37:46.345279",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 20,
+            "eta_time": "2025-12-03T10:54:46.345279",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 35,
+            "eta_time": "2025-12-03T11:09:46.345279",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Municipal Parking": {
         "no": 9,
@@ -1299,10 +3824,34 @@
         "stop_name_th": "จุดจอดรถเทศบาล",
         "lat": 7.882266,
         "lon": 98.39106,
-        "licence": "10-1264",
-        "eta_min": 2,
-        "eta_time": "2025-11-26T14:59:50.968726",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 4,
+            "eta_time": "2025-12-03T10:38:46.355241",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 21,
+            "eta_time": "2025-12-03T10:55:46.355241",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 36,
+            "eta_time": "2025-12-03T11:10:46.355241",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Krungsri Bank": {
         "no": 10,
@@ -1311,10 +3860,34 @@
         "stop_name_th": "ธนาคารกรุุงศรี",
         "lat": 7.883057,
         "lon": 98.38906,
-        "licence": "10-1264",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T15:01:50.973359",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 5,
+            "eta_time": "2025-12-03T10:39:46.365297",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 22,
+            "eta_time": "2025-12-03T10:56:46.365297",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 37,
+            "eta_time": "2025-12-03T11:11:46.365297",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "WANLAMUN & EGG E EGG @ OLD TOWN": {
         "no": 11,
@@ -1323,10 +3896,34 @@
         "stop_name_th": "ร้านหวานละมุน&ร้านเอ้ก อี เอ้ก สาขาเมืองเก่า",
         "lat": 7.883587,
         "lon": 98.38729,
-        "licence": "10-1264",
-        "eta_min": 4,
-        "eta_time": "2025-11-26T15:01:50.978053",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 6,
+            "eta_time": "2025-12-03T10:40:46.375261",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 23,
+            "eta_time": "2025-12-03T10:57:46.375261",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 38,
+            "eta_time": "2025-12-03T11:12:46.375261",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Phuket Thaihua Museum": {
         "no": 12,
@@ -1335,10 +3932,34 @@
         "stop_name_th": "พิพิธภัณฑ์ไทยหัว",
         "lat": 7.885098,
         "lon": 98.38571,
-        "licence": "10-1264",
-        "eta_min": 6,
-        "eta_time": "2025-11-26T15:03:50.982690",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 7,
+            "eta_time": "2025-12-03T10:41:46.385338",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 25,
+            "eta_time": "2025-12-03T10:59:46.385338",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 40,
+            "eta_time": "2025-12-03T11:14:46.385338",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Dibuk Road": {
         "no": 13,
@@ -1347,10 +3968,34 @@
         "stop_name_th": "ถนนดีบุก",
         "lat": 7.886441,
         "lon": 98.38668,
-        "licence": "10-1264",
-        "eta_min": 7,
-        "eta_time": "2025-11-26T15:04:50.987415",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 9,
+            "eta_time": "2025-12-03T10:43:46.395318",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 26,
+            "eta_time": "2025-12-03T11:00:46.395318",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 41,
+            "eta_time": "2025-12-03T11:15:46.395318",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Mongkhonnimit Temple": {
         "no": 14,
@@ -1359,10 +4004,34 @@
         "stop_name_th": "วัดมงคลนิมิตร",
         "lat": 7.886017,
         "lon": 98.38915,
-        "licence": "10-1264",
-        "eta_min": 8,
-        "eta_time": "2025-11-26T15:05:50.991989",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 10,
+            "eta_time": "2025-12-03T10:44:46.405375",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 27,
+            "eta_time": "2025-12-03T11:01:46.405375",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 42,
+            "eta_time": "2025-12-03T11:16:46.405375",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "Limelight Phuket": {
         "no": 15,
@@ -1371,10 +4040,34 @@
         "stop_name_th": "ไลม์ไลท์ ภูเก็ต",
         "lat": 7.886116,
         "lon": 98.39247,
-        "licence": "10-1264",
-        "eta_min": 10,
-        "eta_time": "2025-11-26T15:07:50.996622",
-        "status": "Active"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "10-1264",
+            "eta_min": 11,
+            "eta_time": "2025-12-03T10:45:46.415330",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 29,
+            "eta_time": "2025-12-03T11:03:46.415330",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 44,
+            "eta_time": "2025-12-03T11:18:46.415330",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       },
       "PKCD Parking": {
         "no": 1,
@@ -1383,10 +4076,34 @@
         "stop_name_th": "ลานจอดรถ",
         "lat": 7.885774,
         "lon": 98.39478,
-        "licence": "Scheduled",
-        "eta_min": 2,
-        "eta_time": "2025-11-26T14:59:51.001143",
-        "status": "Scheduled"
+        "stop_status": "open",
+        "stop_message": null,
+        "upcoming": [
+          {
+            "licence": "Scheduled",
+            "eta_min": 10,
+            "eta_time": "2025-12-03T10:44:46.425372",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 25,
+            "eta_time": "2025-12-03T10:59:46.425372",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 40,
+            "eta_time": "2025-12-03T11:14:46.425372",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          }
+        ]
       }
     }
   }
