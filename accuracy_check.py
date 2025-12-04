@@ -35,7 +35,7 @@ OFFLINE_GRACE_PERIOD_MIN = 5
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Files
-ACTIVE_CSV = os.path.join(BASE_DIR, "eta_accuracy_by_stop_8.csv") # Keeps only running buses
+ACTIVE_CSV = os.path.join(BASE_DIR, "eta_accuracy_by_stop.csv") # Keeps only running buses
 ARCHIVE_CSV = os.path.join(BASE_DIR, "eta_accuracy_archive.csv")  # Stores finished trips
 
 # Define prediction intervals
@@ -85,33 +85,30 @@ def validate_and_recreate_csv(filepath, cols):
             print(f"[CRITICAL] Failed to create CSV {filepath}: {e}")
 
 def initialize_csvs():
-    """Creates CSVs, validates headers, and migrates completed data."""
+    """
+    1. Validates/Creates the ARCHIVE file (preserves history).
+    2. DESTROYS and Re-creates the ACTIVE file (clears old running state).
+    """
     cols = get_expected_columns()
 
     with csv_lock:
-        # 1. Validate/Create Active CSV
-        validate_and_recreate_csv(ACTIVE_CSV, cols)
-            
-        # 2. Validate/Create Archive CSV
+        # 1. Validate Archive (Keep history safe)
         validate_and_recreate_csv(ARCHIVE_CSV, cols)
 
-        # 3. MIGRATION: Move already completed trips
+        # 2. DESTROY Active CSV (Clear state on restart)
+        if os.path.exists(ACTIVE_CSV):
+            try:
+                os.remove(ACTIVE_CSV)
+                print(f"[SYSTEM] Removed old active file: {os.path.basename(ACTIVE_CSV)}")
+            except OSError as e:
+                print(f"[SYSTEM] Warning: Could not delete old active file: {e}")
+
+        # 3. Create Fresh Active CSV
         try:
-            df_active = pd.read_csv(ACTIVE_CSV)
-            if not df_active.empty and 'arrival_time' in df_active.columns:
-                completed_mask = df_active['arrival_time'].notna()
-                if completed_mask.any():
-                    completed_rows = df_active[completed_mask]
-                    active_rows = df_active[~completed_mask]
-                    
-                    # Append completed to archive
-                    completed_rows.to_csv(ARCHIVE_CSV, mode='a', header=False, index=False)
-                    
-                    # Keep only active in main file
-                    active_rows.to_csv(ACTIVE_CSV, index=False)
-                    print(f"[SYSTEM] Migrated {len(completed_rows)} old completed trips to Archive.")
+            pd.DataFrame(columns=cols).to_csv(ACTIVE_CSV, index=False)
+            print(f"[SYSTEM] Created fresh active file: {os.path.basename(ACTIVE_CSV)}")
         except Exception as e:
-            print(f"[SYSTEM] Migration check warning: {e}")
+            print(f"[CRITICAL] Failed to create active CSV: {e}")
 
 def transfer_to_archive(row_index, df_current):
     """

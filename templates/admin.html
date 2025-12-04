@@ -6,8 +6,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="data:,">
     <link rel="apple-touch-icon" href="data:,">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+
     <style>
         .scope-card { cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
         .scope-card.active { border-color: #0d6efd; background-color: #e9ecef; }
@@ -46,9 +48,12 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-lg-8"><canvas id="liveAccuracyChart" height="200"></canvas><div class="text-center mt-2 small text-muted">X-Axis: Time Before Arrival (min) | Y-Axis: Average Delay (min)</div></div>
+                    <div class="col-lg-8">
+                        <canvas id="liveAccuracyChart" height="200"></canvas>
+                        <div class="text-center mt-2 small text-muted">X-Axis: Time Before Arrival (min) | Y-Axis: Average Delay (min)</div>
+                    </div>
                     <div class="col-lg-4 border-start">
-                        <h5 class="mb-3 text-center">80% of buses arrive within:</h5>
+                        <h5 class="mb-3 text-center">Average Bus Delay (min)</h5>
                         <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">0 - 15 Mins Away</span><span class="stat-value"><span id="stat-0-15">--</span> m</span></div>
                         <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">15 - 30 Mins Away</span><span class="stat-value"><span id="stat-15-30">--</span> m</span></div>
                         <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">30 - 45 Mins Away</span><span class="stat-value"><span id="stat-30-45">--</span> m</span></div>
@@ -84,7 +89,7 @@
 </div>
 
 <script>
-const SERVER_INITIAL_VIEW = "{{ initial_view or 'bus' }}"; // Injected by Jinja
+const SERVER_INITIAL_VIEW = "{{ initial_view or 'bus' }}"; 
 let currentScope = 'bus';
 let systemData = [];
 let accuracyData = {};
@@ -93,17 +98,10 @@ let chartInstance = null;
 // === VIEW LOGIC ===
 function switchView(scope) {
     currentScope = scope;
-    
-    // Update Browser URL (Deep Linking)
-    if (scope !== 'bus') {
-        history.pushState(null, "", "/admin/" + scope);
-    } else {
-        history.pushState(null, "", "/admin/bus");
-    }
+    if (scope !== 'bus') history.pushState(null, "", "/admin/" + scope);
+    else history.pushState(null, "", "/admin/bus");
 
-    // UI Updates
     document.querySelectorAll('.scope-card').forEach(el => el.classList.remove('active'));
-    // Find matching card robustly
     const cards = document.querySelectorAll('.scope-card');
     cards.forEach(c => {
         if(c.textContent.toLowerCase().includes(scope)) c.classList.add('active');
@@ -111,7 +109,6 @@ function switchView(scope) {
     
     document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
     
-    // Toggle Settings Section vs Accuracy View
     if (scope === 'accuracy') {
         document.getElementById('accuracy-view').classList.add('active');
         document.getElementById('settings-container').style.display = 'none';
@@ -135,14 +132,14 @@ function switchView(scope) {
     }
 }
 
-// === ACCURACY LOGIC ===
+// === ACCURACY LOGIC (UPDATED FOR SCATTER PLOT) ===
 async function fetchAccuracyData() {
     try {
         const res = await fetch('/admin/api/accuracy-stats');
         const json = await res.json();
         accuracyData = json.data;
         updateAccuracyView();
-    } catch(e) { console.error(e); }
+    } catch(e) { console.error("Accuracy Fetch Failed:", e); }
 }
 
 function updateAccuracyView() {
@@ -151,48 +148,67 @@ function updateAccuracyView() {
 
     if (!data) return;
 
-    // UPDATE LABELS FOR DELAY
-    document.getElementById('stat-0-15').innerText = (data.summary["0-15"] > 0 ? "+" : "") + data.summary["0-15"];
-    document.getElementById('stat-15-30').innerText = (data.summary["15-30"] > 0 ? "+" : "") + data.summary["15-30"];
-    document.getElementById('stat-30-45').innerText = (data.summary["30-45"] > 0 ? "+" : "") + data.summary["30-45"];
-    document.getElementById('stat-45-60').innerText = (data.summary["45-60"] > 0 ? "+" : "") + data.summary["45-60"];
+    // Update Text Stats
+    const summary = data.summary || {};
+    document.getElementById('stat-0-15').innerText = (summary["0-15"] > 0 ? "+" : "") + (summary["0-15"] || 0);
+    document.getElementById('stat-15-30').innerText = (summary["15-30"] > 0 ? "+" : "") + (summary["15-30"] || 0);
+    document.getElementById('stat-30-45').innerText = (summary["30-45"] > 0 ? "+" : "") + (summary["30-45"] || 0);
+    document.getElementById('stat-45-60').innerText = (summary["45-60"] > 0 ? "+" : "") + (summary["45-60"] || 0);
 
     const ctx = document.getElementById('liveAccuracyChart').getContext('2d');
     if (chartInstance) chartInstance.destroy();
 
     chartInstance = new Chart(ctx, {
-        type: 'line',
         data: {
-            labels: data.chart.labels,
-            datasets: [{
-                label: `Avg Delay (mins) - ${selectedRoute}`,
-                data: data.chart.data,
-                borderColor: '#dc3545', // Red line for Delay
-                backgroundColor: 'rgba(220, 53, 69, 0.1)',
-                borderWidth: 3,
-                fill: true,
-                tension: 0.3
-            }]
+            datasets: [
+                {
+                    type: 'scatter',
+                    label: 'Actual Data',
+                    data: data.scatter, // [{x:5, y:2}, {x:15, y:-1}...]
+                    backgroundColor: '#dc3545', // Red Dots
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                },
+                {
+                    type: 'line',
+                    label: 'Trend Line',
+                    data: data.trendline, // Calculated linear regression
+                    borderColor: '#dc3545',
+                    borderWidth: 2,
+                    borderDash: [5, 5], // Dashed line
+                    pointRadius: 0, // No dots on the line
+                    fill: false,
+                    tension: 0
+                }
+            ]
         },
         options: {
             responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
             scales: {
                 y: { 
                     beginAtZero: true, 
-                    title: { display: true, text: 'Avg Delay (Actual - Predicted)' } 
+                    title: { display: true, text: 'Delay (Actual - Predicted)' } 
                 },
                 x: { 
-                    title: { display: true, text: 'Time Before Arrival (Actual)' },
+                    type: 'linear', // Linear scale handles gaps (empty rows) correctly
+                    position: 'bottom',
+                    title: { display: true, text: 'Time Before Arrival (min)' },
+                    min: 0,
+                    ticks: { stepSize: 5 }
                 }
             },
             plugins: {
                 annotation: {
                     annotations: {
                         line1: {
-                            type: 'line',
-                            yMin: 0,
-                            yMax: 0,
-                            borderColor: 'green',
+                            type: 'line', 
+                            yMin: 0, 
+                            yMax: 0, 
+                            borderColor: 'green', 
                             borderWidth: 2,
                             label: { content: 'Perfect Accuracy', enabled: true, position: 'end' }
                         }
@@ -203,7 +219,7 @@ function updateAccuracyView() {
     });
 }
 
-// === ADMIN HELPERS ===
+// === TABLE & FORM HELPERS ===
 function checkTimeframeVisibility(status) {
     const div = document.getElementById('duration-section');
     const safe = ['active', 'open', 'clear'];
@@ -240,7 +256,6 @@ async function initData() {
     });
     
     await fetchSystemData();
-    // === INITIAL VIEW LOAD ===
     switchView(SERVER_INITIAL_VIEW);
     setInterval(fetchAccuracyData, 60000);
 }
@@ -297,7 +312,29 @@ document.getElementById('route-select').addEventListener('change', async functio
     stopSelect.disabled = false;
 });
 
-function sortTable(id, n) { /* Same sort logic */ }
+function sortTable(tableId, n) {
+    const table = document.getElementById(tableId);
+    let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    switching = true;
+    dir = "asc"; 
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            let xVal = x.innerHTML.toLowerCase();
+            let yVal = y.innerHTML.toLowerCase();
+            const xNum = parseFloat(xVal); const yNum = parseFloat(yVal);
+            if (!isNaN(xNum) && !isNaN(yNum) && isFinite(xVal) && isFinite(yVal)) { xVal = xNum; yVal = yNum; }
+            if (dir == "asc") { if (xVal > yVal) { shouldSwitch = true; break; } }
+            else if (dir == "desc") { if (xVal < yVal) { shouldSwitch = true; break; } }
+        }
+        if (shouldSwitch) { rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); switching = true; switchcount++; }
+        else { if (switchcount == 0 && dir == "asc") { dir = "desc"; switching = true; } }
+    }
+}
 
 initData();
 </script>

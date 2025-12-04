@@ -16,18 +16,20 @@ The system features an integrated background worker that automatically fetches v
 ```text
 bus_eta_prediction/
 │
-├── runner.py             # Main FastAPI entry point (routes & lifecycle manager)
-├── services.py           # Core logic: fetches API data, runs worker thread, calculates ETA
-├── stop_access.py        # Helper classes to manage route configurations and objects
-├── stop_lists.py         # Static dictionaries defining stop coordinates and sequences
-├── templates/            # HTML templates for the frontend
-│   ├── dashboard.html
-│   └── admin.html
-├── .env                  # Environment variables (API Key)
-├── all_etas.json         # Auto-generated cache file containing live ETA data
-├── bus_flags.json        # Auto-generated file storing manual admin flags
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation
+├── runner.py                     # Main FastAPI entry point (routes & lifecycle manager)
+├── services.py                   # Core logic: fetches API data, runs worker thread, calculates ETA
+├── stop_access.py                # Helper classes to manage route configurations and objects
+├── templates/                    # HTML templates for the frontend
+│   ├── dashboard.html            # page for public view to get ETAs of each bus stop
+│   └── admin.html                # admin page for bus / stop / route flagging
+├── .env                          # Environment variables (API Key)
+├── all_etas.json                 # Auto-generated cache file containing live ETA data
+├── bus_flags.json                # Auto-generated file storing manual admin flags
+├── accuracy_check.py             # File to check ETA accuracy over time for accuracy graph
+├── eta_accuracy_archive.csv      # File which stores completed bus / stop pairs for ETA grpah plotting
+├── eta_accuracy_by_stop.csv      # File which stores intermediate bus / stop pairs currently in ETA checking
+├── requirements.txt              # Python dependencies
+└── README.md                     # Project documentation
 ```
 
 ---
@@ -38,9 +40,9 @@ bus_eta_prediction/
 |------|----------|
 | **`runner.py`** | The main application file. It sets up the FastAPI server, defines URL endpoints, and manages the startup/shutdown lifecycle of the background worker.|
 | **`services.py`** | The engine room. It connects to the official Phuket SmartBus API, cleans the data (Pandas), calculates travel times, and updates the JSON cache. |
+| **`accuracy_check.py`** | The file to check ETA accuracy over time, getting data of bus ETAs accuracy compared to time before bus arrives. |
 | **`stop_access.py`** | A utility module that maps route "slugs" (URLs) to internal configuration objects. |
 | **`all_etas.json`** | A local JSON cache updated every 60 seconds. The API reads from this file to ensure fast response times without hammering the external API. |
-| **`stop_lists.py`** | Contains large dictionaries defining the exact latitude, longitude, and sequence of every bus stop. |
 | **`.env`** | (Not included) Please create your own .env file for `API_KEY` variable, which stores the API key for the Phuket Smart Bus API.|
 
 ---
@@ -104,10 +106,12 @@ uvicorn api:app --host 0.0.0.0 --port 8000
 ### `/dashboard`
 
 Public-facing dashboard. Select a route and stop to see live ETAs.
+Dashboard can be keyed for specific routes / bus stops dynamically. e.g. /dashboard/airport-rawai/42
 
 ### `/admin`
 
 Internal panel to manually flag routes (e.g., "Traffic Jam", "Broken Bus") and analytics of ETA prediction accuracy.
+Admin page can be keyed for specific page dynamically, e.g. /admin/bus
 
 ### `/docs`
 
@@ -303,6 +307,4 @@ You can test your API endpoints in any of these ways:
 
 ## Evaluating ETA Accuracy
 
-You can measure ETA prediction accuracy by comparing:
-- Predicted ETA time (`eta_time`)
-- Actual arrival time (logged when bus reaches stop)
+The graph in the "Accuracy" tab of the admin page displays a plot of minutes of difference between ETAs and actual travel time of buses to different bus stops.
