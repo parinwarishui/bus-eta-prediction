@@ -28,6 +28,7 @@ bus_eta_prediction/
 ├── accuracy_check.py             # File to check ETA accuracy over time for accuracy graph
 ├── eta_accuracy_archive.csv      # File which stores completed bus / stop pairs for ETA grpah plotting
 ├── eta_accuracy_by_stop.csv      # File which stores intermediate bus / stop pairs currently in ETA checking
+├── bus_history.csv               # File with bus history (in case of API failing to catch buses for a shor time)
 ├── requirements.txt              # Python dependencies
 └── README.md                     # Project documentation
 ```

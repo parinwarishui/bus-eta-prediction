@@ -1,7 +1,7 @@
 ﻿{
   "Airport -> Rawai": {
     "route": "Airport -> Rawai",
-    "updated_at": "2025-12-04T10:46:37.363840",
+    "updated_at": "2025-12-07T23:23:33.939011",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -17,24 +17,8 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 13,
-            "eta_time": "2025-12-04T10:59:36.992408",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 73,
-            "eta_time": "2025-12-04T11:59:36.992408",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 133,
-            "eta_time": "2025-12-04T12:59:36.992408",
+            "eta_min": 6,
+            "eta_time": "2025-12-07T23:29:33.774354",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -52,25 +36,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1196",
-            "eta_min": 3,
-            "eta_time": "2025-12-04T10:49:36.999070",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 35,
-            "eta_time": "2025-12-04T11:21:36.999070",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 95,
-            "eta_time": "2025-12-04T12:21:36.999070",
+            "eta_min": 28,
+            "eta_time": "2025-12-07T23:51:33.778790",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -88,25 +56,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1196",
-            "eta_min": 6,
-            "eta_time": "2025-12-04T10:52:37.011814",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 38,
-            "eta_time": "2025-12-04T11:24:37.011814",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 98,
-            "eta_time": "2025-12-04T12:24:37.011814",
+            "eta_min": 31,
+            "eta_time": "2025-12-07T23:54:33.782368",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -124,25 +76,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1196",
-            "eta_min": 17,
-            "eta_time": "2025-12-04T11:03:37.023653",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 49,
-            "eta_time": "2025-12-04T11:35:37.023653",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 109,
-            "eta_time": "2025-12-04T12:35:37.023653",
+            "eta_min": 42,
+            "eta_time": "2025-12-08T00:05:33.785897",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -160,25 +96,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1196",
-            "eta_min": 18,
-            "eta_time": "2025-12-04T11:04:37.035105",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 50,
-            "eta_time": "2025-12-04T11:36:37.035105",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 110,
-            "eta_time": "2025-12-04T12:36:37.035105",
+            "eta_min": 43,
+            "eta_time": "2025-12-08T00:06:33.789357",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -196,25 +116,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1196",
-            "eta_min": 23,
-            "eta_time": "2025-12-04T11:09:37.046703",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 54,
-            "eta_time": "2025-12-04T11:40:37.046703",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 114,
-            "eta_time": "2025-12-04T12:40:37.046703",
+            "eta_min": 47,
+            "eta_time": "2025-12-08T00:10:33.792828",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -232,25 +136,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 5,
-            "eta_time": "2025-12-04T10:51:37.058185",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 29,
-            "eta_time": "2025-12-04T11:15:37.058185",
+            "licence": "10-1148",
+            "eta_min": 1,
+            "eta_time": "2025-12-07T23:24:33.796179",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 61,
-            "eta_time": "2025-12-04T11:47:37.058185",
+            "eta_min": 54,
+            "eta_time": "2025-12-08T00:17:33.796179",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -268,25 +164,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 10,
-            "eta_time": "2025-12-04T10:56:37.074963",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 35,
-            "eta_time": "2025-12-04T11:21:37.074963",
+            "licence": "10-1148",
+            "eta_min": 7,
+            "eta_time": "2025-12-07T23:30:33.802929",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 66,
-            "eta_time": "2025-12-04T11:52:37.074963",
+            "eta_min": 59,
+            "eta_time": "2025-12-08T00:22:33.802929",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -304,25 +192,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 11,
-            "eta_time": "2025-12-04T10:57:37.090740",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 36,
-            "eta_time": "2025-12-04T11:22:37.090740",
+            "licence": "10-1148",
+            "eta_min": 8,
+            "eta_time": "2025-12-07T23:31:33.809643",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 68,
-            "eta_time": "2025-12-04T11:54:37.090740",
+            "eta_min": 61,
+            "eta_time": "2025-12-08T00:24:33.809643",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -340,25 +220,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 13,
-            "eta_time": "2025-12-04T10:59:37.106906",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 37,
-            "eta_time": "2025-12-04T11:23:37.106906",
+            "licence": "10-1148",
+            "eta_min": 9,
+            "eta_time": "2025-12-07T23:32:33.816302",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 69,
-            "eta_time": "2025-12-04T11:55:37.106906",
+            "eta_min": 62,
+            "eta_time": "2025-12-08T00:25:33.816302",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -376,25 +248,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 16,
-            "eta_time": "2025-12-04T11:02:37.122389",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 41,
-            "eta_time": "2025-12-04T11:27:37.122389",
+            "licence": "10-1148",
+            "eta_min": 13,
+            "eta_time": "2025-12-07T23:36:33.823001",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 73,
-            "eta_time": "2025-12-04T11:59:37.122389",
+            "eta_min": 66,
+            "eta_time": "2025-12-08T00:29:33.823001",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -412,25 +276,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 29,
-            "eta_time": "2025-12-04T11:15:37.138051",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 54,
-            "eta_time": "2025-12-04T11:40:37.138051",
+            "licence": "10-1148",
+            "eta_min": 25,
+            "eta_time": "2025-12-07T23:48:33.829543",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 85,
-            "eta_time": "2025-12-04T12:11:37.138051",
+            "eta_min": 78,
+            "eta_time": "2025-12-08T00:41:33.829543",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -448,25 +304,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 31,
-            "eta_time": "2025-12-04T11:17:37.153727",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 55,
-            "eta_time": "2025-12-04T11:41:37.153727",
+            "licence": "10-1148",
+            "eta_min": 27,
+            "eta_time": "2025-12-07T23:50:33.836463",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 87,
-            "eta_time": "2025-12-04T12:13:37.153727",
+            "eta_min": 80,
+            "eta_time": "2025-12-08T00:43:33.836463",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -484,25 +332,17 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1212",
-            "eta_min": 32,
-            "eta_time": "2025-12-04T11:18:37.169258",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 57,
-            "eta_time": "2025-12-04T11:43:37.169258",
+            "licence": "10-1148",
+            "eta_min": 29,
+            "eta_time": "2025-12-07T23:52:33.843158",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 89,
-            "eta_time": "2025-12-04T12:15:37.169258",
+            "eta_min": 82,
+            "eta_time": "2025-12-08T00:45:33.843158",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -520,28 +360,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 4,
-            "eta_time": "2025-12-04T10:50:37.184669",
+            "licence": "10-1148",
+            "eta_min": 34,
+            "eta_time": "2025-12-07T23:57:33.850608",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 37,
-            "eta_time": "2025-12-04T11:23:37.184669",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 87,
+            "eta_time": "2025-12-08T00:50:33.850608",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 62,
-            "eta_time": "2025-12-04T11:48:37.184669",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -556,28 +388,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 7,
-            "eta_time": "2025-12-04T10:53:37.199686",
+            "licence": "10-1148",
+            "eta_min": 37,
+            "eta_time": "2025-12-08T00:00:33.857566",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 41,
-            "eta_time": "2025-12-04T11:27:37.199686",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 90,
+            "eta_time": "2025-12-08T00:53:33.857566",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 66,
-            "eta_time": "2025-12-04T11:52:37.199686",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -592,28 +416,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 9,
-            "eta_time": "2025-12-04T10:55:37.214706",
+            "licence": "10-1148",
+            "eta_min": 39,
+            "eta_time": "2025-12-08T00:02:33.864322",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 43,
-            "eta_time": "2025-12-04T11:29:37.214706",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 92,
+            "eta_time": "2025-12-08T00:55:33.864322",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 67,
-            "eta_time": "2025-12-04T11:53:37.214706",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -628,28 +444,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 22,
-            "eta_time": "2025-12-04T11:08:37.229643",
+            "licence": "10-1148",
+            "eta_min": 52,
+            "eta_time": "2025-12-08T00:15:33.871076",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 56,
-            "eta_time": "2025-12-04T11:42:37.229643",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 105,
+            "eta_time": "2025-12-08T01:08:33.871076",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 80,
-            "eta_time": "2025-12-04T12:06:37.229643",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -664,28 +472,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 28,
-            "eta_time": "2025-12-04T11:14:37.244677",
+            "licence": "10-1148",
+            "eta_min": 58,
+            "eta_time": "2025-12-08T00:21:33.877836",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 62,
-            "eta_time": "2025-12-04T11:48:37.244677",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 111,
+            "eta_time": "2025-12-08T01:14:33.877836",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 86,
-            "eta_time": "2025-12-04T12:12:37.244677",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -700,28 +500,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 30,
-            "eta_time": "2025-12-04T11:16:37.259616",
+            "licence": "10-1148",
+            "eta_min": 60,
+            "eta_time": "2025-12-08T00:23:33.885060",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 63,
-            "eta_time": "2025-12-04T11:49:37.259616",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 112,
+            "eta_time": "2025-12-08T01:15:33.885060",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 88,
-            "eta_time": "2025-12-04T12:14:37.259616",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -736,28 +528,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 34,
-            "eta_time": "2025-12-04T11:20:37.274519",
+            "licence": "10-1148",
+            "eta_min": 63,
+            "eta_time": "2025-12-08T00:26:33.891797",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 67,
-            "eta_time": "2025-12-04T11:53:37.274519",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 116,
+            "eta_time": "2025-12-08T01:19:33.891797",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 92,
-            "eta_time": "2025-12-04T12:18:37.274519",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -772,28 +556,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 36,
-            "eta_time": "2025-12-04T11:22:37.289300",
+            "licence": "10-1148",
+            "eta_min": 66,
+            "eta_time": "2025-12-08T00:29:33.898334",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 70,
-            "eta_time": "2025-12-04T11:56:37.289300",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 119,
+            "eta_time": "2025-12-08T01:22:33.898334",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 95,
-            "eta_time": "2025-12-04T12:21:37.289300",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -808,28 +584,20 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 39,
-            "eta_time": "2025-12-04T11:25:37.304110",
+            "licence": "10-1148",
+            "eta_min": 69,
+            "eta_time": "2025-12-08T00:32:33.904906",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 72,
-            "eta_time": "2025-12-04T11:58:37.304110",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 122,
+            "eta_time": "2025-12-08T01:25:33.904906",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1196",
-            "eta_min": 97,
-            "eta_time": "2025-12-04T12:23:37.304110",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -845,27 +613,27 @@
         "upcoming": [
           {
             "licence": "10-1151",
-            "eta_min": 40,
-            "eta_time": "2025-12-04T11:26:37.318934",
+            "eta_min": 0,
+            "eta_time": "2025-12-07T23:23:33.911658",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 73,
-            "eta_time": "2025-12-04T11:59:37.318934",
+            "licence": "10-1148",
+            "eta_min": 70,
+            "eta_time": "2025-12-08T00:33:33.911658",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1196",
-            "eta_min": 98,
-            "eta_time": "2025-12-04T12:24:37.318934",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 122,
+            "eta_time": "2025-12-08T01:25:33.911658",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -881,27 +649,27 @@
         "upcoming": [
           {
             "licence": "10-1151",
-            "eta_min": 43,
-            "eta_time": "2025-12-04T11:29:37.333809",
+            "eta_min": 3,
+            "eta_time": "2025-12-07T23:26:33.920765",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 76,
-            "eta_time": "2025-12-04T12:02:37.333809",
+            "licence": "10-1148",
+            "eta_min": 72,
+            "eta_time": "2025-12-08T00:35:33.920765",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1196",
-            "eta_min": 101,
-            "eta_time": "2025-12-04T12:27:37.333809",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 125,
+            "eta_time": "2025-12-08T01:28:33.920765",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -917,27 +685,27 @@
         "upcoming": [
           {
             "licence": "10-1151",
-            "eta_min": 53,
-            "eta_time": "2025-12-04T11:39:37.348753",
+            "eta_min": 14,
+            "eta_time": "2025-12-07T23:37:33.929891",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1212",
-            "eta_min": 87,
-            "eta_time": "2025-12-04T12:13:37.348753",
+            "licence": "10-1148",
+            "eta_min": 83,
+            "eta_time": "2025-12-08T00:46:33.929891",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1196",
-            "eta_min": 111,
-            "eta_time": "2025-12-04T12:37:37.348753",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 136,
+            "eta_time": "2025-12-08T01:39:33.929891",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       }
@@ -945,7 +713,7 @@
   },
   "Rawai -> Airport": {
     "route": "Rawai -> Airport",
-    "updated_at": "2025-12-04T10:46:37.747393",
+    "updated_at": "2025-12-07T23:23:34.032065",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -958,32 +726,11 @@
         "lon": 98.3217882953,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 33,
-            "eta_time": "2025-12-04T11:19:37.400576",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 58,
-            "eta_time": "2025-12-04T11:44:37.400576",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 93,
-            "eta_time": "2025-12-04T12:19:37.400576",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Sai Yuan": {
         "no": 17,
@@ -994,32 +741,11 @@
         "lon": 98.3155604072,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 42,
-            "eta_time": "2025-12-04T11:28:37.406883",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 67,
-            "eta_time": "2025-12-04T11:53:37.406883",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 102,
-            "eta_time": "2025-12-04T12:28:37.406883",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Andaman Cannacia Resort": {
         "no": 18,
@@ -1030,32 +756,11 @@
         "lon": 98.3010678512,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 53,
-            "eta_time": "2025-12-04T11:39:37.412861",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 78,
-            "eta_time": "2025-12-04T12:04:37.412861",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 113,
-            "eta_time": "2025-12-04T12:39:37.412861",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Beyond hotel Kata": {
         "no": 19,
@@ -1066,32 +771,11 @@
         "lon": 98.3006487149,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1153",
-            "eta_min": 0,
-            "eta_time": "2025-12-04T10:46:37.418562",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 55,
-            "eta_time": "2025-12-04T11:41:37.418562",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 80,
-            "eta_time": "2025-12-04T12:06:37.418562",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kata Palm": {
         "no": 20,
@@ -1102,32 +786,11 @@
         "lon": 98.3000995192,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1153",
-            "eta_min": 1,
-            "eta_time": "2025-12-04T10:47:37.429577",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 56,
-            "eta_time": "2025-12-04T11:42:37.429577",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 81,
-            "eta_time": "2025-12-04T12:07:37.429577",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "OZO Kata": {
         "no": 21,
@@ -1138,32 +801,11 @@
         "lon": 98.2970288793,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1153",
-            "eta_min": 4,
-            "eta_time": "2025-12-04T10:50:37.440687",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 59,
-            "eta_time": "2025-12-04T11:45:37.440687",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 84,
-            "eta_time": "2025-12-04T12:10:37.440687",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Peach Blossom": {
         "no": 22,
@@ -1174,32 +816,11 @@
         "lon": 98.2966885186,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1153",
-            "eta_min": 4,
-            "eta_time": "2025-12-04T10:50:37.451637",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 60,
-            "eta_time": "2025-12-04T11:46:37.451637",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 85,
-            "eta_time": "2025-12-04T12:11:37.451637",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Karon Stadium": {
         "no": 23,
@@ -1210,32 +831,11 @@
         "lon": 98.2950633387,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1153",
-            "eta_min": 6,
-            "eta_time": "2025-12-04T10:52:37.463546",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 61,
-            "eta_time": "2025-12-04T11:47:37.463546",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 86,
-            "eta_time": "2025-12-04T12:12:37.463546",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Woraburi Karon": {
         "no": 24,
@@ -1246,32 +846,11 @@
         "lon": 98.2941565461,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1153",
-            "eta_min": 11,
-            "eta_time": "2025-12-04T10:57:37.474906",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 66,
-            "eta_time": "2025-12-04T11:52:37.474906",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 91,
-            "eta_time": "2025-12-04T12:17:37.474906",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Karon Circle": {
         "no": 25,
@@ -1282,32 +861,11 @@
         "lon": 98.2933055042,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1153",
-            "eta_min": 12,
-            "eta_time": "2025-12-04T10:58:37.486087",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 67,
-            "eta_time": "2025-12-04T11:53:37.486087",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 92,
-            "eta_time": "2025-12-04T12:18:37.486087",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Secret cliff resort ": {
         "no": 26,
@@ -1318,32 +876,11 @@
         "lon": 98.2845652549,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 5,
-            "eta_time": "2025-12-04T10:51:37.497176",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 19,
-            "eta_time": "2025-12-04T11:05:37.497176",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 74,
-            "eta_time": "2025-12-04T12:00:37.497176",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Patong Bus Stop": {
         "no": 27,
@@ -1354,32 +891,11 @@
         "lon": 98.2913288644,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 13,
-            "eta_time": "2025-12-04T10:59:37.512726",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 26,
-            "eta_time": "2025-12-04T11:12:37.512726",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 82,
-            "eta_time": "2025-12-04T12:08:37.512726",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Bangla Patong ": {
         "no": 28,
@@ -1390,32 +906,11 @@
         "lon": 98.29513,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 18,
-            "eta_time": "2025-12-04T11:04:37.527945",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 31,
-            "eta_time": "2025-12-04T11:17:37.527945",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 86,
-            "eta_time": "2025-12-04T12:12:37.527945",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Four Point Patong": {
         "no": 29,
@@ -1426,32 +921,11 @@
         "lon": 98.2972091153,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 26,
-            "eta_time": "2025-12-04T11:12:37.543199",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 40,
-            "eta_time": "2025-12-04T11:26:37.543199",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 95,
-            "eta_time": "2025-12-04T12:21:37.543199",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kalim School": {
         "no": 30,
@@ -1462,32 +936,11 @@
         "lon": 98.2957506346,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 27,
-            "eta_time": "2025-12-04T11:13:37.558413",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 41,
-            "eta_time": "2025-12-04T11:27:37.558413",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 96,
-            "eta_time": "2025-12-04T12:22:37.558413",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kalim Bus Stop": {
         "no": 31,
@@ -1498,32 +951,11 @@
         "lon": 98.2927425399,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 29,
-            "eta_time": "2025-12-04T11:15:37.573534",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 42,
-            "eta_time": "2025-12-04T11:28:37.573534",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 97,
-            "eta_time": "2025-12-04T12:23:37.573534",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Big C Kamala": {
         "no": 32,
@@ -1534,32 +966,11 @@
         "lon": 98.2805120802,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 42,
-            "eta_time": "2025-12-04T11:28:37.588770",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 55,
-            "eta_time": "2025-12-04T11:41:37.588770",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 111,
-            "eta_time": "2025-12-04T12:37:37.588770",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Fantasea": {
         "no": 33,
@@ -1570,32 +981,11 @@
         "lon": 98.2865626774,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 45,
-            "eta_time": "2025-12-04T11:31:37.603958",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 58,
-            "eta_time": "2025-12-04T11:44:37.603958",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 113,
-            "eta_time": "2025-12-04T12:39:37.603958",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kamala Muslim Cemetery": {
         "no": 34,
@@ -1606,32 +996,11 @@
         "lon": 98.2842693667,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 46,
-            "eta_time": "2025-12-04T11:32:37.619157",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 59,
-            "eta_time": "2025-12-04T11:45:37.619157",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 115,
-            "eta_time": "2025-12-04T12:41:37.619157",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Cafe De Mar": {
         "no": 35,
@@ -1642,32 +1011,11 @@
         "lon": 98.2846268463,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1150",
-            "eta_min": 47,
-            "eta_time": "2025-12-04T11:33:37.634364",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 60,
-            "eta_time": "2025-12-04T11:46:37.634364",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 116,
-            "eta_time": "2025-12-04T12:42:37.634364",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Surin Beach": {
         "no": 36,
@@ -1678,32 +1026,11 @@
         "lon": 98.2806006571,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1208",
-            "eta_min": 2,
-            "eta_time": "2025-12-04T10:48:37.649526",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1150",
-            "eta_min": 52,
-            "eta_time": "2025-12-04T11:38:37.649526",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 66,
-            "eta_time": "2025-12-04T11:52:37.649526",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Lotus Cherngtalay": {
         "no": 37,
@@ -1714,32 +1041,11 @@
         "lon": 98.3019957451,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1208",
-            "eta_min": 11,
-            "eta_time": "2025-12-04T10:57:37.664543",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1150",
-            "eta_min": 61,
-            "eta_time": "2025-12-04T11:47:37.664543",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 74,
-            "eta_time": "2025-12-04T12:00:37.664543",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Laguna": {
         "no": 38,
@@ -1750,32 +1056,11 @@
         "lon": 98.29662,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1208",
-            "eta_min": 16,
-            "eta_time": "2025-12-04T11:02:37.679490",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1150",
-            "eta_min": 66,
-            "eta_time": "2025-12-04T11:52:37.679490",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 80,
-            "eta_time": "2025-12-04T12:06:37.679490",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Cherngtalay School": {
         "no": 39,
@@ -1786,32 +1071,11 @@
         "lon": 98.3072837597,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1208",
-            "eta_min": 17,
-            "eta_time": "2025-12-04T11:03:37.694285",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1150",
-            "eta_min": 67,
-            "eta_time": "2025-12-04T11:53:37.694285",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1153",
-            "eta_min": 80,
-            "eta_time": "2025-12-04T12:06:37.694285",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Baan Khian": {
         "no": 40,
@@ -1822,32 +1086,11 @@
         "lon": 98.3299507153,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1210",
-            "eta_min": 4,
-            "eta_time": "2025-12-04T10:50:37.709001",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1208",
-            "eta_min": 29,
-            "eta_time": "2025-12-04T11:15:37.709001",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1150",
-            "eta_min": 79,
-            "eta_time": "2025-12-04T12:05:37.709001",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Thalang Public Health Office": {
         "no": 41,
@@ -1858,38 +1101,17 @@
         "lon": 98.3332974713,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1210",
-            "eta_min": 7,
-            "eta_time": "2025-12-04T10:53:37.728396",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1208",
-            "eta_min": 32,
-            "eta_time": "2025-12-04T11:18:37.728396",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1150",
-            "eta_min": 82,
-            "eta_time": "2025-12-04T12:08:37.728396",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       }
     }
   },
   "Bus 2 -> Bus 1 -> Patong": {
     "route": "Bus 2 -> Bus 1 -> Patong",
-    "updated_at": "2025-12-04T10:46:38.021326",
+    "updated_at": "2025-12-07T23:23:34.127555",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -1902,32 +1124,11 @@
         "lon": 98.3946883,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 43,
-            "eta_time": "2025-12-04T11:29:37.767294",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 103,
-            "eta_time": "2025-12-04T12:29:37.767294",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 163,
-            "eta_time": "2025-12-04T13:29:37.767294",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Big C Market Thepkrasattri": {
         "no": 108,
@@ -1938,32 +1139,11 @@
         "lon": 98.391782,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 45,
-            "eta_time": "2025-12-04T11:31:37.773369",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 105,
-            "eta_time": "2025-12-04T12:31:37.773369",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 165,
-            "eta_time": "2025-12-04T13:31:37.773369",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Ban Kuku School": {
         "no": 109,
@@ -1974,32 +1154,11 @@
         "lon": 98.39966677,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 4,
-            "eta_time": "2025-12-04T10:50:37.778965",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 50,
-            "eta_time": "2025-12-04T11:36:37.778965",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 110,
-            "eta_time": "2025-12-04T12:36:37.778965",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Dcondo Campus Kuku": {
         "no": 110,
@@ -2010,32 +1169,11 @@
         "lon": 98.40369154,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 5,
-            "eta_time": "2025-12-04T10:51:37.789911",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 51,
-            "eta_time": "2025-12-04T11:37:37.789911",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 111,
-            "eta_time": "2025-12-04T12:37:37.789911",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Soi Thachin": {
         "no": 111,
@@ -2046,32 +1184,11 @@
         "lon": 98.4098317778341,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 7,
-            "eta_time": "2025-12-04T10:53:37.800794",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 54,
-            "eta_time": "2025-12-04T11:40:37.800794",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 114,
-            "eta_time": "2025-12-04T12:40:37.800794",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Big C Mini Kingkaew": {
         "no": 112,
@@ -2082,32 +1199,11 @@
         "lon": 98.410774,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 9,
-            "eta_time": "2025-12-04T10:55:37.811641",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 55,
-            "eta_time": "2025-12-04T11:41:37.811641",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 115,
-            "eta_time": "2025-12-04T12:41:37.811641",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Baan Natkamon": {
         "no": 113,
@@ -2118,32 +1214,11 @@
         "lon": 98.406191,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 11,
-            "eta_time": "2025-12-04T10:57:37.822502",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 57,
-            "eta_time": "2025-12-04T11:43:37.822502",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 117,
-            "eta_time": "2025-12-04T12:43:37.822502",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Provincial Cooperative Office": {
         "no": 114,
@@ -2154,32 +1229,11 @@
         "lon": 98.401439,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 13,
-            "eta_time": "2025-12-04T10:59:37.833350",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 59,
-            "eta_time": "2025-12-04T11:45:37.833350",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 119,
-            "eta_time": "2025-12-04T12:45:37.833350",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Sanamchai": {
         "no": 69,
@@ -2190,32 +1244,11 @@
         "lon": 98.39767359,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 15,
-            "eta_time": "2025-12-04T11:01:37.865921",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 61,
-            "eta_time": "2025-12-04T11:47:37.865921",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 121,
-            "eta_time": "2025-12-04T12:47:37.865921",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Bus Terminal 1": {
         "no": 68,
@@ -2226,32 +1259,11 @@
         "lon": 98.39575082,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 24,
-            "eta_time": "2025-12-04T11:10:37.855082",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 71,
-            "eta_time": "2025-12-04T11:57:37.855082",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 131,
-            "eta_time": "2025-12-04T12:57:37.855082",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Satree Phuket School": {
         "no": 70,
@@ -2262,32 +1274,11 @@
         "lon": 98.39209012,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 39,
-            "eta_time": "2025-12-04T11:25:37.876967",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 85,
-            "eta_time": "2025-12-04T12:11:37.876967",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 145,
-            "eta_time": "2025-12-04T13:11:37.876967",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Wittayalai School": {
         "no": 71,
@@ -2298,32 +1289,11 @@
         "lon": 98.38963431,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 41,
-            "eta_time": "2025-12-04T11:27:37.887853",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 87,
-            "eta_time": "2025-12-04T12:13:37.887853",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 147,
-            "eta_time": "2025-12-04T13:13:37.887853",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Vachira Phuket Hospital": {
         "no": 72,
@@ -2334,32 +1304,11 @@
         "lon": 98.38400696,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 46,
-            "eta_time": "2025-12-04T11:32:37.898644",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 92,
-            "eta_time": "2025-12-04T12:18:37.898644",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 152,
-            "eta_time": "2025-12-04T13:18:37.898644",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Bangkok Hospital Phuket": {
         "no": 73,
@@ -2370,32 +1319,11 @@
         "lon": 98.3776116,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 50,
-            "eta_time": "2025-12-04T11:36:37.909411",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 96,
-            "eta_time": "2025-12-04T12:22:37.909411",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 156,
-            "eta_time": "2025-12-04T13:22:37.909411",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Chillva Market": {
         "no": 74,
@@ -2406,32 +1334,11 @@
         "lon": 98.37335804,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 53,
-            "eta_time": "2025-12-04T11:39:37.920148",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 99,
-            "eta_time": "2025-12-04T12:25:37.920148",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 159,
-            "eta_time": "2025-12-04T13:25:37.920148",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Lotus Samkong": {
         "no": 75,
@@ -2442,32 +1349,11 @@
         "lon": 98.36921261,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 55,
-            "eta_time": "2025-12-04T11:41:37.930875",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 101,
-            "eta_time": "2025-12-04T12:27:37.930875",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 161,
-            "eta_time": "2025-12-04T13:27:37.930875",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Andamanda Phuket Waterpark": {
         "no": 76,
@@ -2478,32 +1364,11 @@
         "lon": 98.36366775,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 56,
-            "eta_time": "2025-12-04T11:42:37.942668",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 103,
-            "eta_time": "2025-12-04T12:29:37.942668",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 163,
-            "eta_time": "2025-12-04T13:29:37.942668",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kathu Fresh Market": {
         "no": 77,
@@ -2514,32 +1379,11 @@
         "lon": 98.34954164,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 61,
-            "eta_time": "2025-12-04T11:47:37.954281",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 107,
-            "eta_time": "2025-12-04T12:33:37.954281",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 167,
-            "eta_time": "2025-12-04T13:33:37.954281",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "PTT Station Kathu": {
         "no": 78,
@@ -2550,32 +1394,11 @@
         "lon": 98.34250205,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 63,
-            "eta_time": "2025-12-04T11:49:37.965682",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 109,
-            "eta_time": "2025-12-04T12:35:37.965682",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 169,
-            "eta_time": "2025-12-04T13:35:37.965682",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Siko": {
         "no": 79,
@@ -2586,32 +1409,11 @@
         "lon": 98.3362023,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 65,
-            "eta_time": "2025-12-04T11:51:37.977238",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 112,
-            "eta_time": "2025-12-04T12:38:37.977238",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 172,
-            "eta_time": "2025-12-04T13:38:37.977238",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kathu Police Station": {
         "no": 80,
@@ -2622,32 +1424,11 @@
         "lon": 98.3327828,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 67,
-            "eta_time": "2025-12-04T11:53:37.988462",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 113,
-            "eta_time": "2025-12-04T12:39:37.988462",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 173,
-            "eta_time": "2025-12-04T13:39:37.988462",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Coffee Mania": {
         "no": 81,
@@ -2658,32 +1439,11 @@
         "lon": 98.30179899,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 91,
-            "eta_time": "2025-12-04T12:17:37.999391",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 138,
-            "eta_time": "2025-12-04T13:04:37.999391",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 198,
-            "eta_time": "2025-12-04T14:04:37.999391",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Malin Plaza": {
         "no": 82,
@@ -2694,38 +1454,17 @@
         "lon": 98.2933205,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1219",
-            "eta_min": 97,
-            "eta_time": "2025-12-04T12:23:38.010353",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 143,
-            "eta_time": "2025-12-04T13:09:38.010353",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 203,
-            "eta_time": "2025-12-04T14:09:38.010353",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       }
     }
   },
   "Patong -> Bus 1 -> Bus 2": {
     "route": "Patong -> Bus 1 -> Bus 2",
-    "updated_at": "2025-12-04T10:46:38.283330",
+    "updated_at": "2025-12-07T23:23:34.213596",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -2738,32 +1477,11 @@
         "lon": 98.291173,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 28,
-            "eta_time": "2025-12-04T11:14:38.056706",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 88,
-            "eta_time": "2025-12-04T12:14:38.056706",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 148,
-            "eta_time": "2025-12-04T13:14:38.056706",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Malin Plaza": {
         "no": 84,
@@ -2774,32 +1492,11 @@
         "lon": 98.29345369,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 30,
-            "eta_time": "2025-12-04T11:16:38.063022",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 90,
-            "eta_time": "2025-12-04T12:16:38.063022",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 150,
-            "eta_time": "2025-12-04T13:16:38.063022",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Makro Nanai": {
         "no": 85,
@@ -2810,32 +1507,11 @@
         "lon": 98.3017782,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 36,
-            "eta_time": "2025-12-04T11:22:38.068847",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 96,
-            "eta_time": "2025-12-04T12:22:38.068847",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 156,
-            "eta_time": "2025-12-04T13:22:38.068847",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kathu Police Station": {
         "no": 86,
@@ -2846,32 +1522,11 @@
         "lon": 98.3323804,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 62,
-            "eta_time": "2025-12-04T11:48:38.074771",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 122,
-            "eta_time": "2025-12-04T12:48:38.074771",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 182,
-            "eta_time": "2025-12-04T13:48:38.074771",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Siko": {
         "no": 87,
@@ -2882,32 +1537,11 @@
         "lon": 98.33621525,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 63,
-            "eta_time": "2025-12-04T11:49:38.080460",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 123,
-            "eta_time": "2025-12-04T12:49:38.080460",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 183,
-            "eta_time": "2025-12-04T13:49:38.080460",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "PTT Station Kathu": {
         "no": 88,
@@ -2918,32 +1552,11 @@
         "lon": 98.34279008,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 65,
-            "eta_time": "2025-12-04T11:51:38.086144",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 125,
-            "eta_time": "2025-12-04T12:51:38.086144",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 185,
-            "eta_time": "2025-12-04T13:51:38.086144",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Kathu Fresh Market": {
         "no": 89,
@@ -2954,32 +1567,11 @@
         "lon": 98.34964231,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 68,
-            "eta_time": "2025-12-04T11:54:38.091976",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 128,
-            "eta_time": "2025-12-04T12:54:38.091976",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 188,
-            "eta_time": "2025-12-04T13:54:38.091976",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Andamanda Phuket Waterpark": {
         "no": 90,
@@ -2990,32 +1582,11 @@
         "lon": 98.36436545,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 0,
-            "eta_time": "2025-12-04T10:46:38.097522",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 71,
-            "eta_time": "2025-12-04T11:57:38.097522",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 131,
-            "eta_time": "2025-12-04T12:57:38.097522",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Lotus Samkong": {
         "no": 91,
@@ -3026,32 +1597,11 @@
         "lon": 98.36908411,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 1,
-            "eta_time": "2025-12-04T10:47:38.108406",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 73,
-            "eta_time": "2025-12-04T11:59:38.108406",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 133,
-            "eta_time": "2025-12-04T12:59:38.108406",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Chillva Market": {
         "no": 92,
@@ -3062,32 +1612,11 @@
         "lon": 98.37334465,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 3,
-            "eta_time": "2025-12-04T10:49:38.119272",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 75,
-            "eta_time": "2025-12-04T12:01:38.119272",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 135,
-            "eta_time": "2025-12-04T13:01:38.119272",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Bangkok Hospital Phuket": {
         "no": 93,
@@ -3098,32 +1627,11 @@
         "lon": 98.37777846,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 6,
-            "eta_time": "2025-12-04T10:52:38.130109",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 78,
-            "eta_time": "2025-12-04T12:04:38.130109",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 138,
-            "eta_time": "2025-12-04T13:04:38.130109",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Vachira Phuket Hospital": {
         "no": 94,
@@ -3134,32 +1642,11 @@
         "lon": 98.38418576,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 11,
-            "eta_time": "2025-12-04T10:57:38.140941",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 83,
-            "eta_time": "2025-12-04T12:09:38.140941",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 143,
-            "eta_time": "2025-12-04T13:09:38.140941",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Wittayalai School": {
         "no": 95,
@@ -3170,32 +1657,11 @@
         "lon": 98.38976981,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 15,
-            "eta_time": "2025-12-04T11:01:38.151745",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 87,
-            "eta_time": "2025-12-04T12:13:38.151745",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 147,
-            "eta_time": "2025-12-04T13:13:38.151745",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Satree Phuket School": {
         "no": 96,
@@ -3206,32 +1672,11 @@
         "lon": 98.39197764,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 17,
-            "eta_time": "2025-12-04T11:03:38.162587",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 88,
-            "eta_time": "2025-12-04T12:14:38.162587",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 148,
-            "eta_time": "2025-12-04T13:14:38.162587",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Sanamchai": {
         "no": 99,
@@ -3242,32 +1687,11 @@
         "lon": 98.3977533924,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 19,
-            "eta_time": "2025-12-04T11:05:38.196098",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 91,
-            "eta_time": "2025-12-04T12:17:38.196098",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 151,
-            "eta_time": "2025-12-04T13:17:38.196098",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Bus Terminal 1": {
         "no": 98,
@@ -3278,32 +1702,11 @@
         "lon": 98.39575082,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 34,
-            "eta_time": "2025-12-04T11:20:38.184625",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 105,
-            "eta_time": "2025-12-04T12:31:38.184625",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 165,
-            "eta_time": "2025-12-04T13:31:38.184625",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Provincial Cooperative Office": {
         "no": 100,
@@ -3314,32 +1717,11 @@
         "lon": 98.401354,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 41,
-            "eta_time": "2025-12-04T11:27:38.207093",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 113,
-            "eta_time": "2025-12-04T12:39:38.207093",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 173,
-            "eta_time": "2025-12-04T13:39:38.207093",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Baan Natkamon": {
         "no": 101,
@@ -3350,32 +1732,11 @@
         "lon": 98.406222,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 44,
-            "eta_time": "2025-12-04T11:30:38.218011",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 116,
-            "eta_time": "2025-12-04T12:42:38.218011",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 176,
-            "eta_time": "2025-12-04T13:42:38.218011",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Big C Mini Kingkaew": {
         "no": 102,
@@ -3386,32 +1747,11 @@
         "lon": 98.410692,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 46,
-            "eta_time": "2025-12-04T11:32:38.228947",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 118,
-            "eta_time": "2025-12-04T12:44:38.228947",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 178,
-            "eta_time": "2025-12-04T13:44:38.228947",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Soi Thachin": {
         "no": 103,
@@ -3422,32 +1762,11 @@
         "lon": 98.40972719,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 48,
-            "eta_time": "2025-12-04T11:34:38.239835",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 119,
-            "eta_time": "2025-12-04T12:45:38.239835",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 179,
-            "eta_time": "2025-12-04T13:45:38.239835",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Dcondo Campus Kuku": {
         "no": 104,
@@ -3458,32 +1777,11 @@
         "lon": 98.40352997,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 50,
-            "eta_time": "2025-12-04T11:36:38.250671",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 121,
-            "eta_time": "2025-12-04T12:47:38.250671",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 181,
-            "eta_time": "2025-12-04T13:47:38.250671",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Ban Kuku School": {
         "no": 105,
@@ -3494,32 +1792,11 @@
         "lon": 98.399987,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 51,
-            "eta_time": "2025-12-04T11:37:38.261542",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 122,
-            "eta_time": "2025-12-04T12:48:38.261542",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 182,
-            "eta_time": "2025-12-04T13:48:38.261542",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Big C Market Thepkrasattri": {
         "no": 106,
@@ -3530,41 +1807,35 @@
         "lon": 98.392036,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1220",
-            "eta_min": 54,
-            "eta_time": "2025-12-04T11:40:38.272403",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 125,
-            "eta_time": "2025-12-04T12:51:38.272403",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 185,
-            "eta_time": "2025-12-04T13:51:38.272403",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       }
     }
   },
   "Dragon Line": {
     "route": "Dragon Line",
-    "updated_at": "2025-12-04T10:46:38.509509",
+    "updated_at": "2025-12-07T23:23:34.261032",
     "route_status": "active",
     "route_message": null,
     "stops": {
+      "PKCD Parking": {
+        "no": 1,
+        "index": 0,
+        "stop_name_eng": "PKCD Parking",
+        "stop_name_th": "ลานจอดรถ",
+        "lat": 7.885774,
+        "lon": 98.39478,
+        "stop_status": "open",
+        "stop_message": null,
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
+      },
       "Queen Sirikit Park": {
         "no": 2,
         "index": 56,
@@ -3574,32 +1845,11 @@
         "lon": 98.39229,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1265",
-            "eta_min": 1,
-            "eta_time": "2025-12-04T10:47:38.287128",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 14,
-            "eta_time": "2025-12-04T11:00:38.287128",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 29,
-            "eta_time": "2025-12-04T11:15:38.287128",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Old Town Intersection": {
         "no": 3,
@@ -3610,32 +1860,11 @@
         "lon": 98.39086,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1265",
-            "eta_min": 3,
-            "eta_time": "2025-12-04T10:49:38.299161",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 16,
-            "eta_time": "2025-12-04T11:02:38.299161",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 31,
-            "eta_time": "2025-12-04T11:17:38.299161",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Government Savings Bank": {
         "no": 4,
@@ -3646,32 +1875,11 @@
         "lon": 98.39134,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1265",
-            "eta_min": 4,
-            "eta_time": "2025-12-04T10:50:38.311956",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 17,
-            "eta_time": "2025-12-04T11:03:38.311956",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 32,
-            "eta_time": "2025-12-04T11:18:38.311956",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Royal Phuket City Hotel": {
         "no": 5,
@@ -3682,32 +1890,11 @@
         "lon": 98.39484,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 0,
-            "eta_time": "2025-12-04T10:46:38.324109",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 6,
-            "eta_time": "2025-12-04T10:52:38.324109",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 19,
-            "eta_time": "2025-12-04T11:05:38.324109",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Pearl Hotel Phuket": {
         "no": 6,
@@ -3718,32 +1905,11 @@
         "lon": 98.39254,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 2,
-            "eta_time": "2025-12-04T10:48:38.340354",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 9,
-            "eta_time": "2025-12-04T10:55:38.340354",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 22,
-            "eta_time": "2025-12-04T11:08:38.340354",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Mc Donald's": {
         "no": 7,
@@ -3754,32 +1920,11 @@
         "lon": 98.39424,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 5,
-            "eta_time": "2025-12-04T10:51:38.356309",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 12,
-            "eta_time": "2025-12-04T10:58:38.356309",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 25,
-            "eta_time": "2025-12-04T11:11:38.356309",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Surin Circle Clock Tower": {
         "no": 8,
@@ -3790,32 +1935,11 @@
         "lon": 98.39246,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 8,
-            "eta_time": "2025-12-04T10:54:38.373068",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 14,
-            "eta_time": "2025-12-04T11:00:38.373068",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 27,
-            "eta_time": "2025-12-04T11:13:38.373068",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Municipal Parking": {
         "no": 9,
@@ -3826,32 +1950,11 @@
         "lon": 98.39106,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 10,
-            "eta_time": "2025-12-04T10:56:38.389214",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 16,
-            "eta_time": "2025-12-04T11:02:38.389214",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 29,
-            "eta_time": "2025-12-04T11:15:38.389214",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Krungsri Bank": {
         "no": 10,
@@ -3862,32 +1965,11 @@
         "lon": 98.38906,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 11,
-            "eta_time": "2025-12-04T10:57:38.406044",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 18,
-            "eta_time": "2025-12-04T11:04:38.406044",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 31,
-            "eta_time": "2025-12-04T11:17:38.406044",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "WANLAMUN & EGG E EGG @ OLD TOWN": {
         "no": 11,
@@ -3898,32 +1980,11 @@
         "lon": 98.38729,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 12,
-            "eta_time": "2025-12-04T10:58:38.421796",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 19,
-            "eta_time": "2025-12-04T11:05:38.421796",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 32,
-            "eta_time": "2025-12-04T11:18:38.421796",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Phuket Thaihua Museum": {
         "no": 12,
@@ -3934,32 +1995,11 @@
         "lon": 98.38571,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 14,
-            "eta_time": "2025-12-04T11:00:38.437942",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 21,
-            "eta_time": "2025-12-04T11:07:38.437942",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 34,
-            "eta_time": "2025-12-04T11:20:38.437942",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Dibuk Road": {
         "no": 13,
@@ -3970,32 +2010,11 @@
         "lon": 98.38668,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 16,
-            "eta_time": "2025-12-04T11:02:38.453566",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 23,
-            "eta_time": "2025-12-04T11:09:38.453566",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 36,
-            "eta_time": "2025-12-04T11:22:38.453566",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Mongkhonnimit Temple": {
         "no": 14,
@@ -4006,32 +2025,11 @@
         "lon": 98.38915,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 18,
-            "eta_time": "2025-12-04T11:04:38.470342",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 25,
-            "eta_time": "2025-12-04T11:11:38.470342",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 38,
-            "eta_time": "2025-12-04T11:24:38.470342",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       },
       "Limelight Phuket": {
         "no": 15,
@@ -4042,68 +2040,11 @@
         "lon": 98.39247,
         "stop_status": "open",
         "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "10-1218",
-            "eta_min": 20,
-            "eta_time": "2025-12-04T11:06:38.487090",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1265",
-            "eta_min": 27,
-            "eta_time": "2025-12-04T11:13:38.487090",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 40,
-            "eta_time": "2025-12-04T11:26:38.487090",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
-      },
-      "PKCD Parking": {
-        "no": 1,
-        "index": 0,
-        "stop_name_eng": "PKCD Parking",
-        "stop_name_th": "ลานจอดรถ",
-        "lat": 7.885774,
-        "lon": 98.39478,
-        "stop_status": "open",
-        "stop_message": null,
-        "upcoming": [
-          {
-            "licence": "Scheduled",
-            "eta_min": 13,
-            "eta_time": "2025-12-04T10:59:38.503638",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 28,
-            "eta_time": "2025-12-04T11:14:38.503638",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 43,
-            "eta_time": "2025-12-04T11:29:38.503638",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          }
-        ]
+        "eta_min": -1,
+        "message": "No more buses for today",
+        "licence": "-",
+        "status": "Ended",
+        "upcoming": []
       }
     }
   }
