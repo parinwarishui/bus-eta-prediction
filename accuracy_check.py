@@ -20,7 +20,8 @@ try:
         calc_eta, 
         ORDERS_PER_KM,
         API_KEY,
-        API_URL
+        API_URL,
+        LAYOVER_CONFIG  # <--- [NEW] Import Layover Config
     )
     from stop_access import direction_map
 except ImportError as e:
@@ -155,14 +156,23 @@ def register_new_bus_stops(route_name, licence, upcoming_stops, reg_time, curren
                         existing_stop_indices = set(df.loc[mask, 'stop_index'].astype(int).tolist())
         except: pass
 
+    # === [NEW] GET LAYOVER CONFIG ===
+    current_layover_idx = LAYOVER_CONFIG.get(route_name)
+
     for stop in upcoming_stops:
         if stop['index'] in existing_stop_indices: continue
 
-        # === FORCE T0 CALCULATION NOW ===
+        # === FORCE T0 CALCULATION NOW (With Layover) ===
         t0_eta = pd.NA
         t0_ts = pd.NA
         try:
-            eta_val = calc_eta(current_idx, stop['index'], route_name, current_speed)
+            eta_val = calc_eta(
+                current_idx, 
+                stop['index'], 
+                route_name, 
+                current_speed,
+                layover_idx=current_layover_idx  # <--- Pass Index
+            )
             if eta_val is not None and eta_val >= 0:
                 t0_eta = eta_val
                 t0_ts = (reg_time + timedelta(minutes=eta_val)).isoformat()
@@ -295,6 +305,9 @@ def evaluate_bus_eta(route_name):
         print(f"[{route_name}] Setup failed: {e}")
         return
 
+    # === [NEW] PRE-LOAD LAYOVER INDEX FOR THIS THREAD ===
+    current_layover_idx = LAYOVER_CONFIG.get(route_name)
+
     while not shutdown_event.is_set():
         try:
             now = datetime.now()
@@ -374,7 +387,14 @@ def evaluate_bus_eta(route_name):
                             if elapsed_min >= t and t not in bus_state["processed_intervals"]:
                                 for stop_idx in bus_state["active_stop_indices"]:
                                     try:
-                                        eta_min = calc_eta(current_idx, stop_idx, route_name, velocity)
+                                        # === [UPDATED] PASS LAYOVER INDEX ===
+                                        eta_min = calc_eta(
+                                            current_idx, 
+                                            stop_idx, 
+                                            route_name, 
+                                            velocity,
+                                            layover_idx=current_layover_idx  # <--- HERE
+                                        )
                                         if eta_min is not None and eta_min >= 0:
                                             pred_ts = now + timedelta(minutes=eta_min)
                                             batch_updates.append({

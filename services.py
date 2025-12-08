@@ -41,8 +41,16 @@ DEFAULT_SPEED = 15
 ORDERS_PER_KM = 1000 // STEP_ORDER 
 START_BUFFER_STEPS = 10
 IDLE_SPEED_THRESHOLD = 1
-OFFLINE_GRACE_PERIOD_MIN = 5 
-AUTO_INACTIVE_THRESHOLD = 10 
+OFFLINE_GRACE_PERIOD_MIN = 40 
+AUTO_INACTIVE_THRESHOLD = 30 
+
+# === LAYOVER CONFIGURATION ===
+# for bus waiting at Bus terminal 1 30 mins
+LAYOVER_DURATION = 30 # minutes
+LAYOVER_CONFIG = {
+    "Patong -> Bus 1 -> Bus 2": 3774, # Stop no. 98
+    "Bus 2 -> Bus 1 -> Patong": 1581  # Stop no. 68
+}
 
 # === ROUTE BIAS CONFIGURATION ===
 # Multipliers to adjust ETA calculations based on route characteristics
@@ -332,7 +340,7 @@ def map_index_df(filtered_df: pd.DataFrame, route: str) -> pd.DataFrame:
 # =========================================================
 
 '''MAIN FUNCTION FOR CALCULATE ETA'''
-def calc_eta(bus_order, stop_order, route, current_speed=None):
+def calc_eta(bus_order, stop_order, route, current_speed=None, layover_idx=None):
     # set up data
     constant_speed = DEFAULT_SPEED
     if isinstance(current_speed, pd.Series): current_speed = float(current_speed.iloc[0])
@@ -420,6 +428,10 @@ def calc_eta(bus_order, stop_order, route, current_speed=None):
     # get travel time for each segment and combine
     segments['travel_time_hr'] = (segments['segment_distance_km'] / segments['effective_speed'])
     total_travel_time_min = int((segments['travel_time_hr'] * 60).sum())
+
+    if layover_idx is not None:
+        if bus_order <= layover_idx - 50 and stop_order >= layover_idx + 50:
+            total_travel_time_min += LAYOVER_DURATION
     
     return total_travel_time_min
 
@@ -445,6 +457,9 @@ def get_upcoming_buses(mapped_df, stop_name, route, route_status_flags, stop_sta
             stop_index = s.get('index', s.get('no')) 
             break
     if stop_index is None: return pd.DataFrame(columns=all_cols)
+
+    # layover stop condition
+    current_layover_idx = LAYOVER_CONFIG.get(route)
     
     # set up active buses df
     active_buses_df = pd.DataFrame(columns=all_cols)
@@ -463,7 +478,7 @@ def get_upcoming_buses(mapped_df, stop_name, route, route_status_flags, stop_sta
             if not filtered_active.empty:
                 # Active buses still use their LIVE speed
                 filtered_active['eta_min'] = filtered_active.apply(
-                    lambda row: calc_eta(row['bus_index'], stop_index, route, float(row['spd'])), axis=1
+                    lambda row: calc_eta(row['bus_index'], stop_index, route, float(row['spd']), layover_idx=current_layover_idx), axis=1
                 )
                 filtered_active['eta_time'] = filtered_active['eta_min'].apply(
                     lambda x: (now + timedelta(minutes=x)).isoformat()
@@ -503,7 +518,7 @@ def get_upcoming_buses(mapped_df, stop_name, route, route_status_flags, stop_sta
                         upcoming_departures = departure_times[departure_times > now].sort_values()
                         
                         # Use base travel time (Historical only)
-                        base_travel_time_min = calc_eta(0, stop_index, route) 
+                        base_travel_time_min = calc_eta(0, stop_index, route, layover_idx=current_layover_idx) 
                         
                         count = 0
                         for depart_dt in upcoming_departures:
@@ -815,7 +830,6 @@ def calculate_all_etas():
 
             mapped_df = map_index_df(filtered_df, route_name)
 
-            # --- NEW FILTER ---
             # Remove buses near start (index < 50) that are idle (spd < 1)
             # This logic also ensures buses that failed to map (index -1 or NaN) are handled
             if not mapped_df.empty:
@@ -825,7 +839,6 @@ def calculate_all_etas():
                 # Keep if: Index >= 50 OR Speed >= 1
                 # Drop if: Index < 50 AND Speed < 1
                 mapped_df = mapped_df[~((mapped_df['bus_index'] < 50) & (mapped_df['spd'] < 1))]
-            # ------------------
 
             all_stop_etas = {}
             for stop_id, stop_info in route_config.stop_list.items():

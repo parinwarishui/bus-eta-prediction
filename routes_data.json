@@ -519,7 +519,7 @@
           "index": 1246,
           "lat": 7.889820314,
           "lon": 98.39786569,
-          "name_eng": "Sanamchai",
+          "name_eng": "Sanamchai (To Bus 1)",
           "name_th": "สนามชัย"
         },
         "68": {
@@ -535,7 +535,7 @@
           "index": 1886,
           "lat": 7.889961988,
           "lon": 98.39767359,
-          "name_eng": "Sanamchai",
+          "name_eng": "Sanamchai (To Patong)",
           "name_th": "สนามชัย"
         },
         "70": {
@@ -776,12 +776,12 @@
           "name_eng": "Satree Phuket School",
           "name_th": "โรงเรียนสตรีภูเก็ต"
         },
-        "115": {
-          "no": 115,
+        "97": {
+          "no": 97,
           "index": 3411,
           "lat": 7.889820314,
           "lon": 98.39786569,
-          "name_eng": "Sanamchai",
+          "name_eng": "Sanamchai (To Bus 1)",
           "name_th": "สนามชัย"
         },
         "98": {
@@ -797,7 +797,7 @@
           "index": 4052,
           "lat": 7.8899833829,
           "lon": 98.3977533924,
-          "name_eng": "Sanamchai",
+          "name_eng": "Sanamchai (To Bus 2)",
           "name_th": "สนามชัย"
         },
         "100": {
