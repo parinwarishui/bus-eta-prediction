@@ -10,16 +10,11 @@ import requests
 from math import cos, radians
 from datetime import datetime, date, timedelta
 from dotenv import load_dotenv
-
-# Local Import
 from stop_access import line_options, direction_map 
 
-try:
-    sys.stdout.reconfigure(encoding='utf-8') # type: ignore
-except AttributeError:
-    pass 
+try: sys.stdout.reconfigure(encoding='utf-8') 
+except AttributeError: pass 
 
-'''=== CONSTANTS ==='''
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
 API_URL = "https://smartbus-pk-api.phuket.cloud/api/bus-news-2/"
@@ -30,26 +25,21 @@ HISTORY_LOG = os.path.join(BASE_DIR, "bus_history.csv")
 BUS_FLAGS_FILE = os.path.join(BASE_DIR, "bus_flags.json")
 ACCURACY_CSV = os.path.join(BASE_DIR, "eta_accuracy_archive.csv")
 
-# Global flag
 running_event = threading.Event()
 
-# Parameters
 RUN_INTERVAL_SECONDS = 60
 STEP_ORDER = 5
-DEFAULT_SPEED = 30
+DEFAULT_SPEED = 15
 ORDERS_PER_KM = 1000 // STEP_ORDER 
 START_BUFFER_STEPS = 10
 IDLE_SPEED_THRESHOLD = 1
 OFFLINE_GRACE_PERIOD_MIN = 40 
-
-# === LAYOVER CONFIGURATION ===
 LAYOVER_GRACE_PERIOD_MIN = 45
 LAYOVER_DURATION = 30
 
-# === ROUTE BIAS CONFIGURATION ===
 ROUTE_BIAS = {
-    "Airport -> Rawai": 0.8,       
-    "Rawai -> Airport": 0.8,       
+    "Airport -> Rawai": 0.8, 
+    "Rawai -> Airport": 0.8, 
     "Dragon Line": 0.7,            
     "Patong -> Bus 1 -> Bus 2": 0.7, 
     "Bus 2 -> Bus 1 -> Patong": 0.7
@@ -64,9 +54,7 @@ def load_data():
     if not os.path.exists(DATA_SOURCE_FILE): return {}
     try:
         with open(DATA_SOURCE_FILE, "r", encoding="utf-8-sig") as f: return json.load(f)
-    except Exception as e:
-        print(f"[ERROR] Failed to load data file: {e}")
-        return {}
+    except: return {}
 
 '''LOAD FLAGS FROM BUS_FLAGS'''
 def load_flags():
@@ -109,7 +97,7 @@ def clean_expired_flags():
         save_flags(flags)
 
 # =========================================================
-# SECTION 2: CORE LOGIC & MAPPING
+# LOGIC & MAPPING
 # =========================================================
 
 '''LOAD ROUTE COORDINATES FROM GEOJSON_ORDERED FILES'''
@@ -117,9 +105,7 @@ def load_route_coords(route_geojson):
     with open(route_geojson, "r") as f:
         route_geojson_loaded = json.load(f)
     return [
-        (feat["properties"]["order"],
-         feat["geometry"]["coordinates"][0],
-         feat["geometry"]["coordinates"][1])
+        (feat["properties"]["order"], feat["geometry"]["coordinates"][0], feat["geometry"]["coordinates"][1])
         for feat in route_geojson_loaded["features"]
     ]
 
@@ -130,25 +116,18 @@ def get_bus_data(api_url, api_key):
         response = requests.get(api_url, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
-    except Exception as e:
-        print(f"\nError fetching bus data: {e}")
-        return pd.DataFrame()
+    except: return pd.DataFrame()
     
     bus_list = []
     for bus in data:
         bus_data = bus.get("data", {})
         pos = bus_data.get("pos")
         if pos is None or len(pos) < 2: continue
-        
         bus_list.append({
             'licence': str(bus.get("licence")),
-            'lon': float(pos[0]),
-            'lat': float(pos[1]),
-            'spd': float(bus_data.get("spd", 0)), 
-            'buffer': bus.get("buffer"),
-            'azm': bus_data.get("azm"),
-            'route': bus_data.get("determineBusDirection", [None])[0],
-            'timestamp': datetime.now(),
+            'lon': float(pos[0]), 'lat': float(pos[1]), 'spd': float(bus_data.get("spd", 0)), 
+            'buffer': bus.get("buffer"), 'azm': bus_data.get("azm"),
+            'route': bus_data.get("determineBusDirection", [None])[0], 'timestamp': datetime.now(),
         })
     return pd.DataFrame(bus_list)
 
@@ -162,25 +141,18 @@ def collect_bus_history(live_df):
             hist_df = pd.read_csv(HISTORY_LOG)
             if not hist_df.empty and 'licence' in hist_df.columns:
                 hist_df = hist_df.drop_duplicates(subset=['licence'], keep='last')
-            if 'timestamp' in hist_df.columns:
-                hist_df['timestamp'] = pd.to_datetime(hist_df['timestamp'])
-            if 'last_move_time' in hist_df.columns:
-                hist_df['last_move_time'] = pd.to_datetime(hist_df['last_move_time'])
-            
+            if 'timestamp' in hist_df.columns: hist_df['timestamp'] = pd.to_datetime(hist_df['timestamp'])
+            if 'last_move_time' in hist_df.columns: hist_df['last_move_time'] = pd.to_datetime(hist_df['last_move_time'])
             if not hist_df.empty and 'timestamp' in hist_df.columns:
                 hist_df = hist_df[hist_df['timestamp'] > cutoff_time]
-        except Exception as e:
-            print(f"History Load Error: {e}")
-            hist_df = pd.DataFrame()
-    else:
-        hist_df = pd.DataFrame()
+        except: hist_df = pd.DataFrame()
+    else: hist_df = pd.DataFrame()
 
     cols = ['licence', 'lon', 'lat', 'spd', 'buffer', 'azm', 'route', 'timestamp', 'last_move_time']
     for c in cols:
         if c not in hist_df.columns: hist_df[c] = pd.NA
 
     history_map = hist_df.set_index('licence').to_dict('index') if not hist_df.empty else {}
-    
     if live_df.empty:
         hist_df.to_csv(HISTORY_LOG, index=False)
         return hist_df
@@ -192,16 +164,12 @@ def collect_bus_history(live_df):
         licence = str(row['licence'])
         processed_licences.add(licence)
         spd = float(row['spd'])
-        
         last_move = now
         if licence in history_map:
             prev_last_move = history_map[licence].get('last_move_time')
             if pd.notna(prev_last_move):
-                if spd > IDLE_SPEED_THRESHOLD:
-                    last_move = now
-                else:
-                    last_move = prev_last_move 
-        
+                if spd > IDLE_SPEED_THRESHOLD: last_move = now
+                else: last_move = prev_last_move 
         record = row.to_dict()
         record['timestamp'] = now 
         record['last_move_time'] = last_move
@@ -257,10 +225,8 @@ def map_index_constrained(bus_lon, bus_lat, route_coords, min_idx, max_idx):
 '''CHECK BUS AZM RANGE'''
 def is_in_azm_range(azm, rng):
     min_a, max_a = rng
-    if min_a <= max_a:
-        return min_a <= azm <= max_a
-    else: 
-        return azm >= min_a or azm <= max_a
+    if min_a <= max_a: return min_a <= azm <= max_a
+    else: return azm >= min_a or azm <= max_a
 
 '''MAP WHOLE DATAFRAME OF BUSES TO INDEX'''
 def map_index_df(filtered_df: pd.DataFrame, route: str) -> pd.DataFrame:
@@ -269,11 +235,9 @@ def map_index_df(filtered_df: pd.DataFrame, route: str) -> pd.DataFrame:
     
     geojson_full_path = os.path.join(BASE_DIR, route_config.geojson_path)
     route_coords = load_route_coords(geojson_full_path)
-    
     config = route_config.overlap
 
-    if 'bus_index' not in filtered_df.columns: 
-        filtered_df['bus_index'] = np.nan
+    if 'bus_index' not in filtered_df.columns: filtered_df['bus_index'] = np.nan
         
     for i, row in filtered_df.iterrows():
         idx = map_index(row['lon'], row['lat'], route_coords)
@@ -284,20 +248,16 @@ def map_index_df(filtered_df: pd.DataFrame, route: str) -> pd.DataFrame:
                     if start <= idx <= end:
                         in_danger_zone = True
                         break
-                
                 if in_danger_zone:
                     bus_azm = row.get('azm')
                     if bus_azm is not None:
                         ranges = list(constraints['index_ranges'].values())
-                        if is_in_azm_range(float(bus_azm), constraints['azm_range']):
-                            target_range = ranges[0]
-                        else:
-                            target_range = ranges[1] if len(ranges) > 1 else ranges[0]
+                        if is_in_azm_range(float(bus_azm), constraints['azm_range']): target_range = ranges[0]
+                        else: target_range = ranges[1] if len(ranges) > 1 else ranges[0]
                         t_min, t_max = target_range
                         if not (t_min <= idx <= t_max):
                             new_idx = map_index_constrained(row['lon'], row['lat'], route_coords, t_min, t_max)
-                            if new_idx != -1:
-                                idx = new_idx
+                            if new_idx != -1: idx = new_idx
                     break
         filtered_df.at[i, 'bus_index'] = idx #type: ignore
     return filtered_df
@@ -308,7 +268,6 @@ def map_index_df(filtered_df: pd.DataFrame, route: str) -> pd.DataFrame:
 
 '''MAIN FUNCTION FOR CALCULATE ETA'''
 def calc_eta(bus_order, stop_order, route, current_speed=None, layover_idx=None):
-    # [SAFETY CHECK]
     if pd.isna(bus_order) or pd.isna(stop_order): return 0
     if isinstance(stop_order, dict): stop_order = stop_order.get('index', stop_order.get('no', 0))
     if stop_order is None: return 0
@@ -322,7 +281,6 @@ def calc_eta(bus_order, stop_order, route, current_speed=None, layover_idx=None)
     route_config = direction_map.get(route)
     if not route_config: return 0
     
-    # Speed loading
     constant_speed = DEFAULT_SPEED
     if isinstance(current_speed, pd.Series): current_speed = float(current_speed.iloc[0])
 
@@ -335,7 +293,7 @@ def calc_eta(bus_order, stop_order, route, current_speed=None, layover_idx=None)
             else:
                 with open(full_path, "r") as f: avg_speeds_loaded = json.load(f)
                 avg_speeds_df = pd.DataFrame(avg_speeds_loaded)
-        except Exception: avg_speeds_df = None  
+        except: avg_speeds_df = None  
     
     if avg_speeds_df is None or avg_speeds_df.empty: 
         avg_speeds_df = pd.DataFrame({'km_interval':[0], 'avg_speed':[constant_speed]})
@@ -353,8 +311,7 @@ def calc_eta(bus_order, stop_order, route, current_speed=None, layover_idx=None)
     if speed_col:
         segments = segments.merge(avg_speeds_df[['km_interval', speed_col]], on='km_interval', how='left')
         segments['avg_speed'] = pd.to_numeric(segments[speed_col], errors='coerce')
-    else:
-        segments['avg_speed'] = constant_speed
+    else: segments['avg_speed'] = constant_speed
         
     segments['avg_speed'] = segments['avg_speed'].fillna(constant_speed).astype(float)
     segments['effective_speed'] = segments['avg_speed']
@@ -412,7 +369,6 @@ def get_upcoming_buses(mapped_df, stop_name, route, route_status_flags, stop_sta
             break
     if stop_index is None: return pd.DataFrame(columns=all_cols)
 
-    # === [UPDATED] GET LAYOVER FROM JSON CONFIG ===
     current_layover_idx = None
     if route_config.layover:
         current_layover_idx = route_config.layover.get('stop_index')
@@ -434,9 +390,7 @@ def get_upcoming_buses(mapped_df, stop_name, route, route_status_flags, stop_sta
                 filtered_active['eta_min'] = filtered_active.apply(
                     lambda row: calc_eta(row['bus_index'], stop_index, route, float(row['spd']), layover_idx=current_layover_idx), axis=1
                 )
-                filtered_active['eta_time'] = filtered_active['eta_min'].apply(
-                    lambda x: (now + timedelta(minutes=x)).isoformat()
-                )
+                filtered_active['eta_time'] = filtered_active['eta_min'].apply(lambda x: (now + timedelta(minutes=x)).isoformat())
                 filtered_active['type'] = 'active'
                 
                 def get_status(licence):
@@ -477,18 +431,13 @@ def get_upcoming_buses(mapped_df, stop_name, route, route_status_flags, stop_sta
                             minutes_until_departure = (depart_dt - now).total_seconds() / 60.0
                             total_eta = int(round(minutes_until_departure + base_travel_time_min))
                             bus_list_to_return.append({
-                                'licence': 'Scheduled',
-                                'eta_min': total_eta,
-                                'eta_time': (now + timedelta(minutes=total_eta)).isoformat(),
-                                'status': 'Scheduled',
-                                'message': "Normal Operation",
-                                'type': 'scheduled'
+                                'licence': 'Scheduled', 'eta_min': total_eta, 'eta_time': (now + timedelta(minutes=total_eta)).isoformat(),
+                                'status': 'Scheduled', 'message': "Normal Operation", 'type': 'scheduled'
                             })
                             count += 1
-            except Exception: pass
+            except: pass
 
-    if not bus_list_to_return:
-        return pd.DataFrame(columns=all_cols)
+    if not bus_list_to_return: return pd.DataFrame(columns=all_cols)
     final_df = pd.DataFrame(bus_list_to_return)
     final_df = final_df.sort_values(by='eta_min').reset_index(drop=True)
     return final_df.head(3)[all_cols]
@@ -501,40 +450,31 @@ def get_upcoming_buses(mapped_df, stop_name, route, route_status_flags, stop_sta
 def get_fleet_data_for_admin():
     try:
         bus_df = get_bus_data(API_URL, API_KEY)
-        bus_df = collect_bus_history(bus_df).fillna({
-            'licence': 'Unknown', 'route': '-', 'spd': 0
-        }) 
+        bus_df = collect_bus_history(bus_df).fillna({'licence': 'Unknown', 'route': '-', 'spd': 0}) 
         flags = load_flags()
         clean_expired_flags()
-        
         fleet_list = []
         now = datetime.now()
 
         for route_name in line_options:
             route_buses = filter_bus(bus_df, route_name)
             if route_buses.empty: continue
-            
             route_buses = route_buses.sort_values('timestamp', ascending=False).drop_duplicates('licence')
             mapped_buses = map_index_df(route_buses, route_name)
-
             if mapped_buses.empty: continue
 
             for _, row in mapped_buses.iterrows():
                 licence = str(row['licence'])
                 key = f"bus:{licence}"
-                
                 try:
                     last_seen = pd.to_datetime(row['timestamp'])
                     if pd.isna(last_seen): raise ValueError
                     minutes_offline = (now - last_seen).total_seconds() / 60.0
                     seen_str = last_seen.strftime("%H:%M:%S")
-                except:
-                    minutes_offline = 0
-                    seen_str = "-"
+                except: minutes_offline = 0; seen_str = "-"
                 
                 status = "active"
                 message = "-"
-                
                 if key in flags:
                     status = flags[key].get('status', 'active')
                     message = flags[key].get('message', '-')
@@ -543,13 +483,10 @@ def get_fleet_data_for_admin():
                     message = f"Last signal {int(minutes_offline)}m ago"
 
                 fleet_list.append({
-                    "license": licence, "route": route_name, "status": status,
-                    "message": message, "last_seen": seen_str
+                    "license": licence, "route": route_name, "status": status, "message": message, "last_seen": seen_str
                 })
         return fleet_list
-    except Exception as e:
-        print(f"ADMIN DATA ERROR: {e}")
-        return []
+    except: return []
 
 '''GET BUS / ROUTE / STOP STATUS FOR DISPLAY'''
 def get_all_system_statuses():
@@ -562,10 +499,8 @@ def get_all_system_statuses():
             key = f"route:{route_name}"
             data = flags.get(key, {})
             system_status.append({
-                "type": "route", "id": route_name, "status": data.get("status", "active"),
-                "message": data.get("message", "-")
+                "type": "route", "id": route_name, "status": data.get("status", "active"), "message": data.get("message", "-")
             })
-            
             route_config = direction_map.get(route_name)
             if route_config:
                 for stop in route_config.stop_list.values():
@@ -580,16 +515,13 @@ def get_all_system_statuses():
 
         bus_df = get_bus_data(API_URL, API_KEY)
         bus_df = collect_bus_history(bus_df).fillna({'licence': 'Unknown', 'route': '-'})
-        
         if not bus_df.empty:
             bus_df = bus_df.sort_values('timestamp', ascending=False).drop_duplicates('licence')
             now = datetime.now()
-            
             for _, row in bus_df.iterrows():
                 lic = str(row['licence'])
                 key = f"bus:{lic}"
-                status = "active"
-                msg = "-"
+                status = "active"; msg = "-"
                 try:
                     last_seen = pd.to_datetime(row['timestamp'])
                     if pd.isna(last_seen): raise ValueError
@@ -597,33 +529,22 @@ def get_all_system_statuses():
                 except: off_min = 0
                 
                 if key in flags:
-                    status = flags[key].get('status', 'active')
-                    msg = flags[key].get('message', '-')
+                    status = flags[key].get('status', 'active'); msg = flags[key].get('message', '-')
                 elif off_min > OFFLINE_GRACE_PERIOD_MIN:
-                    status = "Offline"
-                    msg = f"Last seen {int(off_min)}m ago"
+                    status = "Offline"; msg = f"Last seen {int(off_min)}m ago"
                 
-                system_status.append({
-                    "type": "bus", "id": lic, "route": row['route'], "status": status, "message": msg
-                })
+                system_status.append({"type": "bus", "id": lic, "route": row['route'], "status": status, "message": msg})
         return system_status
-    except Exception as e:
-        print(f"STATUS FETCH ERROR: {e}")
-        return []
+    except: return []
 
 '''GET ACCURACY ETA STATS'''
 def get_live_accuracy_stats():
     output = {}
     routes = ["All"] + line_options
-    
     for r in routes:
-        output[r] = {
-            "chart": {i: [] for i in range(0, 125, 5)}, 
-            "text": { "0-15": [], "15-30": [], "30-45": [], "45-60": [], "60+": [] }
-        }
+        output[r] = { "chart": {i: [] for i in range(0, 125, 5)}, "text": {} }
 
     if not os.path.exists(ACCURACY_CSV): return format_accuracy_output(output)
-
     try:
         df = pd.read_csv(ACCURACY_CSV)
         df['arrival_time'] = pd.to_datetime(df['arrival_time'])
@@ -634,41 +555,26 @@ def get_live_accuracy_stats():
             if pd.isna(row['total_travel_time']): continue
             route_name = row['route']
             total_time = row['total_travel_time']
-            
             for t in [0, 15, 30, 45, 60, 75, 90, 105, 120]:
                 eta_col = f"eta_min_T{t}"
                 if eta_col in df.columns and pd.notna(row[eta_col]):
                     predicted_eta = float(row[eta_col])
                     remaining = total_time - t
-                    
                     if remaining < 0 or remaining > 150: continue
                     delay = remaining - predicted_eta 
-                    
                     add_to_bins(output["All"], remaining, delay)
-                    if route_name in output:
-                        add_to_bins(output[route_name], remaining, delay)
-                        
+                    if route_name in output: add_to_bins(output[route_name], remaining, delay)
         return format_accuracy_output(output)
-    except Exception as e:
-        print(f"[ACCURACY CALC ERROR] {e}")
-        return format_accuracy_output(output)
+    except: return format_accuracy_output(output)
 
 '''HELPER: BINNING'''
 def add_to_bins(route_dict, remaining, val):
     chart_bin = int(remaining // 5) * 5
-    if chart_bin in route_dict["chart"]:
-        route_dict["chart"][chart_bin].append(val)
-        
-    if 0 <= remaining < 15: route_dict["text"]["0-15"].append(val)
-    elif 15 <= remaining < 30: route_dict["text"]["15-30"].append(val)
-    elif 30 <= remaining < 45: route_dict["text"]["30-45"].append(val)
-    elif 45 <= remaining < 60: route_dict["text"]["45-60"].append(val)
-    elif remaining >= 60: route_dict["text"]["60+"].append(val)
+    if chart_bin in route_dict["chart"]: route_dict["chart"][chart_bin].append(val)
 
 '''HELPER: FORMAT OUTPUT'''
 def format_accuracy_output(raw_data):
     final_response = {}
-    
     for route, data in raw_data.items():
         scatter_points = []
         x_values = []
@@ -677,8 +583,16 @@ def format_accuracy_output(raw_data):
         for bin_key in sorted(data["chart"].keys()):
             delays = data["chart"][bin_key]
             if delays: 
-                avg_delay = sum(delays) / len(delays)
-                point = {"x": bin_key, "y": round(avg_delay, 1)}
+                # [UPDATED] Calculate Mean and Standard Deviation
+                avg_delay = np.mean(delays)
+                std_dev = np.std(delays)
+                
+                # Format for Chart.js: x, y (mean), yMin (mean-sd), yMax (mean+sd)
+                point = {
+                    "x": bin_key, 
+                    "y": round(avg_delay, 1),
+                    "sd": round(std_dev, 1) # Frontend will use this
+                }
                 scatter_points.append(point)
                 x_values.append(bin_key)
                 y_values.append(avg_delay)
@@ -688,23 +602,10 @@ def format_accuracy_output(raw_data):
             try:
                 z = np.polyfit(x_values, y_values, 1) 
                 p = np.poly1d(z)
-                for x in x_values:
-                    trend_line_points.append({
-                        "x": x,
-                        "y": round(p(x), 1)
-                    })
-            except Exception: pass 
-
-        text_summary = {}
-        for bin_key, delays in data["text"].items():
-            avg_delay = sum(delays) / len(delays) if delays else 0
-            text_summary[bin_key] = round(avg_delay, 1)
+                for x in x_values: trend_line_points.append({"x": x, "y": round(p(x), 1)})
+            except: pass 
             
-        final_response[route] = {
-            "scatter": scatter_points, 
-            "trendline": trend_line_points,
-            "summary": text_summary
-        }
+        final_response[route] = { "scatter": scatter_points, "trendline": trend_line_points }
     return final_response
 
 # =========================================================
@@ -728,21 +629,17 @@ def calculate_all_etas():
             filtered_df = filter_bus(bus_df, route_name)
             filtered_df = filtered_df.loc[:, ~filtered_df.columns.duplicated()]
             
-            # === [UPDATED] DYNAMIC LAYOVER CHECK ===
             def is_fresh(row):
                 if pd.isna(row['timestamp']): return False
                 diff = (now - row['timestamp']).total_seconds() / 60.0
                 limit = OFFLINE_GRACE_PERIOD_MIN
-                # Check layover dynamically
-                if route_config.layover is not None and row['spd'] < 1:
-                    limit = LAYOVER_GRACE_PERIOD_MIN
+                if route_config.layover is not None and row['spd'] < 1: limit = LAYOVER_GRACE_PERIOD_MIN
                 return diff < limit
             
             if not filtered_df.empty:
                 filtered_df = filtered_df[filtered_df.apply(is_fresh, axis=1)]
 
             mapped_df = map_index_df(filtered_df, route_name)
-
             if not mapped_df.empty:
                 mapped_df['bus_index'] = pd.to_numeric(mapped_df['bus_index'], errors='coerce')
                 mapped_df['spd'] = pd.to_numeric(mapped_df['spd'], errors='coerce')
@@ -755,49 +652,33 @@ def calculate_all_etas():
                 stop_status_flags = flags.get(stop_key)
                 
                 stop_result = {
-                    "no": stop_info['no'],
-                    "index": stop_info['index'],
-                    "stop_name_eng": stop_info['stop_name_eng'],
-                    "stop_name_th": stop_info['stop_name_th'],
-                    "lat": stop_info['lat'],
-                    "lon": stop_info['lon'],
+                    "no": stop_info['no'], "index": stop_info['index'],
+                    "stop_name_eng": stop_info['stop_name_eng'], "stop_name_th": stop_info['stop_name_th'],
+                    "lat": stop_info['lat'], "lon": stop_info['lon'],
                     "stop_status": stop_status_flags.get("status", "open") if stop_status_flags else "open",
                     "stop_message": stop_status_flags.get("message") if stop_status_flags else None
                 }
-                
                 if stop_result["stop_status"] == "closed":
                     stop_result["detail"] = f"Stop Closed: {stop_result['stop_message']}"
 
                 try:
-                    upcoming_buses_df = get_upcoming_buses(
-                        mapped_df, stop_name, route_name, route_status_flags, stop_status_flags, flags
-                    )
-                    
+                    upcoming_buses_df = get_upcoming_buses(mapped_df, stop_name, route_name, route_status_flags, stop_status_flags, flags)
                     if not upcoming_buses_df.empty:
-                        upcoming_list = upcoming_buses_df.to_dict('records')
-                        stop_result["upcoming"] = upcoming_list
+                        stop_result["upcoming"] = upcoming_buses_df.to_dict('records')
                     else:
                         is_suspended = route_status_flags and route_status_flags.get("status") == "suspended"
                         is_stop_closed = stop_status_flags and stop_status_flags.get("status") == "closed"
-                        
                         if is_suspended:
                             msg = f"Route Suspended: {route_status_flags.get('message', 'Service Temporarily Unavailable')}"
-                            status = "Suspended"
-                            stop_result["detail"] = msg
+                            status = "Suspended"; stop_result["detail"] = msg
                         elif is_stop_closed:
                             msg = f"Stop Closed: {stop_status_flags.get('message', 'Out of Service')}"
-                            status = "Closed"
-                            stop_result["detail"] = msg
+                            status = "Closed"; stop_result["detail"] = msg
                         else:
-                            msg = "No more buses for today"
-                            status = "Ended"
-
-                        stop_result.update({
-                            "eta_min": -1, "message": msg, "licence": "-", "status": status, "upcoming": []
-                        })
+                            msg = "No more buses for today"; status = "Ended"
+                        stop_result.update({"eta_min": -1, "message": msg, "licence": "-", "status": status, "upcoming": []})
                 except Exception as e:
-                    print(f"!!! CRASH ON ROUTE: {route_name}, STOP: {stop_name} !!!")
-                    traceback.print_exc()
+                    print(f"!!! CRASH: {route_name}, {stop_name} -> {e}")
                     stop_result.update({"eta_min": -1, "status": "Error", "message": str(e), "upcoming": []})
 
                 all_stop_etas[stop_name] = stop_result
@@ -806,21 +687,17 @@ def calculate_all_etas():
             r_msg = route_status_flags.get("message") if route_status_flags else None
             
             all_routes_data[route_name] = {
-                "route": route_name,
-                "updated_at": datetime.now().isoformat(),
-                "route_status": r_status,
-                "route_message": r_msg,
-                "stops": all_stop_etas 
+                "route": route_name, "updated_at": datetime.now().isoformat(),
+                "route_status": r_status, "route_message": r_msg, "stops": all_stop_etas 
             }
-            if r_status == "suspended":
-                all_routes_data[route_name]["detail"] = f"Route Suspended: {r_msg}"
+            if r_status == "suspended": all_routes_data[route_name]["detail"] = f"Route Suspended: {r_msg}"
 
         with open(DATA_SOURCE_FILE, "w", encoding="utf-8-sig") as f:
             json.dump(all_routes_data, f, indent=2, ensure_ascii=False)
-        
     except Exception as e:
         print(f"WORKER ERROR: {e}")
         traceback.print_exc()
+
 
 def worker_thread_func():
     calculate_all_etas()
@@ -828,8 +705,7 @@ def worker_thread_func():
         for _ in range(RUN_INTERVAL_SECONDS):
             if not running_event.is_set(): break
             time.sleep(1)
-        if running_event.is_set():
-            calculate_all_etas()
+        if running_event.is_set(): calculate_all_etas()
 
 def start_worker():
     if not running_event.is_set():

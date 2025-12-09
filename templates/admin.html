@@ -1,342 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Bus Admin Panel</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="data:,">
-    <link rel="apple-touch-icon" href="data:,">
+    <title>Phuket SmartBus Admin</title>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    
     <style>
-        .scope-card { cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
-        .scope-card.active { border-color: #0d6efd; background-color: #e9ecef; }
-        .view-section { display: none; }
-        .view-section.active { display: block; }
-        th { cursor: pointer; user-select: none; }
-        th:hover { background-color: #f1f1f1; }
-        #duration-section { transition: opacity 0.3s ease; opacity: 1; }
-        #duration-section.disabled-look { opacity: 0.3; pointer-events: none; }
-        
-        .stat-box { background: #fff; border-radius: 8px; padding: 15px; border: 1px solid #dee2e6; margin-bottom: 10px; }
-        .stat-value { font-size: 1.5rem; font-weight: bold; color: #198754; }
-        .stat-label { font-size: 0.9rem; color: #6c757d; }
+        body { background-color: #f8f9fa; }
+        .nav-link.active { background-color: #0d6efd !important; color: white !important; font-weight: bold; border-radius: 6px; }
+        .map-container { height: 500px; width: 100%; border-radius: 8px; z-index: 1; border: 1px solid #dee2e6; }
+        .stops-scroll { height: 600px; overflow-y: auto; }
+        .stops-scroll::-webkit-scrollbar { width: 8px; }
+        .stops-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+        .stops-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .card { transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        .status-card-enter { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-light">
 
-<div class="container py-4">
-    <h2 class="mb-4 text-center">Phuket Smart Bus System</h2>
-
-    <div class="row g-3 mb-4">
-        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('bus')"><h5>Bus</h5><small>Delay / Hide</small></div></div>
-        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('route')"><h5>Route</h5><small>Suspend</small></div></div>
-        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('stop')"><h5>Stop</h5><small>Close</small></div></div>
-        <div class="col-3"><div class="card scope-card text-center p-3" onclick="switchView('accuracy')"><h5>Accuracy</h5><small>Live Analytics</small></div></div>
-    </div>
-
-    <div id="accuracy-view" class="view-section">
-        <div class="card shadow mb-4">
-            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Live ETA Accuracy Dashboard</h5>
-                <select class="form-select form-select-sm" style="width: 250px;" id="accuracy-route-filter" onchange="updateAccuracyView()">
-                    <option value="All">All Routes</option>
-                    {% for slug, name in routes.items() %}<option value="{{ name }}">{{ name }}</option>{% endfor %}
-                </select>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow mb-4">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold text-warning d-flex align-items-center" href="#">
+                <i class="fas fa-bus-alt me-2"></i>SmartBus Admin
+            </a>
+            <div class="navbar-nav ms-auto flex-row gap-2">
+                <a class="nav-link px-3 {{ 'active' if initial_view == 'routes' else '' }}" href="/admin/routes"><i class="fas fa-map-marked-alt me-1"></i> View Routes</a>
+                <a class="nav-link px-3 {{ 'active' if initial_view == 'edit-routes' else '' }}" href="/admin/edit-routes"><i class="fas fa-edit me-1"></i> Editor</a>
+                <a class="nav-link px-3 {{ 'active' if initial_view == 'status' else '' }}" href="/admin/status"><i class="fas fa-signal me-1"></i> Status</a>
+                <a class="nav-link px-3 {{ 'active' if initial_view == 'accuracy' else '' }}" href="/admin/accuracy"><i class="fas fa-chart-line me-1"></i> Analytics</a>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <canvas id="liveAccuracyChart" height="200"></canvas>
-                        <div class="text-center mt-2 small text-muted">X-Axis: Time Before Arrival (min) | Y-Axis: Average Delay (min)</div>
+        </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+        
+        <div id="view-routes" class="{{ 'd-none' if initial_view != 'routes' else '' }}">
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body d-flex align-items-center gap-3">
+                    <label class="fw-bold text-secondary">SELECT ROUTE:</label>
+                    <select id="routeSelector" class="form-select w-auto fw-bold" onchange="loadRouteDetails()">
+                        <option value="">-- Choose Route --</option>
+                        {% for slug, name in routes.items() %}
+                        <option value="{{ slug }}">{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div id="routeContent" class="d-none">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-white fw-bold py-2"><i class="fas fa-map text-primary me-2"></i>Route Path Preview</div>
+                    <div class="card-body p-1"><div id="map" class="map-container"></div></div>
+                </div>
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+                        <h5 class="m-0 fw-bold text-dark"><i class="fas fa-list-ol text-danger me-2"></i>Stops Sequence</h5>
+                        <button onclick="openAddStopModal()" class="btn btn-success fw-bold"><i class="fas fa-plus me-1"></i> Add Stop</button>
                     </div>
-                    <div class="col-lg-4 border-start">
-                        <h5 class="mb-3 text-center">Average Bus Delay (min)</h5>
-                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">0 - 15 Mins Away</span><span class="stat-value"><span id="stat-0-15">--</span> m</span></div>
-                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">15 - 30 Mins Away</span><span class="stat-value"><span id="stat-15-30">--</span> m</span></div>
-                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">30 - 45 Mins Away</span><span class="stat-value"><span id="stat-30-45">--</span> m</span></div>
-                        <div class="stat-box d-flex justify-content-between align-items-center"><span class="stat-label">45 - 60 Mins Away</span><span class="stat-value"><span id="stat-45-60">--</span> m</span></div>
+                    <div class="card-body p-0 stops-scroll">
+                        <table class="table table-hover table-striped align-middle mb-0">
+                            <thead class="table-dark sticky-top">
+                                <tr>
+                                    <th class="ps-4">No.</th>
+                                    <th>Stop Name (Eng)</th>
+                                    <th>Stop Name (Thai)</th>
+                                    <th>Coordinates</th>
+                                    <th>Index</th>
+                                    <th class="text-end pe-4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stopsTableBody"></tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="settings-container">
-        <div class="card shadow mb-4" id="settings-card">
-            <div class="card-header bg-primary text-white"><h5 class="mb-0" id="form-title">Add Settings</h5></div>
-            <div class="card-body">
-                <form id="status-form">
-                    <div class="mb-3" id="input-group-bus"><label>Select Bus:</label><select class="form-select" id="bus-select"><option>Loading...</option></select></div>
-                    <div class="mb-3 d-none" id="input-group-route"><label>Select Route:</label><select class="form-select" id="route-select"><option value="" disabled selected>Select Route...</option>{% for slug, name in routes.items() %}<option value="{{ slug }}">{{ name }}</option>{% endfor %}</select></div>
-                    <div class="mb-3 d-none" id="input-group-stop"><label>Select Stop:</label><select class="form-select" id="stop-select" disabled><option>Select route first...</option></select></div>
+        <div id="edit-routes" class="{{ 'd-none' if initial_view != 'edit-routes' else '' }}">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow border-0">
+                        <div class="card-header bg-primary text-white p-4">
+                            <h3 class="m-0 fw-bold"><i class="fas fa-plus-circle me-2"></i>Create New Route</h3>
+                            <div class="small opacity-75 mt-1">IMPORTANT: The system trusts your file order.</div>
+                        </div>
+                        <div class="card-body p-5">
+                            <form id="createRouteForm" onsubmit="submitNewRoute(event)">
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-uppercase small text-muted">Route Name (ID)</label>
+                                    <input type="text" name="route_name" placeholder="e.g. Airport -> Rawai" required class="form-control form-control-lg bg-light">
+                                </div>
+                                <div class="row g-4 mb-4">
+                                    <div class="col-md-4"><label class="form-label fw-bold small text-muted">LINE</label><input type="text" name="line" required class="form-control" placeholder="Phuket Airport to Rawai"></div>
+                                    <div class="col-md-4"><label class="form-label fw-bold small text-muted">BUFFER</label><input type="text" name="buffer" required class="form-control" placeholder="Rawai"></div>
+                                    <div class="col-md-4"><label class="form-label fw-bold small text-muted">DIRECTION</label><input type="text" name="direction" required class="form-control" placeholder="Bus to Rawai"></div>
+                                </div>
+                                
+                                <div class="mb-4 p-4 bg-warning-subtle border border-warning rounded">
+                                    <label class="form-label fw-bold text-dark mb-2"><i class="fas fa-file-code me-1"></i> GeoJSON Route File (Required)</label>
+                                    <input type="file" name="geojson_file" accept=".geojson,.json" required class="form-control">
+                                    <div class="form-text mt-2 text-dark">
+                                        <strong>⚠️ REQUIREMENT:</strong> The points in your GeoJSON file <u>must be ordered</u> sequentially from Start to End. 
+                                        <br>The system will assign Index 0 to the first point in the file, Index 1 to the second, etc.
+                                    </div>
+                                </div>
 
-                    <div class="mb-3"><label>New Status:</label><div class="btn-group w-100" id="status-buttons"></div><input type="hidden" id="selected-status"></div>
-                    <div class="mb-3"><label>Message:</label><input type="text" class="form-control" id="status-message" placeholder="e.g. Traffic"></div>
-                    <div class="mb-3" id="duration-section"><label>Duration:</label><div class="btn-group w-100"><input type="radio" class="btn-check" name="d" id="d0" value="0" checked><label class="btn btn-outline-secondary" for="d0">Until Off</label><input type="radio" class="btn-check" name="d" id="d30" value="30"><label class="btn btn-outline-secondary" for="d30">30m</label><input type="radio" class="btn-check" name="d" id="d60" value="60"><label class="btn btn-outline-secondary" for="d60">1h</label></div></div>
-                    <button type="button" class="btn btn-success w-100" onclick="submitStatus()">Apply</button>
-                </form>
+                                <div class="row g-4 mb-4">
+                                    <div class="col-md-6"><label class="form-label fw-bold small text-muted">SCHEDULE (CSV)</label><input type="file" name="schedule_file" accept=".csv" required class="form-control"></div>
+                                    <div class="col-md-6"><label class="form-label fw-bold small text-muted">SPEEDS (CSV)</label><input type="file" name="speeds_file" accept=".csv" class="form-control"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold shadow-sm">CREATE & PUBLISH ROUTE</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="status" class="{{ 'd-none' if initial_view != 'status' else '' }}">
+            <div class="alert alert-warning shadow-sm mb-4 d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="alert-heading fw-bold m-0"><i class="fas fa-exclamation-triangle me-2"></i> Active System Flags</h5>
+                    <div id="activeFlagsContainer" class="mt-2 d-flex flex-wrap gap-2"><span class="text-muted small">Loading...</span></div>
+                </div>
+                <button onclick="refreshStatus()" class="btn btn-outline-dark btn-sm"><i class="fas fa-sync me-1"></i> Refresh</button>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4"><div class="card h-100 border-start border-5 border-purple-500 shadow-sm"><div class="card-header bg-white fw-bold text-purple-700">🏁 Route Status</div><div class="card-body"><form onsubmit="submitStatus(event)"><input type="hidden" name="scope" value="route"><div class="mb-3"><label class="small fw-bold text-muted">ROUTE</label><select name="identifier" class="form-select">{% for slug, name in routes.items() %}<option value="{{ name }}">{{ name }}</option>{% endfor %}</select></div><div class="mb-3"><div class="btn-group w-100"><input type="radio" class="btn-check" name="r_btn" id="ra" onclick="setStat(this, 'active')"><label class="btn btn-outline-success" for="ra">Active</label><input type="radio" class="btn-check" name="r_btn" id="rs" onclick="setStat(this, 'suspended')"><label class="btn btn-outline-danger" for="rs">Suspend</label></div><input type="hidden" name="status"></div><input type="text" name="message" placeholder="Message..." class="form-control mb-3"><button class="btn btn-outline-dark w-100 fw-bold">Update</button></form></div></div></div>
+                <div class="col-lg-4"><div class="card h-100 border-start border-5 border-orange-500 shadow-sm"><div class="card-header bg-white fw-bold text-orange-600">🚏 Stop Status</div><div class="card-body"><form onsubmit="submitStatus(event)"><input type="hidden" name="scope" value="stop"><div class="mb-2"><label class="small fw-bold text-muted">1. ROUTE</label><select id="sf_route" class="form-select form-select-sm" onchange="loadStopsFlag(this.value)"><option>Select...</option>{% for s,n in routes.items() %}<option value="{{s}}">{{n}}</option>{% endfor %}</select></div><div class="mb-3"><label class="small fw-bold text-muted">2. STOP</label><select name="identifier" id="sf_stop" class="form-select" disabled><option>...</option></select></div><div class="mb-3"><div class="btn-group w-100"><input type="radio" class="btn-check" name="s_btn" id="so" onclick="setStat(this, 'open')"><label class="btn btn-outline-success" for="so">Open</label><input type="radio" class="btn-check" name="s_btn" id="sc" onclick="setStat(this, 'closed')"><label class="btn btn-outline-danger" for="sc">Close</label></div><input type="hidden" name="status"></div><input type="text" name="message" placeholder="Message..." class="form-control mb-3"><button class="btn btn-outline-dark w-100 fw-bold">Update</button></form></div></div></div>
+                <div class="col-lg-4"><div class="card h-100 border-start border-5 border-primary shadow-sm"><div class="card-header bg-white fw-bold text-primary">🚌 Bus Status</div><div class="card-body"><form onsubmit="submitStatus(event, 'bus')"><input type="hidden" name="scope" value="bus"><div class="mb-3"><label class="small fw-bold text-muted">PLATE</label><input type="text" name="identifier" list="busList" class="form-control text-uppercase fw-bold" placeholder="Search..." required><datalist id="busList"></datalist></div><div class="mb-3"><div class="btn-group w-100"><input type="radio" class="btn-check" name="bst" id="b1" onclick="setStat(this,'active')"><label class="btn btn-outline-success" for="b1">Active</label><input type="radio" class="btn-check" name="bst" id="b2" onclick="setStat(this,'delayed')"><label class="btn btn-outline-warning" for="b2">Delay</label><input type="radio" class="btn-check" name="bst" id="b3" onclick="setStat(this,'inactive')"><label class="btn btn-outline-secondary" for="b3">Hide</label></div><input type="hidden" name="status"></div><input type="text" name="message" placeholder="Reason" class="form-control mb-2"><input type="number" name="duration" placeholder="Mins" class="form-control mb-3"><button class="btn btn-dark w-100 fw-bold">Update</button></form></div></div></div>
+            </div>
+        </div>
+
+        <div id="accuracy" class="{{ 'd-none' if initial_view != 'accuracy' else '' }}">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3"><h5 class="m-0 fw-bold text-primary"><i class="fas fa-chart-line me-2"></i>Accuracy</h5><select id="analyticsRouteSelector" class="form-select form-select-sm w-auto shadow-sm" onchange="loadAnalytics()"><option value="All">All Routes</option>{% for slug, name in routes.items() %}<option value="{{ name }}">{{ name }}</option>{% endfor %}</select></div>
+                    <button onclick="loadAnalytics()" class="btn btn-outline-primary btn-sm"><i class="fas fa-sync me-1"></i> Refresh</button>
+                </div>
+                <div class="card-body"><div style="position: relative; height: 550px; width: 100%;"><canvas id="accuracyChart"></canvas></div></div>
             </div>
         </div>
     </div>
 
-    <div id="bus-view" class="view-section active"><h4 class="mb-3">All Buses</h4><div class="card shadow-sm"><table class="table table-striped table-hover mb-0" id="table-bus"><thead class="table-dark"><tr><th onclick="sortTable('table-bus',0)">License ↕</th><th onclick="sortTable('table-bus',1)">Route ↕</th><th onclick="sortTable('table-bus',2)">Status ↕</th><th onclick="sortTable('table-bus',3)">Message ↕</th><th>Action</th></tr></thead><tbody id="tbody-bus"></tbody></table></div></div>
-    <div id="route-view" class="view-section"><h4 class="mb-3">All Routes</h4><div class="card shadow-sm"><table class="table table-striped table-hover mb-0" id="table-route"><thead class="table-dark"><tr><th onclick="sortTable('table-route',0)">Route ↕</th><th onclick="sortTable('table-route',1)">Status ↕</th><th onclick="sortTable('table-route',2)">Message ↕</th><th>Action</th></tr></thead><tbody id="tbody-route"></tbody></table></div></div>
-    <div id="stop-view" class="view-section"><h4 class="mb-3">All Stops</h4><div class="card shadow-sm"><table class="table table-striped table-hover mb-0" id="table-stop"><thead class="table-dark"><tr><th onclick="sortTable('table-stop',0)">Route ↕</th><th onclick="sortTable('table-stop',1)">ID ↕</th><th onclick="sortTable('table-stop',2)">Name ↕</th><th onclick="sortTable('table-stop',3)">Status ↕</th><th onclick="sortTable('table-stop',4)">Message ↕</th><th>Action</th></tr></thead><tbody id="tbody-stop"></tbody></table></div></div>
+    <div class="modal fade" id="addStopModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content border-0 shadow-lg"><div class="modal-header bg-primary text-white"><h5 class="modal-title fw-bold">Add New Stop</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body p-4"><form id="addStopForm" onsubmit="submitNewStop(event)"><input type="hidden" id="modalRouteName"><div class="mb-3"><label class="form-label fw-bold text-muted small">ENGLISH NAME</label><input type="text" id="stopNameEng" class="form-control" required></div><div class="mb-3"><label class="form-label fw-bold text-muted small">THAI NAME</label><input type="text" id="stopNameTh" class="form-control" required></div><div class="row g-2 mb-4"><div class="col-6"><label class="form-label fw-bold text-muted small">LATITUDE</label><input type="number" step="any" id="stopLat" class="form-control" required></div><div class="col-6"><label class="form-label fw-bold text-muted small">LONGITUDE</label><input type="number" step="any" id="stopLon" class="form-control" required></div></div><div class="d-grid"><button type="submit" class="btn btn-success fw-bold py-2">ADD STOP</button></div></form></div></div></div></div>
 
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
-const SERVER_INITIAL_VIEW = "{{ initial_view or 'bus' }}"; 
-let currentScope = 'bus';
-let systemData = [];
-let accuracyData = {};
-let chartInstance = null;
+    <script>
+        const routesData = {{ full_routes | tojson | safe }} || {}; 
+        const slugs = {{ routes | tojson | safe }} || {};
+        let map, routeLayer, stopsLayer, chartInstance, addStopModal;
 
-// === VIEW LOGIC ===
-function switchView(scope) {
-    currentScope = scope;
-    if (scope !== 'bus') history.pushState(null, "", "/admin/" + scope);
-    else history.pushState(null, "", "/admin/bus");
-
-    document.querySelectorAll('.scope-card').forEach(el => el.classList.remove('active'));
-    const cards = document.querySelectorAll('.scope-card');
-    cards.forEach(c => {
-        if(c.textContent.toLowerCase().includes(scope)) c.classList.add('active');
-    });
-    
-    document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-    
-    if (scope === 'accuracy') {
-        document.getElementById('accuracy-view').classList.add('active');
-        document.getElementById('settings-container').style.display = 'none';
-        fetchAccuracyData();
-    } else {
-        document.getElementById(`${scope}-view`).classList.add('active');
-        document.getElementById('settings-container').style.display = 'block';
-        
-        ['bus', 'route', 'stop'].forEach(s => {
-            const el = document.getElementById(`input-group-${s}`);
-            if(s === scope) el.classList.remove('d-none'); else el.classList.add('d-none');
+        window.addEventListener('load', () => {
+            addStopModal = new bootstrap.Modal(document.getElementById('addStopModal'));
+            const currentTab = "{{ initial_view }}";
+            if (currentTab === 'status') { refreshStatus(); populateBusDropdown(); }
+            if (currentTab === 'accuracy') { loadAnalytics(); }
         });
 
-        if (scope === 'bus') renderStatusButtons(['active', 'delayed', 'inactive']);
-        else if (scope === 'route') renderStatusButtons(['active', 'suspended']);
-        else if (scope === 'stop') {
-            document.getElementById('input-group-route').classList.remove('d-none');
-            document.getElementById('input-group-stop').classList.remove('d-none');
-            renderStatusButtons(['open', 'closed']);
+        function initMap() {
+            if (!map) { map = L.map('map').setView([7.95, 98.35], 10); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map); }
+            setTimeout(() => map.invalidateSize(), 300);
         }
-    }
-}
 
-// === ACCURACY LOGIC (UPDATED FOR SCATTER PLOT) ===
-async function fetchAccuracyData() {
-    try {
-        const res = await fetch('/admin/api/accuracy-stats');
-        const json = await res.json();
-        accuracyData = json.data;
-        updateAccuracyView();
-    } catch(e) { console.error("Accuracy Fetch Failed:", e); }
-}
+        async function loadRouteDetails() {
+            const slug = document.getElementById('routeSelector').value; if (!slug) return;
+            const routeName = slugs[slug]; const routeConfig = routesData[routeName];
+            document.getElementById('routeContent').classList.remove('d-none'); initMap();
+            if (routeLayer) map.removeLayer(routeLayer); if (stopsLayer) map.removeLayer(stopsLayer);
 
-function updateAccuracyView() {
-    const selectedRoute = document.getElementById('accuracy-route-filter').value;
-    const data = accuracyData[selectedRoute];
-
-    if (!data) return;
-
-    // Update Text Stats
-    const summary = data.summary || {};
-    document.getElementById('stat-0-15').innerText = (summary["0-15"] > 0 ? "+" : "") + (summary["0-15"] || 0);
-    document.getElementById('stat-15-30').innerText = (summary["15-30"] > 0 ? "+" : "") + (summary["15-30"] || 0);
-    document.getElementById('stat-30-45').innerText = (summary["30-45"] > 0 ? "+" : "") + (summary["30-45"] || 0);
-    document.getElementById('stat-45-60').innerText = (summary["45-60"] > 0 ? "+" : "") + (summary["45-60"] || 0);
-
-    const ctx = document.getElementById('liveAccuracyChart').getContext('2d');
-    if (chartInstance) chartInstance.destroy();
-
-    chartInstance = new Chart(ctx, {
-        data: {
-            datasets: [
-                {
-                    type: 'scatter',
-                    label: 'Actual Data',
-                    data: data.scatter, // [{x:5, y:2}, {x:15, y:-1}...]
-                    backgroundColor: '#dc3545', // Red Dots
-                    pointRadius: 4,
-                    pointHoverRadius: 6
-                },
-                {
-                    type: 'line',
-                    label: 'Trend Line',
-                    data: data.trendline, // Calculated linear regression
-                    borderColor: '#dc3545',
-                    borderWidth: 2,
-                    borderDash: [5, 5], // Dashed line
-                    pointRadius: 0, // No dots on the line
-                    fill: false,
-                    tension: 0
+            let geoPath = routeConfig.geojson_path.replace(/\\/g, '/'); if (!geoPath.startsWith('/')) geoPath = '/' + geoPath;
+            try {
+                const res = await fetch(geoPath);
+                if (res.ok) {
+                    const geoData = await res.json();
+                    const latlngs = geoData.features.map(f => [f.geometry.coordinates[1], f.geometry.coordinates[0]]);
+                    routeLayer = L.polyline(latlngs, { color: '#0d6efd', weight: 5, opacity: 0.8 }).addTo(map);
+                    map.fitBounds(routeLayer.getBounds());
                 }
-            ]
-        },
-        options: {
-            responsive: true,
-            interaction: {
-                mode: 'index',
-                intersect: false,
-            },
-            scales: {
-                y: { 
-                    beginAtZero: true, 
-                    title: { display: true, text: 'Delay (Actual - Predicted)' } 
-                },
-                x: { 
-                    type: 'linear', // Linear scale handles gaps (empty rows) correctly
-                    position: 'bottom',
-                    title: { display: true, text: 'Time Before Arrival (min)' },
-                    min: 0,
-                    ticks: { stepSize: 5 }
-                }
-            },
-            plugins: {
-                annotation: {
-                    annotations: {
-                        line1: {
-                            type: 'line', 
-                            yMin: 0, 
-                            yMax: 0, 
-                            borderColor: 'green', 
-                            borderWidth: 2,
-                            label: { content: 'Perfect Accuracy', enabled: true, position: 'end' }
-                        }
-                    }
-                }
-            }
+            } catch (e) { console.error("Map Error", e); }
+
+            const tbody = document.getElementById('stopsTableBody'); tbody.innerHTML = ''; const stopMarkers = [];
+            const stops = Object.values(routeConfig.stop_list || {}).sort((a, b) => a.index - b.index);
+            stops.forEach(s => {
+                tbody.innerHTML += `<tr><td class="text-muted fw-bold ps-4">${s.no}</td><td><div class="fw-bold text-dark">${s.stop_name_eng}</div></td><td class="text-muted">${s.stop_name_th||'-'}</td><td class="small font-monospace">${s.lat.toFixed(5)}, ${s.lon.toFixed(5)}</td><td><span class="badge bg-secondary">${s.index}</span></td><td class="text-end pe-4"><button onclick="removeStop('${routeName}','${s.stop_name_eng}')" class="btn btn-sm btn-outline-danger border-0"><i class="fas fa-trash-alt"></i> Remove</button></td></tr>`;
+                stopMarkers.push(L.circleMarker([s.lat, s.lon], { radius: 5, color: '#dc3545', fillColor: 'white', fillOpacity: 1, weight: 2 }).bindPopup(`#${s.no} ${s.stop_name_eng}`));
+            });
+            if (stopMarkers.length) stopsLayer = L.layerGroup(stopMarkers).addTo(map);
         }
-    });
-}
 
-// === TABLE & FORM HELPERS ===
-function checkTimeframeVisibility(status) {
-    const div = document.getElementById('duration-section');
-    const safe = ['active', 'open', 'clear'];
-    if (safe.includes(status)) { 
-        div.classList.add('disabled-look'); document.getElementById('d0').checked = true; 
-        div.querySelectorAll('input').forEach(i => i.disabled = true); 
-    } else { 
-        div.classList.remove('disabled-look'); div.querySelectorAll('input').forEach(i => i.disabled = false); 
-    }
-}
-
-function renderStatusButtons(statuses) {
-    const container = document.getElementById('status-buttons');
-    container.innerHTML = '';
-    statuses.forEach((status, idx) => {
-        const checked = idx === 0 ? 'checked' : '';
-        if(checked) { document.getElementById('selected-status').value = status; setTimeout(() => checkTimeframeVisibility(status), 0); }
-        let color = 'btn-outline-primary';
-        if (['delayed', 'suspended', 'closed'].includes(status)) color = 'btn-outline-danger';
-        if (status === 'inactive') color = 'btn-outline-secondary';
-        container.innerHTML += `<input type="radio" class="btn-check" name="st" id="st-${status}" value="${status}" ${checked} onchange="document.getElementById('selected-status').value=this.value; checkTimeframeVisibility(this.value)"><label class="btn ${color}" for="st-${status}">${status.charAt(0).toUpperCase() + status.slice(1)}</label>`;
-    });
-}
-
-async function initData() {
-    const resFleet = await fetch('/admin/fleet');
-    const fleetJson = await resFleet.json();
-    const select = document.getElementById('bus-select');
-    select.innerHTML = '';
-    fleetJson.fleet.forEach(bus => {
-        const opt = document.createElement('option');
-        opt.value = bus.license; opt.textContent = `${bus.license} (${bus.route})`;
-        select.appendChild(opt);
-    });
-    
-    await fetchSystemData();
-    switchView(SERVER_INITIAL_VIEW);
-    setInterval(fetchAccuracyData, 60000);
-}
-
-async function fetchSystemData() {
-    const res = await fetch('/admin/system-status');
-    const json = await res.json();
-    systemData = json.status;
-    renderTable('bus', systemData.filter(x => x.type === 'bus'));
-    renderTable('route', systemData.filter(x => x.type === 'route'));
-    renderTable('stop', systemData.filter(x => x.type === 'stop'));
-}
-
-function renderTable(type, data) {
-    const tbody = document.getElementById(`tbody-${type}`);
-    tbody.innerHTML = '';
-    data.forEach(item => {
-        let badgeClass = 'bg-success';
-        if (['delayed', 'suspended', 'closed'].includes(item.status)) badgeClass = 'bg-danger';
-        if (item.status === 'inactive') badgeClass = 'bg-secondary';
-        const tr = document.createElement('tr');
-        if(type==='bus') tr.innerHTML = `<td>${item.id}</td><td>${item.route}</td><td><span class="badge ${badgeClass}">${item.status.toUpperCase()}</span></td><td>${item.message}</td><td><button class="btn btn-sm btn-outline-primary" onclick="editBus('${item.id}')">Edit</button></td>`;
-        else if(type==='route') tr.innerHTML = `<td>${item.id}</td><td><span class="badge ${badgeClass}">${item.status.toUpperCase()}</span></td><td>${item.message}</td><td><button class="btn btn-sm btn-outline-primary" onclick="editRoute('${item.id}')">Edit</button></td>`;
-        else if(type==='stop') tr.innerHTML = `<td>${item.route_name||'-'}</td><td>${item.stop_id||'-'}</td><td>${item.stop_name||'-'}</td><td><span class="badge ${badgeClass}">${item.status.toUpperCase()}</span></td><td>${item.message}</td><td><button class="btn btn-sm btn-outline-primary" onclick="editStop('${item.raw_id}')">Edit</button></td>`;
-        tbody.appendChild(tr);
-    });
-}
-
-function editBus(id) { switchView('bus'); document.getElementById('bus-select').value = id; window.scrollTo({top:0, behavior:'smooth'}); }
-function editRoute(id) { switchView('route'); const s=document.getElementById('route-select'); for(let i=0;i<s.options.length;i++) if(s.options[i].text===id){s.selectedIndex=i;break;} window.scrollTo({top:0, behavior:'smooth'}); }
-function editStop(rawId) { switchView('stop'); const [r,id]=rawId.split(':'); const s=document.getElementById('route-select'); for(let i=0;i<s.options.length;i++) if(s.options[i].text===r){s.selectedIndex=i;s.dispatchEvent(new Event('change'));setTimeout(()=>{document.getElementById('stop-select').value=id;},500);break;} window.scrollTo({top:0, behavior:'smooth'}); }
-
-async function submitStatus() {
-    const status = document.getElementById('selected-status').value;
-    const message = document.getElementById('status-message').value;
-    const duration = document.querySelector('input[name="d"]:checked').value;
-    let identifier = "";
-    if (currentScope === 'bus') identifier = document.getElementById('bus-select').value;
-    else if (currentScope === 'route') { const s=document.getElementById('route-select'); identifier=s.options[s.selectedIndex].text; }
-    else if (currentScope === 'stop') { const s=document.getElementById('route-select'); identifier=`${s.options[s.selectedIndex].text}:${document.getElementById('stop-select').value}`; }
-    if (!identifier) return alert("Select target.");
-    const res = await fetch('/admin/set-status', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ scope: currentScope, identifier, status, message, duration: parseInt(duration) }) });
-    if (res.ok) { alert("Saved!"); fetchSystemData(); }
-}
-
-document.getElementById('route-select').addEventListener('change', async function() {
-    const slug = this.value;
-    const stopSelect = document.getElementById('stop-select');
-    stopSelect.innerHTML = '<option>Loading...</option>'; stopSelect.disabled = true;
-    const res = await fetch(`/admin/stops/${slug}`);
-    const json = await res.json();
-    stopSelect.innerHTML = '';
-    json.stops.forEach(s => { const opt = document.createElement('option'); opt.value = s.id; opt.textContent = `${s.id}. ${s.name}`; stopSelect.appendChild(opt); });
-    stopSelect.disabled = false;
-});
-
-function sortTable(tableId, n) {
-    const table = document.getElementById(tableId);
-    let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    switching = true;
-    dir = "asc"; 
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            let xVal = x.innerHTML.toLowerCase();
-            let yVal = y.innerHTML.toLowerCase();
-            const xNum = parseFloat(xVal); const yNum = parseFloat(yVal);
-            if (!isNaN(xNum) && !isNaN(yNum) && isFinite(xVal) && isFinite(yVal)) { xVal = xNum; yVal = yNum; }
-            if (dir == "asc") { if (xVal > yVal) { shouldSwitch = true; break; } }
-            else if (dir == "desc") { if (xVal < yVal) { shouldSwitch = true; break; } }
+        function openAddStopModal() { const slug = document.getElementById('routeSelector').value; if (!slug) return alert("Select route"); document.getElementById('modalRouteName').value = slugs[slug]; addStopModal.show(); }
+        async function submitNewStop(e) { e.preventDefault(); const fd = new FormData(); fd.append('route_name', document.getElementById('modalRouteName').value); fd.append('stop_name_eng', document.getElementById('stopNameEng').value); fd.append('stop_name_th', document.getElementById('stopNameTh').value); fd.append('lat', document.getElementById('stopLat').value); fd.append('lon', document.getElementById('stopLon').value); await fetch('/admin/api/add-stop', { method: 'POST', body: fd }); location.reload(); }
+        async function removeStop(r, s) { if(!confirm(`Delete "${s}"?`)) return; const fd = new FormData(); fd.append('route_name', r); fd.append('stop_name_key', s); await fetch('/admin/api/remove-stop', { method: 'POST', body: fd }); loadRouteDetails(); }
+        async function submitNewRoute(e) { e.preventDefault(); const btn = e.target.querySelector('button'); btn.disabled=true; btn.innerText="Uploading..."; try { const res = await fetch('/admin/api/add-route', { method: 'POST', body: new FormData(e.target) }); if(res.ok) { alert("Success!"); window.location.href="/admin/routes"; } else { alert((await res.json()).detail); } } catch(e) { alert("Failed"); } btn.disabled=false; btn.innerText="CREATE"; }
+        function setStat(r, v) { r.closest('form').querySelector('input[name="status"]').value=v; }
+        async function populateBusDropdown() { try { const res = await fetch('/admin/fleet'); const data = await res.json(); const dl = document.getElementById('busList'); dl.innerHTML=''; data.fleet.forEach(b => { const op = document.createElement('option'); op.value = b.license; op.innerText = `${b.route} (${b.status})`; dl.appendChild(op); }); } catch(e){} }
+        async function submitStatus(e, s) { e.preventDefault(); const fd = new FormData(e.target); const pl = { scope:s, identifier:fd.get('identifier'), status:fd.get('status'), message:fd.get('message'), duration:parseInt(fd.get('duration')||0) }; if(!pl.status) return alert("Select condition"); await fetch('/admin/set-status', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(pl)}); e.target.reset(); refreshStatus(); }
+        async function refreshStatus() { const c = document.getElementById('activeFlagsContainer'); c.innerHTML='Loading...'; const res = await fetch('/admin/system-status'); const d = await res.json(); c.innerHTML = ''; const acts = d.status.filter(i => i.status!=='active' && i.status!=='open' && i.status!=='Normal Operation'); if(acts.length===0) c.innerHTML='<span class="badge bg-success p-2">All Systems Normal</span>'; acts.forEach(i => { const delId = i.raw_id || i.id; c.innerHTML += `<div class="badge bg-white text-danger border border-danger p-2 shadow-sm d-flex align-items-center gap-2 status-card-enter"><span>${i.type.toUpperCase()}: ${i.id||i.stop_name} (${i.status})</span><button class="btn btn-sm btn-close" onclick="clearFlag('${i.type}','${delId}')"></button></div>`; }); }
+        async function clearFlag(t, id) { await fetch('/admin/set-status', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({scope:t, identifier:id, status:(t==='stop'?'open':'active'), message:'Cleared'}) }); refreshStatus(); }
+        async function loadStopsFlag(slug) { const sel = document.getElementById('sf_stop'); sel.innerHTML='<option>Loading...</option>'; sel.disabled=true; if(!slug) return; const res = await fetch(`/admin/stops/${slug}`); const data = await res.json(); sel.innerHTML = ''; const rReal = slugs[slug]; data.stops.forEach(s => sel.innerHTML += `<option value="${rReal}:${s.id}">${s.id} - ${s.name}</option>`); sel.disabled = false; }
+        
+        async function loadAnalytics() { 
+            const routeFilter = document.getElementById('analyticsRouteSelector').value;
+            try { 
+                const res = await fetch('/admin/api/accuracy-stats'); const json = await res.json(); const data = json.data[routeFilter]; if(!data) return; 
+                const ctx = document.getElementById('accuracyChart').getContext('2d'); if(chartInstance) chartInstance.destroy(); 
+                const meanData = data.scatter.map(p => ({ x: p.x, y: p.y }));
+                const upperData = data.scatter.map(p => ({ x: p.x, y: p.y + p.sd }));
+                const lowerData = data.scatter.map(p => ({ x: p.x, y: p.y - p.sd }));
+                chartInstance = new Chart(ctx, { 
+                    type: 'line', 
+                    data: { 
+                        datasets: [ 
+                            { label: 'Mean Error', data: meanData, borderColor: '#0d6efd', backgroundColor: '#0d6efd', type:'scatter' }, 
+                            { label: 'Trend', data: data.trendline, borderColor: '#dc3545', borderDash:[5,5], fill:false, pointRadius:0 },
+                            { label: '+1 SD', data: upperData, borderColor: 'rgba(13, 110, 253, 0.2)', backgroundColor: 'rgba(13, 110, 253, 0.1)', fill:'+1', pointRadius:0 },
+                            { label: '-1 SD', data: lowerData, borderColor: 'rgba(13, 110, 253, 0.2)', pointRadius:0, fill:false }
+                        ] 
+                    }, 
+                    options: { responsive: true, scales: { x: { type:'linear', position:'bottom', title:{display:true, text:'Mins Before Arrival'}, reverse:false } } } 
+                }); 
+            } catch(e){ console.error(e); } 
         }
-        if (shouldSwitch) { rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); switching = true; switchcount++; }
-        else { if (switchcount == 0 && dir == "asc") { dir = "desc"; switching = true; } }
-    }
-}
-
-initData();
-</script>
+    </script>
 </body>
 </html>
