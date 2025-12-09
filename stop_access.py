@@ -30,6 +30,7 @@ class RouteConfig:
     speeds_path: Optional[str]
     stop_list: Dict[str, Dict]
     overlap: Optional[Dict]
+    layover: Optional[Dict] # [NEW] Added Layover field
 
     def stops(self) -> List[Stop]:
         """Return stop list sorted by route index (sequence along the route)."""
@@ -47,18 +48,12 @@ class RouteConfig:
             for s in sorted_stops
         ]
 
-    def to_json(self) -> Dict:
-        return {
-            "route_name": self.key,
-            "stops": [asdict(s) for s in self.stops()]
-        }
-
 # ===================== LOADER LOGIC =====================
 
 def load_routes_from_json():
     """Reads routes_data.json and returns the direction_map and line_options."""
     if not os.path.exists(CONFIG_FILE):
-        print(f"[ERROR] Configuration file not found: {CONFIG_FILE}")
+        print(f"[WARN] Configuration file not found: {CONFIG_FILE}")
         return {}, []
 
     try:
@@ -69,18 +64,10 @@ def load_routes_from_json():
         return {}, []
 
     loaded_map = {}
-    
-    # Get the "routes" dictionary. 
-    # Python 3.7+ preserves insertion order, so the list order is safe.
     raw_routes = data.get("routes", {})
     loaded_options = list(raw_routes.keys())
 
     for route_key, r_data in raw_routes.items():
-        # Ensure stops have the right structure for services.py logic
-        # Your JSON stops might be cleaner (name_eng), but services.py might expect 'stop_name_eng'
-        # The Stop dataclass handles this conversion above.
-        
-        # We keep the raw dict for backward compatibility with services.py
         stop_dict_cleaned = {}
         for s_key, s_val in r_data.get("stops", {}).items():
             stop_dict_cleaned[s_key] = {
@@ -88,8 +75,8 @@ def load_routes_from_json():
                 "index": s_val["index"],
                 "lat": s_val["lat"],
                 "lon": s_val["lon"],
-                "stop_name_eng": s_val.get("name_eng"),
-                "stop_name_th": s_val.get("name_th"),
+                "stop_name_eng": s_val.get("name_eng", s_key),
+                "stop_name_th": s_val.get("name_th", ""),
                 "direction": r_data["direction"] 
             }
 
@@ -102,7 +89,8 @@ def load_routes_from_json():
             schedule_path=r_data["files"]["schedule"],
             speeds_path=r_data["files"]["speeds"],
             stop_list=stop_dict_cleaned,
-            overlap=r_data.get("overlap")
+            overlap=r_data.get("overlap"),
+            layover=r_data.get("layover")
         )
     
     return loaded_map, loaded_options
@@ -121,14 +109,3 @@ def get_route(direction_name: str) -> Optional[RouteConfig]:
 def get_stops(direction_name: str) -> Optional[List[Stop]]:
     route = get_route(direction_name)
     return route.stops() if route else None
-
-def get_stop_by_name(direction_name: str, stop_name: str) -> Optional[Stop]:
-    stops = get_stops(direction_name)
-    if not stops: return None
-    
-    search_term = stop_name.lower()
-    for s in stops:
-        if (search_term in s.stop_name_eng.lower() or 
-            search_term in s.stop_name_th.lower()):
-            return s
-    return None

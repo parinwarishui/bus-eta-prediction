@@ -20,10 +20,9 @@ try:
         calc_eta, 
         ORDERS_PER_KM,
         API_KEY,
-        API_URL,
-        LAYOVER_CONFIG  # <--- [NEW] Import Layover Config
+        API_URL
     )
-    from stop_access import direction_map
+    from stop_access import direction_map, line_options
 except ImportError as e:
     print(f"\n[CRITICAL ERROR] Could not import helper files: {e}")
     print("Ensure 'services.py' and 'stop_access.py' are in the same folder.\n")
@@ -36,8 +35,8 @@ OFFLINE_GRACE_PERIOD_MIN = 5
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Files
-ACTIVE_CSV = os.path.join(BASE_DIR, "eta_accuracy_by_stop.csv") # Keeps only running buses
-ARCHIVE_CSV = os.path.join(BASE_DIR, "eta_accuracy_archive.csv")  # Stores finished trips
+ACTIVE_CSV = os.path.join(BASE_DIR, "eta_accuracy_by_stop.csv") 
+ARCHIVE_CSV = os.path.join(BASE_DIR, "eta_accuracy_archive.csv")  
 
 # Define prediction intervals
 PRED_INTERVALS = [0, 15, 30, 45, 60, 75, 90, 105, 120] 
@@ -67,7 +66,6 @@ def validate_and_recreate_csv(filepath, cols):
     recreate = False
     if os.path.exists(filepath):
         try:
-            # Read just the header
             df_test = pd.read_csv(filepath, nrows=0)
             if 'stop_index' not in df_test.columns:
                 print(f"[SYSTEM] Corrupted headers in {os.path.basename(filepath)}. Recreating...")
@@ -86,17 +84,12 @@ def validate_and_recreate_csv(filepath, cols):
             print(f"[CRITICAL] Failed to create CSV {filepath}: {e}")
 
 def initialize_csvs():
-    """
-    1. Validates/Creates the ARCHIVE file (preserves history).
-    2. DESTROYS and Re-creates the ACTIVE file (clears old running state).
-    """
+    """Validates/Creates the ARCHIVE file and DESTROYS/Re-creates the ACTIVE file."""
     cols = get_expected_columns()
 
     with csv_lock:
-        # 1. Validate Archive (Keep history safe)
         validate_and_recreate_csv(ARCHIVE_CSV, cols)
 
-        # 2. DESTROY Active CSV (Clear state on restart)
         if os.path.exists(ACTIVE_CSV):
             try:
                 os.remove(ACTIVE_CSV)
@@ -104,7 +97,6 @@ def initialize_csvs():
             except OSError as e:
                 print(f"[SYSTEM] Warning: Could not delete old active file: {e}")
 
-        # 3. Create Fresh Active CSV
         try:
             pd.DataFrame(columns=cols).to_csv(ACTIVE_CSV, index=False)
             print(f"[SYSTEM] Created fresh active file: {os.path.basename(ACTIVE_CSV)}")
@@ -112,15 +104,9 @@ def initialize_csvs():
             print(f"[CRITICAL] Failed to create active CSV: {e}")
 
 def transfer_to_archive(row_index, df_current):
-    """
-    Moves a specific row from Active DF to Archive CSV.
-    Returns the modified Active DF (with the row dropped).
-    """
     try:
         row_to_move = df_current.iloc[[row_index]]
         row_to_move.to_csv(ARCHIVE_CSV, mode='a', header=False, index=False)
-        
-        # Drop the row to save space
         df_updated = df_current.drop(row_index)
         return df_updated
     except Exception as e:
@@ -132,16 +118,11 @@ def transfer_to_archive(row_index, df_current):
 # =========================================================
 
 def register_new_bus_stops(route_name, licence, upcoming_stops, reg_time, current_speed, current_idx):
-    """
-    Creates rows for all upcoming stops.
-    NOW CALCULATES T0 IMMEDIATELY to prevent missing initial ETAs.
-    """
     reg_time_iso = reg_time.isoformat()
     new_rows = []
     
     existing_stop_indices = set()
     
-    # Pre-check existence to avoid duplicates
     with csv_lock:
         try:
             if os.path.exists(ACTIVE_CSV):
@@ -156,13 +137,15 @@ def register_new_bus_stops(route_name, licence, upcoming_stops, reg_time, curren
                         existing_stop_indices = set(df.loc[mask, 'stop_index'].astype(int).tolist())
         except: pass
 
-    # === [NEW] GET LAYOVER CONFIG ===
-    current_layover_idx = LAYOVER_CONFIG.get(route_name)
+    # === [UPDATED] GET LAYOVER CONFIG ===
+    route_config = direction_map.get(route_name)
+    current_layover_idx = None
+    if route_config and route_config.layover:
+        current_layover_idx = route_config.layover.get('stop_index')
 
     for stop in upcoming_stops:
         if stop['index'] in existing_stop_indices: continue
 
-        # === FORCE T0 CALCULATION NOW (With Layover) ===
         t0_eta = pd.NA
         t0_ts = pd.NA
         try:
@@ -177,23 +160,19 @@ def register_new_bus_stops(route_name, licence, upcoming_stops, reg_time, curren
                 t0_eta = eta_val
                 t0_ts = (reg_time + timedelta(minutes=eta_val)).isoformat()
         except: pass
-        # ================================
 
         row = {
             "licence": licence, "route": route_name,
             "stop_id": str(stop['no']), "stop_name": stop['stop_name_eng'],
             "stop_index": stop['index'], "registration_time": reg_time_iso,
             "arrival_time": pd.NA,
-            
-            # Set T0 immediately
             "eta_min_T0": t0_eta,
             "eta_ts_T0": t0_ts,
             "error_T0": pd.NA 
         }
         
-        # Init other columns empty
         for t in PRED_INTERVALS:
-            if t == 0: continue # Already set
+            if t == 0: continue 
             row[f"eta_min_T{t}"] = pd.NA
             row[f"eta_ts_T{t}"] = pd.NA
             row[f"error_T{t}"] = pd.NA
@@ -204,7 +183,6 @@ def register_new_bus_stops(route_name, licence, upcoming_stops, reg_time, curren
         df_new = pd.DataFrame(new_rows)
         with csv_lock:
             try:
-                # Mode 'a' appends to the file
                 df_new.to_csv(ACTIVE_CSV, mode='a', header=False, index=False)
                 print(f"[{route_name}] NEW BUS: {licence} (Registered {len(new_rows)} stops with T0)")
             except Exception as e:
@@ -227,13 +205,9 @@ def update_actual_arrival(route_name, licence, stop_index, actual_time):
             )
             
             if mask.any():
-                # Get index of the row to update
                 row_idx = df[mask].index[-1]
-                
-                # 1. Update Arrival
                 df.at[row_idx, "arrival_time"] = actual_time.isoformat()
                 
-                # 2. Compute Errors for all existing predictions
                 for t in PRED_INTERVALS:
                     ts_col = f"eta_ts_T{t}"
                     err_col = f"error_T{t}"
@@ -244,12 +218,8 @@ def update_actual_arrival(route_name, licence, stop_index, actual_time):
                             df.at[row_idx, err_col] = round(diff, 2)
                         except: pass
 
-                # 3. === AUTO-ARCHIVE & DELETE ===
-                # This moves the row to archive and RETURNS the df WITHOUT that row
                 df = df.drop(columns=['clean_stop_idx'])
                 df = transfer_to_archive(row_idx, df)
-                
-                # 4. Save the smaller Active CSV
                 df.to_csv(ACTIVE_CSV, index=False)
                 print(f"[{route_name}] {licence} ARRIVED @ {stop_index} -> Archived")
         except Exception as e:
@@ -261,7 +231,6 @@ def batch_update_predictions(route_name, updates):
     with csv_lock:
         try:
             df = pd.read_csv(ACTIVE_CSV)
-            
             if 'stop_index' not in df.columns: return
 
             def clean_stop_idx(val):
@@ -280,7 +249,6 @@ def batch_update_predictions(route_name, updates):
                     for idx in active_indices:
                         for col, val in u['updates'].items():
                             curr = df.at[idx, col]
-                            # Only write if empty (don't overwrite T0 if set)
                             if pd.isna(curr) or str(curr).strip() == "":
                                 df.at[idx, col] = val
             
@@ -305,8 +273,10 @@ def evaluate_bus_eta(route_name):
         print(f"[{route_name}] Setup failed: {e}")
         return
 
-    # === [NEW] PRE-LOAD LAYOVER INDEX FOR THIS THREAD ===
-    current_layover_idx = LAYOVER_CONFIG.get(route_name)
+    # === [UPDATED] PRE-LOAD LAYOVER INDEX FOR THIS THREAD ===
+    current_layover_idx = None
+    if route_config and route_config.layover:
+        current_layover_idx = route_config.layover.get('stop_index')
 
     while not shutdown_event.is_set():
         try:
@@ -342,13 +312,12 @@ def evaluate_bus_eta(route_name):
                         if not upcoming_stops: continue
                         upcoming_stops.sort(key=lambda x: x['index'])
 
-                        # Calculate T0 Here and Pass it
                         register_new_bus_stops(route_name, licence, upcoming_stops, now, velocity, current_idx)
 
                         tracked_buses[licence] = {
                             "active_stop_indices": [s['index'] for s in upcoming_stops],
                             "last_pos": current_idx,
-                            "processed_intervals": {0}, # Mark T0 as done
+                            "processed_intervals": {0}, 
                             "start_time": now,
                             "last_seen_time": now,
                             "last_move_time": now,
@@ -367,7 +336,6 @@ def evaluate_bus_eta(route_name):
                         if (now - bus_state["last_move_time"]).total_seconds() / 60 > STALL_THRESHOLD_MIN:
                             bus_state["is_stalled"] = True
 
-                    # --- Check Arrivals ---
                     prev_pos = bus_state["last_pos"]
                     passed_indices = [idx for idx in bus_state["active_stop_indices"] if prev_pos < idx <= current_idx]
                     
@@ -377,13 +345,11 @@ def evaluate_bus_eta(route_name):
                     
                     bus_state["last_pos"] = current_idx
 
-                    # --- Trigger T15, T30... Predictions ---
                     if not bus_state["is_stalled"] and bus_state["active_stop_indices"]:
                         elapsed_min = (now - bus_state["start_time"]).total_seconds() / 60.0
                         for t in PRED_INTERVALS:
-                            if t == 0: continue # Handled at registration
+                            if t == 0: continue 
                             
-                            # Check if we crossed this time threshold
                             if elapsed_min >= t and t not in bus_state["processed_intervals"]:
                                 for stop_idx in bus_state["active_stop_indices"]:
                                     try:
@@ -412,7 +378,6 @@ def evaluate_bus_eta(route_name):
                         if licence in tracked_buses: del tracked_buses[licence]
                         current_active_licences.discard(licence)
 
-            # Cleanup Timeouts
             keys_to_delete = []
             for lic, state in tracked_buses.items():
                 if lic not in current_active_licences:

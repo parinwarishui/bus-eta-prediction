@@ -4,17 +4,20 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, Path, Request
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
-from stop_access import direction_map
+from stop_access import direction_map, line_options
 from pydantic import BaseModel
 from typing import Optional
 
-ROUTE_SLUGS = {
-    "airport-rawai": "Airport -> Rawai",
-    "rawai-airport": "Rawai -> Airport",
-    "terminal-patong": "Bus 2 -> Bus 1 -> Patong",
-    "patong-terminal": "Patong -> Bus 1 -> Bus 2",
-    "dragon-line": "Dragon Line"
-}
+# [UPDATED] Dynamic Slug Generator
+def generate_slugs():
+    slugs = {}
+    for route_name in line_options:
+        # Create URL-friendly slugs (e.g., "Airport -> Rawai" -> "airport-rawai")
+        slug = route_name.lower().replace(" -> ", "-").replace(" ", "-")
+        slugs[slug] = route_name
+    return slugs
+
+ROUTE_SLUGS = generate_slugs()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -29,7 +32,7 @@ templates = Jinja2Templates(directory="templates")
 
 def resolve_route_key(route_identifier: str):
     if route_identifier in ROUTE_SLUGS: return ROUTE_SLUGS[route_identifier]
-    if route_identifier in direction_map: return direction_map
+    if route_identifier in direction_map: return route_identifier
     return None
 
 def success_response(data):
@@ -43,7 +46,7 @@ class StatusRequest(BaseModel):
     duration: Optional[int] = None
 
 # ==========================
-# 1. ADMIN API (Must come BEFORE generic admin routes)
+# 1. ADMIN API
 # ==========================
 
 @app.get("/admin/fleet")
@@ -68,6 +71,7 @@ async def get_stops_for_route(route_slug: str):
     route_config = direction_map.get(real_name)
     if not route_config: return {"stops": []}
     stops = []
+    # Use the cleaner getter from stop_access
     for s in route_config.stop_list.values():
         stops.append({"id": s['no'], "name": s['stop_name_eng']})
     stops.sort(key=lambda x: x['id'])
@@ -85,21 +89,17 @@ async def set_status(payload: StatusRequest):
 # 2. FRONTEND PAGES
 # ==========================
 
-# Admin Dashboard (Handles /admin, /admin/bus, /admin/route, etc.)
 @app.get("/admin", response_class=HTMLResponse)
 @app.get("/admin/{view_type}", response_class=HTMLResponse)
 async def admin_panel(request: Request, view_type: str = "bus"):
-    # Safety check: if view_type isn't a valid tab, default to bus
     if view_type not in ["bus", "route", "stop", "accuracy"]:
         view_type = "bus"
-        
     return templates.TemplateResponse("admin.html", {
         "request": request, 
         "routes": ROUTE_SLUGS,
         "initial_view": view_type 
     })
 
-# Public Dashboard
 @app.get("/dashboard", response_class=HTMLResponse)
 @app.get("/dashboard/{route_slug}", response_class=HTMLResponse)
 @app.get("/dashboard/{route_slug}/{stop_no}", response_class=HTMLResponse)

@@ -1,7 +1,7 @@
 ﻿{
   "Airport -> Rawai": {
     "route": "Airport -> Rawai",
-    "updated_at": "2025-12-08T18:11:34.673384",
+    "updated_at": "2025-12-09T11:51:56.776964",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -17,24 +17,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 48,
-            "eta_time": "2025-12-08T18:59:34.319873",
+            "eta_min": 8,
+            "eta_time": "2025-12-09T11:59:56.573781",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 108,
-            "eta_time": "2025-12-08T19:59:34.319873",
+            "eta_min": 68,
+            "eta_time": "2025-12-09T12:59:56.573781",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 168,
-            "eta_time": "2025-12-08T20:59:34.319873",
+            "eta_min": 128,
+            "eta_time": "2025-12-09T13:59:56.573781",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -52,28 +52,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1150",
-            "eta_min": 14,
-            "eta_time": "2025-12-08T18:25:34.325603",
+            "licence": "10-1149",
+            "eta_min": 2,
+            "eta_time": "2025-12-09T11:53:56.578256",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 14,
-            "eta_time": "2025-12-08T18:25:34.325603",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 30,
+            "eta_time": "2025-12-09T12:21:56.578256",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1147",
-            "eta_min": 20,
-            "eta_time": "2025-12-08T18:31:34.325603",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 90,
+            "eta_time": "2025-12-09T13:21:56.578256",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -88,28 +88,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1150",
-            "eta_min": 18,
-            "eta_time": "2025-12-08T18:29:34.337927",
+            "licence": "10-1149",
+            "eta_min": 5,
+            "eta_time": "2025-12-09T11:56:56.585782",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 18,
-            "eta_time": "2025-12-08T18:29:34.337927",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 33,
+            "eta_time": "2025-12-09T12:24:56.585782",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1147",
-            "eta_min": 23,
-            "eta_time": "2025-12-08T18:34:34.337927",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 93,
+            "eta_time": "2025-12-09T13:24:56.585782",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -124,28 +124,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 7,
-            "eta_time": "2025-12-08T18:18:34.348866",
+            "licence": "10-1149",
+            "eta_min": 16,
+            "eta_time": "2025-12-09T12:07:56.593561",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:34.348866",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 44,
+            "eta_time": "2025-12-09T12:35:56.593561",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:34.348866",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 104,
+            "eta_time": "2025-12-09T13:35:56.593561",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -160,28 +160,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 8,
-            "eta_time": "2025-12-08T18:19:34.363054",
+            "licence": "10-1149",
+            "eta_min": 16,
+            "eta_time": "2025-12-09T12:07:56.600685",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:34.363054",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 45,
+            "eta_time": "2025-12-09T12:36:56.600685",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:34.363054",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 105,
+            "eta_time": "2025-12-09T13:36:56.600685",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -196,28 +196,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 12,
-            "eta_time": "2025-12-08T18:23:34.377129",
+            "licence": "10-1149",
+            "eta_min": 21,
+            "eta_time": "2025-12-09T12:12:56.607792",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 34,
-            "eta_time": "2025-12-08T18:45:34.377129",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 49,
+            "eta_time": "2025-12-09T12:40:56.607792",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 34,
-            "eta_time": "2025-12-08T18:45:34.377129",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 109,
+            "eta_time": "2025-12-09T13:40:56.607792",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -232,28 +232,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 19,
-            "eta_time": "2025-12-08T18:30:34.390657",
+            "licence": "10-1149",
+            "eta_min": 28,
+            "eta_time": "2025-12-09T12:19:56.614781",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 41,
-            "eta_time": "2025-12-08T18:52:34.390657",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 56,
+            "eta_time": "2025-12-09T12:47:56.614781",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 41,
-            "eta_time": "2025-12-08T18:52:34.390657",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 116,
+            "eta_time": "2025-12-09T13:47:56.614781",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -268,28 +268,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 25,
-            "eta_time": "2025-12-08T18:36:34.403589",
+            "licence": "10-1149",
+            "eta_min": 33,
+            "eta_time": "2025-12-09T12:24:56.621709",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 46,
-            "eta_time": "2025-12-08T18:57:34.403589",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 61,
+            "eta_time": "2025-12-09T12:52:56.621709",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 46,
-            "eta_time": "2025-12-08T18:57:34.403589",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 121,
+            "eta_time": "2025-12-09T13:52:56.621709",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -304,28 +304,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 26,
-            "eta_time": "2025-12-08T18:37:34.417929",
+            "licence": "10-1149",
+            "eta_min": 35,
+            "eta_time": "2025-12-09T12:26:56.628676",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 47,
-            "eta_time": "2025-12-08T18:58:34.417929",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 63,
+            "eta_time": "2025-12-09T12:54:56.628676",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 47,
-            "eta_time": "2025-12-08T18:58:34.417929",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 123,
+            "eta_time": "2025-12-09T13:54:56.628676",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -340,28 +340,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 27,
-            "eta_time": "2025-12-08T18:38:34.431751",
+            "licence": "10-1149",
+            "eta_min": 36,
+            "eta_time": "2025-12-09T12:27:56.635648",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 49,
-            "eta_time": "2025-12-08T19:00:34.431751",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 64,
+            "eta_time": "2025-12-09T12:55:56.635648",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 49,
-            "eta_time": "2025-12-08T19:00:34.431751",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 124,
+            "eta_time": "2025-12-09T13:55:56.635648",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -376,28 +376,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 31,
-            "eta_time": "2025-12-08T18:42:34.446283",
+            "licence": "10-1149",
+            "eta_min": 40,
+            "eta_time": "2025-12-09T12:31:56.643139",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 52,
-            "eta_time": "2025-12-08T19:03:34.446283",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 68,
+            "eta_time": "2025-12-09T12:59:56.643139",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 52,
-            "eta_time": "2025-12-08T19:03:34.446283",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 128,
+            "eta_time": "2025-12-09T13:59:56.643139",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -412,28 +412,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 43,
-            "eta_time": "2025-12-08T18:54:34.460463",
+            "licence": "10-1149",
+            "eta_min": 52,
+            "eta_time": "2025-12-09T12:43:56.650453",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 65,
-            "eta_time": "2025-12-08T19:16:34.460463",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 80,
+            "eta_time": "2025-12-09T13:11:56.650453",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 65,
-            "eta_time": "2025-12-08T19:16:34.460463",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 140,
+            "eta_time": "2025-12-09T14:11:56.650453",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -448,28 +448,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 45,
-            "eta_time": "2025-12-08T18:56:34.474362",
+            "licence": "10-1149",
+            "eta_min": 54,
+            "eta_time": "2025-12-09T12:45:56.657614",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 66,
-            "eta_time": "2025-12-08T19:17:34.474362",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 82,
+            "eta_time": "2025-12-09T13:13:56.657614",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 67,
-            "eta_time": "2025-12-08T19:18:34.474362",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 142,
+            "eta_time": "2025-12-09T14:13:56.657614",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -484,28 +484,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 47,
-            "eta_time": "2025-12-08T18:58:34.487947",
+            "licence": "10-1149",
+            "eta_min": 56,
+            "eta_time": "2025-12-09T12:47:56.664719",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 68,
-            "eta_time": "2025-12-08T19:19:34.487947",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 84,
+            "eta_time": "2025-12-09T13:15:56.664719",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 68,
-            "eta_time": "2025-12-08T19:19:34.487947",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 144,
+            "eta_time": "2025-12-09T14:15:56.664719",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -520,28 +520,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 52,
-            "eta_time": "2025-12-08T19:03:34.501230",
+            "licence": "10-1149",
+            "eta_min": 61,
+            "eta_time": "2025-12-09T12:52:56.671858",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 73,
-            "eta_time": "2025-12-08T19:24:34.501230",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 89,
+            "eta_time": "2025-12-09T13:20:56.671858",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 73,
-            "eta_time": "2025-12-08T19:24:34.501230",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 149,
+            "eta_time": "2025-12-09T14:20:56.671858",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -556,28 +556,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 55,
-            "eta_time": "2025-12-08T19:06:34.515046",
+            "licence": "10-1149",
+            "eta_min": 64,
+            "eta_time": "2025-12-09T12:55:56.678989",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 77,
-            "eta_time": "2025-12-08T19:28:34.515046",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 92,
+            "eta_time": "2025-12-09T13:23:56.678989",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 77,
-            "eta_time": "2025-12-08T19:28:34.515046",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 152,
+            "eta_time": "2025-12-09T14:23:56.678989",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -592,28 +592,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 57,
-            "eta_time": "2025-12-08T19:08:34.528804",
+            "licence": "10-1149",
+            "eta_min": 66,
+            "eta_time": "2025-12-09T12:57:56.686451",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 79,
-            "eta_time": "2025-12-08T19:30:34.528804",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 94,
+            "eta_time": "2025-12-09T13:25:56.686451",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 79,
-            "eta_time": "2025-12-08T19:30:34.528804",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 154,
+            "eta_time": "2025-12-09T14:25:56.686451",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -628,28 +628,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 70,
-            "eta_time": "2025-12-08T19:21:34.542235",
+            "licence": "10-1149",
+            "eta_min": 79,
+            "eta_time": "2025-12-09T13:10:56.693796",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 92,
-            "eta_time": "2025-12-08T19:43:34.542235",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 107,
+            "eta_time": "2025-12-09T13:38:56.693796",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 92,
-            "eta_time": "2025-12-08T19:43:34.542235",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 167,
+            "eta_time": "2025-12-09T14:38:56.693796",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -664,28 +664,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 76,
-            "eta_time": "2025-12-08T19:27:34.556071",
+            "licence": "10-1210",
+            "eta_min": 0,
+            "eta_time": "2025-12-09T11:51:56.701223",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 98,
-            "eta_time": "2025-12-08T19:49:34.556071",
+            "licence": "10-1149",
+            "eta_min": 85,
+            "eta_time": "2025-12-09T13:16:56.701223",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 98,
-            "eta_time": "2025-12-08T19:49:34.556071",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 113,
+            "eta_time": "2025-12-09T13:44:56.701223",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -700,28 +700,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 78,
-            "eta_time": "2025-12-08T19:29:34.570591",
+            "licence": "10-1210",
+            "eta_min": 2,
+            "eta_time": "2025-12-09T11:53:56.710872",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 99,
-            "eta_time": "2025-12-08T19:50:34.570591",
+            "licence": "10-1149",
+            "eta_min": 86,
+            "eta_time": "2025-12-09T13:17:56.710872",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 99,
-            "eta_time": "2025-12-08T19:50:34.570591",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 114,
+            "eta_time": "2025-12-09T13:45:56.710872",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -736,28 +736,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 81,
-            "eta_time": "2025-12-08T19:32:34.585292",
+            "licence": "10-1210",
+            "eta_min": 6,
+            "eta_time": "2025-12-09T11:57:56.720428",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 103,
-            "eta_time": "2025-12-08T19:54:34.585292",
+            "licence": "10-1149",
+            "eta_min": 90,
+            "eta_time": "2025-12-09T13:21:56.720428",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 103,
-            "eta_time": "2025-12-08T19:54:34.585292",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 118,
+            "eta_time": "2025-12-09T13:49:56.720428",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -772,28 +772,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 84,
-            "eta_time": "2025-12-08T19:35:34.599017",
+            "licence": "10-1210",
+            "eta_min": 9,
+            "eta_time": "2025-12-09T12:00:56.729993",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 106,
-            "eta_time": "2025-12-08T19:57:34.599017",
+            "licence": "10-1149",
+            "eta_min": 93,
+            "eta_time": "2025-12-09T13:24:56.729993",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 106,
-            "eta_time": "2025-12-08T19:57:34.599017",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 121,
+            "eta_time": "2025-12-09T13:52:56.729993",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -808,28 +808,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1207",
-            "eta_min": 87,
-            "eta_time": "2025-12-08T19:38:34.611749",
+            "licence": "10-1210",
+            "eta_min": 11,
+            "eta_time": "2025-12-09T12:02:56.739210",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 108,
-            "eta_time": "2025-12-08T19:59:34.611749",
+            "licence": "10-1149",
+            "eta_min": 96,
+            "eta_time": "2025-12-09T13:27:56.739210",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1152",
-            "eta_min": 108,
-            "eta_time": "2025-12-08T19:59:34.611749",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 124,
+            "eta_time": "2025-12-09T13:55:56.739210",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -844,28 +844,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 0,
-            "eta_time": "2025-12-08T18:11:34.625433",
+            "licence": "10-1210",
+            "eta_min": 12,
+            "eta_time": "2025-12-09T12:03:56.748530",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1207",
-            "eta_min": 88,
-            "eta_time": "2025-12-08T19:39:34.625433",
+            "licence": "10-1149",
+            "eta_min": 96,
+            "eta_time": "2025-12-09T13:27:56.748530",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 109,
-            "eta_time": "2025-12-08T20:00:34.625433",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 124,
+            "eta_time": "2025-12-09T13:55:56.748530",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -880,28 +880,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 2,
-            "eta_time": "2025-12-08T18:13:34.641766",
+            "licence": "10-1210",
+            "eta_min": 15,
+            "eta_time": "2025-12-09T12:06:56.757969",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1207",
-            "eta_min": 90,
-            "eta_time": "2025-12-08T19:41:34.641766",
+            "licence": "10-1149",
+            "eta_min": 99,
+            "eta_time": "2025-12-09T13:30:56.757969",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 112,
-            "eta_time": "2025-12-08T20:03:34.641766",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 127,
+            "eta_time": "2025-12-09T13:58:56.757969",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -916,28 +916,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1151",
-            "eta_min": 13,
-            "eta_time": "2025-12-08T18:24:34.657745",
+            "licence": "10-1210",
+            "eta_min": 25,
+            "eta_time": "2025-12-09T12:16:56.767376",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1207",
-            "eta_min": 101,
-            "eta_time": "2025-12-08T19:52:34.657745",
+            "licence": "10-1149",
+            "eta_min": 110,
+            "eta_time": "2025-12-09T13:41:56.767376",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1150",
-            "eta_min": 123,
-            "eta_time": "2025-12-08T20:14:34.657745",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 138,
+            "eta_time": "2025-12-09T14:09:56.767376",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       }
@@ -945,7 +945,7 @@
   },
   "Rawai -> Airport": {
     "route": "Rawai -> Airport",
-    "updated_at": "2025-12-08T18:11:35.010257",
+    "updated_at": "2025-12-09T11:51:56.952639",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -961,24 +961,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 8,
-            "eta_time": "2025-12-08T18:19:34.691201",
+            "eta_min": 28,
+            "eta_time": "2025-12-09T12:19:56.792570",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 33,
-            "eta_time": "2025-12-08T18:44:34.691201",
+            "eta_min": 53,
+            "eta_time": "2025-12-09T12:44:56.792570",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 78,
-            "eta_time": "2025-12-08T19:29:34.691201",
+            "eta_min": 113,
+            "eta_time": "2025-12-09T13:44:56.792570",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -997,24 +997,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 17,
-            "eta_time": "2025-12-08T18:28:34.695591",
+            "eta_min": 37,
+            "eta_time": "2025-12-09T12:28:56.796672",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 42,
-            "eta_time": "2025-12-08T18:53:34.695591",
+            "eta_min": 62,
+            "eta_time": "2025-12-09T12:53:56.796672",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 87,
-            "eta_time": "2025-12-08T19:38:34.695591",
+            "eta_min": 122,
+            "eta_time": "2025-12-09T13:53:56.796672",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1033,24 +1033,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 28,
-            "eta_time": "2025-12-08T18:39:34.699403",
+            "eta_min": 48,
+            "eta_time": "2025-12-09T12:39:56.800240",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 53,
-            "eta_time": "2025-12-08T19:04:34.699403",
+            "eta_min": 73,
+            "eta_time": "2025-12-09T13:04:56.800240",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 98,
-            "eta_time": "2025-12-08T19:49:34.699403",
+            "eta_min": 133,
+            "eta_time": "2025-12-09T14:04:56.800240",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1069,24 +1069,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 30,
-            "eta_time": "2025-12-08T18:41:34.703105",
+            "eta_min": 50,
+            "eta_time": "2025-12-09T12:41:56.803773",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 55,
-            "eta_time": "2025-12-08T19:06:34.703105",
+            "eta_min": 75,
+            "eta_time": "2025-12-09T13:06:56.803773",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 100,
-            "eta_time": "2025-12-08T19:51:34.703105",
+            "eta_min": 135,
+            "eta_time": "2025-12-09T14:06:56.803773",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1105,24 +1105,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 31,
-            "eta_time": "2025-12-08T18:42:34.706946",
+            "eta_min": 51,
+            "eta_time": "2025-12-09T12:42:56.807310",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 56,
-            "eta_time": "2025-12-08T19:07:34.706946",
+            "eta_min": 76,
+            "eta_time": "2025-12-09T13:07:56.807310",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 101,
-            "eta_time": "2025-12-08T19:52:34.706946",
+            "eta_min": 136,
+            "eta_time": "2025-12-09T14:07:56.807310",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1140,25 +1140,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1204",
-            "eta_min": 2,
-            "eta_time": "2025-12-08T18:13:34.710697",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 34,
-            "eta_time": "2025-12-08T18:45:34.710697",
+            "eta_min": 54,
+            "eta_time": "2025-12-09T12:45:56.810809",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 59,
-            "eta_time": "2025-12-08T19:10:34.710697",
+            "eta_min": 79,
+            "eta_time": "2025-12-09T13:10:56.810809",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 139,
+            "eta_time": "2025-12-09T14:10:56.810809",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1176,25 +1176,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1204",
-            "eta_min": 3,
-            "eta_time": "2025-12-08T18:14:34.718293",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 35,
-            "eta_time": "2025-12-08T18:46:34.718293",
+            "eta_min": 55,
+            "eta_time": "2025-12-09T12:46:56.814309",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 60,
-            "eta_time": "2025-12-08T19:11:34.718293",
+            "eta_min": 80,
+            "eta_time": "2025-12-09T13:11:56.814309",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 140,
+            "eta_time": "2025-12-09T14:11:56.814309",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1212,25 +1212,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1204",
-            "eta_min": 4,
-            "eta_time": "2025-12-08T18:15:34.726081",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 36,
-            "eta_time": "2025-12-08T18:47:34.726081",
+            "eta_min": 56,
+            "eta_time": "2025-12-09T12:47:56.817817",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 61,
-            "eta_time": "2025-12-08T19:12:34.726081",
+            "eta_min": 81,
+            "eta_time": "2025-12-09T13:12:56.817817",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 141,
+            "eta_time": "2025-12-09T14:12:56.817817",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1248,25 +1248,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1204",
-            "eta_min": 9,
-            "eta_time": "2025-12-08T18:20:34.733552",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 41,
-            "eta_time": "2025-12-08T18:52:34.733552",
+            "eta_min": 61,
+            "eta_time": "2025-12-09T12:52:56.821320",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 66,
-            "eta_time": "2025-12-08T19:17:34.733552",
+            "eta_min": 86,
+            "eta_time": "2025-12-09T13:17:56.821320",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 146,
+            "eta_time": "2025-12-09T14:17:56.821320",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1284,25 +1284,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1204",
-            "eta_min": 10,
-            "eta_time": "2025-12-08T18:21:34.741641",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 42,
-            "eta_time": "2025-12-08T18:53:34.741641",
+            "eta_min": 62,
+            "eta_time": "2025-12-09T12:53:56.824818",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 67,
-            "eta_time": "2025-12-08T19:18:34.741641",
+            "eta_min": 87,
+            "eta_time": "2025-12-09T13:18:56.824818",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 147,
+            "eta_time": "2025-12-09T14:18:56.824818",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1320,25 +1320,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1210",
-            "eta_min": 7,
-            "eta_time": "2025-12-08T18:18:34.749997",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 69,
+            "eta_time": "2025-12-09T13:00:56.828362",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1204",
-            "eta_min": 17,
-            "eta_time": "2025-12-08T18:28:34.749997",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 49,
-            "eta_time": "2025-12-08T19:00:34.749997",
+            "eta_min": 94,
+            "eta_time": "2025-12-09T13:25:56.828362",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 154,
+            "eta_time": "2025-12-09T14:25:56.828362",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1356,28 +1356,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1220",
-            "eta_min": 0,
-            "eta_time": "2025-12-08T18:11:34.761016",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 77,
+            "eta_time": "2025-12-09T13:08:56.831880",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1210",
-            "eta_min": 14,
-            "eta_time": "2025-12-08T18:25:34.761016",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 102,
+            "eta_time": "2025-12-09T13:33:56.831880",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1204",
-            "eta_min": 25,
-            "eta_time": "2025-12-08T18:36:34.761016",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 162,
+            "eta_time": "2025-12-09T14:33:56.831880",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -1394,26 +1394,26 @@
           {
             "licence": "10-1153",
             "eta_min": 0,
-            "eta_time": "2025-12-08T18:11:34.771134",
+            "eta_time": "2025-12-09T11:51:56.835407",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 4,
-            "eta_time": "2025-12-08T18:15:34.771134",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 81,
+            "eta_time": "2025-12-09T13:12:56.835407",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1210",
-            "eta_min": 19,
-            "eta_time": "2025-12-08T18:30:34.771134",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 106,
+            "eta_time": "2025-12-09T13:37:56.835407",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -1430,26 +1430,26 @@
           {
             "licence": "10-1153",
             "eta_min": 8,
-            "eta_time": "2025-12-08T18:19:34.784410",
+            "eta_time": "2025-12-09T11:59:56.842374",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 13,
-            "eta_time": "2025-12-08T18:24:34.784410",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 90,
+            "eta_time": "2025-12-09T13:21:56.842374",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1210",
-            "eta_min": 27,
-            "eta_time": "2025-12-08T18:38:34.784410",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 115,
+            "eta_time": "2025-12-09T13:46:56.842374",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -1466,26 +1466,26 @@
           {
             "licence": "10-1153",
             "eta_min": 10,
-            "eta_time": "2025-12-08T18:21:34.797526",
+            "eta_time": "2025-12-09T12:01:56.849309",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 14,
-            "eta_time": "2025-12-08T18:25:34.797526",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 91,
+            "eta_time": "2025-12-09T13:22:56.849309",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1210",
-            "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:34.797526",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 116,
+            "eta_time": "2025-12-09T13:47:56.849309",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -1502,26 +1502,26 @@
           {
             "licence": "10-1153",
             "eta_min": 11,
-            "eta_time": "2025-12-08T18:22:34.810421",
+            "eta_time": "2025-12-09T12:02:56.856231",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 15,
-            "eta_time": "2025-12-08T18:26:34.810421",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 92,
+            "eta_time": "2025-12-09T13:23:56.856231",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           },
           {
-            "licence": "10-1210",
-            "eta_min": 30,
-            "eta_time": "2025-12-08T18:41:34.810421",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 117,
+            "eta_time": "2025-12-09T13:48:56.856231",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -1536,28 +1536,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1149",
-            "eta_min": 3,
-            "eta_time": "2025-12-08T18:14:34.823022",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1153",
             "eta_min": 24,
-            "eta_time": "2025-12-08T18:35:34.823022",
+            "eta_time": "2025-12-09T12:15:56.863100",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:34.823022",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 106,
+            "eta_time": "2025-12-09T13:37:56.863100",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 131,
+            "eta_time": "2025-12-09T14:02:56.863100",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
           }
         ]
       },
@@ -1572,28 +1572,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1149",
-            "eta_min": 6,
-            "eta_time": "2025-12-08T18:17:34.838290",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1153",
             "eta_min": 27,
-            "eta_time": "2025-12-08T18:38:34.838290",
+            "eta_time": "2025-12-09T12:18:56.870025",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 31,
-            "eta_time": "2025-12-08T18:42:34.838290",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 108,
+            "eta_time": "2025-12-09T13:39:56.870025",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 133,
+            "eta_time": "2025-12-09T14:04:56.870025",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
           }
         ]
       },
@@ -1608,28 +1608,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1149",
-            "eta_min": 7,
-            "eta_time": "2025-12-08T18:18:34.853880",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1153",
             "eta_min": 28,
-            "eta_time": "2025-12-08T18:39:34.853880",
+            "eta_time": "2025-12-09T12:19:56.876942",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 33,
-            "eta_time": "2025-12-08T18:44:34.853880",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 110,
+            "eta_time": "2025-12-09T13:41:56.876942",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 135,
+            "eta_time": "2025-12-09T14:06:56.876942",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
           }
         ]
       },
@@ -1644,28 +1644,28 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1149",
-            "eta_min": 8,
-            "eta_time": "2025-12-08T18:19:34.870857",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1153",
             "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:34.870857",
+            "eta_time": "2025-12-09T12:20:56.883861",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 34,
-            "eta_time": "2025-12-08T18:45:34.870857",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 111,
+            "eta_time": "2025-12-09T13:42:56.883861",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 136,
+            "eta_time": "2025-12-09T14:07:56.883861",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
           }
         ]
       },
@@ -1680,9 +1680,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1149",
-            "eta_min": 14,
-            "eta_time": "2025-12-08T18:25:34.887986",
+            "licence": "10-1212",
+            "eta_min": 0,
+            "eta_time": "2025-12-09T11:51:56.890740",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
@@ -1690,18 +1690,18 @@
           {
             "licence": "10-1153",
             "eta_min": 35,
-            "eta_time": "2025-12-08T18:46:34.887986",
+            "eta_time": "2025-12-09T12:26:56.890740",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1220",
-            "eta_min": 39,
-            "eta_time": "2025-12-08T18:50:34.887986",
-            "status": "Active",
+            "licence": "Scheduled",
+            "eta_min": 116,
+            "eta_time": "2025-12-09T13:47:56.890740",
+            "status": "Scheduled",
             "message": "Normal Operation",
-            "type": "active"
+            "type": "scheduled"
           }
         ]
       },
@@ -1716,17 +1716,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1208",
-            "eta_min": 0,
-            "eta_time": "2025-12-08T18:11:34.905203",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1149",
-            "eta_min": 22,
-            "eta_time": "2025-12-08T18:33:34.905203",
+            "licence": "10-1212",
+            "eta_min": 8,
+            "eta_time": "2025-12-09T11:59:56.900355",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
@@ -1734,10 +1726,18 @@
           {
             "licence": "10-1153",
             "eta_min": 43,
-            "eta_time": "2025-12-08T18:54:34.905203",
+            "eta_time": "2025-12-09T12:34:56.900355",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 124,
+            "eta_time": "2025-12-09T13:55:56.900355",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
           }
         ]
       },
@@ -1752,17 +1752,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1208",
-            "eta_min": 6,
-            "eta_time": "2025-12-08T18:17:34.925281",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1149",
-            "eta_min": 28,
-            "eta_time": "2025-12-08T18:39:34.925281",
+            "licence": "10-1212",
+            "eta_min": 14,
+            "eta_time": "2025-12-09T12:05:56.909918",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
@@ -1770,10 +1762,18 @@
           {
             "licence": "10-1153",
             "eta_min": 49,
-            "eta_time": "2025-12-08T19:00:34.925281",
+            "eta_time": "2025-12-09T12:40:56.909918",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 130,
+            "eta_time": "2025-12-09T14:01:56.909918",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
           }
         ]
       },
@@ -1788,17 +1788,9 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1208",
-            "eta_min": 6,
-            "eta_time": "2025-12-08T18:17:34.946144",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1149",
-            "eta_min": 28,
-            "eta_time": "2025-12-08T18:39:34.946144",
+            "licence": "10-1212",
+            "eta_min": 15,
+            "eta_time": "2025-12-09T12:06:56.919281",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
@@ -1806,10 +1798,18 @@
           {
             "licence": "10-1153",
             "eta_min": 49,
-            "eta_time": "2025-12-08T19:00:34.946144",
+            "eta_time": "2025-12-09T12:40:56.919281",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 131,
+            "eta_time": "2025-12-09T14:02:56.919281",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
           }
         ]
       },
@@ -1824,25 +1824,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1204",
+            "eta_min": 1,
+            "eta_time": "2025-12-09T11:52:56.928694",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1150",
+            "eta_min": 6,
+            "eta_time": "2025-12-09T11:57:56.928694",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "10-1212",
-            "eta_min": 5,
-            "eta_time": "2025-12-08T18:16:34.965197",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1208",
-            "eta_min": 18,
-            "eta_time": "2025-12-08T18:29:34.965197",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1149",
-            "eta_min": 40,
-            "eta_time": "2025-12-08T18:51:34.965197",
+            "eta_min": 26,
+            "eta_time": "2025-12-09T12:17:56.928694",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
@@ -1860,25 +1860,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1204",
+            "eta_min": 4,
+            "eta_time": "2025-12-09T11:55:56.940701",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
+            "licence": "10-1150",
+            "eta_min": 9,
+            "eta_time": "2025-12-09T12:00:56.940701",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "10-1212",
-            "eta_min": 8,
-            "eta_time": "2025-12-08T18:19:34.988357",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1208",
-            "eta_min": 21,
-            "eta_time": "2025-12-08T18:32:34.988357",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
-            "licence": "10-1149",
-            "eta_min": 43,
-            "eta_time": "2025-12-08T18:54:34.988357",
+            "eta_min": 30,
+            "eta_time": "2025-12-09T12:21:56.940701",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
@@ -1889,7 +1889,7 @@
   },
   "Bus 2 -> Bus 1 -> Patong": {
     "route": "Bus 2 -> Bus 1 -> Patong",
-    "updated_at": "2025-12-08T18:11:35.210925",
+    "updated_at": "2025-12-09T11:51:57.119770",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -1905,24 +1905,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 18,
-            "eta_time": "2025-12-08T18:29:35.025792",
+            "eta_min": 38,
+            "eta_time": "2025-12-09T12:29:56.976273",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 78,
-            "eta_time": "2025-12-08T19:29:35.025792",
+            "eta_min": 98,
+            "eta_time": "2025-12-09T13:29:56.976273",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 138,
-            "eta_time": "2025-12-08T20:29:35.025792",
+            "eta_min": 158,
+            "eta_time": "2025-12-09T14:29:56.976273",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1941,24 +1941,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 20,
-            "eta_time": "2025-12-08T18:31:35.030412",
+            "eta_min": 40,
+            "eta_time": "2025-12-09T12:31:56.980343",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 80,
-            "eta_time": "2025-12-08T19:31:35.030412",
+            "eta_min": 100,
+            "eta_time": "2025-12-09T13:31:56.980343",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 140,
-            "eta_time": "2025-12-08T20:31:35.030412",
+            "eta_min": 160,
+            "eta_time": "2025-12-09T14:31:56.980343",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -1977,24 +1977,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 25,
-            "eta_time": "2025-12-08T18:36:35.034735",
+            "eta_min": 45,
+            "eta_time": "2025-12-09T12:36:56.983952",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 85,
-            "eta_time": "2025-12-08T19:36:35.034735",
+            "eta_min": 105,
+            "eta_time": "2025-12-09T13:36:56.983952",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 145,
-            "eta_time": "2025-12-08T20:36:35.034735",
+            "eta_min": 165,
+            "eta_time": "2025-12-09T14:36:56.983952",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2013,24 +2013,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 26,
-            "eta_time": "2025-12-08T18:37:35.039106",
+            "eta_min": 46,
+            "eta_time": "2025-12-09T12:37:56.987592",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 86,
-            "eta_time": "2025-12-08T19:37:35.039106",
+            "eta_min": 106,
+            "eta_time": "2025-12-09T13:37:56.987592",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 146,
-            "eta_time": "2025-12-08T20:37:35.039106",
+            "eta_min": 166,
+            "eta_time": "2025-12-09T14:37:56.987592",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2049,24 +2049,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 29,
-            "eta_time": "2025-12-08T18:40:35.042962",
+            "eta_min": 49,
+            "eta_time": "2025-12-09T12:40:56.991137",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 89,
-            "eta_time": "2025-12-08T19:40:35.042962",
+            "eta_min": 109,
+            "eta_time": "2025-12-09T13:40:56.991137",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 149,
-            "eta_time": "2025-12-08T20:40:35.042962",
+            "eta_min": 169,
+            "eta_time": "2025-12-09T14:40:56.991137",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2085,24 +2085,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 30,
-            "eta_time": "2025-12-08T18:41:35.047065",
+            "eta_min": 50,
+            "eta_time": "2025-12-09T12:41:56.994709",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 90,
-            "eta_time": "2025-12-08T19:41:35.047065",
+            "eta_min": 110,
+            "eta_time": "2025-12-09T13:41:56.994709",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 150,
-            "eta_time": "2025-12-08T20:41:35.047065",
+            "eta_min": 170,
+            "eta_time": "2025-12-09T14:41:56.994709",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2121,24 +2121,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 32,
-            "eta_time": "2025-12-08T18:43:35.051213",
+            "eta_min": 52,
+            "eta_time": "2025-12-09T12:43:56.998229",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 92,
-            "eta_time": "2025-12-08T19:43:35.051213",
+            "eta_min": 112,
+            "eta_time": "2025-12-09T13:43:56.998229",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 152,
-            "eta_time": "2025-12-08T20:43:35.051213",
+            "eta_min": 172,
+            "eta_time": "2025-12-09T14:43:56.998229",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2157,24 +2157,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 34,
-            "eta_time": "2025-12-08T18:45:35.054980",
+            "eta_min": 54,
+            "eta_time": "2025-12-09T12:45:57.001817",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 94,
-            "eta_time": "2025-12-08T19:45:35.054980",
+            "eta_min": 114,
+            "eta_time": "2025-12-09T13:45:57.001817",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 154,
-            "eta_time": "2025-12-08T20:45:35.054980",
+            "eta_min": 174,
+            "eta_time": "2025-12-09T14:45:57.001817",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2193,24 +2193,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 36,
-            "eta_time": "2025-12-08T18:47:35.059390",
+            "eta_min": 56,
+            "eta_time": "2025-12-09T12:47:57.005372",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 96,
-            "eta_time": "2025-12-08T19:47:35.059390",
+            "eta_min": 116,
+            "eta_time": "2025-12-09T13:47:57.005372",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 156,
-            "eta_time": "2025-12-08T20:47:35.059390",
+            "eta_min": 176,
+            "eta_time": "2025-12-09T14:47:57.005372",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2229,24 +2229,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 46,
-            "eta_time": "2025-12-08T18:57:35.063022",
+            "eta_min": 66,
+            "eta_time": "2025-12-09T12:57:57.009075",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 106,
-            "eta_time": "2025-12-08T19:57:35.063022",
+            "eta_min": 126,
+            "eta_time": "2025-12-09T13:57:57.009075",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 166,
-            "eta_time": "2025-12-08T20:57:35.063022",
+            "eta_min": 186,
+            "eta_time": "2025-12-09T14:57:57.009075",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2264,25 +2264,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 7,
+            "eta_time": "2025-12-09T11:58:57.012626",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 87,
-            "eta_time": "2025-12-08T19:38:35.067184",
+            "eta_min": 107,
+            "eta_time": "2025-12-09T13:38:57.012626",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 147,
-            "eta_time": "2025-12-08T20:38:35.067184",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 207,
-            "eta_time": "2025-12-08T21:38:35.067184",
+            "eta_min": 167,
+            "eta_time": "2025-12-09T14:38:57.012626",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2300,25 +2300,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 9,
+            "eta_time": "2025-12-09T12:00:57.019706",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 90,
-            "eta_time": "2025-12-08T19:41:35.071637",
+            "eta_min": 110,
+            "eta_time": "2025-12-09T13:41:57.019706",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 150,
-            "eta_time": "2025-12-08T20:41:35.071637",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 210,
-            "eta_time": "2025-12-08T21:41:35.071637",
+            "eta_min": 170,
+            "eta_time": "2025-12-09T14:41:57.019706",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2336,25 +2336,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 11,
+            "eta_time": "2025-12-09T12:02:57.026987",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 92,
-            "eta_time": "2025-12-08T19:43:35.075674",
+            "eta_min": 112,
+            "eta_time": "2025-12-09T13:43:57.026987",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 152,
-            "eta_time": "2025-12-08T20:43:35.075674",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 212,
-            "eta_time": "2025-12-08T21:43:35.075674",
+            "eta_min": 172,
+            "eta_time": "2025-12-09T14:43:57.026987",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2372,25 +2372,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 16,
+            "eta_time": "2025-12-09T12:07:57.034889",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 97,
-            "eta_time": "2025-12-08T19:48:35.079717",
+            "eta_min": 117,
+            "eta_time": "2025-12-09T13:48:57.034889",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 157,
-            "eta_time": "2025-12-08T20:48:35.079717",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 217,
-            "eta_time": "2025-12-08T21:48:35.079717",
+            "eta_min": 177,
+            "eta_time": "2025-12-09T14:48:57.034889",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2408,25 +2408,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 21,
+            "eta_time": "2025-12-09T12:12:57.042120",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 101,
-            "eta_time": "2025-12-08T19:52:35.083640",
+            "eta_min": 121,
+            "eta_time": "2025-12-09T13:52:57.042120",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 161,
-            "eta_time": "2025-12-08T20:52:35.083640",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 221,
-            "eta_time": "2025-12-08T21:52:35.083640",
+            "eta_min": 181,
+            "eta_time": "2025-12-09T14:52:57.042120",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2444,25 +2444,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 24,
+            "eta_time": "2025-12-09T12:15:57.049492",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 104,
-            "eta_time": "2025-12-08T19:55:35.087702",
+            "eta_min": 124,
+            "eta_time": "2025-12-09T13:55:57.049492",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 164,
-            "eta_time": "2025-12-08T20:55:35.087702",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 224,
-            "eta_time": "2025-12-08T21:55:35.087702",
+            "eta_min": 184,
+            "eta_time": "2025-12-09T14:55:57.049492",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2480,25 +2480,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 25,
+            "eta_time": "2025-12-09T12:16:57.056758",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 106,
-            "eta_time": "2025-12-08T19:57:35.091601",
+            "eta_min": 126,
+            "eta_time": "2025-12-09T13:57:57.056758",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 166,
-            "eta_time": "2025-12-08T20:57:35.091601",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 226,
-            "eta_time": "2025-12-08T21:57:35.091601",
+            "eta_min": 186,
+            "eta_time": "2025-12-09T14:57:57.056758",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2516,25 +2516,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1218",
+            "eta_min": 27,
+            "eta_time": "2025-12-09T12:18:57.064373",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 108,
-            "eta_time": "2025-12-08T19:59:35.096049",
+            "eta_min": 128,
+            "eta_time": "2025-12-09T13:59:57.064373",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 168,
-            "eta_time": "2025-12-08T20:59:35.096049",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 228,
-            "eta_time": "2025-12-08T21:59:35.096049",
+            "eta_min": 188,
+            "eta_time": "2025-12-09T14:59:57.064373",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2552,25 +2552,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1222",
-            "eta_min": 0,
-            "eta_time": "2025-12-08T18:11:35.100719",
+            "licence": "10-1218",
+            "eta_min": 31,
+            "eta_time": "2025-12-09T12:22:57.071596",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 112,
-            "eta_time": "2025-12-08T20:03:35.100719",
+            "eta_min": 132,
+            "eta_time": "2025-12-09T14:03:57.071596",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 172,
-            "eta_time": "2025-12-08T21:03:35.100719",
+            "eta_min": 192,
+            "eta_time": "2025-12-09T15:03:57.071596",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2588,25 +2588,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1222",
-            "eta_min": 3,
-            "eta_time": "2025-12-08T18:14:35.109117",
+            "licence": "10-1218",
+            "eta_min": 34,
+            "eta_time": "2025-12-09T12:25:57.078766",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 114,
-            "eta_time": "2025-12-08T20:05:35.109117",
+            "eta_min": 134,
+            "eta_time": "2025-12-09T14:05:57.078766",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 174,
-            "eta_time": "2025-12-08T21:05:35.109117",
+            "eta_min": 194,
+            "eta_time": "2025-12-09T15:05:57.078766",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2624,25 +2624,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1222",
-            "eta_min": 5,
-            "eta_time": "2025-12-08T18:16:35.137797",
+            "licence": "10-1218",
+            "eta_min": 36,
+            "eta_time": "2025-12-09T12:27:57.085913",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 117,
-            "eta_time": "2025-12-08T20:08:35.137797",
+            "eta_min": 137,
+            "eta_time": "2025-12-09T14:08:57.085913",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 177,
-            "eta_time": "2025-12-08T21:08:35.137797",
+            "eta_min": 197,
+            "eta_time": "2025-12-09T15:08:57.085913",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2660,25 +2660,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1222",
-            "eta_min": 6,
-            "eta_time": "2025-12-08T18:17:35.175331",
+            "licence": "10-1218",
+            "eta_min": 38,
+            "eta_time": "2025-12-09T12:29:57.093028",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 118,
-            "eta_time": "2025-12-08T20:09:35.175331",
+            "eta_min": 138,
+            "eta_time": "2025-12-09T14:09:57.093028",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 178,
-            "eta_time": "2025-12-08T21:09:35.175331",
+            "eta_min": 198,
+            "eta_time": "2025-12-09T15:09:57.093028",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2696,25 +2696,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1218",
+            "licence": "10-1220",
             "eta_min": 3,
-            "eta_time": "2025-12-08T18:14:35.185506",
+            "eta_time": "2025-12-09T11:54:57.100108",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1222",
-            "eta_min": 31,
-            "eta_time": "2025-12-08T18:42:35.185506",
+            "licence": "10-1218",
+            "eta_min": 62,
+            "eta_time": "2025-12-09T12:53:57.100108",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 143,
-            "eta_time": "2025-12-08T20:34:35.185506",
+            "eta_min": 163,
+            "eta_time": "2025-12-09T14:34:57.100108",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2732,25 +2732,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1218",
+            "licence": "10-1220",
             "eta_min": 8,
-            "eta_time": "2025-12-08T18:19:35.198168",
+            "eta_time": "2025-12-09T11:59:57.110000",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
-            "licence": "10-1222",
-            "eta_min": 36,
-            "eta_time": "2025-12-08T18:47:35.198168",
+            "licence": "10-1218",
+            "eta_min": 68,
+            "eta_time": "2025-12-09T12:59:57.110000",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 148,
-            "eta_time": "2025-12-08T20:39:35.198168",
+            "eta_min": 168,
+            "eta_time": "2025-12-09T14:39:57.110000",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2761,7 +2761,7 @@
   },
   "Patong -> Bus 1 -> Bus 2": {
     "route": "Patong -> Bus 1 -> Bus 2",
-    "updated_at": "2025-12-08T18:11:35.476568",
+    "updated_at": "2025-12-09T11:51:57.271323",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -2777,24 +2777,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 3,
-            "eta_time": "2025-12-08T18:14:35.240072",
+            "eta_min": 23,
+            "eta_time": "2025-12-09T12:14:57.133801",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 63,
-            "eta_time": "2025-12-08T19:14:35.240072",
+            "eta_min": 83,
+            "eta_time": "2025-12-09T13:14:57.133801",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 123,
-            "eta_time": "2025-12-08T20:14:35.240072",
+            "eta_min": 143,
+            "eta_time": "2025-12-09T14:14:57.133801",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2813,24 +2813,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 5,
-            "eta_time": "2025-12-08T18:16:35.244508",
+            "eta_min": 25,
+            "eta_time": "2025-12-09T12:16:57.137620",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 65,
-            "eta_time": "2025-12-08T19:16:35.244508",
+            "eta_min": 85,
+            "eta_time": "2025-12-09T13:16:57.137620",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 125,
-            "eta_time": "2025-12-08T20:16:35.244508",
+            "eta_min": 145,
+            "eta_time": "2025-12-09T14:16:57.137620",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2849,24 +2849,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 11,
-            "eta_time": "2025-12-08T18:22:35.248421",
+            "eta_min": 31,
+            "eta_time": "2025-12-09T12:22:57.141237",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 71,
-            "eta_time": "2025-12-08T19:22:35.248421",
+            "eta_min": 91,
+            "eta_time": "2025-12-09T13:22:57.141237",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 131,
-            "eta_time": "2025-12-08T20:22:35.248421",
+            "eta_min": 151,
+            "eta_time": "2025-12-09T14:22:57.141237",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2885,24 +2885,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 37,
-            "eta_time": "2025-12-08T18:48:35.252252",
+            "eta_min": 57,
+            "eta_time": "2025-12-09T12:48:57.144783",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 97,
-            "eta_time": "2025-12-08T19:48:35.252252",
+            "eta_min": 117,
+            "eta_time": "2025-12-09T13:48:57.144783",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 157,
-            "eta_time": "2025-12-08T20:48:35.252252",
+            "eta_min": 177,
+            "eta_time": "2025-12-09T14:48:57.144783",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2920,25 +2920,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1221",
-            "eta_min": 1,
-            "eta_time": "2025-12-08T18:12:35.256108",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 38,
-            "eta_time": "2025-12-08T18:49:35.256108",
+            "eta_min": 58,
+            "eta_time": "2025-12-09T12:49:57.148358",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 98,
-            "eta_time": "2025-12-08T19:49:35.256108",
+            "eta_min": 118,
+            "eta_time": "2025-12-09T13:49:57.148358",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 178,
+            "eta_time": "2025-12-09T14:49:57.148358",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2956,25 +2956,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1221",
-            "eta_min": 3,
-            "eta_time": "2025-12-08T18:14:35.264539",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 40,
-            "eta_time": "2025-12-08T18:51:35.264539",
+            "eta_min": 60,
+            "eta_time": "2025-12-09T12:51:57.151876",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 100,
-            "eta_time": "2025-12-08T19:51:35.264539",
+            "eta_min": 120,
+            "eta_time": "2025-12-09T13:51:57.151876",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 180,
+            "eta_time": "2025-12-09T14:51:57.151876",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -2992,25 +2992,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1221",
-            "eta_min": 5,
-            "eta_time": "2025-12-08T18:16:35.272434",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 43,
-            "eta_time": "2025-12-08T18:54:35.272434",
+            "eta_min": 63,
+            "eta_time": "2025-12-09T12:54:57.155483",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 103,
-            "eta_time": "2025-12-08T19:54:35.272434",
+            "eta_min": 123,
+            "eta_time": "2025-12-09T13:54:57.155483",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 183,
+            "eta_time": "2025-12-09T14:54:57.155483",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3028,25 +3028,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1221",
-            "eta_min": 9,
-            "eta_time": "2025-12-08T18:20:35.280375",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "Scheduled",
-            "eta_min": 46,
-            "eta_time": "2025-12-08T18:57:35.280375",
+            "eta_min": 66,
+            "eta_time": "2025-12-09T12:57:57.159017",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 106,
-            "eta_time": "2025-12-08T19:57:35.280375",
+            "eta_min": 126,
+            "eta_time": "2025-12-09T13:57:57.159017",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 186,
+            "eta_time": "2025-12-09T14:57:57.159017",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3065,24 +3065,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 11,
-            "eta_time": "2025-12-08T18:22:35.288421",
+            "eta_min": 0,
+            "eta_time": "2025-12-09T11:51:57.162516",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 48,
-            "eta_time": "2025-12-08T18:59:35.288421",
+            "eta_min": 68,
+            "eta_time": "2025-12-09T12:59:57.162516",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 108,
-            "eta_time": "2025-12-08T19:59:35.288421",
+            "eta_min": 128,
+            "eta_time": "2025-12-09T13:59:57.162516",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3101,24 +3101,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 12,
-            "eta_time": "2025-12-08T18:23:35.296370",
+            "eta_min": 2,
+            "eta_time": "2025-12-09T11:53:57.169398",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 50,
-            "eta_time": "2025-12-08T19:01:35.296370",
+            "eta_min": 70,
+            "eta_time": "2025-12-09T13:01:57.169398",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 110,
-            "eta_time": "2025-12-08T20:01:35.296370",
+            "eta_min": 130,
+            "eta_time": "2025-12-09T14:01:57.169398",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3137,24 +3137,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 16,
-            "eta_time": "2025-12-08T18:27:35.304013",
+            "eta_min": 6,
+            "eta_time": "2025-12-09T11:57:57.176246",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 53,
-            "eta_time": "2025-12-08T19:04:35.304013",
+            "eta_min": 73,
+            "eta_time": "2025-12-09T13:04:57.176246",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 113,
-            "eta_time": "2025-12-08T20:04:35.304013",
+            "eta_min": 133,
+            "eta_time": "2025-12-09T14:04:57.176246",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3173,24 +3173,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 21,
-            "eta_time": "2025-12-08T18:32:35.311609",
+            "eta_min": 11,
+            "eta_time": "2025-12-09T12:02:57.183126",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 58,
-            "eta_time": "2025-12-08T19:09:35.311609",
+            "eta_min": 78,
+            "eta_time": "2025-12-09T13:09:57.183126",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 118,
-            "eta_time": "2025-12-08T20:09:35.311609",
+            "eta_min": 138,
+            "eta_time": "2025-12-09T14:09:57.183126",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3209,24 +3209,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 24,
-            "eta_time": "2025-12-08T18:35:35.322494",
+            "eta_min": 15,
+            "eta_time": "2025-12-09T12:06:57.189999",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 62,
-            "eta_time": "2025-12-08T19:13:35.322494",
+            "eta_min": 82,
+            "eta_time": "2025-12-09T13:13:57.189999",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 122,
-            "eta_time": "2025-12-08T20:13:35.322494",
+            "eta_min": 142,
+            "eta_time": "2025-12-09T14:13:57.189999",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3245,24 +3245,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 26,
-            "eta_time": "2025-12-08T18:37:35.332625",
+            "eta_min": 16,
+            "eta_time": "2025-12-09T12:07:57.196801",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 63,
-            "eta_time": "2025-12-08T19:14:35.332625",
+            "eta_min": 83,
+            "eta_time": "2025-12-09T13:14:57.196801",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 123,
-            "eta_time": "2025-12-08T20:14:35.332625",
+            "eta_min": 143,
+            "eta_time": "2025-12-09T14:14:57.196801",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3281,24 +3281,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 28,
-            "eta_time": "2025-12-08T18:39:35.359316",
+            "eta_min": 18,
+            "eta_time": "2025-12-09T12:09:57.203685",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 66,
-            "eta_time": "2025-12-08T19:17:35.359316",
+            "eta_min": 86,
+            "eta_time": "2025-12-09T13:17:57.203685",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 126,
-            "eta_time": "2025-12-08T20:17:35.359316",
+            "eta_min": 146,
+            "eta_time": "2025-12-09T14:17:57.203685",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3317,24 +3317,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 43,
-            "eta_time": "2025-12-08T18:54:35.370411",
+            "eta_min": 33,
+            "eta_time": "2025-12-09T12:24:57.210349",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 80,
-            "eta_time": "2025-12-08T19:31:35.370411",
+            "eta_min": 100,
+            "eta_time": "2025-12-09T13:31:57.210349",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 140,
-            "eta_time": "2025-12-08T20:31:35.370411",
+            "eta_min": 160,
+            "eta_time": "2025-12-09T14:31:57.210349",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3353,24 +3353,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 79,
-            "eta_time": "2025-12-08T19:30:35.381069",
+            "eta_min": 69,
+            "eta_time": "2025-12-09T13:00:57.217059",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 116,
-            "eta_time": "2025-12-08T20:07:35.381069",
+            "eta_min": 136,
+            "eta_time": "2025-12-09T14:07:57.217059",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 176,
-            "eta_time": "2025-12-08T21:07:35.381069",
+            "eta_min": 196,
+            "eta_time": "2025-12-09T15:07:57.217059",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3389,24 +3389,24 @@
         "upcoming": [
           {
             "licence": "10-1221",
-            "eta_min": 81,
-            "eta_time": "2025-12-08T19:32:35.390886",
+            "eta_min": 71,
+            "eta_time": "2025-12-09T13:02:57.223784",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 118,
-            "eta_time": "2025-12-08T20:09:35.390886",
+            "eta_min": 138,
+            "eta_time": "2025-12-09T14:09:57.223784",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 178,
-            "eta_time": "2025-12-08T21:09:35.390886",
+            "eta_min": 198,
+            "eta_time": "2025-12-09T15:09:57.223784",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3424,25 +3424,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1219",
-            "eta_min": 2,
-            "eta_time": "2025-12-08T18:13:35.400649",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1221",
-            "eta_min": 83,
-            "eta_time": "2025-12-08T19:34:35.400649",
+            "eta_min": 74,
+            "eta_time": "2025-12-09T13:05:57.230486",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 121,
-            "eta_time": "2025-12-08T20:12:35.400649",
+            "eta_min": 141,
+            "eta_time": "2025-12-09T14:12:57.230486",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 201,
+            "eta_time": "2025-12-09T15:12:57.230486",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3460,25 +3460,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1219",
-            "eta_min": 4,
-            "eta_time": "2025-12-08T18:15:35.414316",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1221",
-            "eta_min": 85,
-            "eta_time": "2025-12-08T19:36:35.414316",
+            "eta_min": 76,
+            "eta_time": "2025-12-09T13:07:57.237234",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 123,
-            "eta_time": "2025-12-08T20:14:35.414316",
+            "eta_min": 143,
+            "eta_time": "2025-12-09T14:14:57.237234",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 203,
+            "eta_time": "2025-12-09T15:14:57.237234",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3496,25 +3496,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1219",
-            "eta_min": 6,
-            "eta_time": "2025-12-08T18:17:35.427585",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1221",
-            "eta_min": 87,
-            "eta_time": "2025-12-08T19:38:35.427585",
+            "eta_min": 77,
+            "eta_time": "2025-12-09T13:08:57.244768",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 124,
-            "eta_time": "2025-12-08T20:15:35.427585",
+            "eta_min": 144,
+            "eta_time": "2025-12-09T14:15:57.244768",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 204,
+            "eta_time": "2025-12-09T15:15:57.244768",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3532,25 +3532,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1219",
-            "eta_min": 8,
-            "eta_time": "2025-12-08T18:19:35.440532",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1221",
-            "eta_min": 89,
-            "eta_time": "2025-12-08T19:40:35.440532",
+            "eta_min": 79,
+            "eta_time": "2025-12-09T13:10:57.251386",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 126,
-            "eta_time": "2025-12-08T20:17:35.440532",
+            "eta_min": 146,
+            "eta_time": "2025-12-09T14:17:57.251386",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 206,
+            "eta_time": "2025-12-09T15:17:57.251386",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3568,25 +3568,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1219",
-            "eta_min": 9,
-            "eta_time": "2025-12-08T18:20:35.452331",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1221",
-            "eta_min": 90,
-            "eta_time": "2025-12-08T19:41:35.452331",
+            "eta_min": 80,
+            "eta_time": "2025-12-09T13:11:57.258012",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 127,
-            "eta_time": "2025-12-08T20:18:35.452331",
+            "eta_min": 147,
+            "eta_time": "2025-12-09T14:18:57.258012",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 207,
+            "eta_time": "2025-12-09T15:18:57.258012",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3604,25 +3604,25 @@
         "stop_message": null,
         "upcoming": [
           {
-            "licence": "10-1219",
-            "eta_min": 12,
-            "eta_time": "2025-12-08T18:23:35.463747",
-            "status": "Active",
-            "message": "Normal Operation",
-            "type": "active"
-          },
-          {
             "licence": "10-1221",
-            "eta_min": 93,
-            "eta_time": "2025-12-08T19:44:35.463747",
+            "eta_min": 83,
+            "eta_time": "2025-12-09T13:14:57.264640",
             "status": "Active",
             "message": "Normal Operation",
             "type": "active"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 130,
-            "eta_time": "2025-12-08T20:21:35.463747",
+            "eta_min": 150,
+            "eta_time": "2025-12-09T14:21:57.264640",
+            "status": "Scheduled",
+            "message": "Normal Operation",
+            "type": "scheduled"
+          },
+          {
+            "licence": "Scheduled",
+            "eta_min": 210,
+            "eta_time": "2025-12-09T15:21:57.264640",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3633,7 +3633,7 @@
   },
   "Dragon Line": {
     "route": "Dragon Line",
-    "updated_at": "2025-12-08T18:11:35.567702",
+    "updated_at": "2025-12-09T11:51:57.341137",
     "route_status": "active",
     "route_message": null,
     "stops": {
@@ -3649,24 +3649,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 3,
-            "eta_time": "2025-12-08T18:14:35.479521",
+            "eta_min": 8,
+            "eta_time": "2025-12-09T11:59:57.273815",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 18,
-            "eta_time": "2025-12-08T18:29:35.479521",
+            "eta_min": 23,
+            "eta_time": "2025-12-09T12:14:57.273815",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 33,
-            "eta_time": "2025-12-08T18:44:35.479521",
+            "eta_min": 38,
+            "eta_time": "2025-12-09T12:29:57.273815",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3685,24 +3685,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 4,
-            "eta_time": "2025-12-08T18:15:35.485279",
+            "eta_min": 9,
+            "eta_time": "2025-12-09T12:00:57.277330",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 19,
-            "eta_time": "2025-12-08T18:30:35.485279",
+            "eta_min": 24,
+            "eta_time": "2025-12-09T12:15:57.277330",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 34,
-            "eta_time": "2025-12-08T18:45:35.485279",
+            "eta_min": 39,
+            "eta_time": "2025-12-09T12:30:57.277330",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3721,24 +3721,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 6,
-            "eta_time": "2025-12-08T18:17:35.490332",
+            "eta_min": 11,
+            "eta_time": "2025-12-09T12:02:57.280768",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 21,
-            "eta_time": "2025-12-08T18:32:35.490332",
+            "eta_min": 26,
+            "eta_time": "2025-12-09T12:17:57.280768",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 36,
-            "eta_time": "2025-12-08T18:47:35.490332",
+            "eta_min": 41,
+            "eta_time": "2025-12-09T12:32:57.280768",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3757,24 +3757,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 7,
-            "eta_time": "2025-12-08T18:18:35.502541",
+            "eta_min": 12,
+            "eta_time": "2025-12-09T12:03:57.284223",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 22,
-            "eta_time": "2025-12-08T18:33:35.502541",
+            "eta_min": 27,
+            "eta_time": "2025-12-09T12:18:57.284223",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 37,
-            "eta_time": "2025-12-08T18:48:35.502541",
+            "eta_min": 42,
+            "eta_time": "2025-12-09T12:33:57.284223",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3793,24 +3793,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 9,
-            "eta_time": "2025-12-08T18:20:35.514762",
+            "eta_min": 14,
+            "eta_time": "2025-12-09T12:05:57.287710",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 24,
-            "eta_time": "2025-12-08T18:35:35.514762",
+            "eta_min": 29,
+            "eta_time": "2025-12-09T12:20:57.287710",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 39,
-            "eta_time": "2025-12-08T18:50:35.514762",
+            "eta_min": 44,
+            "eta_time": "2025-12-09T12:35:57.287710",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3829,24 +3829,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 12,
-            "eta_time": "2025-12-08T18:23:35.524055",
+            "eta_min": 17,
+            "eta_time": "2025-12-09T12:08:57.291384",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 27,
-            "eta_time": "2025-12-08T18:38:35.524055",
+            "eta_min": 32,
+            "eta_time": "2025-12-09T12:23:57.291384",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 42,
-            "eta_time": "2025-12-08T18:53:35.524055",
+            "eta_min": 47,
+            "eta_time": "2025-12-09T12:38:57.291384",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3865,24 +3865,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 15,
-            "eta_time": "2025-12-08T18:26:35.528579",
+            "eta_min": 20,
+            "eta_time": "2025-12-09T12:11:57.294842",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 30,
-            "eta_time": "2025-12-08T18:41:35.528579",
+            "eta_min": 35,
+            "eta_time": "2025-12-09T12:26:57.294842",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 45,
-            "eta_time": "2025-12-08T18:56:35.528579",
+            "eta_min": 50,
+            "eta_time": "2025-12-09T12:41:57.294842",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3901,24 +3901,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 17,
-            "eta_time": "2025-12-08T18:28:35.537280",
+            "eta_min": 22,
+            "eta_time": "2025-12-09T12:13:57.298293",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 32,
-            "eta_time": "2025-12-08T18:43:35.537280",
+            "eta_min": 37,
+            "eta_time": "2025-12-09T12:28:57.298293",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 47,
-            "eta_time": "2025-12-08T18:58:35.537280",
+            "eta_min": 52,
+            "eta_time": "2025-12-09T12:43:57.298293",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3937,24 +3937,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 19,
-            "eta_time": "2025-12-08T18:30:35.540988",
+            "eta_min": 24,
+            "eta_time": "2025-12-09T12:15:57.301735",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 34,
-            "eta_time": "2025-12-08T18:45:35.540988",
+            "eta_min": 39,
+            "eta_time": "2025-12-09T12:30:57.301735",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 49,
-            "eta_time": "2025-12-08T19:00:35.540988",
+            "eta_min": 54,
+            "eta_time": "2025-12-09T12:45:57.301735",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -3973,24 +3973,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 21,
-            "eta_time": "2025-12-08T18:32:35.545089",
+            "eta_min": 26,
+            "eta_time": "2025-12-09T12:17:57.305190",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 36,
-            "eta_time": "2025-12-08T18:47:35.545089",
+            "eta_min": 41,
+            "eta_time": "2025-12-09T12:32:57.305190",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 51,
-            "eta_time": "2025-12-08T19:02:35.545089",
+            "eta_min": 56,
+            "eta_time": "2025-12-09T12:47:57.305190",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -4009,24 +4009,24 @@
         "upcoming": [
           {
             "licence": "Scheduled",
-            "eta_min": 22,
-            "eta_time": "2025-12-08T18:33:35.549138",
+            "eta_min": 27,
+            "eta_time": "2025-12-09T12:18:57.308636",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 37,
-            "eta_time": "2025-12-08T18:48:35.549138",
+            "eta_min": 42,
+            "eta_time": "2025-12-09T12:33:57.308636",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 52,
-            "eta_time": "2025-12-08T19:03:35.549138",
+            "eta_min": 57,
+            "eta_time": "2025-12-09T12:48:57.308636",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -4044,25 +4044,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1264",
+            "eta_min": 0,
+            "eta_time": "2025-12-09T11:51:57.312079",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 24,
-            "eta_time": "2025-12-08T18:35:35.552852",
+            "eta_min": 29,
+            "eta_time": "2025-12-09T12:20:57.312079",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 39,
-            "eta_time": "2025-12-08T18:50:35.552852",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 54,
-            "eta_time": "2025-12-08T19:05:35.552852",
+            "eta_min": 44,
+            "eta_time": "2025-12-09T12:35:57.312079",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -4080,25 +4080,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1264",
+            "eta_min": 2,
+            "eta_time": "2025-12-09T11:53:57.319256",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 26,
-            "eta_time": "2025-12-08T18:37:35.556435",
+            "eta_min": 31,
+            "eta_time": "2025-12-09T12:22:57.319256",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 41,
-            "eta_time": "2025-12-08T18:52:35.556435",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 56,
-            "eta_time": "2025-12-08T19:07:35.556435",
+            "eta_min": 46,
+            "eta_time": "2025-12-09T12:37:57.319256",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -4116,25 +4116,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1264",
+            "eta_min": 4,
+            "eta_time": "2025-12-09T11:55:57.326026",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 28,
-            "eta_time": "2025-12-08T18:39:35.559995",
+            "eta_min": 33,
+            "eta_time": "2025-12-09T12:24:57.326026",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 43,
-            "eta_time": "2025-12-08T18:54:35.559995",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 58,
-            "eta_time": "2025-12-08T19:09:35.559995",
+            "eta_min": 48,
+            "eta_time": "2025-12-09T12:39:57.326026",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
@@ -4152,25 +4152,25 @@
         "stop_message": null,
         "upcoming": [
           {
+            "licence": "10-1264",
+            "eta_min": 6,
+            "eta_time": "2025-12-09T11:57:57.333049",
+            "status": "Active",
+            "message": "Normal Operation",
+            "type": "active"
+          },
+          {
             "licence": "Scheduled",
-            "eta_min": 30,
-            "eta_time": "2025-12-08T18:41:35.563887",
+            "eta_min": 35,
+            "eta_time": "2025-12-09T12:26:57.333049",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
           },
           {
             "licence": "Scheduled",
-            "eta_min": 45,
-            "eta_time": "2025-12-08T18:56:35.563887",
-            "status": "Scheduled",
-            "message": "Normal Operation",
-            "type": "scheduled"
-          },
-          {
-            "licence": "Scheduled",
-            "eta_min": 60,
-            "eta_time": "2025-12-08T19:11:35.563887",
+            "eta_min": 50,
+            "eta_time": "2025-12-09T12:41:57.333049",
             "status": "Scheduled",
             "message": "Normal Operation",
             "type": "scheduled"
