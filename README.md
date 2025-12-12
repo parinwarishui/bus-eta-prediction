@@ -1,11 +1,11 @@
-# Phuket SmartBus ETA API
+# Phuket Smart Bus ETA API
 
 This project provides a **FastAPI-based system** that serves real-time **Bus ETA (Estimated Time of Arrival)** data for Phuket SmartBus routes.
 
 It includes:
 1. A **REST API** serving JSON data for mobile apps or third-party integrations.
 2. A **Web Dashboard** for visualizing bus locations and ETAs.
-3. An **Admin Panel** for manually flagging delays or issues on specific routes.
+3. An **Admin Panel** for manually flagging delays or issues on specific routes, and adding new bus routes / stops.
 
 The system features an integrated background worker that automatically fetches vehicle positions and recalculates ETAs every 60 seconds.
 
@@ -16,21 +16,28 @@ The system features an integrated background worker that automatically fetches v
 ```text
 bus_eta_prediction/
 │
-├── runner.py                     # Main FastAPI entry point (routes & lifecycle manager)
-├── services.py                   # Core logic: fetches API data, runs worker thread, calculates ETA
-├── stop_access.py                # Helper classes to manage route configurations and objects
-├── templates/                    # HTML templates for the frontend
-│   ├── dashboard.html            # page for public view to get ETAs of each bus stop
-│   └── admin.html                # admin page for bus / stop / route flagging
+├── runner.py                     # Main FastAPI entry point (App lifecycle, API routes & frontend mounting)
+├── services.py                   # Core Engine: Data fetching, threading, ETA calculation logic
+├── admin_logic.py                # Admin Backend: Handles file uploads, GeoJSON processing, and route configuration
+├── stop_access.py                # Helper: Loads and parses route configurations from JSON
+├── accuracy_check.py             # Background process: Validates ETA predictions against actual arrival times
+│
+├── routes_data.json              # Central Database: Stores all route configurations and stop data
+├── all_etas.json                 # Live Cache: Auto-generated file containing current ETA predictions
+├── bus_flags.json                # Live Cache: Stores manual status flags set by admins
+├── bus_history.csv               # Log: Retains recent bus positions to handle short API outages
+│
+├── templates/                    # HTML/Jinja2 Frontend
+│   ├── dashboard.html            # Public Display: Real-time ETA board for passengers
+│   └── admin.html                # Admin Panel: System management interface
+│
+├── data_routes/                  # Storage: GeoJSON files for route paths
+├── data_schedules/               # Storage: CSV files for bus departure schedules
+├── data_speeds/                  # Storage: CSV/JSON files for historical speed data
+│
 ├── .env                          # Environment variables (API Key)
-├── all_etas.json                 # Auto-generated cache file containing live ETA data
-├── bus_flags.json                # Auto-generated file storing manual admin flags
-├── accuracy_check.py             # File to check ETA accuracy over time for accuracy graph
-├── eta_accuracy_archive.csv      # File which stores completed bus / stop pairs for ETA grpah plotting
-├── eta_accuracy_by_stop.csv      # File which stores intermediate bus / stop pairs currently in ETA checking
-├── bus_history.csv               # File with bus history (in case of API failing to catch buses for a shor time)
 ├── requirements.txt              # Python dependencies
-└── README.md                     # Project documentation
+└── README.md                     # Documentation
 ```
 
 ---
@@ -86,19 +93,11 @@ bus_eta_prediction/
 
 ## Running the API
 
-### Option 1: Development Mode (with live auto-refresh)
+### Development Mode (with live auto-refresh)
 ```bash
 uvicorn api:app --reload
 ```
-or
-```bash
-python runner.py
-```
-
-### Option 2: Production Mode
-```bash
-uvicorn api:app --host 0.0.0.0 --port 8000
-```
+The API will be live at http://127.0.0.1:8000.
 
 ---
 
@@ -111,8 +110,11 @@ Dashboard can be keyed for specific routes / bus stops dynamically. e.g. /dashbo
 
 ### `/admin`
 
-Internal panel to manually flag routes (e.g., "Traffic Jam", "Broken Bus") and analytics of ETA prediction accuracy.
-Admin page can be keyed for specific page dynamically, e.g. /admin/bus
+Internal admin page for various functions.
+- View Routes
+- Add New Route
+- Flag Bus / Stop / Route (for delays / inactive / closing)
+- Analytics (ETA accuracy)
 
 ### `/docs`
 
@@ -292,20 +294,106 @@ GET http://localhost:8000/airport-rawai/40
 }
 ```
 
----
 
-## Testing the API
+## Dashboard Page Guide
 
-You can test your API endpoints in any of these ways:
-- **Browser:** open `http://localhost:8000/docs` for the built-in Swagger UI  
-- **Command line:**  
-  ```bash
-  curl http://localhost:8000/api
-  ```
-- **Postman / Insomnia:** use as a normal REST endpoint
+### Viewing ETA
+
+- Please select a route first then select stop.
+- View the 3 upcoming buses ETA
+
+### Dynamic Links
+
+- You can key in route and stop no. to directly get ETA of that specific route & stop.
+- e.g. http://127.0.0.1:8000/dashboard/bus-2-bus-1-patong/76 
+  - returns ETA of **"Bus 2 -> Bus 1 -> Patong"** route at **stop no. 76 "Andamanda Phuket Waterpark"**
+- keying in a route that does not exist will return error message
+- keying in a stop no. that is not part of the route will return error message.
+
+
+## Admin Page Guide
+
+Access at:
+➡️ http://127.0.0.1:8000/admin
+
+### 1. View Routes
+- Select a route
+- Preview of the route and its stops on the map.
+- List of Stops and its data (No. / Eng / Thai / Coordinates / Index (on the 5m points))
+- Allow admin to add new stops (with the data mentioned above, Index is auto-mapped) or remove stops.
+
+### 2. Editor
+- Add new bus route
+- Fill in **Route Name, Line, Buffer, Direction** (according to the message in Phuket Smart Bus API).
+- Attach **GeoJSON File** of the route (make sure ALL coordinates are in order from top to bottom) format as follows.
+
+```json
+{
+"type": "FeatureCollection",
+"name": "airport_rawai",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0, "lat": 867713.494 }, "geometry": { "type": "Point", "coordinates": [ 98.293235119708498, 7.849391077160541 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "lat": 867712.459 }, "geometry": { "type": "Point", "coordinates": [ 98.293279455503139, 7.8493817939272 ] } },
+// more points ...
+]
+}
+
+```
+
+- Add **Schedule CSV File** (time bus departs from start) in the structure below.
+
+| [Starting Point]    |
+| -------- |
+| 08:00  |
+| 09:00 |
+| 10:00    |
+and so on...
+
+- Add **Speeds CSV File** (Optional) in structure below.
+
+| index | km_interval | avg_speed | count | km_label |
+| -------- | -------- | -------- | -------- | -------- |
+| 0 | 0 | 23 | 3546 | KM 0-1 |
+| 1 | 1 | 25 | 2726 | KM 1-2 |
+and so on...
+
+### 3. Status
+
+- **Route Status:** choose a route and set Active / Suspend.
+- **Stop Status:** choose a route → choose a stop → set Open / Close.
+- **Bus Status:** enter plate/license → set Active / Delayed / Inactive + message + optional auto-expire duration (mins).
+
+### 4. Analytics
+- View historical stats of **ETA accuracy**.
+- Graph is between time before actual arrival (min), and ETA error (min) with error bar of +- SD
+- Graph explains how accurate ETA is, the further the bus is away from the stop.
 
 ---
 
 ## Evaluating ETA Accuracy
 
+Along side the main API, you can run a separate process in accuracy_check.py
+
+```bash
+   python accuracy_check.py
+```
+
+This will start testing the accuracy of bus / stops ETA in real-time and add data to the archive which will be used in the accuracy graph.
 The graph in the "Accuracy" tab of the admin page displays a plot of minutes of difference between ETAs and actual travel time of buses to different bus stops.
+
+---
+
+## Future Improvements
+
+### Admin Login System
+
+Add authentication for admin logins to access the admin page.
+
+### Bulk Stop Upload
+
+Upload a CSV file of stops in bulk when adding a new route.
+
+### Manual Input of Speed / CSV
+
+Allow manual input of speeds and scheduled departures.

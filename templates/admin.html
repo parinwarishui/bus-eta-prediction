@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phuket SmartBus Admin</title>
+    <title>Phuket Smart Bus Admin</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow mb-4">
         <div class="container-fluid px-4">
             <a class="navbar-brand fw-bold text-warning d-flex align-items-center" href="#">
-                <i class="fas fa-bus-alt me-2"></i>SmartBus Admin
+                <i class="fas fa-bus-alt me-2"></i>Phuket Smart Bus Admin
             </a>
             <div class="navbar-nav ms-auto flex-row gap-2">
                 <a class="nav-link px-3 {{ 'active' if initial_view == 'routes' else '' }}" href="/admin/routes"><i class="fas fa-map-marked-alt me-1"></i> View Routes</a>
@@ -199,15 +199,104 @@
             if (stopMarkers.length) stopsLayer = L.layerGroup(stopMarkers).addTo(map);
         }
 
-        function openAddStopModal() { const slug = document.getElementById('routeSelector').value; if (!slug) return alert("Select route"); document.getElementById('modalRouteName').value = slugs[slug]; addStopModal.show(); }
-        async function submitNewStop(e) { e.preventDefault(); const fd = new FormData(); fd.append('route_name', document.getElementById('modalRouteName').value); fd.append('stop_name_eng', document.getElementById('stopNameEng').value); fd.append('stop_name_th', document.getElementById('stopNameTh').value); fd.append('lat', document.getElementById('stopLat').value); fd.append('lon', document.getElementById('stopLon').value); await fetch('/admin/api/add-stop', { method: 'POST', body: fd }); location.reload(); }
-        async function removeStop(r, s) { if(!confirm(`Delete "${s}"?`)) return; const fd = new FormData(); fd.append('route_name', r); fd.append('stop_name_key', s); await fetch('/admin/api/remove-stop', { method: 'POST', body: fd }); loadRouteDetails(); }
-        async function submitNewRoute(e) { e.preventDefault(); const btn = e.target.querySelector('button'); btn.disabled=true; btn.innerText="Uploading..."; try { const res = await fetch('/admin/api/add-route', { method: 'POST', body: new FormData(e.target) }); if(res.ok) { alert("Success!"); window.location.href="/admin/routes"; } else { alert((await res.json()).detail); } } catch(e) { alert("Failed"); } btn.disabled=false; btn.innerText="CREATE"; }
-        function setStat(r, v) { r.closest('form').querySelector('input[name="status"]').value=v; }
-        async function populateBusDropdown() { try { const res = await fetch('/admin/fleet'); const data = await res.json(); const dl = document.getElementById('busList'); dl.innerHTML=''; data.fleet.forEach(b => { const op = document.createElement('option'); op.value = b.license; op.innerText = `${b.route} (${b.status})`; dl.appendChild(op); }); } catch(e){} }
-        async function submitStatus(e, s) { e.preventDefault(); const fd = new FormData(e.target); const pl = { scope:s, identifier:fd.get('identifier'), status:fd.get('status'), message:fd.get('message'), duration:parseInt(fd.get('duration')||0) }; if(!pl.status) return alert("Select condition"); await fetch('/admin/set-status', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(pl)}); e.target.reset(); refreshStatus(); }
+        function openAddStopModal() { 
+            const slug = document.getElementById('routeSelector').value; 
+            if (!slug) return alert("Select route"); 
+            document.getElementById('modalRouteName').value = slugs[slug]; 
+            addStopModal.show(); }
+        
+        async function submitNewStop(e) { 
+            e.preventDefault(); 
+            const fd = new FormData(); 
+            fd.append('route_name', document.getElementById('modalRouteName').value); 
+            fd.append('stop_name_eng', document.getElementById('stopNameEng').value); 
+            fd.append('stop_name_th', document.getElementById('stopNameTh').value); 
+            fd.append('lat', document.getElementById('stopLat').value); 
+            fd.append('lon', document.getElementById('stopLon').value); 
+            await fetch('/admin/api/add-stop', { 
+                method: 'POST', 
+                body: fd 
+            }); 
+            location.reload(); 
+        }
+        
+        async function removeStop(r, s) { 
+            if(!confirm(`Delete "${s}"?`)) return; 
+
+            const fd = new FormData(); 
+            fd.append('route_name', r); 
+            fd.append('stop_name_key', s); 
+            await fetch('/admin/api/remove-stop', { 
+                method: 'POST', body: fd 
+            }); 
+            loadRouteDetails(); }
+        
+        async function submitNewRoute(e) { 
+            e.preventDefault(); 
+            const btn = e.target.querySelector('button'); 
+            btn.disabled=true; 
+            btn.innerText="Uploading..."; 
+            try { 
+                const res = await fetch('/admin/api/add-route', { 
+                    method: 'POST', 
+                    body: new FormData(e.target) 
+                }); 
+                if(res.ok) { 
+                    alert("Success!"); 
+                    window.location.href="/admin/routes"; 
+                } else { 
+                    alert((await res.json()).detail); 
+                } 
+            } 
+            catch(e) { 
+                alert("Failed"); 
+            } 
+            btn.disabled=false; 
+            btn.innerText="CREATE"; }
+        
+        function setStat(r, v) { 
+            r.closest('form').querySelector('input[name="status"]').value=v; 
+        }
+        
+        async function populateBusDropdown() { 
+            try { 
+                const res = await fetch('/admin/fleet'); 
+                const data = await res.json(); 
+                const dl = document.getElementById('busList'); 
+                dl.innerHTML=''; 
+                data.fleet.forEach(b => { 
+                    const op = document.createElement('option'); 
+                    op.value = b.license; 
+                    op.innerText = `${b.route} (${b.status})`; 
+                    dl.appendChild(op); 
+                }); 
+            } catch(e){} }
+        
+        async function submitStatus(e, s) { 
+            e.preventDefault(); 
+            const fd = new FormData(e.target); 
+            const pl = { 
+                scope:s, 
+                identifier:fd.get('identifier'), 
+                status:fd.get('status'), 
+                message:fd.get('message'), 
+                duration:parseInt(fd.get('duration')||0) 
+            }; 
+            if(!pl.status) return alert("Select condition"); 
+            await fetch('/admin/set-status', { 
+                method:'POST', 
+                headers:{
+                    'Content-Type':'application/json'
+                }, 
+                body:JSON.stringify(pl)}); 
+                e.target.reset(); 
+                refreshStatus(); 
+            }
+        
         async function refreshStatus() { const c = document.getElementById('activeFlagsContainer'); c.innerHTML='Loading...'; const res = await fetch('/admin/system-status'); const d = await res.json(); c.innerHTML = ''; const acts = d.status.filter(i => i.status!=='active' && i.status!=='open' && i.status!=='Normal Operation'); if(acts.length===0) c.innerHTML='<span class="badge bg-success p-2">All Systems Normal</span>'; acts.forEach(i => { const delId = i.raw_id || i.id; c.innerHTML += `<div class="badge bg-white text-danger border border-danger p-2 shadow-sm d-flex align-items-center gap-2 status-card-enter"><span>${i.type.toUpperCase()}: ${i.id||i.stop_name} (${i.status})</span><button class="btn btn-sm btn-close" onclick="clearFlag('${i.type}','${delId}')"></button></div>`; }); }
+        
         async function clearFlag(t, id) { await fetch('/admin/set-status', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({scope:t, identifier:id, status:(t==='stop'?'open':'active'), message:'Cleared'}) }); refreshStatus(); }
+        
         async function loadStopsFlag(slug) { const sel = document.getElementById('sf_stop'); sel.innerHTML='<option>Loading...</option>'; sel.disabled=true; if(!slug) return; const res = await fetch(`/admin/stops/${slug}`); const data = await res.json(); sel.innerHTML = ''; const rReal = slugs[slug]; data.stops.forEach(s => sel.innerHTML += `<option value="${rReal}:${s.id}">${s.id} - ${s.name}</option>`); sel.disabled = false; }
         
         async function loadAnalytics() { 
